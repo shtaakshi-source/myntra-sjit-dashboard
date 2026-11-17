@@ -1,0 +1,4489 @@
+{
+ "HR-SHO-HATL-02": {
+  "nh": "HR-SHO-HATL-02",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Summer Hair Oil",
+  "name": "Hibiscus Amla Hair Oil 100 ml + Trileaf Hair Oil 100 ml"
+ },
+ "BC-CP-SE-200": {
+  "nh": "BC-CP-SE-200",
+  "sc": "Body Care",
+  "pc": "CP Body Oil",
+  "sub": "Cold Pressed Oil",
+  "name": "Sesame Oil - 200 ml"
+ },
+ "FC-FW-MVCR-100": {
+  "nh": "FC-FW-MVCR-100",
+  "sc": "Face Care",
+  "pc": "Tikta",
+  "sub": "Face Wash",
+  "name": "Moringa Vit-C Tikta Cream Face Wash"
+ },
+ "FC-FW-KMPA-100": {
+  "nh": "FC-FW-KMPA-100",
+  "sc": "Face Care",
+  "pc": "Tikta",
+  "sub": "Face Wash",
+  "name": "Kali Mitti Face Wash"
+ },
+ "HR-SH-AP-250": {
+  "nh": "HR-SH-AP-250",
+  "sc": "Hair Care",
+  "pc": "Navdha Shampoo",
+  "sub": "Shampoo",
+  "name": "Aloe Peanut Shampoo - 250g"
+ },
+ "AC-PFR-PS-00": {
+  "nh": "AC-PFR-PS-00",
+  "sc": "Accessories",
+  "pc": "Pumice Rub",
+  "sub": "Pumice Rub",
+  "name": "Pumice Rub - Single Pack"
+ },
+ "FC-FW-MDPA2-100": {
+  "nh": "FC-FW-MDPA2-100",
+  "sc": "Face Care",
+  "pc": "Tikta",
+  "sub": "Face Wash",
+  "name": "Masoor Dal Face Wash - Pack of 2"
+ },
+ "HR-SHO-TL-095": {
+  "nh": "FK-AHO-TR-150",
+  "sc": "Hair Care",
+  "pc": "All Season Hair Oil",
+  "sub": "All Season Hair Oil",
+  "name": "Trileaf Rosemary - 150g"
+ },
+ "FC-DM-NR-030": {
+  "nh": "FC-DM-NR-030",
+  "sc": "Face Care",
+  "pc": "Face Malai",
+  "sub": "Face Malai",
+  "name": "Cocoa Mogra (Overnight) Face Malai - 30g"
+ },
+ "FC-ML-TRH-030": {
+  "nh": "FC-ML-TRH-030",
+  "sc": "Face Care",
+  "pc": "Facial Oil",
+  "sub": "Facial Oil",
+  "name": "Turmeric Rosehip Mukhalaya 30 ml"
+ },
+ "HR-SHO-HA-095": {
+  "nh": "FK-AHO-HA-150",
+  "sc": "Hair Care",
+  "pc": "All Season Hair Oil",
+  "sub": "All Season Hair Oil",
+  "name": "Hibiscus Amla - 150g"
+ },
+ "FC-FL-GU-190": {
+  "nh": "FC-FL-GU-190",
+  "sc": "Face Care",
+  "pc": "Flora Jal",
+  "sub": "Flora Jal",
+  "name": "Pure Gulab Jal - 190 ml"
+ },
+ "FC-EM-CN3-025": {
+  "nh": "FC-EM-CN3-025",
+  "sc": "Face Care",
+  "pc": "Mura",
+  "sub": "Face Mura",
+  "name": "Cinnamon Nashpati Mura - Pack of 3"
+ },
+ "HR-SH-TR2-02": {
+  "nh": "HR-SH-TR2-250",
+  "sc": "Hair Care",
+  "pc": "Navdha Shampoo",
+  "sub": "Shampoo",
+  "name": "Trileaf Rosemary Shampoo - 250g - Pack of 2"
+ },
+ "HR-SH-TR-250": {
+  "nh": "HR-SH-TR-250",
+  "sc": "Hair Care",
+  "pc": "Navdha Shampoo",
+  "sub": "Shampoo",
+  "name": "Trileaf Rosemary Shampoo - 250g"
+ },
+ "BC-BU-TB-080": {
+  "nh": "BC-BU-TB-080",
+  "sc": "Body Care",
+  "pc": "Bath",
+  "sub": "Bath Ubtan",
+  "name": "Turmeric Bath Ubtan - Single Pack"
+ },
+ "BC-BL-AS-250": {
+  "nh": "BC-BL-AS-250",
+  "sc": "Body Care",
+  "pc": "Malai Lotion",
+  "sub": "Malai Lotion",
+  "name": "Aloe Saunf Malai Lotion"
+ },
+ "FC-KL-BM-040": {
+  "nh": "FC-KL-BM-040",
+  "sc": "Face Care",
+  "pc": "Lepa",
+  "sub": "Lepa",
+  "name": "Banana Mulethi Lepa - Pack of 1"
+ },
+ "BC-SM-CID-200": {
+  "nh": "BC-SM-CID-200",
+  "sc": "Body Care",
+  "pc": "Malai",
+  "sub": "Skin Malai",
+  "name": "Double Cocoa Skin Malai - 200ml - Single Pack"
+ },
+ "FC-FW-BUPA-095": {
+  "nh": "FK-FW-BUPA-150",
+  "sc": "Face Care",
+  "pc": "Tikta",
+  "sub": "Face Wash",
+  "name": "Ubtan Face Wash - 150g"
+ },
+ "HR-CN-CB-150": {
+  "nh": "HR-CN-CB-150",
+  "sc": "Hair Care",
+  "pc": "Nutri Conditioner",
+  "sub": "Conditioner",
+  "name": "Castor Black Seed Conditioner - 150g"
+ },
+ "BC-CPS-SS2-125": {
+  "nh": "BC-CPS-SS2-125",
+  "sc": "Body Care",
+  "pc": "Soap",
+  "sub": "Soap",
+  "name": "Sandalwood Soap - Pack of 2"
+ },
+ "FC-EM-PC2-025": {
+  "nh": "FC-EM-PC2-025",
+  "sc": "Face Care",
+  "pc": "Mura",
+  "sub": "Face Mura",
+  "name": "Pumpkin Clay Mura - Pack of 2"
+ },
+ "BC-CP-CA-190": {
+  "nh": "BC-CP-CA-190",
+  "sc": "Hair Care",
+  "pc": "CP Hair Oil",
+  "sub": "Cold Pressed Oil",
+  "name": "Castor Oil - 190 ml"
+ },
+ "HR-CN-TR-140": {
+  "nh": "HR-CN-TR-140",
+  "sc": "Hair Care",
+  "pc": "Nutri Conditioner",
+  "sub": "Conditioner",
+  "name": "Trileaf Rosemary Conditioner - 140g"
+ },
+ "HR-CN-TR-150": {
+  "nh": "HR-CN-TR-150",
+  "sc": "Hair Care",
+  "pc": "Nutri Conditioner",
+  "sub": "Conditioner",
+  "name": "Trileaf Rosemary Conditioner - 150g"
+ },
+ "HR-SH-TR-240": {
+  "nh": "FK-SH-TR-300",
+  "sc": "Hair Care",
+  "pc": "Navdha Shampoo",
+  "sub": "Shampoo",
+  "name": "Trileaf Rosemary Shampoo - 300g"
+ },
+ "HR-CN-HB-140": {
+  "nh": "HR-CN-HB-140",
+  "sc": "Hair Care",
+  "pc": "Nutri Conditioner",
+  "sub": "Conditioner",
+  "name": "Five Oil Hibiscus Conditioner - 140g"
+ },
+ "HR-SH-HB-240": {
+  "nh": "FK-SH-HB-300",
+  "sc": "Hair Care",
+  "pc": "Navdha Shampoo",
+  "sub": "Shampoo",
+  "name": "Hibiscus Shampoo - 300g"
+ },
+ "FC-DU-DR2-040": {
+  "nh": "FC-DU-DR2-040",
+  "sc": "Face Care",
+  "pc": "Ubtan",
+  "sub": "Ubtan",
+  "name": "Delicate Rose Ubtan - Pack of 2"
+ },
+ "FC-DM-PG-030": {
+  "nh": "FC-DM-PG-030",
+  "sc": "Face Care",
+  "pc": "Face Malai",
+  "sub": "Face Malai",
+  "name": "Turmeric Nutmeg (Pigmentation)  Face Malai - 30g"
+ },
+ "BC-HM-LMG2-025": {
+  "nh": "BC-HM-LMG2-030",
+  "sc": "Body Care",
+  "pc": "Hand Malai",
+  "sub": "Hand Malai",
+  "name": "Lemon Moringa Hand Malai - Pack of 2"
+ },
+ "BC-CPS-SS3-125": {
+  "nh": "BC-CPS-SS3-125",
+  "sc": "Body Care",
+  "pc": "Soap",
+  "sub": "Soap",
+  "name": "Sandalwood Soap - Pack of 3"
+ },
+ "HR-CN-AP-150": {
+  "nh": "HR-CN-AP-150",
+  "sc": "Hair Care",
+  "pc": "Nutri Conditioner",
+  "sub": "Conditioner",
+  "name": "Aloe Peanut Conditioner - 150g"
+ },
+ "BC-BL-MNS2-250": {
+  "nh": "BC-BL-MNS2-250",
+  "sc": "Body Care",
+  "pc": "Malai Lotion",
+  "sub": "Malai Lotion",
+  "name": "Multi-Nut Malai Lotion - Pack of 2"
+ },
+ "BC-SM-MNS-200": {
+  "nh": "BC-SM-MNS-200",
+  "sc": "Body Care",
+  "pc": "Malai",
+  "sub": "Skin Malai",
+  "name": "Multi-Nut Skin Malai - 200ml - Single Pack"
+ },
+ "HR-SHO-NB-100": {
+  "nh": "HR-SHO-NB-100",
+  "sc": "Hair Care",
+  "pc": "Summer Hair Oil",
+  "sub": "Summer Hair Oil",
+  "name": "Neem Bhringraj Summer Hair Oil - 100 ml"
+ },
+ "CB-HO-HHBN-03": {
+  "nh": "CB-HO-HHBN-03",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Summer Hair Oil Combo",
+  "name": "Hibiscus Summer Hair Oil + 2x Hibiscus Nutrimask"
+ },
+ "FC-KL-OK-040": {
+  "nh": "FC-KL-OK-040",
+  "sc": "Face Care",
+  "pc": "Lepa",
+  "sub": "Lepa",
+  "name": "Orange Kalonji Lepa - Pack of 1"
+ },
+ "FC-DU-DR-040": {
+  "nh": "FC-DU-DR-040",
+  "sc": "Face Care",
+  "pc": "Ubtan",
+  "sub": "Ubtan",
+  "name": "Delicate Rose Ubtan - Single Pack"
+ },
+ "CB-CP-CARM-02": {
+  "nh": "CB-CP-CARM-02",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Cold Pressed Oil Combo",
+  "name": "CP Castor oil 200 ml + Rosemary Essential Oil"
+ },
+ "BC-CPS-WA4-125": {
+  "nh": "BC-CPS-WA4-125",
+  "sc": "Body Care",
+  "pc": "Soap",
+  "sub": "Soap",
+  "name": "Wild Apricot Soap - Pack of 4"
+ },
+ "CB-RA2-RHBO-02": {
+  "nh": "CB-RA2-RHBO-02",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Henna Combo",
+  "name": "Henna Paste + Hibiscus Amla Summer Hair Oil"
+ },
+ "CB-RA2-RRT-03": {
+  "nh": "CB-RA2-RRT-03",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Henna Combo",
+  "name": "Ready-to-Apply Henna Paste + Root Touch Up X 2"
+ },
+ "BC-CPS-WA5-125": {
+  "nh": "BC-CPS-WA5-125",
+  "sc": "Body Care",
+  "pc": "Soap",
+  "sub": "Soap",
+  "name": "Apricot Soap - Pack of 5"
+ },
+ "HR-CN-TR2-150": {
+  "nh": "HR-CN-TR2-150",
+  "sc": "Hair Care",
+  "pc": "Nutri Conditioner",
+  "sub": "Conditioner",
+  "name": "Trileaf Rosemary Conditioner - 150g - Pack of 2"
+ },
+ "BC-BL-CID2-250": {
+  "nh": "BC-BL-CID2-250",
+  "sc": "Body Care",
+  "pc": "Malai Lotion",
+  "sub": "Malai Lotion",
+  "name": "Double Cocoa Malai Lotion - Pack of 2"
+ },
+ "HR-SH-CBCB-02": {
+  "nh": "HR-SH-CBCB-02",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Shampoo Combo",
+  "name": "Castor Blackseed Shampoo - 250g + Castor Black Seed Conditioner - 150g"
+ },
+ "FC-AC-OV2-050": {
+  "nh": "FC-AC-OV2-050",
+  "sc": "Face Care",
+  "pc": "Active Gel",
+  "sub": "Active Gel",
+  "name": "Active Olive Night Vit-E Gel x 2"
+ },
+ "BC-SM-MNS-100": {
+  "nh": "BC-SM-MNS-120",
+  "sc": "Body Care",
+  "pc": "Malai",
+  "sub": "Skin Malai",
+  "name": "Multi-Nut Malai - 120 ml - Single Pack"
+ },
+ "HR-SHO-MR-100": {
+  "nh": "HR-SHO-MR-100",
+  "sc": "Hair Care",
+  "pc": "Summer Hair Oil",
+  "sub": "Summer Hair Oil",
+  "name": "Men's Revital Summer Hair Oil - 100 ml"
+ },
+ "BC-PO-AL-100": {
+  "nh": "BC-PO-AL-100",
+  "sc": "Hair Care",
+  "pc": "Pure Oil",
+  "sub": "Pure Oils",
+  "name": "Pure Almond (Badam) Oil - 100ml"
+ },
+ "CB-KNC-BPDT-03": {
+  "nh": "CB-KNC-BPDT-03",
+  "sc": "Accessories",
+  "pc": "Comb",
+  "sub": "Comb",
+  "name": "Neem Comb - Dual + Pocket + Bounce"
+ },
+ "HR-HB-HB-025": {
+  "nh": "HR-HB-HB-025",
+  "sc": "Hair Care",
+  "pc": "Hair Balm",
+  "sub": "Hair Balm",
+  "name": "Hibiscus Blackseed Hair Balm"
+ },
+ "BC-SM-RFR2-120": {
+  "nh": "BC-SM-RFR2-120",
+  "sc": "Body Care",
+  "pc": "Malai",
+  "sub": "Skin Malai",
+  "name": "Fig Rose Skin Malai - 120 ml - Pack of 2"
+ },
+ "HR-SH-CC-250": {
+  "nh": "HR-SH-CC-250",
+  "sc": "Hair Care",
+  "pc": "Navdha Shampoo",
+  "sub": "Shampoo",
+  "name": "Curry Cider Shampoo - 250g"
+ },
+ "BC-CPS-DC-125": {
+  "nh": "BC-CPS-DC-125",
+  "sc": "Body Care",
+  "pc": "Soap",
+  "sub": "Soap",
+  "name": "Charcoal Soap - Single Pack"
+ },
+ "CB-KNC-DTRA-02": {
+  "nh": "CB-KNC-DTRA-02",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Henna Combo",
+  "name": "Dual Comb + 2x Henna Paste"
+ },
+ "BC-CP-CA-200": {
+  "nh": "BC-CP-CA-200",
+  "sc": "Hair Care",
+  "pc": "CP Hair Oil",
+  "sub": "Cold Pressed Oil",
+  "name": "Castor Oil - 200 ml"
+ },
+ "FC-CM-CEM-030": {
+  "nh": "FC-CM-CEM-030",
+  "sc": "Face Care",
+  "pc": "Facial Oil",
+  "sub": "Classical Facial Oil",
+  "name": "Classical Eladi Mukhalaya 30 ml"
+ },
+ "HR-SH-HBHB-02": {
+  "nh": "HR-SH-HBHB-02",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Shampoo Combo",
+  "name": "Five Oil Hibiscus Shampoo - 250g +  Five Oil Hibiscus Conditioner - 150g"
+ },
+ "FC-EM-FG3-025": {
+  "nh": "FC-EM-FG3-025",
+  "sc": "Face Care",
+  "pc": "Mura",
+  "sub": "Face Mura",
+  "name": "Five Gram Mura - Pack of 3"
+ },
+ "HR-SH-HB2-02": {
+  "nh": "HR-SH-HB2-250",
+  "sc": "Hair Care",
+  "pc": "Navdha Shampoo",
+  "sub": "Shampoo",
+  "name": "Five Oil Hibiscus Shampoo - 250g - Pack of 2"
+ },
+ "HR-NM-HB3-040": {
+  "nh": "HR-NM-HB3-040",
+  "sc": "Hair Care",
+  "pc": "Nutrimask",
+  "sub": "Nutrimask",
+  "name": "Five Oil Hibiscus NutriMask - Pack of 3"
+ },
+ "BC-CPS-TO2-125": {
+  "nh": "BC-CPS-TO2-125",
+  "sc": "Body Care",
+  "pc": "Soap",
+  "sub": "Soap",
+  "name": "Turmeric Oats Soap - Pack of 2"
+ },
+ "FC-FL-GU-100": {
+  "nh": "FC-FL-GU-100",
+  "sc": "Face Care",
+  "pc": "Flora Jal",
+  "sub": "Flora Jal",
+  "name": "Pure Gulab Jal - Single Pack"
+ },
+ "FC-KL-PBC-040": {
+  "nh": "FC-KL-PBC-040",
+  "sc": "Face Care",
+  "pc": "Lepa",
+  "sub": "Lepa",
+  "name": "Pumpkin BlackClay Lepa - Pack of 1"
+ },
+ "HR-HO-HA-100": {
+  "nh": "HR-HO-HA-100",
+  "sc": "Hair Care",
+  "pc": "Winter Hair Oil",
+  "sub": "Winter Hair Oil",
+  "name": "Hibiscus Amla Winter Hair Oil - 100 ml"
+ },
+ "CB-RA2-RPA-02": {
+  "nh": "CB-RA2-RPA-02",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Henna Combo",
+  "name": "Ready-to-Apply Henna Paste + Pure Aloe Gel"
+ },
+ "BA-BU-MN2-080": {
+  "nh": "BA-BU-MN2-080",
+  "sc": "Baby Care",
+  "pc": "Baby Ubtan",
+  "sub": "Baby Ubtan",
+  "name": "Milk & Nut Baby Ubtan - Pack of 2 (80 gms)"
+ },
+ "HR-SHO-HA3-100": {
+  "nh": "HR-SHO-HA3-100",
+  "sc": "Hair Care",
+  "pc": "Summer Hair Oil",
+  "sub": "Summer Hair Oil",
+  "name": "Hibiscus Amla Summer Hair Oil 100 ml x 3"
+ },
+ "CB-RA2-RBUP-100": {
+  "nh": "CB-RA2-RBUP-100",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Henna Combo",
+  "name": "Ready-to-Apply Henna Paste x 2 + Brightening Ubtan Face Wash"
+ },
+ "HDDM-PT-030-V2": {
+  "nh": "FC-HDDM-PT-030",
+  "sc": "Face Care",
+  "pc": "Face Malai",
+  "sub": "Face Malai",
+  "name": "Pomegranate Tulsi (Hot Dry) 13 - 19 Yrs Face Malai"
+ },
+ "FC-CM-CKM-010": {
+  "nh": "FC-CM-CKM-010",
+  "sc": "Face Care",
+  "pc": "Facial Oil",
+  "sub": "Classical Facial Oil",
+  "name": "Classical Kumkumadi Mukhalaya 10 ml"
+ },
+ "FC-AC-NT-050": {
+  "nh": "FC-AC-NT-050",
+  "sc": "Face Care",
+  "pc": "Active Gel",
+  "sub": "Active Gel",
+  "name": "Active Neem TeaTree Gel"
+ },
+ "FC-CM-CNM-030": {
+  "nh": "FC-CM-CNM-030",
+  "sc": "Face Care",
+  "pc": "Facial Oil",
+  "sub": "Classical Facial Oil",
+  "name": "Classical Nalpamaradi Mukhalaya 30 ml"
+ },
+ "FC-CM-CKM-015": {
+  "nh": "FC-CM-CKM-015",
+  "sc": "Face Care",
+  "pc": "Facial Oil",
+  "sub": "Classical Facial Oil",
+  "name": "Classical Kumkumadi Mukhalaya 15 ml"
+ },
+ "FC-AC-NT2-050": {
+  "nh": "FC-AC-NT2-050",
+  "sc": "Face Care",
+  "pc": "Active Gel",
+  "sub": "Active Gel",
+  "name": "Active Anti Acne Neem Tea Tree Gel x 2"
+ },
+ "FC-FW-MVCR2-100": {
+  "nh": "FC-FW-MVCR2-100",
+  "sc": "Face Care",
+  "pc": "Tikta",
+  "sub": "Face Wash",
+  "name": "Moringa Vitamin-C Cream Face Wash - Pack of 2"
+ },
+ "HR-NM-HB4-040": {
+  "nh": "HR-NM-HB4-040",
+  "sc": "Hair Care",
+  "pc": "Nutrimask",
+  "sub": "Nutrimask",
+  "name": "Five Oil Hibiscus NutriMask x 4"
+ },
+ "CB-SM-MNDC-02": {
+  "nh": "CB-SM-MNDC-02",
+  "sc": "Body Care",
+  "pc": "Malai",
+  "sub": "Skin Malai",
+  "name": "Multi-Nut & Double Cocoa Skin Malai - 120 ml - Combo Pack"
+ },
+ "CB-SHO-HAB-02": {
+  "nh": "CB-SHO-HAB-02",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Summer Hair Oil Combo",
+  "name": "Hibiscus Amla Summer Hair Oil + Hibiscus Shampoo"
+ },
+ "HR-HE-RA3-250D": {
+  "nh": "HR-HE-RA3-250",
+  "sc": "Hair Care",
+  "pc": "Henna",
+  "sub": "Henna",
+  "name": "Henna Paste - Pack of 3"
+ },
+ "LP-LB-MR-010": {
+  "nh": "LP-LB-MR-010",
+  "sc": "Lip Care",
+  "pc": "Lip Butter",
+  "sub": "Lip Butter",
+  "name": "Mint Rosehip Lip Butter"
+ },
+ "FC-DM-DP-030": {
+  "nh": "FC-DM-DP-030",
+  "sc": "Face Care",
+  "pc": "Face Malai",
+  "sub": "Face Malai",
+  "name": "Honey Multi-Nut (Dry & Peeling Skin) Face Malai"
+ },
+ "BC-BL-CID-250": {
+  "nh": "BC-BL-CID-250",
+  "sc": "Body Care",
+  "pc": "Malai Lotion",
+  "sub": "Malai Lotion",
+  "name": "Double Cocoa Malai Lotion"
+ },
+ "LP-LM-ZO-020": {
+  "nh": "LP-LM-ZO-020",
+  "sc": "Lip Care",
+  "pc": "Lip Mura",
+  "sub": "Lip Mura",
+  "name": "Zesty Orange Lip Mura - Regular"
+ },
+ "HR-HIP-IP-85": {
+  "nh": "HR-HIP-IP-85",
+  "sc": "Hair Care",
+  "pc": "Indigo Powder",
+  "sub": "Indigo Powder",
+  "name": "HUFA Pigment Indigo Powder - 85g"
+ },
+ "CB-SH-HRA2-03": {
+  "nh": "CB-SH-HRA2-03",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Henna Combo",
+  "name": "Five Oil Hibiscus Shampoo + Henna Paste - Pack of 2"
+ },
+ "BC-CP-VC-100": {
+  "nh": "BC-CP-VC-100",
+  "sc": "Hair Care",
+  "pc": "CP Hair Oil",
+  "sub": "Cold Pressed Oil",
+  "name": "Virgin Coconut Oil - 100 ml"
+ },
+ "BC-HM-PWR-025": {
+  "nh": "BC-HM-PWR-030",
+  "sc": "Body Care",
+  "pc": "Hand Malai",
+  "sub": "Hand Malai",
+  "name": "Pumpkin Walnut Hand Malai - Single Pack"
+ },
+ "HR-SHO-CS-100": {
+  "nh": "HR-SHO-CS-100",
+  "sc": "Hair Care",
+  "pc": "Summer Hair Oil",
+  "sub": "Summer Hair Oil",
+  "name": "Curry Sesame Summer Hair Oil - 100 ml"
+ },
+ "BC-CPS-NB-125": {
+  "nh": "BC-CPS-NB-125",
+  "sc": "Body Care",
+  "pc": "Soap",
+  "sub": "Soap",
+  "name": "Neem Basil Soap - Single Pack"
+ },
+ "AC-SDL-LO2-00": {
+  "nh": "AC-SDL-LO2-00",
+  "sc": "Accessories",
+  "pc": "Loofah",
+  "sub": "Loofah",
+  "name": "Loofah - Pack of 2"
+ },
+ "FC-FL-LA-100": {
+  "nh": "FC-FL-LA-100",
+  "sc": "Face Care",
+  "pc": "Flora Jal",
+  "sub": "Flora Jal",
+  "name": "Pure Lavender Jal - Single Pack"
+ },
+ "HR-MJ-RO-200": {
+  "nh": "HR-MJ-RO-200",
+  "sc": "Hair Care",
+  "pc": "Methi Jal",
+  "sub": "Methi Jal",
+  "name": "Rose Methi Jal"
+ },
+ "AC-KNC-FTSL-00": {
+  "nh": "AC-KNC-FTSL-00",
+  "sc": "Accessories",
+  "pc": "Comb",
+  "sub": "Comb",
+  "name": "Neem Comb - Styling Large"
+ },
+ "HR-HE-RA2": {
+  "nh": "HR-HE-RA3-250",
+  "sc": "Hair Care",
+  "pc": "Henna",
+  "sub": "Henna",
+  "name": "Henna Paste - Pack of 3"
+ },
+ "FC-AC-OK-050": {
+  "nh": "FC-AC-OK-050",
+  "sc": "Face Care",
+  "pc": "Active Gel",
+  "sub": "Active Gel",
+  "name": "Active Orange Kiwi Vit-C Gel"
+ },
+ "FC-FW-BUPA2-100": {
+  "nh": "FC-FW-BUPA2-100",
+  "sc": "Face Care",
+  "pc": "Tikta",
+  "sub": "Face Wash",
+  "name": "Brightening Ubtan Face Wash - Pack of 2"
+ },
+ "CB-CPS-MR-125": {
+  "nh": "BC-CPS-MR-125",
+  "sc": "Body Care",
+  "pc": "Soap",
+  "sub": "Soap",
+  "name": "Milk Rosehip Soap - Single Pack"
+ },
+ "HR-MJ-RM-200-D": {
+  "nh": "HR-NJ-RJ-200",
+  "sc": "Hair Care",
+  "pc": "Nourishing Jal",
+  "sub": "Nourishing Jal",
+  "name": "Rosemary Jal - 200ml"
+ },
+ "HR-HE-RA4-250D": {
+  "nh": "HR-HE-RA4-250",
+  "sc": "Hair Care",
+  "pc": "Henna",
+  "sub": "Henna",
+  "name": "Henna Paste - Pack of 4"
+ },
+ "FC-FW-BUPA-100": {
+  "nh": "FC-FW-BUPA-100",
+  "sc": "Face Care",
+  "pc": "Tikta",
+  "sub": "Face Wash",
+  "name": "Ubtan Tikta Face Wash"
+ },
+ "BC-UU-WY2-040": {
+  "nh": "BC-UU-WY2-040",
+  "sc": "Body Care",
+  "pc": "UnderArm Ubtan",
+  "sub": "Underarm Ubtan",
+  "name": "White Yogurt UnderArm - Pack of 2"
+ },
+ "FC-HG-BT2-080": {
+  "nh": "FC-HG-BT2-080",
+  "sc": "Face Care",
+  "pc": "Gel Pack",
+  "sub": "Face Gel",
+  "name": "Beetroot Tomato Vit-A Gel- 80 gms - Pack of 2"
+ },
+ "HR-CN-CC2-150": {
+  "nh": "FK-AOSC-TR-03",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Fk Exclusive Combos",
+  "name": "Trileaf All Season Hair Oil + Shampoo + Conditioner - Flipkart"
+ },
+ "HR-HE-RA4-220": {
+  "nh": "HR-HE-RA4-250",
+  "sc": "Hair Care",
+  "pc": "Henna",
+  "sub": "Henna",
+  "name": "Henna Paste - Pack of 4"
+ },
+ "CWDM-FW-030-V2": {
+  "nh": "FC-CWDM-FW-030",
+  "sc": "Face Care",
+  "pc": "Face Malai",
+  "sub": "Face Malai",
+  "name": "Flax Walnut (Cold) 35+ Face Malai"
+ },
+ "AC-KNC-DNT-02": {
+  "nh": "AC-KNC-DNT-02",
+  "sc": "Accessories",
+  "pc": "Comb",
+  "sub": "Comb",
+  "name": "Neem Comb Combo Dual + Fine"
+ },
+ "LP-LB-KH-010": {
+  "nh": "LP-LB-KH-010",
+  "sc": "Lip Care",
+  "pc": "Lip Butter",
+  "sub": "Lip Butter",
+  "name": "Kokum Honey Lip Butter"
+ },
+ "BC-BL-RFR-250": {
+  "nh": "BC-BL-RFR-250",
+  "sc": "Body Care",
+  "pc": "Malai Lotion",
+  "sub": "Malai Lotion",
+  "name": "Fig Rose Malai Lotion"
+ },
+ "BA-TRO-HS-040": {
+  "nh": "BA-TRO-HS-040",
+  "sc": "Baby Care",
+  "pc": "Tummy Roll-On",
+  "sub": "Baby Tummy Roll on",
+  "name": "Hingu Saunf Tummy Roll-On"
+ },
+ "BC-PO-OL-200": {
+  "nh": "BC-PO-OL-200",
+  "sc": "Hair Care",
+  "pc": "Pure Oil",
+  "sub": "Pure Oils",
+  "name": "Pure Olive Oil - 200ml"
+ },
+ "FC-EM-CN2-025": {
+  "nh": "FC-EM-CN2-025",
+  "sc": "Face Care",
+  "pc": "Mura",
+  "sub": "Face Mura",
+  "name": "Cinnamon Nashpati Mura - Pack of 2"
+ },
+ "BC-CP-AL-100": {
+  "nh": "BC-CP-AL-100",
+  "sc": "Hair Care",
+  "pc": "CP Hair Oil",
+  "sub": "Cold Pressed Oil",
+  "name": "Almond Oil - 100 ml"
+ },
+ "FC-KL-CN-040": {
+  "nh": "FC-KL-CN-040",
+  "sc": "Face Care",
+  "pc": "Lepa",
+  "sub": "Lepa",
+  "name": "Chandan Nagakesar Lepa - Pack of 1"
+ },
+ "CB-SHO-TTR-02": {
+  "nh": "CB-SHO-TTR-02",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Summer Hair Oil Combo",
+  "name": "Crushed Tri-Leaf Summer Hair Oil + Trileaf Rosemary Shampoo"
+ },
+ "FC-DU-SO2-040": {
+  "nh": "FC-DU-SO2-040",
+  "sc": "Face Care",
+  "pc": "Ubtan",
+  "sub": "Ubtan",
+  "name": "Sweet Orange Ubtan - Pack of 2"
+ },
+ "AC-SDL-LO4-00": {
+  "nh": "AC-SDL-LO4-00",
+  "sc": "Accessories",
+  "pc": "Loofah",
+  "sub": "Loofah",
+  "name": "Loofah - Pack of 4"
+ },
+ "FC-KL-TK-040": {
+  "nh": "FC-KL-TK-040",
+  "sc": "Face Care",
+  "pc": "Lepa",
+  "sub": "Lepa",
+  "name": "Tamarind Kasturi Lepa - Pack of 1"
+ },
+ "HR-MJ-GT-200": {
+  "nh": "HR-MJ-GT-200",
+  "sc": "Hair Care",
+  "pc": "Methi Jal",
+  "sub": "Methi Jal",
+  "name": "Green Tea Methi Jal"
+ },
+ "FC-DU-LC2-040": {
+  "nh": "FC-DU-LC2-040",
+  "sc": "Face Care",
+  "pc": "Ubtan",
+  "sub": "Ubtan",
+  "name": "Lavender Charm Ubtan - Pack of 2"
+ },
+ "FT-PFU-GK-040": {
+  "nh": "FT-PFU-GK-040",
+  "sc": "Foot Care",
+  "pc": "Foot Ubtan",
+  "sub": "Foot Ubtan",
+  "name": "Ginger Khus Foot Ubtan - Single Pack"
+ },
+ "BC-CPS-DC2-125": {
+  "nh": "BC-CPS-DC2-125",
+  "sc": "Body Care",
+  "pc": "Soap",
+  "sub": "Soap",
+  "name": "Charcoal Soap - Pack of 2"
+ },
+ "BA-SHO-BM-110": {
+  "nh": "BA-SHO-BM-110",
+  "sc": "Baby Care",
+  "pc": "Baby Scalp Oil",
+  "sub": "Baby Scalp Oil",
+  "name": "Brahmi Summer Baby Scalp Oil - 110 ml"
+ },
+ "HR-CN-CC-150": {
+  "nh": "HR-CN-CC-150",
+  "sc": "Hair Care",
+  "pc": "Nutri Conditioner",
+  "sub": "Conditioner",
+  "name": "Curry Cider Conditioner - 150g"
+ },
+ "BC-CPS-MR2-125": {
+  "nh": "BC-CPS-MR2-125",
+  "sc": "Body Care",
+  "pc": "Soap",
+  "sub": "Soap",
+  "name": "Milk Rosehip Soap - Pack of 2"
+ },
+ "BC-BU-MN-080": {
+  "nh": "BC-BU-MN-080",
+  "sc": "Body Care",
+  "pc": "Bath",
+  "sub": "Bath Ubtan",
+  "name": "Moong Bath Ubtan - Single Pack"
+ },
+ "AC-KNC-WT2-002": {
+  "nh": "AC-KNC-WT2-002",
+  "sc": "Accessories",
+  "pc": "Comb",
+  "sub": "Comb",
+  "name": "Wide Tooth Comb x 2"
+ },
+ "HR-SHO-NB-200": {
+  "nh": "HR-SHO-NB-200",
+  "sc": "Hair Care",
+  "pc": "Summer Hair Oil",
+  "sub": "Summer Hair Oil",
+  "name": "Neem Bhringraj Summer Hair Oil - 200 ml"
+ },
+ "HR-SHO-TL-100": {
+  "nh": "HR-SHO-TL-100",
+  "sc": "Hair Care",
+  "pc": "Summer Hair Oil",
+  "sub": "Summer Hair Oil",
+  "name": "Crushed Tri-Leaf Summer Hair Oil - 100 ml"
+ },
+ "BC-CPS-NB4-125": {
+  "nh": "BC-CPS-NB4-125",
+  "sc": "Body Care",
+  "pc": "Soap",
+  "sub": "Soap",
+  "name": "Neem & Basil soap - Pack of 4"
+ },
+ "BC-SM-SCS2-100": {
+  "nh": "BC-SM-SCS2-120",
+  "sc": "Body Care",
+  "pc": "Malai",
+  "sub": "Skin Malai",
+  "name": "Sunflower Malai - 120 ml - Pack of 2"
+ },
+ "BC-CP-NE-200": {
+  "nh": "BC-CP-NE-200",
+  "sc": "Hair Care",
+  "pc": "CP Hair Oil",
+  "sub": "Cold Pressed Oil",
+  "name": "Neem Oil - 200 ml"
+ },
+ "HR-NM-HB-040": {
+  "nh": "HR-NM-HB-040",
+  "sc": "Hair Care",
+  "pc": "Nutrimask",
+  "sub": "Nutrimask",
+  "name": "Five Oil Hibiscus NutriMask - Single Pack"
+ },
+ "EC-UE-FNC-020": {
+  "nh": "EC-UE-FNC-020",
+  "sc": "Eye Care",
+  "pc": "Pure Netraa",
+  "sub": "Netraa Cream",
+  "name": "Netraa Cream - UnderEye Vit-E Cream"
+ },
+ "BC-CPS-TO-125": {
+  "nh": "BC-CPS-TO-125",
+  "sc": "Body Care",
+  "pc": "Soap",
+  "sub": "Soap",
+  "name": "Turmeric Oats Soap - Single Pack"
+ },
+ "BC-CPS-WA-125": {
+  "nh": "BC-CPS-WA-125",
+  "sc": "Body Care",
+  "pc": "Soap",
+  "sub": "Soap",
+  "name": "Apricot Soap - Single Pack"
+ },
+ "HR-SHO-HA-200": {
+  "nh": "HR-SHO-HA-200",
+  "sc": "Hair Care",
+  "pc": "Summer Hair Oil",
+  "sub": "Summer Hair Oil",
+  "name": "Hibiscus Amla Summer Hair Oil - 200 ml"
+ },
+ "FC-ML-STR-015": {
+  "nh": "FC-ML-STR-015",
+  "sc": "Face Care",
+  "pc": "Facial Oil",
+  "sub": "Facial Oil",
+  "name": "Saffron Tuberose Mukhalaya 15 ml"
+ },
+ "HR-NM-CM-040": {
+  "nh": "HR-NM-CM-040",
+  "sc": "Hair Care",
+  "pc": "Nutrimask",
+  "sub": "Nutrimask",
+  "name": "Curry Mustard NutriMask - Single Pack"
+ },
+ "HR-SHO-TL-200": {
+  "nh": "HR-SHO-TL-200",
+  "sc": "Hair Care",
+  "pc": "Summer Hair Oil",
+  "sub": "Summer Hair Oil",
+  "name": "Crushed Tri-Leaf Summer Hair Oil - 200 ml"
+ },
+ "HR-NM-TL-040": {
+  "nh": "HR-NM-TL-040",
+  "sc": "Hair Care",
+  "pc": "Nutrimask",
+  "sub": "Nutrimask",
+  "name": "Crushed Tri-Leaf NutriMask - Single Pack"
+ },
+ "AC-SDL-LO-00": {
+  "nh": "AC-SDL-LO-00",
+  "sc": "Accessories",
+  "pc": "Loofah",
+  "sub": "Loofah",
+  "name": "Loofah - Single Pack"
+ },
+ "FC-FW-RCCR2-100": {
+  "nh": "FC-FW-RCCR2-100",
+  "sc": "Face Care",
+  "pc": "Tikta",
+  "sub": "Face Wash",
+  "name": "Roasted Chicory Cream Face Wash - Pack of 2"
+ },
+ "BC-EO-TU-015": {
+  "nh": "BC-EO-TU-015",
+  "sc": "Body Care",
+  "pc": "Essential Oil",
+  "sub": "Essential Oil",
+  "name": "Turmeric Essential Oil - 15ml"
+ },
+ "LP-LB-PR-010": {
+  "nh": "LP-LB-PR-010",
+  "sc": "Lip Care",
+  "pc": "Lip Butter",
+  "sub": "Lip Butter",
+  "name": "Pomegranate Rose Lip Butter"
+ },
+ "HR-SH-AP2-02": {
+  "nh": "HR-SH-AP2-250",
+  "sc": "Hair Care",
+  "pc": "Navdha Shampoo",
+  "sub": "Shampoo",
+  "name": "Aloe Peanut Shampoo - 250g - Pack of 2"
+ },
+ "BA-SMA-BN-100": {
+  "nh": "BA-SMA-BN-100",
+  "sc": "Baby Care",
+  "pc": "Baby Maahu",
+  "sub": "Baby Maahu",
+  "name": "Summer Baby Maahu (Balamool Nimbuka) - 100 ml"
+ },
+ "BC-CPS-SS-125": {
+  "nh": "BC-CPS-SS-125",
+  "sc": "Body Care",
+  "pc": "Soap",
+  "sub": "Soap",
+  "name": "Sandalwood Soap - Single Pack"
+ },
+ "HR-NM-CS-040": {
+  "nh": "HR-NM-CS-040",
+  "sc": "Hair Care",
+  "pc": "Nutrimask",
+  "sub": "Nutrimask",
+  "name": "Curry Sesame NutriMask - Single Pack"
+ },
+ "BA-BML-TC-200-D": {
+  "nh": "BA-BML-TC-200",
+  "sc": "Baby Care",
+  "pc": "Baby Malai Lotion",
+  "sub": "Baby Malai Lotion",
+  "name": "Baby Malai Lotion Tender Coconut"
+ },
+ "HR-HIP-IP-170": {
+  "nh": "HR-HIP-IP-170",
+  "sc": "Hair Care",
+  "pc": "Indigo Powder",
+  "sub": "Indigo Powder",
+  "name": "HUFA Pigment Indigo Powder - 170g"
+ },
+ "CB-GS-AH-09": {
+  "nh": "CB-GS-AH-09",
+  "sc": "Gift",
+  "pc": "Gift",
+  "sub": "Gift Set",
+  "name": "Luxurious Day Out Gift Set"
+ },
+ "CB-GS-AD-07": {
+  "nh": "CB-GS-AD-07",
+  "sc": "Gift",
+  "pc": "Gift",
+  "sub": "Gift Set",
+  "name": "Go Pamper Gift Set"
+ },
+ "CB-GS-AB-08": {
+  "nh": "CB-GS-AB-08",
+  "sc": "Gift",
+  "pc": "Gift",
+  "sub": "Gift Set",
+  "name": "With All My Heart Gift Set"
+ },
+ "HR-NM-NB-040": {
+  "nh": "HR-NM-NB-040",
+  "sc": "Hair Care",
+  "pc": "Nutrimask",
+  "sub": "Nutrimask",
+  "name": "Neem & Bhringraj NutriMask - Single Pack"
+ },
+ "HR-HE-RA-250-V": {
+  "nh": "HR-HE-RA-250",
+  "sc": "Hair Care",
+  "pc": "Henna",
+  "sub": "Henna",
+  "name": "Henna Paste - Pack of 1"
+ },
+ "FC-AC-OK2-050": {
+  "nh": "FC-AC-OK2-050",
+  "sc": "Face Care",
+  "pc": "Active Gel",
+  "sub": "Active Gel",
+  "name": "Active Orange Kiwi Vit-C Gel x 2"
+ },
+ "FT-PFU-GK2-040": {
+  "nh": "FT-PFU-GK2-040",
+  "sc": "Foot Care",
+  "pc": "Foot Ubtan",
+  "sub": "Foot Ubtan",
+  "name": "Ginger Khus Foot Ubtan - Pack of 2"
+ },
+ "FT-FS-CL4-050": {
+  "nh": "FT-FS-CL4-050",
+  "sc": "Foot Care",
+  "pc": "Foot Salt",
+  "sub": "Foot Salt",
+  "name": "Cedar Lift Foot Salt - Pack of 4"
+ },
+ "FT-FS-CR4-050": {
+  "nh": "FT-FS-CR4-050",
+  "sc": "Foot Care",
+  "pc": "Foot Salt",
+  "sub": "Foot Salt",
+  "name": "Cinnamon Respite Foot Salt - Pack of 4"
+ },
+ "CB-RA2-RNHB-03": {
+  "nh": "CB-RA2-RNHB-03",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Henna Combo",
+  "name": "Ready-to-Apply Henna Paste x 2 + Hibiscus Nutrimask"
+ },
+ "CB-RA2-RNTL-03": {
+  "nh": "CB-RA2-RNTL-03",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Henna Combo",
+  "name": "Ready-to-Apply Henna Paste x 2 + Trileaf Nutrimask"
+ },
+ "HR-CN-AP2-150": {
+  "nh": "HR-CN-AP2-150",
+  "sc": "Hair Care",
+  "pc": "Nutri Conditioner",
+  "sub": "Conditioner",
+  "name": "Aloe Peanut Conditioner - 150g - Pack of 2"
+ },
+ "FC-AC-BT2-050": {
+  "nh": "FC-AC-BT2-050",
+  "sc": "Face Care",
+  "pc": "Active Gel",
+  "sub": "Active Gel",
+  "name": "Active Beetroot Tomato Vit-A Gel x 2"
+ },
+ "BC-SM-CID-120": {
+  "nh": "BC-SM-CID-120",
+  "sc": "Body Care",
+  "pc": "Malai",
+  "sub": "Skin Malai",
+  "name": "Double Cocoa Skin Malai - 120 ml - Single Pack"
+ },
+ "HR-CN-CB2-150": {
+  "nh": "HR-CN-CB2-150",
+  "sc": "Hair Care",
+  "pc": "Nutri Conditioner",
+  "sub": "Conditioner",
+  "name": "Castor Black Seed Conditioner - 150g - Pack of 2"
+ },
+ "HR-NM-CM3-040": {
+  "nh": "HR-NM-CM3-040",
+  "sc": "Hair Care",
+  "pc": "Nutrimask",
+  "sub": "Nutrimask",
+  "name": "Curry Mustard NutriMask - Pack of 3"
+ },
+ "4W-AAF2-7TY8": {
+  "nh": "EC-UE-PN-009",
+  "sc": "Eye Care",
+  "pc": "Pure Netraa",
+  "sub": "Netraa Serum",
+  "name": "Netraa - Under Eye Roll On Serum"
+ },
+ "HR-NM-MR-040": {
+  "nh": "HR-NM-MR-040",
+  "sc": "Hair Care",
+  "pc": "Nutrimask",
+  "sub": "Nutrimask",
+  "name": "Men's 8 Herbs Hair Revital NutriMask - Single Pack"
+ },
+ "HR-SH-CB-250": {
+  "nh": "HR-SH-CB-250",
+  "sc": "Hair Care",
+  "pc": "Navdha Shampoo",
+  "sub": "Shampoo",
+  "name": "Castor Blackseed Shampoo - 250g"
+ },
+ "HR-NM-TL4-040": {
+  "nh": "HR-NM-TL4-040",
+  "sc": "Hair Care",
+  "pc": "Nutrimask",
+  "sub": "Nutrimask",
+  "name": "Tri-Leaf NutriMask x 4"
+ },
+ "BC-CP-GR-030": {
+  "nh": "BC-CP-GR-030",
+  "sc": "Face Care",
+  "pc": "CP Face Oil",
+  "sub": "Cold Pressed Oil",
+  "name": "Grapeseed Oil - 30 ml"
+ },
+ "HR-NM-CM2-040": {
+  "nh": "HR-NM-CM2-040",
+  "sc": "Hair Care",
+  "pc": "Nutrimask",
+  "sub": "Nutrimask",
+  "name": "Curry Mustard NutriMask - Pack of 2"
+ },
+ "HR-SHO-TL3-100": {
+  "nh": "HR-SHO-TL3-100",
+  "sc": "Hair Care",
+  "pc": "Summer Hair Oil",
+  "sub": "Summer Hair Oil",
+  "name": "Crushed Tri-Leaf Summer Hair Oil 100 ml x 3"
+ },
+ "AC-SDL-LO3-00": {
+  "nh": "AC-SDL-LO3-00",
+  "sc": "Accessories",
+  "pc": "Loofah",
+  "sub": "Loofah",
+  "name": "Loofah - Pack of 3"
+ },
+ "BC-BU-NC-080": {
+  "nh": "BC-BU-NC-080",
+  "sc": "Body Care",
+  "pc": "Bath",
+  "sub": "Bath Ubtan",
+  "name": "Neem Bath Ubtan - Single Pack"
+ },
+ "BC-UU-RP-040": {
+  "nh": "BC-UU-RP-040",
+  "sc": "Body Care",
+  "pc": "UnderArm Ubtan",
+  "sub": "Underarm Ubtan",
+  "name": "Raw Potato UnderArm Ubtan - Single Pack"
+ },
+ "FC-KL-AC-040": {
+  "nh": "FC-KL-AC-040",
+  "sc": "Face Care",
+  "pc": "Lepa",
+  "sub": "Lepa",
+  "name": "Aloe Cucumber Lepa - Pack of 1"
+ },
+ "BC-MA-MC-100": {
+  "nh": "BC-MA-MC-100",
+  "sc": "Body Care",
+  "pc": "Maahu",
+  "sub": "Maahu",
+  "name": "Moringa Coconut Maahu - 100 ml"
+ },
+ "FC-FL-2LA-100": {
+  "nh": "FC-FL-LA2-100",
+  "sc": "Face Care",
+  "pc": "Flora Jal",
+  "sub": "Flora Jal",
+  "name": "Pure Lavender Jal - Pack of 2"
+ },
+ "BC-BL-MNS-250": {
+  "nh": "BC-BL-MNS-250",
+  "sc": "Body Care",
+  "pc": "Malai Lotion",
+  "sub": "Malai Lotion",
+  "name": "Multi-Nut Malai Lotion"
+ },
+ "HR-HO-TL-100": {
+  "nh": "HR-HO-TL-100",
+  "sc": "Hair Care",
+  "pc": "Winter Hair Oil",
+  "sub": "Winter Hair Oil",
+  "name": "Crushed Tri-Leaf Winter Hair Oil - 100 ml"
+ },
+ "AC-KNC-DT-00": {
+  "nh": "AC-KNC-DT-00",
+  "sc": "Accessories",
+  "pc": "Comb",
+  "sub": "Comb",
+  "name": "Neem Comb - Dual Tooth"
+ },
+ "FT-FS-LU4-050": {
+  "nh": "FT-FS-LU4-050",
+  "sc": "Foot Care",
+  "pc": "Foot Salt",
+  "sub": "Foot Salt",
+  "name": "Lavender Unwind Foot Salt - Pack of 4"
+ },
+ "FC-KL-NA-040": {
+  "nh": "FC-KL-NA-040",
+  "sc": "Face Care",
+  "pc": "Lepa",
+  "sub": "Lepa",
+  "name": "Neem Ajwain Lepa - Pack of 1"
+ },
+ "CB-RA2-RCSN-03": {
+  "nh": "CB-RA2-RCSN-03",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Henna Combo",
+  "name": "Henna Paste + Curry Sesame Nutrimask x2"
+ },
+ "HR-PHO-SB-050": {
+  "nh": "HR-PHO-SB-050",
+  "sc": "Hair Care",
+  "pc": "Post-Henna Oil",
+  "sub": "Henna Oil",
+  "name": "Post-Henna Stain Boost Oil"
+ },
+ "BA-PBO-ALBM-02": {
+  "nh": "BA-PBO-ALBM-02",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Baby Care Combo",
+  "name": "Almond Baby Pure Oil 100 ml + Baby Scalp Oil Bhrami Maytakshi"
+ },
+ "HR-SH-HB-250": {
+  "nh": "HR-SH-HB-250",
+  "sc": "Hair Care",
+  "pc": "Navdha Shampoo",
+  "sub": "Shampoo",
+  "name": "Five Oil Hibiscus Shampoo - 250g"
+ },
+ "FC-KL-GK-040": {
+  "nh": "FC-KL-GK-040",
+  "sc": "Face Care",
+  "pc": "Lepa",
+  "sub": "Lepa",
+  "name": "Gulab Khus Lepa - Pack of 1"
+ },
+ "AC-KNC-WT-00": {
+  "nh": "AC-KNC-WT-00",
+  "sc": "Accessories",
+  "pc": "Comb",
+  "sub": "Comb",
+  "name": "Neem Comb - Wide Tooth"
+ },
+ "CB-CP-CA-200": {
+  "nh": "BC-CP-CA-200",
+  "sc": "Hair Care",
+  "pc": "CP Hair Oil",
+  "sub": "Cold Pressed Oil",
+  "name": "Castor Oil - 200 ml"
+ },
+ "FC-ML-LMR-015": {
+  "nh": "FC-ML-LMR-015",
+  "sc": "Face Care",
+  "pc": "Facial Oil",
+  "sub": "Facial Oil",
+  "name": "Lotus Marula Mukhalaya 15 ml"
+ },
+ "HR-HE-RA2-250-V3": {
+  "nh": "HR-HE-RA2-250",
+  "sc": "Hair Care",
+  "pc": "Henna",
+  "sub": "Henna",
+  "name": "Henna Paste - Pack of 2"
+ },
+ "FC-ML-CMG-030": {
+  "nh": "FC-ML-CMG-030",
+  "sc": "Face Care",
+  "pc": "Facial Oil",
+  "sub": "Facial Oil",
+  "name": "Clove Marigold Mukhalaya 30 ml"
+ },
+ "HR-HO-CS-100-M": {
+  "nh": "HR-HO-CS-100",
+  "sc": "Hair Care",
+  "pc": "Winter Hair Oil",
+  "sub": "Winter Hair Oil",
+  "name": "Curry Sesame Winter Hair Oil - 100 ml"
+ },
+ "HDDM-FB-030-V2": {
+  "nh": "FC-HDDM-FB-030",
+  "sc": "Face Care",
+  "pc": "Face Malai",
+  "sub": "Face Malai",
+  "name": "Flax Bakuchi (Hot Dry) 35+ Face Malai - 30g"
+ },
+ "BA-PBO-AL-100": {
+  "nh": "BA-PBO-AL-100",
+  "sc": "Baby Care",
+  "pc": "Pure Baby Oil",
+  "sub": "Baby Pure Oils",
+  "name": "Pure Almond Baby Oil - 100 ml"
+ },
+ "FC-KL-FM-040": {
+  "nh": "FC-KL-FM-040",
+  "sc": "Face Care",
+  "pc": "Lepa",
+  "sub": "Lepa",
+  "name": "Flaxseed Manjistha Lepa - Pack of 1"
+ },
+ "FC-ML-PMJ-030": {
+  "nh": "FC-ML-PMJ-030",
+  "sc": "Face Care",
+  "pc": "Facial Oil",
+  "sub": "Facial Oil",
+  "name": "Patchouli Manjistha Mukhalaya 30 ml"
+ },
+ "BC-EO-RM-030": {
+  "nh": "BC-EO-RM-030",
+  "sc": "Body Care",
+  "pc": "Essential Oil",
+  "sub": "Essential Oil",
+  "name": "Rosemary Essential Oil - 30 ml"
+ },
+ "BC-CPS-EO-125": {
+  "nh": "BC-CPS-EO-125",
+  "sc": "Body Care",
+  "pc": "Soap",
+  "sub": "Soap",
+  "name": "Orange Soap - Single Pack"
+ },
+ "HR-SH-TRTR-02": {
+  "nh": "HR-SH-TRTR-02",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Shampoo Combo",
+  "name": "Trileaf Rosemary Shampoo - 250g + Trileaf Rosemary Conditioner - 150g"
+ },
+ "FC-ML-STR-030": {
+  "nh": "FC-ML-STR-030",
+  "sc": "Face Care",
+  "pc": "Facial Oil",
+  "sub": "Facial Oil",
+  "name": "Saffron Tuberose Mukhalaya 30 ml"
+ },
+ "HHDM-030-V2": {
+  "nh": "FC-HHDM-FC-030",
+  "sc": "Face Care",
+  "pc": "Face Malai",
+  "sub": "Face Malai",
+  "name": "Flax Carrot (Hot Humid) 35+ Face Malai - 30g"
+ },
+ "FC-FW-RCCR-100": {
+  "nh": "FC-FW-RCCR-100",
+  "sc": "Face Care",
+  "pc": "Tikta",
+  "sub": "Face Wash",
+  "name": "Roasted Chicory Tikta Cream Face Wash"
+ },
+ "BA-PBO-OLBM-02": {
+  "nh": "BA-PBO-OLBM-02",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Baby Care Combo",
+  "name": "Olive Baby Pure Oil 100 ml + Baby Scalp Oil Bharami Maytakshi"
+ },
+ "BC-PO-AL-50": {
+  "nh": "BC-PO-AL-50",
+  "sc": "Hair Care",
+  "pc": "Pure Oil",
+  "sub": "Pure Oils",
+  "name": "Pure Almond (Badam) Oil - 50ml"
+ },
+ "FC-FW-PBCR-100": {
+  "nh": "FC-FW-PBCR-100",
+  "sc": "Face Care",
+  "pc": "Tikta",
+  "sub": "Face Wash",
+  "name": "Bitter Milk Tikta Cream Face Wash"
+ },
+ "HR-CN-HB-150": {
+  "nh": "HR-CN-HB-150",
+  "sc": "Hair Care",
+  "pc": "Nutri Conditioner",
+  "sub": "Conditioner",
+  "name": "Five Oil Hibiscus Conditioner - 150g"
+ },
+ "HR-NM-NB2-040": {
+  "nh": "HR-NM-NB2-040",
+  "sc": "Hair Care",
+  "pc": "Nutrimask",
+  "sub": "Nutrimask",
+  "name": "Neem & Bhringraj NutriMask - Pack of 2"
+ },
+ "HHDM-TV-030-V2": {
+  "nh": "FC-HHDM-TV-030",
+  "sc": "Face Care",
+  "pc": "Face Malai",
+  "sub": "Face Malai",
+  "name": "Tomato Vetiver (Hot Humid) 20 - 35 Yrs Face Malai"
+ },
+ "CB-BA-BNBM-02": {
+  "nh": "CB-BA-BNBM-02",
+  "sc": "Baby Care",
+  "pc": "Baby Maahu",
+  "sub": "Baby Care Combo",
+  "name": "Summer Baby Maahu and Scalp Oil Combo"
+ },
+ "FC-DU-LC-040": {
+  "nh": "FC-DU-LC-040",
+  "sc": "Face Care",
+  "pc": "Ubtan",
+  "sub": "Ubtan",
+  "name": "Lavender Charm Ubtan - Single Pack"
+ },
+ "FC-ML-LMR-030": {
+  "nh": "FC-ML-LMR-030",
+  "sc": "Face Care",
+  "pc": "Facial Oil",
+  "sub": "Facial Oil",
+  "name": "Lotus Marula Mukhalaya 30 ml"
+ },
+ "BC-PO-CO-200": {
+  "nh": "BC-PO-CO-200",
+  "sc": "Hair Care",
+  "pc": "Pure Oil",
+  "sub": "Pure Oils",
+  "name": "Pure Coconut Oil - 200ml"
+ },
+ "LP-LM-SC-020": {
+  "nh": "LP-LM-SC-020",
+  "sc": "Lip Care",
+  "pc": "Lip Mura",
+  "sub": "Lip Mura",
+  "name": "Strawberry Crush Lip Mura - Regular"
+ },
+ "FC-FL-MO2-100": {
+  "nh": "FC-FL-MO2-100",
+  "sc": "Face Care",
+  "pc": "Flora Jal",
+  "sub": "Flora Jal",
+  "name": "Pure Mogra Jal - Pack of 2"
+ },
+ "HDDM-TR-030-V2": {
+  "nh": "FC-HDDM-TR-030",
+  "sc": "Face Care",
+  "pc": "Face Malai",
+  "sub": "Face Malai",
+  "name": "Tomato Rosehip (Hot Dry) 20 - 35 Yrs Face Malai - 30g"
+ },
+ "BC-UU-RP2-040": {
+  "nh": "BC-UU-RP2-040",
+  "sc": "Body Care",
+  "pc": "UnderArm Ubtan",
+  "sub": "Underarm Ubtan",
+  "name": "Raw Potato UnderArm Ubtan - Pack of 2"
+ },
+ "BC-HM-LMG-025": {
+  "nh": "BC-HM-LMG-030",
+  "sc": "Body Care",
+  "pc": "Hand Malai",
+  "sub": "Hand Malai",
+  "name": "Lemon Moringa Hand Malai - Single Pack"
+ },
+ "FC-FW-MDPA-100": {
+  "nh": "FC-FW-MDPA-100",
+  "sc": "Face Care",
+  "pc": "Tikta",
+  "sub": "Face Wash",
+  "name": "Masoor Dal Tikta Face Wash"
+ },
+ "FC-ML-TRH-015": {
+  "nh": "FC-ML-TRH-015",
+  "sc": "Face Care",
+  "pc": "Facial Oil",
+  "sub": "Facial Oil",
+  "name": "Turmeric Rosehip Mukhalaya 15 ml"
+ },
+ "LP-LM-SC-012": {
+  "nh": "LP-LM-SC-012",
+  "sc": "Lip Care",
+  "pc": "Lip Mura",
+  "sub": "Lip Mura",
+  "name": "Strawberry Crush Lip Mura - Beginner"
+ },
+ "CB-SM-MNFR-02": {
+  "nh": "CB-SM-MNFR-02",
+  "sc": "Body Care",
+  "pc": "Malai",
+  "sub": "Skin Malai",
+  "name": "Multi-Nut & Fig Rose Skin Malai - 120 ml - Combo Pack"
+ },
+ "BA-PBO-ALSC-02": {
+  "nh": "BA-PBO-ALSC-02",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Baby Care Combo",
+  "name": "Almond Baby Pure Oil 100 ml + Baby Powder Shweet Chandan"
+ },
+ "HR-HB-AM-025": {
+  "nh": "HR-HB-AM-025",
+  "sc": "Hair Care",
+  "pc": "Hair Balm",
+  "sub": "Hair Balm",
+  "name": "Almond Marula Hair Balm"
+ },
+ "FC-ML-CMG-015": {
+  "nh": "FC-ML-CMG-015",
+  "sc": "Face Care",
+  "pc": "Facial Oil",
+  "sub": "Facial Oil",
+  "name": "Clove Marigold Mukhalaya 15 ml"
+ },
+ "FC-ML-PMJ-015": {
+  "nh": "FC-ML-PMJ-015",
+  "sc": "Face Care",
+  "pc": "Facial Oil",
+  "sub": "Facial Oil",
+  "name": "Patchouli Manjistha Mukhalaya 15 ml"
+ },
+ "CB-KNC-DTLO-02": {
+  "nh": "CB-KNC-DTLO-02",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Comb Combo",
+  "name": "Dual Tooth Comb  + Tri-leaf Summer Hair Oil - 100 ml"
+ },
+ "FC-ML-WAR-015": {
+  "nh": "FC-ML-WAR-015",
+  "sc": "Face Care",
+  "pc": "Facial Oil",
+  "sub": "Facial Oil",
+  "name": "Walnut Anaar Mukhalaya 15 ml"
+ },
+ "FC-ML-WAR-030": {
+  "nh": "FC-ML-WAR-030",
+  "sc": "Face Care",
+  "pc": "Facial Oil",
+  "sub": "Facial Oil",
+  "name": "Walnut Anaar Mukhalaya 30 ml"
+ },
+ "AC-KNC-NT-00": {
+  "nh": "AC-KNC-NT-00",
+  "sc": "Accessories",
+  "pc": "Comb",
+  "sub": "Comb",
+  "name": "Neem Comb - Fine Tooth"
+ },
+ "HR-HE-RA2-250-M": {
+  "nh": "HR-HE-RA2-250",
+  "sc": "Hair Care",
+  "pc": "Henna",
+  "sub": "Henna",
+  "name": "Henna Paste - Pack of 2"
+ },
+ "HR-SHO-HA-100": {
+  "nh": "HR-SHO-HA-100",
+  "sc": "Hair Care",
+  "pc": "Summer Hair Oil",
+  "sub": "Summer Hair Oil",
+  "name": "Hibiscus Amla Summer Hair Oil - 100 ml"
+ },
+ "FC-FW-BNGL-100": {
+  "nh": "FC-FW-BNGL-100",
+  "sc": "Face Care",
+  "pc": "Tikta",
+  "sub": "Face Wash",
+  "name": "Bitter Neem Tikta Gel Face Wash"
+ },
+ "CB-KNC-DMNO-02": {
+  "nh": "CB-KNC-DMNO-02",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Comb Combo",
+  "name": "Dual Comb + Men Summer Dasabuti Oil"
+ },
+ "HR-HE-RASB-03": {
+  "nh": "HR-HE-RASB-03",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Henna Combo",
+  "name": "Henna Paste x 2 + Post-Henna Oil"
+ },
+ "CWDM-TP-030-V2": {
+  "nh": "FC-CWDM-TP-030",
+  "sc": "Face Care",
+  "pc": "Face Malai",
+  "sub": "Face Malai",
+  "name": "Tomato Patchouli (Cold) 20 - 35 Yrs Face Malai"
+ },
+ "CB-RA2-RNHB-03-N": {
+  "nh": "CB-RA2-RNHB-03",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Henna Combo",
+  "name": "Ready-to-Apply Henna Paste x 2 + Hibiscus Nutrimask"
+ },
+ "HR-NM-TL3-040": {
+  "nh": "HR-NM-TL3-040",
+  "sc": "Hair Care",
+  "pc": "Nutrimask",
+  "sub": "Nutrimask",
+  "name": "Crushed Tri-Leaf NutriMask - Pack of 3"
+ },
+ "HR-NM-TL2-040": {
+  "nh": "HR-NM-TL2-040",
+  "sc": "Hair Care",
+  "pc": "Nutrimask",
+  "sub": "Nutrimask",
+  "name": "Crushed Tri-Leaf NutriMask - Pack of 2"
+ },
+ "HR-NM-NB3-040": {
+  "nh": "HR-NM-NB3-040",
+  "sc": "Hair Care",
+  "pc": "Nutrimask",
+  "sub": "Nutrimask",
+  "name": "Neem & Bhringraj NutriMask - Pack of 3"
+ },
+ "HR-NM-HB2-040": {
+  "nh": "HR-NM-HB2-040",
+  "sc": "Hair Care",
+  "pc": "Nutrimask",
+  "sub": "Nutrimask",
+  "name": "Five Oil Hibiscus NutriMask - Pack of 2"
+ },
+ "HR-NM-CS3-040": {
+  "nh": "HR-NM-CS3-040",
+  "sc": "Hair Care",
+  "pc": "Nutrimask",
+  "sub": "Nutrimask",
+  "name": "Curry Sesame NutriMask - Pack of 3"
+ },
+ "FC-FW-BNCR-100-D": {
+  "nh": "FC-FW-BNCR-100",
+  "sc": "Face Care",
+  "pc": "Tikta",
+  "sub": "Face Wash",
+  "name": "Bitter Neem Tikta Cream Face Wash"
+ },
+ "CB-BA-BSBM-02": {
+  "nh": "CB-BA-BSBM-02",
+  "sc": "Baby Care",
+  "pc": "Baby Maahu",
+  "sub": "Baby Care Combo",
+  "name": "Winter Baby Maahu and Scalp Oil Combo"
+ },
+ "CB-RA2-RMRN-03": {
+  "nh": "CB-RA2-RMRN-03",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Henna Combo",
+  "name": "Henna Paste + Men's Nutrimask x2"
+ },
+ "HR-NM-MR3-040": {
+  "nh": "HR-NM-MR3-040",
+  "sc": "Hair Care",
+  "pc": "Nutrimask",
+  "sub": "Nutrimask",
+  "name": "Men's 8 Herbs Hair Revital NutriMask - Pack of 3"
+ },
+ "HR-NM-CS2-040": {
+  "nh": "HR-NM-CS2-040",
+  "sc": "Hair Care",
+  "pc": "Nutrimask",
+  "sub": "Nutrimask",
+  "name": "Curry Sesame NutriMask - Pack of 2"
+ },
+ "FT-FS-CL2-050": {
+  "nh": "FT-FS-CL2-050",
+  "sc": "Foot Care",
+  "pc": "Foot Salt",
+  "sub": "Foot Salt",
+  "name": "Cedar Lift Foot Salt - Pack of 2"
+ },
+ "FC-FW-MVGL-100": {
+  "nh": "FC-FW-MVGL-100",
+  "sc": "Face Care",
+  "pc": "Tikta",
+  "sub": "Face Wash",
+  "name": "Moringa Vit-C Tikta Gel Face Wash"
+ },
+ "BA-BU-MN2-080-D": {
+  "nh": "BA-BU-MN2-080",
+  "sc": "Baby Care",
+  "pc": "Baby Ubtan",
+  "sub": "Baby Ubtan",
+  "name": "Milk & Nut Baby Ubtan - Pack of 2 (80 gms)"
+ },
+ "CWDM-BT-030-V2": {
+  "nh": "FC-CWDM-BT-030",
+  "sc": "Face Care",
+  "pc": "Face Malai",
+  "sub": "Face Malai",
+  "name": "Winter Blackseed Tulsi (Cold) 13 - 19 Yrs Face Malai"
+ },
+ "LP-LB-OM-010": {
+  "nh": "LP-LB-OM-010",
+  "sc": "Lip Care",
+  "pc": "Lip Butter",
+  "sub": "Lip Butter",
+  "name": "Orange Marigold Lip Butter"
+ },
+ "HR-SHO-OA-100": {
+  "nh": "HR-SHO-OA-100",
+  "sc": "Hair Care",
+  "pc": "Summer Hair Oil",
+  "sub": "Summer Hair Oil",
+  "name": "Olive Almond Summer Hair Oil - 100 ml"
+ },
+ "FC-FL-GU2-100": {
+  "nh": "FC-FL-GU2-100",
+  "sc": "Face Care",
+  "pc": "Flora Jal",
+  "sub": "Flora Jal",
+  "name": "Pure Gulab Jal - Pack of 2"
+ },
+ "HR-NM-MR2-040": {
+  "nh": "HR-NM-MR2-040",
+  "sc": "Hair Care",
+  "pc": "Nutrimask",
+  "sub": "Nutrimask",
+  "name": "Men's 8 Herbs Hair Revital NutriMask - Pack of 2"
+ },
+ "LP-LB-MR2-010": {
+  "nh": "LP-LB-MR2-010",
+  "sc": "Lip Care",
+  "pc": "Lip Butter",
+  "sub": "Lip Butter",
+  "name": "Mint Rosehip Lip Butter - Pack of 2"
+ },
+ "LP-LB-BC-010": {
+  "nh": "LP-LB-BC-010",
+  "sc": "Lip Care",
+  "pc": "Lip Butter",
+  "sub": "Lip Butter",
+  "name": "Beetroot Crush Lip Butter"
+ },
+ "CB-KNC-SSS-02": {
+  "nh": "CB-KNC-SSS-02",
+  "sc": "Accessories",
+  "pc": "Comb",
+  "sub": "Comb",
+  "name": "Neem Comb - Styling Small + Shampoo Small"
+ },
+ "FT-PFU-3P2-040": {
+  "nh": "FT-PFU-3P2-040",
+  "sc": "Foot Care",
+  "pc": "Foot Ubtan",
+  "sub": "Foot Ubtan",
+  "name": "3P-AHA Foot Ubtan - Pack of 2"
+ },
+ "BC-CPS-EO5-125": {
+  "nh": "BC-CPS-EO5-125",
+  "sc": "Body Care",
+  "pc": "Soap",
+  "sub": "Soap",
+  "name": "Orange soap x 5"
+ },
+ "HR-CN-HB2-150": {
+  "nh": "HR-CN-HB2-150",
+  "sc": "Hair Care",
+  "pc": "Nutri Conditioner",
+  "sub": "Conditioner",
+  "name": "Five Oil Hibiscus Conditioner - 150g - Pack of 2"
+ },
+ "BC-CP-WA-030": {
+  "nh": "BC-CP-WA-030",
+  "sc": "Face Care",
+  "pc": "CP Face Oil",
+  "sub": "Cold Pressed Oil",
+  "name": "Walnut Oil - 30 ml"
+ },
+ "BC-CP-CO-200": {
+  "nh": "BC-CP-CO-200",
+  "sc": "Hair Care",
+  "pc": "CP Hair Oil",
+  "sub": "Cold Pressed Oil",
+  "name": "Coconut Oil - 200 ml"
+ },
+ "LP-LM-BR-012": {
+  "nh": "LP-LM-BR-012",
+  "sc": "Lip Care",
+  "pc": "Lip Mura",
+  "sub": "Lip Mura",
+  "name": "Beetroot Rose Lip Mura - Beginner"
+ },
+ "AC-KNC-DNWT-03": {
+  "nh": "AC-KNC-DNWT-03",
+  "sc": "Accessories",
+  "pc": "Comb",
+  "sub": "Comb",
+  "name": "Neem Comb Combo Dual + Wide + Fine"
+ },
+ "BA-SHO-BMSC-02": {
+  "nh": "BA-SHO-BMSC-02",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Baby Care Combo",
+  "name": "Baby Scalp Oil Bharami Maytakshi + Baby Powder Shweet Chandan"
+ },
+ "BC-CPS-WA3-125": {
+  "nh": "BC-CPS-WA3-125",
+  "sc": "Body Care",
+  "pc": "Soap",
+  "sub": "Soap",
+  "name": "Apricot Soap - Pack of 3"
+ },
+ "BC-EO-CI-015": {
+  "nh": "BC-EO-CI-015",
+  "sc": "Body Care",
+  "pc": "Essential Oil",
+  "sub": "Essential Oil",
+  "name": "Cinnamon Essential Oil - 15ml"
+ },
+ "BC-CP-JO-030": {
+  "nh": "BC-CP-JO-030",
+  "sc": "Face Care",
+  "pc": "CP Face Oil",
+  "sub": "Cold Pressed Oil",
+  "name": "Jojoba Oil - 30 ml"
+ },
+ "BC-CP-AL-050": {
+  "nh": "BC-CP-AL-050",
+  "sc": "Hair Care",
+  "pc": "CP Hair Oil",
+  "sub": "Cold Pressed Oil",
+  "name": "Almond Oil - 50 ml"
+ },
+ "CB-GS-AE-06": {
+  "nh": "CB-GS-AE-06",
+  "sc": "Gift",
+  "pc": "Gift",
+  "sub": "Gift Set",
+  "name": "Blessed Must Haves Gift Set"
+ },
+ "BC-CPS-SS4-125": {
+  "nh": "BC-CPS-SS4-125",
+  "sc": "Body Care",
+  "pc": "Soap",
+  "sub": "Soap",
+  "name": "Soothing Sandalwood Soap - Pack of 4"
+ },
+ "BC-HM-MCY2-025": {
+  "nh": "BC-HM-MCY2-030",
+  "sc": "Body Care",
+  "pc": "Hand Malai",
+  "sub": "Hand Malai",
+  "name": "Mango Cinnamon Hand Malai  - Pack of 2"
+ },
+ "HR-SH-CCCC-02": {
+  "nh": "HR-SH-CCCC-02",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Shampoo Combo",
+  "name": "Curry Cider Shampoo - 250g + Curry Cider Conditioner - 150g"
+ },
+ "FC-FL-GU3-100": {
+  "nh": "FC-FL-GU3-100",
+  "sc": "Face Care",
+  "pc": "Flora Jal",
+  "sub": "Flora Jal",
+  "name": "Pure Gulab Jal - Pack of 3"
+ },
+ "CB-ML-PGFJ-02": {
+  "nh": "CB-ML-PGFJ-02",
+  "sc": "Face Care",
+  "pc": "Facial Oil",
+  "sub": "Facial Oil Combo",
+  "name": "Patchouli Manjistha Mukhalaya & Gulab Flora Jal Combo"
+ },
+ "FC-KL-BM2-040": {
+  "nh": "FC-KL-BM2-040",
+  "sc": "Face Care",
+  "pc": "Lepa",
+  "sub": "Lepa",
+  "name": "Banana Mulethi Lepa - Pack of 2"
+ },
+ "BC-SM-SCS-100": {
+  "nh": "BC-SM-SCS-120",
+  "sc": "Body Care",
+  "pc": "Malai",
+  "sub": "Skin Malai",
+  "name": "Sunflower Malai - 120 ml - Single Pack"
+ },
+ "BC-BU-MR2-080": {
+  "nh": "BC-BU-MR2-080",
+  "sc": "Body Care",
+  "pc": "Bath",
+  "sub": "Bath Ubtan",
+  "name": "Masoor Rub Bath Ubtan x 2"
+ },
+ "FC-KL-OK2-040": {
+  "nh": "FC-KL-OK2-040",
+  "sc": "Face Care",
+  "pc": "Lepa",
+  "sub": "Lepa",
+  "name": "Orange Kalonji Lepa - Pack of 2"
+ },
+ "BA-BP-SC-150": {
+  "nh": "BA-BP-SC-150",
+  "sc": "Baby Care",
+  "pc": "Baby Powder",
+  "sub": "Baby Powder",
+  "name": "Shwet Chandan Baby Powder"
+ },
+ "BC-MA-TA-100": {
+  "nh": "BC-MA-TA-100",
+  "sc": "Body Care",
+  "pc": "Maahu",
+  "sub": "Maahu",
+  "name": "Tulsi Ashwagandha Maahu - 100 ml"
+ },
+ "FC-KL-CN2-040": {
+  "nh": "FC-KL-CN2-040",
+  "sc": "Face Care",
+  "pc": "Lepa",
+  "sub": "Lepa",
+  "name": "Chandan Nagakesar Lepa - Pack of 2"
+ },
+ "BA-PBO-OL-200": {
+  "nh": "BA-PBO-OL-200",
+  "sc": "Baby Care",
+  "pc": "Pure Baby Oil",
+  "sub": "Baby Pure Oils",
+  "name": "Pure Olive Baby Oil  - 200 ml"
+ },
+ "BC-HM-TRL-025": {
+  "nh": "BC-HM-TRL-030",
+  "sc": "Body Care",
+  "pc": "Hand Malai",
+  "sub": "Hand Malai",
+  "name": "Tucuma Rose Hand Malai - Single Pack"
+ },
+ "BC-CPS-TO4-125": {
+  "nh": "BC-CPS-TO4-125",
+  "sc": "Body Care",
+  "pc": "Soap",
+  "sub": "Soap",
+  "name": "Healing Turmeric & Oats Soap - Pack of 4"
+ },
+ "FC-FW-BNGL2-100": {
+  "nh": "FC-FW-BNGL2-100",
+  "sc": "Face Care",
+  "pc": "Tikta",
+  "sub": "Face Wash",
+  "name": "Bitter Neem Gel Face Wash - Pack of 2"
+ },
+ "BA-BU-GG2-080-D": {
+  "nh": "BA-BU-GG2-080",
+  "sc": "Baby Care",
+  "pc": "Baby Ubtan",
+  "sub": "Baby Ubtan",
+  "name": "Grain & Gram Baby Ubtan - Pack of 2 (80 gms)"
+ },
+ "BC-BU-TB2-080": {
+  "nh": "BC-BU-TB2-080",
+  "sc": "Body Care",
+  "pc": "Bath",
+  "sub": "Bath Ubtan",
+  "name": "Wild Turmeric Bath Ubtan x 2"
+ },
+ "LP-LB-PR2-010": {
+  "nh": "LP-LB-PR2-010",
+  "sc": "Lip Care",
+  "pc": "Lip Butter",
+  "sub": "Lip Butter",
+  "name": "Pomegranate Rose Lip Butter - Pack of 2"
+ },
+ "FC-AC-AC-050": {
+  "nh": "FC-AC-AC-050",
+  "sc": "Face Care",
+  "pc": "Active Gel",
+  "sub": "Active Gel",
+  "name": "Active Aloe Cactus Hydra Lift Gel"
+ },
+ "BC-SM-RFR-200": {
+  "nh": "BC-SM-RFR-200",
+  "sc": "Body Care",
+  "pc": "Malai",
+  "sub": "Skin Malai",
+  "name": "Fig Rose Skin Malai - 200ml - Single Pack"
+ },
+ "BA-PBO-AL-200": {
+  "nh": "BA-PBO-AL-200",
+  "sc": "Baby Care",
+  "pc": "Pure Baby Oil",
+  "sub": "Baby Pure Oils",
+  "name": "Pure Almond Baby Oil - 200 ml"
+ },
+ "FC-AC-AC2-050": {
+  "nh": "FC-AC-AC2-050",
+  "sc": "Face Care",
+  "pc": "Active Gel",
+  "sub": "Active Gel",
+  "name": "Active Aloe Cactus Hydra Lift Gel x 2"
+ },
+ "BC-EO-TT-015": {
+  "nh": "BC-EO-TT-015",
+  "sc": "Body Care",
+  "pc": "Essential Oil",
+  "sub": "Essential Oil",
+  "name": "Tea Tree Essential Oil - 15ml"
+ },
+ "FC-EM-HS2-025": {
+  "nh": "FC-EM-HS2-025",
+  "sc": "Face Care",
+  "pc": "Mura",
+  "sub": "Face Mura",
+  "name": "Honey Sunflower Mura - Pack of 2"
+ },
+ "BC-HM-TRL2-025": {
+  "nh": "BC-HM-TRL2-030",
+  "sc": "Body Care",
+  "pc": "Hand Malai",
+  "sub": "Hand Malai",
+  "name": "Tucuma Rose Hand Malai - Pack of 2"
+ },
+ "BC-CPS-NB5-125": {
+  "nh": "BC-CPS-NB5-125",
+  "sc": "Body Care",
+  "pc": "Soap",
+  "sub": "Soap",
+  "name": "Neem & Basil soap x 5"
+ },
+ "BC-UU-RP3-040": {
+  "nh": "BC-UU-RP3-040",
+  "sc": "Body Care",
+  "pc": "UnderArm Ubtan",
+  "sub": "Underarm Ubtan",
+  "name": "Raw Potato UnderArm Ubtan - Pack of 3"
+ },
+ "BA-BU-GG2-080": {
+  "nh": "BA-BU-GG2-080",
+  "sc": "Baby Care",
+  "pc": "Baby Ubtan",
+  "sub": "Baby Ubtan",
+  "name": "Grain & Gram Baby Ubtan - Pack of 2 (80 gms)"
+ },
+ "BC-UU-LD2-040.": {
+  "nh": "BC-UU-LD2-040",
+  "sc": "Body Care",
+  "pc": "UnderArm Ubtan",
+  "sub": "Underarm Ubtan",
+  "name": "Lemon Drop UnderArm Ubtan - Pack of 2"
+ },
+ "BC-BU-NC2-080": {
+  "nh": "BC-BU-NC2-080",
+  "sc": "Body Care",
+  "pc": "Bath",
+  "sub": "Bath Ubtan",
+  "name": "Neem Cure Bath Ubtan x 2"
+ },
+ "BC-BU-MN3-080": {
+  "nh": "BC-BU-MN3-080",
+  "sc": "Body Care",
+  "pc": "Bath",
+  "sub": "Bath Ubtan",
+  "name": "Moong Bath Ubtan - Pack of 3"
+ },
+ "BC-HM-4BM2-025": {
+  "nh": "BC-HM-4BM2-030",
+  "sc": "Body Care",
+  "pc": "Hand Malai",
+  "sub": "Hand Malai",
+  "name": "4 Butter Hand Malai - Pack of 2"
+ },
+ "FC-FW-RCGL-100": {
+  "nh": "FC-FW-RCGL-100",
+  "sc": "Face Care",
+  "pc": "Tikta",
+  "sub": "Face Wash",
+  "name": "Roasted Chicory Tikta Gel Face Wash"
+ },
+ "LP-LM-BR-020": {
+  "nh": "LP-LM-BR-020",
+  "sc": "Lip Care",
+  "pc": "Lip Mura",
+  "sub": "Lip Mura",
+  "name": "Beetroot Rose Lip Mura - Regular"
+ },
+ "LP-LB-OM2-010": {
+  "nh": "LP-LB-OM2-010",
+  "sc": "Lip Care",
+  "pc": "Lip Butter",
+  "sub": "Lip Butter",
+  "name": "Orange Marigold Lip Butter - Pack of 2"
+ },
+ "FC-FW-MVGL2-100": {
+  "nh": "FC-FW-MVGL2-100",
+  "sc": "Face Care",
+  "pc": "Tikta",
+  "sub": "Face Wash",
+  "name": "Moringa Vitamin-C Gel Face Wash - Pack of 2"
+ },
+ "HR-HE-RA-250-H": {
+  "nh": "HR-HE-RA-250",
+  "sc": "Hair Care",
+  "pc": "Henna",
+  "sub": "Henna",
+  "name": "Henna Paste - Pack of 1"
+ },
+ "BC-CPS-WA2-125": {
+  "nh": "BC-CPS-WA2-125",
+  "sc": "Body Care",
+  "pc": "Soap",
+  "sub": "Soap",
+  "name": "Apricot Soap - Pack of 2"
+ },
+ "BC-CP-JO-050": {
+  "nh": "BC-CP-JO-050",
+  "sc": "Face Care",
+  "pc": "CP Face Oil",
+  "sub": "Cold Pressed Oil",
+  "name": "Jojoba Oil - 50 ml"
+ },
+ "BC-SM-MNS2-100": {
+  "nh": "BC-SM-MNS2-120",
+  "sc": "Body Care",
+  "pc": "Malai",
+  "sub": "Skin Malai",
+  "name": "Multi-Nut Malai - 120 ml - Pack of 2"
+ },
+ "AC-KNC-WTSL-00": {
+  "nh": "AC-KNC-WTSL-00",
+  "sc": "Accessories",
+  "pc": "Comb",
+  "sub": "Comb",
+  "name": "Neem Comb - Shampoo Large"
+ },
+ "AC-KNC-FTSS-00": {
+  "nh": "AC-KNC-FTSS-00",
+  "sc": "Accessories",
+  "pc": "Comb",
+  "sub": "Comb",
+  "name": "Neem Comb - Styling Small"
+ },
+ "BA-BU-GG-080-D": {
+  "nh": "BA-BU-GG-080",
+  "sc": "Baby Care",
+  "pc": "Baby Ubtan",
+  "sub": "Baby Ubtan",
+  "name": "Grain & Gram Baby Ubtan - 80g"
+ },
+ "BC-UU-LD3-040": {
+  "nh": "BC-UU-LD3-040",
+  "sc": "Body Care",
+  "pc": "UnderArm Ubtan",
+  "sub": "Underarm Ubtan",
+  "name": "Lemon Drop UnderArm Ubtan - Pack of 3"
+ },
+ "CB-KNC-DNBN-03": {
+  "nh": "CB-KNC-DNBN-03",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Comb Combo",
+  "name": "Dual Tooth Comb + 2x Neem Bhringraj Nutrimask"
+ },
+ "LP-LB-BG2-010": {
+  "nh": "LP-LB-BG2-010",
+  "sc": "Lip Care",
+  "pc": "Lip Butter",
+  "sub": "Lip Butter",
+  "name": "Men's Black Grape Lip Butter - Pack of 2"
+ },
+ "CB-KNC-DTLN-03": {
+  "nh": "CB-KNC-DTLN-03",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Comb Combo",
+  "name": "Dual Tooth Comb + 2x TriLeaf Nutrimask"
+ },
+ "BC-MA-TA-200": {
+  "nh": "BC-MA-TA-200",
+  "sc": "Body Care",
+  "pc": "Maahu",
+  "sub": "Maahu",
+  "name": "Tulsi Ashwagandha Maahu - 200 ml"
+ },
+ "CB-KNC-WNBO-02": {
+  "nh": "CB-KNC-WNBO-02",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Comb Combo",
+  "name": "Wide Comb + Neem Bhringraj Summer Dasabuti Oil"
+ },
+ "BC-CPS-TO5-125": {
+  "nh": "BC-CPS-TO5-125",
+  "sc": "Body Care",
+  "pc": "Soap",
+  "sub": "Soap",
+  "name": "Turmeric Oats Soap x 5"
+ },
+ "FC-FL-LA3-100": {
+  "nh": "FC-FL-LA3-100",
+  "sc": "Face Care",
+  "pc": "Flora Jal",
+  "sub": "Flora Jal",
+  "name": "Pure Lavender Jal - Pack of 3"
+ },
+ "BC-BL-AS2-250": {
+  "nh": "BC-BL-AS2-250",
+  "sc": "Body Care",
+  "pc": "Malai Lotion",
+  "sub": "Malai Lotion",
+  "name": "Aloe Saunf Malai Lotion - Pack of 2"
+ },
+ "BC-EO-EU-015": {
+  "nh": "BC-EO-EU-015",
+  "sc": "Body Care",
+  "pc": "Essential Oil",
+  "sub": "Essential Oil",
+  "name": "Eucalyptus Essential Oil - 15ml"
+ },
+ "HR-HE-RASB-05": {
+  "nh": "HR-HE-RASB-05",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Henna Combo",
+  "name": "Henna Paste x 4 + Post-Henna Oil"
+ },
+ "BA-BU-MN-080-D": {
+  "nh": "BA-BU-MN-080",
+  "sc": "Baby Care",
+  "pc": "Baby Ubtan",
+  "sub": "Baby Ubtan",
+  "name": "Milk & Nut Baby Ubtan - 80g"
+ },
+ "CB-BA-BNBMSCCM-04": {
+  "nh": "CB-BA-BNBMSCCM-04",
+  "sc": "Gift",
+  "pc": "Gift",
+  "sub": "Baby Care Combo",
+  "name": "Cuddly New Born Gift Set - Revamped"
+ },
+ "FC-EM-UJ3-025": {
+  "nh": "FC-EM-UJ3-025",
+  "sc": "Face Care",
+  "pc": "Mura",
+  "sub": "Face Mura",
+  "name": "Urad Jojoba Mura - Pack of 3"
+ },
+ "BC-CPS-EO2-125": {
+  "nh": "BC-CPS-EO2-125",
+  "sc": "Body Care",
+  "pc": "Soap",
+  "sub": "Soap",
+  "name": "Orange Soap - Pack of 2"
+ },
+ "BC-BU-MN2-080": {
+  "nh": "BC-BU-MN2-080",
+  "sc": "Body Care",
+  "pc": "Bath",
+  "sub": "Bath Ubtan",
+  "name": "Moong Bath Ubtan - Pack of 2"
+ },
+ "CB-KNC-WHBO-02": {
+  "nh": "CB-KNC-WHBO-02",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Comb Combo",
+  "name": "Wide Tooth Comb + Hibiscus Summer Dasabuti Oil"
+ },
+ "BC-EO-LV-015": {
+  "nh": "BC-EO-LV-015",
+  "sc": "Body Care",
+  "pc": "Essential Oil",
+  "sub": "Essential Oil",
+  "name": "Lavender Essential Oil - 15ml"
+ },
+ "BC-EO-PE-015": {
+  "nh": "BC-EO-PE-015",
+  "sc": "Body Care",
+  "pc": "Essential Oil",
+  "sub": "Essential Oil",
+  "name": "Peppermint Essential Oil - 15 ml"
+ },
+ "FC-FL-MO-100": {
+  "nh": "FC-FL-MO-100",
+  "sc": "Face Care",
+  "pc": "Flora Jal",
+  "sub": "Flora Jal",
+  "name": "Pure Mogra Jal - Single Pack"
+ },
+ "BA-BU-CMA2-080-D": {
+  "nh": "BA-BU-CMA2-080",
+  "sc": "Baby Care",
+  "pc": "Baby Ubtan",
+  "sub": "Baby Ubtan",
+  "name": "Charoli Milk Almond Baby Ubtan - Pack of 2 (80 gms)"
+ },
+ "BC-UU-WY3-040": {
+  "nh": "BC-UU-WY3-040",
+  "sc": "Body Care",
+  "pc": "UnderArm Ubtan",
+  "sub": "Underarm Ubtan",
+  "name": "White Yogurt UnderArm - Pack of 3"
+ },
+ "CB-KNC-DHBO-02": {
+  "nh": "CB-KNC-DHBO-02",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Comb Combo",
+  "name": "Dual Tooth Comb  + Hibiscus Amla Summer Hair Oil - 100 ml"
+ },
+ "FC-KL-PBC2-040": {
+  "nh": "FC-KL-PBC2-040",
+  "sc": "Face Care",
+  "pc": "Lepa",
+  "sub": "Lepa",
+  "name": "Pumpkin BlackClay Lepa - Pack of 2"
+ },
+ "FC-EM-FG2-025": {
+  "nh": "FC-EM-FG2-025",
+  "sc": "Face Care",
+  "pc": "Mura",
+  "sub": "Face Mura",
+  "name": "Five Gram Mura - Pack of 2"
+ },
+ "BC-CP-AR-030": {
+  "nh": "BC-CP-AR-030",
+  "sc": "Hair Care",
+  "pc": "CP Hair Oil",
+  "sub": "Cold Pressed Oil",
+  "name": "Argan Oil - 30 ml"
+ },
+ "CB-KNC-DHBN-03": {
+  "nh": "CB-KNC-DHBN-03",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Comb Combo",
+  "name": "Dual Tooth Comb +2x Hibiscus Nutrimask"
+ },
+ "FC-EM-HS3-025": {
+  "nh": "FC-EM-HS3-025",
+  "sc": "Face Care",
+  "pc": "Mura",
+  "sub": "Face Mura",
+  "name": "Honey Sunflower Mura - Pack of 3"
+ },
+ "BA-WHO-BM-110": {
+  "nh": "BA-WHO-BM-110",
+  "sc": "Baby Care",
+  "pc": "Baby Scalp Oil",
+  "sub": "Baby Scalp Oil",
+  "name": "Brahmi Winter Baby Scalp Oil - 110 ml"
+ },
+ "FT-FS-CR2-050": {
+  "nh": "FT-FS-CR2-050",
+  "sc": "Foot Care",
+  "pc": "Foot Salt",
+  "sub": "Foot Salt",
+  "name": "Cinnamon Respite Foot Salt - Pack of 2"
+ },
+ "BA-BP-SC2-150": {
+  "nh": "BA-BP-SC2-150",
+  "sc": "Baby Care",
+  "pc": "Baby Powder",
+  "sub": "Baby Powder",
+  "name": "Shwet Chandan Baby Powder - Pack of 2"
+ },
+ "CB-KNC-WTLO-02": {
+  "nh": "CB-KNC-WTLO-02",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Comb Combo",
+  "name": "Wide Comb + TriLeaf Summer Dasabuti Oil"
+ },
+ "BC-BL-RFR2-250": {
+  "nh": "BC-BL-RFR2-250",
+  "sc": "Body Care",
+  "pc": "Malai Lotion",
+  "sub": "Malai Lotion",
+  "name": "Fig Rose Malai Lotion - Pack of 2"
+ },
+ "FC-EM-NML2-025": {
+  "nh": "FC-EM-NML2-025",
+  "sc": "Face Care",
+  "pc": "Mura",
+  "sub": "Face Mura",
+  "name": "Neem Marigold Mura - Pack of 2"
+ },
+ "FC-KL-GK2-040": {
+  "nh": "FC-KL-GK2-040",
+  "sc": "Face Care",
+  "pc": "Lepa",
+  "sub": "Lepa",
+  "name": "Gulab Khus Lepa - Pack of 2"
+ },
+ "LP-LB-BG-010": {
+  "nh": "LP-LB-BG-010",
+  "sc": "Lip Care",
+  "pc": "Lip Butter",
+  "sub": "Lip Butter",
+  "name": "Men's Black Grape Lip Butter"
+ },
+ "FC-KL-FM2-040": {
+  "nh": "FC-KL-FM2-040",
+  "sc": "Face Care",
+  "pc": "Lepa",
+  "sub": "Lepa",
+  "name": "Flaxseed Manjistha Lepa - Pack of 2"
+ },
+ "BC-MA-GM-200": {
+  "nh": "BC-MA-GM-200",
+  "sc": "Body Care",
+  "pc": "Maahu",
+  "sub": "Maahu",
+  "name": "Ginger Maricha Maahu - 200 ml"
+ },
+ "CB-ML-SGFJ-02": {
+  "nh": "CB-ML-SGFJ-02",
+  "sc": "Face Care",
+  "pc": "Facial Oil",
+  "sub": "Facial Oil Combo",
+  "name": "Saffron Tuberose Mukhalaya & Gulab Flora Jal Combo"
+ },
+ "LP-LB-KH2-010": {
+  "nh": "LP-LB-KH2-010",
+  "sc": "Lip Care",
+  "pc": "Lip Butter",
+  "sub": "Lip Butter",
+  "name": "Kokum Honey Lip Butter - Pack of 2"
+ },
+ "HR-SH-APAP-02": {
+  "nh": "HR-SH-APAP-02",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Shampoo Combo",
+  "name": "Aloe Peanut Shampoo - 250g + Aloe Peanut Conditioner - 150g"
+ },
+ "BC-CP-VC-200": {
+  "nh": "BC-CP-VC-200",
+  "sc": "Hair Care",
+  "pc": "CP Hair Oil",
+  "sub": "Cold Pressed Oil",
+  "name": "Virgin Coconut Oil - 200ml"
+ },
+ "LP-LB-BC2-010": {
+  "nh": "LP-LB-BC2-010",
+  "sc": "Lip Care",
+  "pc": "Lip Butter",
+  "sub": "Lip Butter",
+  "name": "Beetroot Crush Lip Butter - Pack of 2"
+ },
+ "BC-MA-GM-100": {
+  "nh": "BC-MA-GM-100",
+  "sc": "Body Care",
+  "pc": "Maahu",
+  "sub": "Maahu",
+  "name": "Ginger Maricha Maahu - 100 ml"
+ },
+ "FC-AC-OV-050": {
+  "nh": "FC-AC-OV-050",
+  "sc": "Face Care",
+  "pc": "Active Gel",
+  "sub": "Active Gel",
+  "name": "Active Olive Vit-E Night Gel"
+ },
+ "HR-SHO-OA-200": {
+  "nh": "HR-SHO-OA-200",
+  "sc": "Hair Care",
+  "pc": "Summer Hair Oil",
+  "sub": "Summer Hair Oil",
+  "name": "Olive Almond Summer Hair Oil - 200 ml"
+ },
+ "FC-KL-TK2-040": {
+  "nh": "FC-KL-TK2-040",
+  "sc": "Face Care",
+  "pc": "Lepa",
+  "sub": "Lepa",
+  "name": "Tamarind Kasturi Lepa - Pack of 2"
+ },
+ "HR-HO-MR-100": {
+  "nh": "HR-HO-MR-100",
+  "sc": "Hair Care",
+  "pc": "Winter Hair Oil",
+  "sub": "Winter Hair Oil",
+  "name": "Men's Revital Winter Hair Oil - 100 ml"
+ },
+ "AC-KNC-DWT-02": {
+  "nh": "AC-KNC-DWT-02",
+  "sc": "Accessories",
+  "pc": "Comb",
+  "sub": "Comb",
+  "name": "Neem Comb Combo Dual + Wide"
+ },
+ "HR-SH-CC2-02": {
+  "nh": "HR-SH-CC2-250",
+  "sc": "Hair Care",
+  "pc": "Navdha Shampoo",
+  "sub": "Shampoo",
+  "name": "Curry Cider Shampoo - 250g - Pack of 2"
+ },
+ "BA-PBO-OL-100": {
+  "nh": "BA-PBO-OL-100",
+  "sc": "Baby Care",
+  "pc": "Pure Baby Oil",
+  "sub": "Baby Pure Oils",
+  "name": "Pure Olive Baby Oil - 100 ml"
+ },
+ "BC-CPS-NB2-125": {
+  "nh": "BC-CPS-NB2-125",
+  "sc": "Body Care",
+  "pc": "Soap",
+  "sub": "Soap",
+  "name": "Neem Basil Soap - Pack of 2"
+ },
+ "FC-EM-PC3-025": {
+  "nh": "FC-EM-PC3-025",
+  "sc": "Face Care",
+  "pc": "Mura",
+  "sub": "Face Mura",
+  "name": "Pumpkin Clay Mura - Pack of 3"
+ },
+ "FC-KL-NA2-040": {
+  "nh": "FC-KL-NA2-040",
+  "sc": "Face Care",
+  "pc": "Lepa",
+  "sub": "Lepa",
+  "name": "Neem Ajwain Lepa - Pack of 2"
+ },
+ "FC-EM-NML3-025": {
+  "nh": "FC-EM-NML3-025",
+  "sc": "Face Care",
+  "pc": "Mura",
+  "sub": "Face Mura",
+  "name": "Neem Marigold Mura - Pack of 3"
+ },
+ "HR-SHO-MR-200": {
+  "nh": "HR-SHO-MR-200",
+  "sc": "Hair Care",
+  "pc": "Summer Hair Oil",
+  "sub": "Summer Hair Oil",
+  "name": "Men's Revital Summer Hair Oil - 200 ml"
+ },
+ "BC-MA-TM-200": {
+  "nh": "BC-MA-TM-200",
+  "sc": "Body Care",
+  "pc": "Maahu",
+  "sub": "Maahu",
+  "name": "Turmeric Manjistha Maahu - 200 ml"
+ },
+ "FC-FW-PBCR2-100": {
+  "nh": "FC-FW-PBCR2-100",
+  "sc": "Face Care",
+  "pc": "Tikta",
+  "sub": "Face Wash",
+  "name": "Purifying Bitter Milk Cream Face Wash - Pack of 2"
+ },
+ "BA-BU-CMA2-080": {
+  "nh": "BA-BU-CMA2-080",
+  "sc": "Baby Care",
+  "pc": "Baby Ubtan",
+  "sub": "Baby Ubtan",
+  "name": "Charoli Milk Almond Baby Ubtan - Pack of 2 (80 gms)"
+ },
+ "FC-DM-AA-030": {
+  "nh": "FC-DM-AA-030",
+  "sc": "Face Care",
+  "pc": "Face Malai",
+  "sub": "Face Malai",
+  "name": "Clove Tea-Tree (Anti-Acne) Face Malai"
+ },
+ "FC-FW-BNCR2-100": {
+  "nh": "FC-FW-BNCR2-100",
+  "sc": "Face Care",
+  "pc": "Tikta",
+  "sub": "Face Wash",
+  "name": "Bitter Neem Cream Face Wash - Pack of 2"
+ },
+ "LP-LM-ZO-012": {
+  "nh": "LP-LM-ZO-012",
+  "sc": "Lip Care",
+  "pc": "Lip Mura",
+  "sub": "Lip Mura",
+  "name": "Zesty Orange Lip Mura - Beginner"
+ },
+ "HR-SH-CB2-02": {
+  "nh": "HR-SH-CB2-250",
+  "sc": "Hair Care",
+  "pc": "Navdha Shampoo",
+  "sub": "Shampoo",
+  "name": "Castor Blackseed Shampoo - 250g - Pack of 2"
+ },
+ "BA-PBO-VCO-200": {
+  "nh": "BA-PBO-VCO-200",
+  "sc": "Baby Care",
+  "pc": "Pure Baby Oil",
+  "sub": "Baby Pure Oils",
+  "name": "Pure Virgin Coconut Baby Oil - 200 ml"
+ },
+ "BA-SMA-BN-200": {
+  "nh": "BA-SMA-BN-200",
+  "sc": "Baby Care",
+  "pc": "Baby Maahu",
+  "sub": "Baby Maahu",
+  "name": "Summer Baby Maahu (Balamool Nimbuka) - 200 ml"
+ },
+ "BC-BU-TB3-080": {
+  "nh": "BC-BU-TB3-080",
+  "sc": "Body Care",
+  "pc": "Bath",
+  "sub": "Bath Ubtan",
+  "name": "Turmeric Bath Ubtan - Pack of 3"
+ },
+ "HHDM-GAT-030-V2": {
+  "nh": "FC-HHDM-GAT-030",
+  "sc": "Face Care",
+  "pc": "Face Malai",
+  "sub": "Face Malai",
+  "name": "GreenApple Tulsi (Hot Humid) 13 - 19 Yrs Face Malai"
+ },
+ "AC-KNC-WTB-00": {
+  "nh": "AC-KNC-WTB-00",
+  "sc": "Accessories",
+  "pc": "Comb",
+  "sub": "Comb",
+  "name": "Neem Comb - Bounce"
+ },
+ "HR-HB-AG-025": {
+  "nh": "HR-HB-AG-025",
+  "sc": "Hair Care",
+  "pc": "Hair Balm",
+  "sub": "Hair Balm",
+  "name": "Argan Grapeseed Hair Balm"
+ },
+ "FT-FS-LU2-050": {
+  "nh": "FT-FS-LU2-050",
+  "sc": "Foot Care",
+  "pc": "Foot Salt",
+  "sub": "Foot Salt",
+  "name": "Lavender Unwind Foot Salt - Pack of 2"
+ },
+ "BC-MA-TM-100": {
+  "nh": "BC-MA-TM-100",
+  "sc": "Body Care",
+  "pc": "Maahu",
+  "sub": "Maahu",
+  "name": "Turmeric Manjistha Maahu - 100 ml"
+ },
+ "CB-ML-TLFJ-02": {
+  "nh": "CB-ML-TLFJ-02",
+  "sc": "Face Care",
+  "pc": "Facial Oil",
+  "sub": "Facial Oil Combo",
+  "name": "Turmeric Rosehip Mukhalaya & Lavender Flora Jal Combo"
+ },
+ "BC-HM-PWR2-025": {
+  "nh": "BC-HM-PWR2-030",
+  "sc": "Body Care",
+  "pc": "Hand Malai",
+  "sub": "Hand Malai",
+  "name": "Pumpkin Walnut Hand Malai - Pack of 2"
+ },
+ "BC-CPS-SS5-125": {
+  "nh": "BC-CPS-SS5-125",
+  "sc": "Body Care",
+  "pc": "Soap",
+  "sub": "Soap",
+  "name": "Sandalwood Soap x 5"
+ },
+ "SL-GR-JJ-050": {
+  "nh": "SL-GR-JJ-050",
+  "sc": "Seasonal",
+  "pc": "Gulaal",
+  "sub": "Gulaal",
+  "name": "Jamuni Gulaal - Single Pack"
+ },
+ "SL-GR-JJ2-050": {
+  "nh": "SL-GR-JJ2-050",
+  "sc": "Seasonal",
+  "pc": "Gulaal",
+  "sub": "Gulaal",
+  "name": "Jamuni Gulaal - Pack of 2"
+ },
+ "SL-GR-JJGP-050": {
+  "nh": "SL-GR-JJGP-050",
+  "sc": "Seasonal",
+  "pc": "Gulaal",
+  "sub": "Gulaal",
+  "name": "Jamuni Gulaal + Gulaab Gulaal"
+ },
+ "SL-GR-GPNM-050": {
+  "nh": "SL-GR-GPNM-050",
+  "sc": "Seasonal",
+  "pc": "Gulaal",
+  "sub": "Gulaal",
+  "name": "Gulaab + Neem Gulaal - Pack of 2"
+ },
+ "SL-GR-NMJJMCGP-050": {
+  "nh": "SL-GR-NMJJMCGP-050",
+  "sc": "Seasonal",
+  "pc": "Gulaal",
+  "sub": "Gulaal",
+  "name": "Rang Gulaal Combo - Pack of 4"
+ },
+ "SL-GR-GP2-050": {
+  "nh": "SL-GR-GP2-050",
+  "sc": "Seasonal",
+  "pc": "Gulaal",
+  "sub": "Gulaal",
+  "name": "Gulaab Gulaal - Pack of 2"
+ },
+ "SL-GR-MCGP-050": {
+  "nh": "SL-GR-MCGP-050",
+  "sc": "Seasonal",
+  "pc": "Gulaal",
+  "sub": "Gulaal",
+  "name": "Marigold + Gulaab Gulaal - Pack of 2"
+ },
+ "SL-GR-MCNM-050": {
+  "nh": "SL-GR-MCNM-050",
+  "sc": "Seasonal",
+  "pc": "Gulaal",
+  "sub": "Gulaal",
+  "name": "Neem + Marigold Gulaal - Pack of 2"
+ },
+ "BC-PO-CO3-200": {
+  "nh": "BC-PO-CO3-200",
+  "sc": "Hair Care",
+  "pc": "Pure Oil",
+  "sub": "Pure Oils",
+  "name": "Pure Coconut Oil Pack of 3"
+ },
+ "FK-HR-HIP-IP-03": {
+  "nh": "FK-HR-HIP-IP-03",
+  "sc": "Hair Care",
+  "pc": "Indigo Powder",
+  "sub": "Indigo Powder",
+  "name": "Indigo Powder 125g - Pack of 3"
+ },
+ "FK-HR-HIP-IP-02": {
+  "nh": "FK-HR-HIP-IP-02",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Indigo Powder",
+  "name": "HUFA Pigment Indigo Powder 125g - Pack of 2"
+ },
+ "FK-BC-CP-CA2-190": {
+  "nh": "FK-BC-CP-CA2-190",
+  "sc": "Hair Care",
+  "pc": "CP Hair Oil",
+  "sub": "Cold Pressed Oil",
+  "name": "Castor Oil Pack of 2 - Flipkart"
+ },
+ "FK-CB-IP-RA-03": {
+  "nh": "FK-CB-IP-RA-03",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Henna Combo",
+  "name": "Indigo Powder 125g + Henna Paste x2"
+ },
+ "HR-HE-RA10-250": {
+  "nh": "HR-HE-RA5-250",
+  "sc": "Hair Care",
+  "pc": "Henna",
+  "sub": "Henna",
+  "name": "Henna Paste - Pack of 5"
+ },
+ "BC-PO-CO2-200": {
+  "nh": "BC-PO-CO2-200",
+  "sc": "Hair Care",
+  "pc": "Pure Oil",
+  "sub": "Soap",
+  "name": "Pure Coconut Oil - 200ml x 2"
+ },
+ "HR-SHO-TL2-200": {
+  "nh": "HR-SHO-TL2-200",
+  "sc": "Hair Care",
+  "pc": "Summer Hair Oil",
+  "sub": "Summer Hair Oil",
+  "name": "Summer Trileaf Hair Oil Pack of 2"
+ },
+ "CB-FAS-SKC-008-D": {
+  "nh": "CB-FAS-SKC-008",
+  "sc": "Gift",
+  "pc": "Gift",
+  "sub": "Brand Starter Kit",
+  "name": "Fresh Ayurveda Starter Kit - Classic (Summer)"
+ },
+ "FK-AOSC-HA-03": {
+  "nh": "FK-AOSC-HA-03",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Summer Hair Oil Combo",
+  "name": "Hibiscus All Season Hair Oil + Shampoo + Conditioner - Flipkart"
+ },
+ "FK-SHCN-HB-02": {
+  "nh": "FK-SHCN-HB-02",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Shampoo Combo",
+  "name": "Hibiscus Shampoo 300 ml & Conditioner 150 ml - Flipkart"
+ },
+ "SL-GR-MC-050": {
+  "nh": "SL-GR-MC-050",
+  "sc": "Seasonal",
+  "pc": "Gulaal",
+  "sub": "Gulaal",
+  "name": "Marigold Gulaal - Single Pack"
+ },
+ "SL-GR-NM-050": {
+  "nh": "SL-GR-NM-050",
+  "sc": "Seasonal",
+  "pc": "Gulaal",
+  "sub": "Gulaal",
+  "name": "Neem Gulaal - Single Pack"
+ },
+ "SL-GR-NM2-050": {
+  "nh": "SL-GR-NM2-050",
+  "sc": "Seasonal",
+  "pc": "Gulaal",
+  "sub": "Gulaal",
+  "name": "Neem Gulaal - Pack of 2"
+ },
+ "SL-GR-MC2-050": {
+  "nh": "SL-GR-MC2-050",
+  "sc": "Seasonal",
+  "pc": "Gulaal",
+  "sub": "Gulaal",
+  "name": "Marigold Gulaal - Pack of 2"
+ },
+ "SL-GR-GP-050": {
+  "nh": "SL-GR-GP-050",
+  "sc": "Seasonal",
+  "pc": "Gulaal",
+  "sub": "Gulaal",
+  "name": "Gulaab Gulaal - Single Pack"
+ },
+ "FK-CB-TVBM-04": {
+  "nh": "FK-CB-TVBM-04",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Malai Lotion Combo",
+  "name": "Turmeric Face Malai + Vanilla Hand Malai + Beetroot Lip Butter + Multi-Nut Malai Lotion"
+ },
+ "FK-CB-GLAS-03": {
+  "nh": "FK-CB-GLAS-03",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Fk Exclusive Combos",
+  "name": "Aloe Active Gel 50g + Aloe Lepa 40g + Aloe Sun-Protect 250 ml - Flipkart"
+ },
+ "FK-CB-HIO-03-D": {
+  "nh": "FK-CB-HIO-03",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Fk Exclusive Combos",
+  "name": "Henna Paste x 2 +  Indigo - 125g + Post-Henna Oil 50 ml - Flipkart"
+ },
+ "FK-CB-NMOC-03": {
+  "nh": "FK-CB-NMOC-03",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Fk Exclusive Combos",
+  "name": "Neem NutriMask + Neem Oil 100 ml + Neem comb - Flipkart"
+ },
+ "FK-CB-OMRC-05": {
+  "nh": "FK-CB-OMRC-05",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Fk Exclusive Combos",
+  "name": "Rosemary (Oil 150ml + NutriMask  + Shampoo 300ml + Conditioner 150 ml + Jal 150 ml) - Flipkart"
+ },
+ "FK-HR-TR-SCAO-03": {
+  "nh": "FK-AOSC-TR-03",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Fk Exclusive Combos",
+  "name": "Trileaf All Season Hair Oil + Shampoo + Conditioner - Flipkart"
+ },
+ "SL-GR-MCG2-200": {
+  "nh": "SL-GR-MCG2-200",
+  "sc": "Seasonal",
+  "pc": "Gulaal",
+  "sub": "Gulaal",
+  "name": "Marigold Gulaal x 2 + Gulaab Gulaal x 2"
+ },
+ "SL-GR-GPN2-200": {
+  "nh": "SL-GR-GPN2-200",
+  "sc": "Seasonal",
+  "pc": "Gulaal",
+  "sub": "Gulaal",
+  "name": "Gulaab Gulaal x 2 + Neem Gulaal x 2"
+ },
+ "FT-PFU-3P-040": {
+  "nh": "FT-PFU-3P-040",
+  "sc": "Foot Care",
+  "pc": "Foot Ubtan",
+  "sub": "Foot Ubtan",
+  "name": "3P-AHA Foot Ubtan - Single Pack"
+ },
+ "FC-FW-RCGL2-100": {
+  "nh": "FC-FW-RCGL2-100",
+  "sc": "Face Care",
+  "pc": "Tikta",
+  "sub": "Face Wash",
+  "name": "Roasted Chicory Gel Face Wash - Pack of 2"
+ },
+ "FC-MM-GK-25": {
+  "nh": "FC-MM-GK-25",
+  "sc": "Face Care",
+  "pc": "Makeup Melt",
+  "sub": "Makeup Melt",
+  "name": "Geranium Kiss Makeup Melt"
+ },
+ "CB-CP-CORM-02": {
+  "nh": "CB-CP-CORM-02",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Cold Pressed Oil Combo",
+  "name": "CP Coconut 200 ml + Rosemary Essential Oil"
+ },
+ "BC-HM-BVE2-025": {
+  "nh": "BC-HM-BVE2-030",
+  "sc": "Body Care",
+  "pc": "Hand Malai",
+  "sub": "Hand Malai",
+  "name": "Berry Vanilla Hand Malai - Pack of 2"
+ },
+ "HHR-SHO-CS-200": {
+  "nh": "HR-SHO-CS-200",
+  "sc": "Hair Care",
+  "pc": "Summer Hair Oil",
+  "sub": "Summer Hair Oil",
+  "name": "Curry Sesame Summer Hair Oil - 200 ml"
+ },
+ "BA-BML-AD-200-D": {
+  "nh": "BA-BML-AD-200",
+  "sc": "Baby Care",
+  "pc": "Baby Malai Lotion",
+  "sub": "Baby Malai Lotion",
+  "name": "Baby Malai Lotion Almond & Dates"
+ },
+ "FT-PFU-BC-040": {
+  "nh": "FT-PFU-BC-040",
+  "sc": "Foot Care",
+  "pc": "Foot Ubtan",
+  "sub": "Foot Ubtan",
+  "name": "Banana Clove Foot Ubtan - Single Pack"
+ },
+ "BC-UU-LD-040": {
+  "nh": "BC-UU-LD-040",
+  "sc": "Body Care",
+  "pc": "UnderArm Ubtan",
+  "sub": "Underarm Ubtan",
+  "name": "Lemon Drop UnderArm Ubtan - Single Pack"
+ },
+ "BC-UU-WY-040": {
+  "nh": "BC-UU-WY-040",
+  "sc": "Body Care",
+  "pc": "UnderArm Ubtan",
+  "sub": "Underarm Ubtan",
+  "name": "White Yogurt UnderArm - Single Pack"
+ },
+ "FC-MU-RB-040": {
+  "nh": "FC-MU-RB-040",
+  "sc": "Face Care",
+  "pc": "Multani",
+  "sub": "Multani Ubtan",
+  "name": "Rose Blush Multani - Single Pack"
+ },
+ "AC-KNC-FTP-00": {
+  "nh": "AC-KNC-FTP-00",
+  "sc": "Accessories",
+  "pc": "Comb",
+  "sub": "Comb",
+  "name": "Neem Comb - Pocket (Pack of 1)"
+ },
+ "FT-PFU-TO-040": {
+  "nh": "FT-PFU-TO-040",
+  "sc": "Foot Care",
+  "pc": "Foot Ubtan",
+  "sub": "Foot Ubtan",
+  "name": "Tamarind Oats Foot Ubtan - Single Pack"
+ },
+ "BC-BU-MR-080": {
+  "nh": "BC-BU-MR-080",
+  "sc": "Body Care",
+  "pc": "Bath",
+  "sub": "Bath Ubtan",
+  "name": "Masoor Bath Ubtan - Single Pack"
+ },
+ "FT-PFU-TO2-040": {
+  "nh": "FT-PFU-TO2-040",
+  "sc": "Foot Care",
+  "pc": "Foot Ubtan",
+  "sub": "Foot Ubtan",
+  "name": "Tamarind Oats Foot Ubtan - Pack of 2"
+ },
+ "FT-PFU-BC2-040": {
+  "nh": "FT-PFU-BC2-040",
+  "sc": "Foot Care",
+  "pc": "Foot Ubtan",
+  "sub": "Foot Ubtan",
+  "name": "Banana Clove Foot Ubtan - Pack of 2"
+ },
+ "FC-KL-KA-040": {
+  "nh": "FC-KL-KA-040",
+  "sc": "Face Care",
+  "pc": "Lepa",
+  "sub": "Lepa",
+  "name": "Kaolin Aparajita Lepa - Pack of 1"
+ },
+ "BC-HM-MCY-025": {
+  "nh": "BC-HM-MCY-030",
+  "sc": "Body Care",
+  "pc": "Hand Malai",
+  "sub": "Hand Malai",
+  "name": "Mango Cinnamon Hand Malai  - Single Pack"
+ },
+ "HR-SH-HB-250-D": {
+  "nh": "HR-SH-HB-250",
+  "sc": "Hair Care",
+  "pc": "Navdha Shampoo",
+  "sub": "Shampoo",
+  "name": "Five Oil Hibiscus Shampoo - 250g"
+ },
+ "HR-HO-NB-100": {
+  "nh": "HR-HO-NB-100",
+  "sc": "Hair Care",
+  "pc": "Winter Hair Oil",
+  "sub": "Winter Hair Oil",
+  "name": "Neem Bhringraj Winter Hair Oil - 100 ml"
+ },
+ "HR-HO-OA-100": {
+  "nh": "HR-HO-OA-100",
+  "sc": "Hair Care",
+  "pc": "Winter Hair Oil",
+  "sub": "Winter Hair Oil",
+  "name": "Olive Almond Winter Hair Oil - 100 ml"
+ },
+ "BC-HM-4BM-025": {
+  "nh": "BC-HM-4BM-030",
+  "sc": "Body Care",
+  "pc": "Hand Malai",
+  "sub": "Hand Malai",
+  "name": "4 Butter Hand Malai - Single Pack"
+ },
+ "CB-RA2-RCSN-03-N": {
+  "nh": "CB-RA2-RCSN-03",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Henna Combo",
+  "name": "Henna Paste + Curry Sesame Nutrimask x2"
+ },
+ "BC-EO-RM-015": {
+  "nh": "BC-EO-RM-015",
+  "sc": "Body Care",
+  "pc": "Essential Oil",
+  "sub": "Essential Oil",
+  "name": "Rosemary Essential Oil - 15 ml"
+ },
+ "FC-FL-MO3-100": {
+  "nh": "FC-FL-MO3-100",
+  "sc": "Face Care",
+  "pc": "Flora Jal",
+  "sub": "Flora Jal",
+  "name": "Pure Mogra Jal - Pack of 3"
+ },
+ "CB-CPS-NC2-125": {
+  "nh": "CB-CPS-NC2-125",
+  "sc": "Body Care",
+  "pc": "Soap",
+  "sub": "Soap",
+  "name": "Neem Basil + Charcoal Soap - Pack of 2"
+ },
+ "CB-CPS-OT2-125": {
+  "nh": "CB-CPS-OT2-125",
+  "sc": "Body Care",
+  "pc": "Soap",
+  "sub": "Soap",
+  "name": "Orange + Turmeric Soap - Pack of 2"
+ },
+ "HR-HE-RA2H-85": {
+  "nh": "HR-HE-RA2H-85",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Henna Combo",
+  "name": "HUFA Pigment Indigo Powder - 85g + Henna Paste - Pack of 2"
+ },
+ "BA-FM-MNO-075": {
+  "nh": "BA-FM-MNO-075",
+  "sc": "Baby Care",
+  "pc": "Baby Face Malai",
+  "sub": "Baby Face Malai",
+  "name": "Baby Face Malai Multi-Nut Oats Vit-E"
+ },
+ "BA-DRC-PC-075": {
+  "nh": "BA-DRC-PC-075",
+  "sc": "Baby Care",
+  "pc": "Diaper Rash Cream",
+  "sub": "Baby Diaper Rash Cream",
+  "name": "Prebiotic Anti-Rash Cream - 75g"
+ },
+ "HR-AHO-CC-200": {
+  "nh": "HR-AHO-CC-200",
+  "sc": "Hair Care",
+  "pc": "All Season Hair Oil",
+  "sub": "All Season Hair Oil",
+  "name": "Castor Coconut All Season Hair Oil - 200 ml"
+ },
+ "HR-AHO-OA-200": {
+  "nh": "HR-AHO-OA-200",
+  "sc": "Hair Care",
+  "pc": "All Season Hair Oil",
+  "sub": "All Season Hair Oil",
+  "name": "Olive Almond Vit-E All Season Hair Oil - 200 ml"
+ },
+ "HR-AHO-OA-100": {
+  "nh": "HR-AHO-OA-100",
+  "sc": "Hair Care",
+  "pc": "All Season Hair Oil",
+  "sub": "All Season Hair Oil",
+  "name": "Olive Almond Vit-E All Season Hair Oil - 100 ml"
+ },
+ "HR-AHO-CC-100": {
+  "nh": "HR-AHO-CC-100",
+  "sc": "Hair Care",
+  "pc": "All Season Hair Oil",
+  "sub": "All Season Hair Oil",
+  "name": "Castor Coconut All Season Hair Oil - 100 ml"
+ },
+ "FC-KL-AC2-040": {
+  "nh": "FC-KL-AC2-040",
+  "sc": "Face Care",
+  "pc": "Lepa",
+  "sub": "Lepa",
+  "name": "Aloe Cucumber Lepa - Pack of 2"
+ },
+ "BA-BU-GG-080": {
+  "nh": "BA-BU-GG-080",
+  "sc": "Baby Care",
+  "pc": "Baby Ubtan",
+  "sub": "Baby Ubtan",
+  "name": "Grain & Gram Baby Ubtan - 80g"
+ },
+ "BC-SM-RFR-120": {
+  "nh": "BC-SM-RFR-120",
+  "sc": "Body Care",
+  "pc": "Malai",
+  "sub": "Skin Malai",
+  "name": "Fig Rose Skin Malai - 120 ml - Single Pack"
+ },
+ "BC-BU-NC3-080": {
+  "nh": "BC-BU-NC3-080",
+  "sc": "Body Care",
+  "pc": "Bath",
+  "sub": "Bath Ubtan",
+  "name": "Neem Bath Ubtan - Pack of 3"
+ },
+ "BA-PBO-VCO-100": {
+  "nh": "BA-PBO-VCO-100",
+  "sc": "Baby Care",
+  "pc": "Pure Baby Oil",
+  "sub": "Baby Pure Oils",
+  "name": "Pure Virgin Coconut Baby Oil - 100 ml"
+ },
+ "BC-EO-LE-015": {
+  "nh": "BC-EO-LE-015",
+  "sc": "Body Care",
+  "pc": "Essential Oil",
+  "sub": "Essential Oil",
+  "name": "Lemongrass Essential Oil - 15ml"
+ },
+ "FC-MU-RB2-040": {
+  "nh": "FC-MU-RB2-040",
+  "sc": "Face Care",
+  "pc": "Multani",
+  "sub": "Multani Ubtan",
+  "name": "Rose Blush Multani - Pack of 2"
+ },
+ "FC-HG-PA2-080-D": {
+  "nh": "FC-HG-PA2-080",
+  "sc": "Face Care",
+  "pc": "Aloe Vera Gel",
+  "sub": "Face Gel",
+  "name": "Aloe Vera Gel- 80 gms - Pack of 2"
+ },
+ "BC-CP-RH-030": {
+  "nh": "BC-CP-RH-030",
+  "sc": "Face Care",
+  "pc": "CP Face Oil",
+  "sub": "Cold Pressed Oil",
+  "name": "Rosehip Oil - 30 ml"
+ },
+ "CB-KNC-WOLO-02": {
+  "nh": "CB-KNC-WOLO-02",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Comb Combo",
+  "name": "Wide Comb + Olive Almond Summer Dasabuti Oil"
+ },
+ "AC-KNC-WTSS-00": {
+  "nh": "AC-KNC-WTSS-00",
+  "sc": "Accessories",
+  "pc": "Comb",
+  "sub": "Comb",
+  "name": "Neem Comb - Shampoo Small"
+ },
+ "CB-CPS-MC2-125": {
+  "nh": "CB-CPS-MC2-125",
+  "sc": "Body Care",
+  "pc": "Soap",
+  "sub": "Soap",
+  "name": "Milk Rosehip + Charcoal Soap - Pack of 2"
+ },
+ "FC-KL-KA2-040": {
+  "nh": "FC-KL-KA2-040",
+  "sc": "Face Care",
+  "pc": "Lepa",
+  "sub": "Lepa",
+  "name": "Kaolin Aparajita Lepa - Pack of 2"
+ },
+ "CB-RA2-RMJ-02": {
+  "nh": "CB-RA2-RMJ-02",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Henna Combo",
+  "name": "Ready-to-Apply Henna Paste + Rosemary Methi Jal"
+ },
+ "BA-BP-RH2-150": {
+  "nh": "BA-BP-RH2-150",
+  "sc": "Baby Care",
+  "pc": "Baby Powder",
+  "sub": "Baby Powder",
+  "name": "Raw Haldi Baby Powder - Pack of 2"
+ },
+ "BC-SM-CID2-120": {
+  "nh": "BC-SM-CID2-120",
+  "sc": "Body Care",
+  "pc": "Malai",
+  "sub": "Skin Malai",
+  "name": "Double Cocoa Skin Malai - 120 ml - Pack of 2"
+ },
+ "BA-BP-RH-150": {
+  "nh": "BA-BP-RH-150",
+  "sc": "Baby Care",
+  "pc": "Baby Powder",
+  "sub": "Baby Powder",
+  "name": "Raw Haldi Baby Powder"
+ },
+ "BA-BU-CMA-080-D": {
+  "nh": "BA-BU-CMA-080",
+  "sc": "Baby Care",
+  "pc": "Baby Ubtan",
+  "sub": "Baby Ubtan",
+  "name": "Charoli Milk Almond Baby Ubtan - 80g"
+ },
+ "CB-RA2-RTK-02": {
+  "nh": "CB-RA2-RTK-02",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Henna Combo",
+  "name": "Ready-to-Apply Henna Paste + Tamarind Kasturi Lepa"
+ },
+ "BC-EO-SO-015": {
+  "nh": "BC-EO-SO-015",
+  "sc": "Body Care",
+  "pc": "Essential Oil",
+  "sub": "Essential Oil",
+  "name": "Sweet Orange Essential Oil - 15 ml"
+ },
+ "SL-GR-RB2-800": {
+  "nh": "SL-GR-RB2-400",
+  "sc": "Seasonal",
+  "pc": "Gulaal",
+  "sub": "Gulaal",
+  "name": "Rang Bahaar (All 4 Gulaal Variants) x 2"
+ },
+ "BC-BU-MR3-080": {
+  "nh": "BC-BU-MR3-080",
+  "sc": "Body Care",
+  "pc": "Bath",
+  "sub": "Bath Ubtan",
+  "name": "Masoor Bath Ubtan - Pack of 3"
+ },
+ "CB-KNC-WTRA-02": {
+  "nh": "CB-KNC-WTRA-02",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Henna Combo",
+  "name": "Wide Comb + 2x Henna Paste"
+ },
+ "SL-GR-JJMC050": {
+  "nh": "SL-GR-JJMC050",
+  "sc": "Seasonal",
+  "pc": "Gulaal",
+  "sub": "Gulaal",
+  "name": "Jamuni Gulaal + Marigold Gulaal"
+ },
+ "BC-HM-CBB2-025": {
+  "nh": "BC-HM-CBB2-030",
+  "sc": "Body Care",
+  "pc": "Hand Malai",
+  "sub": "Hand Malai",
+  "name": "Chia Banana Hand Malai - Pack of 2"
+ },
+ "FC-EM-UJ2-025": {
+  "nh": "FC-EM-UJ2-025",
+  "sc": "Face Care",
+  "pc": "Mura",
+  "sub": "Face Mura",
+  "name": "Urad Jojoba Mura - Pack of 2"
+ },
+ "BA-BP-RHSC-150": {
+  "nh": "BA-BP-RHSC-150",
+  "sc": "Baby Care",
+  "pc": "Baby Powder",
+  "sub": "Baby Powder",
+  "name": "Raw + Shwet Baby Powder"
+ },
+ "FC-HG-OV2-080": {
+  "nh": "FC-HG-OV2-080",
+  "sc": "Face Care",
+  "pc": "Gel Pack",
+  "sub": "Face Gel",
+  "name": "Olive Vit-E Night Gel- 80 gms - Pack of 2"
+ },
+ "FC-MM-LS-25": {
+  "nh": "FC-MM-LS-25",
+  "sc": "Face Care",
+  "pc": "Makeup Melt",
+  "sub": "Makeup Melt",
+  "name": "Lemon Squeeze Makeup Melt"
+ },
+ "BA-BU-MN-080": {
+  "nh": "BA-BU-MN-080",
+  "sc": "Baby Care",
+  "pc": "Baby Ubtan",
+  "sub": "Baby Ubtan",
+  "name": "Milk & Nut Baby Ubtan - 80g"
+ },
+ "BA-BU-CMA-080": {
+  "nh": "BA-BU-CMA-080",
+  "sc": "Baby Care",
+  "pc": "Baby Ubtan",
+  "sub": "Baby Ubtan",
+  "name": "Charoli Milk Almond Baby Ubtan - 80g"
+ },
+ "CB-KNC-DOLO-02": {
+  "nh": "CB-KNC-DOLO-02",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Comb Combo",
+  "name": "Dual Tooth Comb  + Olive Almond Summer Hair Oil - 100 ml"
+ },
+ "HR-HIP-IP-125": {
+  "nh": "FK-HR-HIP-IP-125",
+  "sc": "Hair Care",
+  "pc": "Indigo Powder",
+  "sub": "Indigo Powder",
+  "name": "HUFA Pigment Indigo Powder - 125g"
+ },
+ "FC-FW-BUCM-02": {
+  "nh": "FC-FW-BUCM-02",
+  "sc": "Face Care",
+  "pc": "Tikta",
+  "sub": "Face Wash",
+  "name": "Ubtan Face Wash + Cinnamon Nashpati Mura"
+ },
+ "BC-CPS-NLHL2-125": {
+  "nh": "BC-CPS-NLHL2-125",
+  "sc": "Body Care",
+  "pc": "Soap",
+  "sub": "Soap",
+  "name": "Lavender Soap 125g - Pack of 2"
+ },
+ "BC-CPS-NLTB4-125": {
+  "nh": "BC-CPS-NLTB4-125",
+  "sc": "Body Care",
+  "pc": "Soap",
+  "sub": "Soap",
+  "name": "Tomato Basil Soap 125g - Pack of 4"
+ },
+ "BC-CPS-NLHL6-125": {
+  "nh": "BC-CPS-NLHL6-125",
+  "sc": "Body Care",
+  "pc": "Soap",
+  "sub": "Soap",
+  "name": "Lavender Soap 125g - Pack of 6"
+ },
+ "BC-CPS-NLTB2-125": {
+  "nh": "BC-CPS-NLTB2-125",
+  "sc": "Body Care",
+  "pc": "Soap",
+  "sub": "Soap",
+  "name": "Tomato Basil Soap 125g - Pack of 2"
+ },
+ "FC-FW-MGNG-02": {
+  "nh": "FC-FW-MGNG-02",
+  "sc": "Face Care",
+  "pc": "Tikta",
+  "sub": "Face Wash",
+  "name": "Moringa Gel Face Wash + Neem Gel Face Wash"
+ },
+ "HR-HIP-IP3-85": {
+  "nh": "HR-HIP-IP3-85",
+  "sc": "Hair Care",
+  "pc": "Indigo Powder",
+  "sub": "Indigo Powder",
+  "name": "HUFA Pigment Indigo Powder - 85g - Pack of 3"
+ },
+ "BC-CPS-NLTB6-125": {
+  "nh": "BC-CPS-NLTB6-125",
+  "sc": "Body Care",
+  "pc": "Soap",
+  "sub": "Soap",
+  "name": "Tomato Basil Soap 125g - Pack of 6"
+ },
+ "BC-CPS-NLHL-125": {
+  "nh": "BC-CPS-NLHL-125",
+  "sc": "Body Care",
+  "pc": "Soap",
+  "sub": "Soap",
+  "name": "Lavender Soap - Single Pack"
+ },
+ "BC-CPS-NLTB-125": {
+  "nh": "BC-CPS-NLTB-125",
+  "sc": "Body Care",
+  "pc": "Soap",
+  "sub": "Soap",
+  "name": "Tomato Basil Soap - Single Pack"
+ },
+ "CB-FAW-SKC-008": {
+  "nh": "CB-FAW-SKC-008",
+  "sc": "Gift",
+  "pc": "Gift",
+  "sub": "Brand Starter Kit",
+  "name": "Fresh Ayurveda Brand Starter Kit - Classic (Winter)"
+ },
+ "HR-MJ-RM-200": {
+  "nh": "HR-MJ-RM-200",
+  "sc": "Hair Care",
+  "pc": "Methi Jal",
+  "sub": "Methi Jal",
+  "name": "Rosemary Methi Jal"
+ },
+ "FC-MU-CC2-040": {
+  "nh": "FC-MU-CC2-040",
+  "sc": "Face Care",
+  "pc": "Multani",
+  "sub": "Multani Ubtan",
+  "name": "Cucumber Crush Multani - Pack of 2"
+ },
+ "FC-HG-AC2-080": {
+  "nh": "FC-HG-AC2-080",
+  "sc": "Face Care",
+  "pc": "Gel Pack",
+  "sub": "Face Gel",
+  "name": "Aloe Cucumber Cooling Gel- 40 gms x 4"
+ },
+ "FC-DU-LB-040": {
+  "nh": "FC-DU-LB-040",
+  "sc": "Face Care",
+  "pc": "Ubtan",
+  "sub": "Ubtan",
+  "name": "Lemon Burst Ubtan - Single Pack"
+ },
+ "CB-CPS-OC2-125": {
+  "nh": "CB-CPS-OC2-125",
+  "sc": "Body Care",
+  "pc": "Soap",
+  "sub": "Soap",
+  "name": "Orange + Charcoal Soap - Pack of 2"
+ },
+ "AC-PFR-PS2-00": {
+  "nh": "AC-PFR-PS2-00",
+  "sc": "Accessories",
+  "pc": "Pumice Rub",
+  "sub": "Pumice Rub",
+  "name": "Pumice Rub - Pack of 2"
+ },
+ "CB-FAS-SKG-12": {
+  "nh": "CB-FAS-SKG-12",
+  "sc": "Gift",
+  "pc": "Gift",
+  "sub": "Brand Starter Kit",
+  "name": "Fresh Ayurveda Brand Starter Kit - Grand (Summer)"
+ },
+ "HR-HO-SM-100": {
+  "nh": "HR-HO-SM-100",
+  "sc": "Hair Care",
+  "pc": "Winter Hair Oil",
+  "sub": "Winter Hair Oil",
+  "name": "Soybean Methi Winter Hair Oil - 100 ml"
+ },
+ "HR-SHO-SM-100": {
+  "nh": "HR-SHO-SM-100",
+  "sc": "Hair Care",
+  "pc": "Summer Hair Oil",
+  "sub": "Summer Hair Oil",
+  "name": "Soybean Methi Summer Hair Oil - 100 ml"
+ },
+ "SL-GR-TCG2-200": {
+  "nh": "SL-GR-TCG2-200",
+  "sc": "Seasonal",
+  "pc": "Gulaal",
+  "sub": "Gulaal",
+  "name": "Turmeric Gulaal x 2 + Gulaab Gulaal x 2"
+ },
+ "HR-SHO-SM-200": {
+  "nh": "HR-SHO-SM-200",
+  "sc": "Hair Care",
+  "pc": "Summer Hair Oil",
+  "sub": "Summer Hair Oil",
+  "name": "Soybean Methi Summer Hair Oil - 200 ml"
+ },
+ "CB-CPS-NS2-125": {
+  "nh": "CB-CPS-OT2-125",
+  "sc": "Body Care",
+  "pc": "Soap",
+  "sub": "Soap",
+  "name": "Orange + Turmeric Soap - Pack of 2"
+ },
+ "CB-CPS-MO2-125": {
+  "nh": "CB-CPS-MO2-125",
+  "sc": "Body Care",
+  "pc": "Soap",
+  "sub": "Soap",
+  "name": "Milk Rosehip + Orange Soap - Pack of 2"
+ },
+ "CB-CPS-MS2-125": {
+  "nh": "CB-CPS-MS2-125",
+  "sc": "Body Care",
+  "pc": "Soap",
+  "sub": "Soap",
+  "name": "Milk Rosehip + Sandalwood Soap - Pack of 2"
+ },
+ "CB-CPS-OS2-125": {
+  "nh": "CB-CPS-OS2-125",
+  "sc": "Body Care",
+  "pc": "Soap",
+  "sub": "Soap",
+  "name": "Orange + Sandalwood Soap - Pack of 2"
+ },
+ "CB-CPS-NT2-125": {
+  "nh": "CB-CPS-NT2-125",
+  "sc": "Body Care",
+  "pc": "Soap",
+  "sub": "Soap",
+  "name": "Neem Basil + Turmeric Soap - Pack of 2"
+ },
+ "BC-SM-SCS-200": {
+  "nh": "BC-SM-SCS-200",
+  "sc": "Body Care",
+  "pc": "Malai",
+  "sub": "Skin Malai",
+  "name": "Sunflower Skin Malai - 200ml - Single Pack"
+ },
+ "CB-CPS-ST2-125": {
+  "nh": "CB-CPS-ST2-125",
+  "sc": "Body Care",
+  "pc": "Soap",
+  "sub": "Soap",
+  "name": "Sandalwood + Turmeric Soap - Pack of 2"
+ },
+ "CB-CPS-CT2-125": {
+  "nh": "CB-CPS-CT2-125",
+  "sc": "Body Care",
+  "pc": "Soap",
+  "sub": "Soap",
+  "name": "Charcoal + Turmeric Soap - Pack of 2"
+ },
+ "CB-CPS-MT2-125": {
+  "nh": "CB-CPS-MT2-125",
+  "sc": "Body Care",
+  "pc": "Soap",
+  "sub": "Soap",
+  "name": "Milk Rosehip + Turmeric Soap - Pack of 2"
+ },
+ "CB-CPS-CS2-125": {
+  "nh": "CB-CPS-CS2-125",
+  "sc": "Body Care",
+  "pc": "Soap",
+  "sub": "Soap",
+  "name": "Charcoal + Sandalwood Soap - Pack of 2"
+ },
+ "HR-MJ-CH-200": {
+  "nh": "HR-MJ-CH-200",
+  "sc": "Hair Care",
+  "pc": "Methi Jal",
+  "sub": "Methi Jal",
+  "name": "Chamomile Methi Jal"
+ },
+ "CB-GS-CO-07": {
+  "nh": "CB-GS-CO-07",
+  "sc": "Gift",
+  "pc": "Gift",
+  "sub": "Diwali Gift Set",
+  "name": "Fresh Festive Treats Diwali Gift Set"
+ },
+ "CB-GS-CP-08": {
+  "nh": "CB-GS-CP-08",
+  "sc": "Gift",
+  "pc": "Gift",
+  "sub": "Diwali Gift Set",
+  "name": "Nature's Bright Blessings Diwali Gift Set"
+ },
+ "FC-HG-OK2-080": {
+  "nh": "FC-HG-OK2-080",
+  "sc": "Face Care",
+  "pc": "Gel Pack",
+  "sub": "Face Gel",
+  "name": "Orange Kiwi Vit-C Gel- 80 gms - Pack of 2"
+ },
+ "FC-HG-NT2-080": {
+  "nh": "FC-HG-NT2-080",
+  "sc": "Face Care",
+  "pc": "Gel Pack",
+  "sub": "Face Gel",
+  "name": "Neem TeaTree Anti-Acne Gel- 80 gms - Pack of 2"
+ },
+ "BC-UU-AC2-040": {
+  "nh": "BC-UU-AC2-040",
+  "sc": "Body Care",
+  "pc": "UnderArm Ubtan",
+  "sub": "Underarm Ubtan",
+  "name": "Aloe Crush UnderArm - Pack of 2"
+ },
+ "BC-CPS-NLHL4-125": {
+  "nh": "BC-CPS-NLHL4-125",
+  "sc": "Body Care",
+  "pc": "Soap",
+  "sub": "Soap",
+  "name": "Lavender Soap 125g - Pack of 4"
+ },
+ "FC-HG-PA2-080": {
+  "nh": "FC-HG-PA2-080",
+  "sc": "Face Care",
+  "pc": "Aloe Vera Gel",
+  "sub": "Active Gel",
+  "name": "Aloe Vera Gel- 80 gms - Pack of 2"
+ },
+ "FC-DU-LB2-040": {
+  "nh": "FC-DU-LB2-040",
+  "sc": "Face Care",
+  "pc": "Ubtan",
+  "sub": "Ubtan",
+  "name": "Lemon Burst Ubtan - Pack of 2"
+ },
+ "CB-GS-CM-04": {
+  "nh": "CB-GS-CM-04",
+  "sc": "Gift",
+  "pc": "Gift",
+  "sub": "Diwali Gift Set",
+  "name": "Sparkling Delight Diwali Gift Set"
+ },
+ "CB-GS-CN-06": {
+  "nh": "CB-GS-CN-06",
+  "sc": "Gift",
+  "pc": "Gift",
+  "sub": "Diwali Gift Set",
+  "name": "Lights of Love Diwali Gift Set"
+ },
+ "SL-PC-LC-090": {
+  "nh": "SL-PC-LC-090",
+  "sc": "Seasonal",
+  "pc": "Candle",
+  "sub": "Prosperity Candles",
+  "name": "Lilac Charm Jar Candle - Pack of 1"
+ },
+ "SL-RB-PH-002": {
+  "nh": "SL-RB-PH-002",
+  "sc": "Seasonal",
+  "pc": "Raksha Bandhan",
+  "sub": "Rakhi",
+  "name": "Hathi + Phool with Roli & Akshat"
+ },
+ "SL-RB-PG-002": {
+  "nh": "SL-RB-PG-002",
+  "sc": "Seasonal",
+  "pc": "Raksha Bandhan",
+  "sub": "Rakhi",
+  "name": "Ganesh + Phool with Roli & Akshat"
+ },
+ "FC-FW-GPCR2-100": {
+  "nh": "FC-FW-GPCR2-100",
+  "sc": "Face Care",
+  "pc": "Tikta",
+  "sub": "Face Wash",
+  "name": "Gentle Patola Cream Face Wash - Pack of 2"
+ },
+ "SL-RB-HG-002": {
+  "nh": "SL-RB-HG-002",
+  "sc": "Seasonal",
+  "pc": "Raksha Bandhan",
+  "sub": "Rakhi",
+  "name": "Hathi + Ganesh Rakhi with Roli & Akshat"
+ },
+ "SL-GR-TC2-050": {
+  "nh": "SL-GR-TC2-050",
+  "sc": "Seasonal",
+  "pc": "Gulaal",
+  "sub": "Gulaal",
+  "name": "Turmeric Gulaal - Pack of 2"
+ },
+ "SL-GR-MCN2-200": {
+  "nh": "SL-GR-MCN2-200",
+  "sc": "Seasonal",
+  "pc": "Gulaal",
+  "sub": "Gulaal",
+  "name": "Marigold Gulaal x 2 + Neem Gulaal x 2"
+ },
+ "SL-PC-CB-090": {
+  "nh": "SL-PC-CB-090",
+  "sc": "Seasonal",
+  "pc": "Candle",
+  "sub": "Prosperity Candles",
+  "name": "Cherry Bloom Jar Candle - Pack of 1"
+ },
+ "CB-PC-SNNL-04": {
+  "nh": "CB-PC-SNNL-04",
+  "sc": "Seasonal",
+  "pc": "Candle",
+  "sub": "Prosperity Candles",
+  "name": "Starry Night (2Pcs) + Nature's Light (2Pcs) Candle Combo"
+ },
+ "CB-GS-BU-09": {
+  "nh": "CB-GS-BU-09",
+  "sc": "Gift",
+  "pc": "Gift",
+  "sub": "Diwali Gift Set",
+  "name": "Nature's Homecoming Gift Set"
+ },
+ "SL-PC-CB2-090": {
+  "nh": "SL-PC-CB2-090",
+  "sc": "Seasonal",
+  "pc": "Candle",
+  "sub": "Prosperity Candles",
+  "name": "Cherry Bloom Jar Candle - Pack of 2"
+ },
+ "CB-GS-BT-08": {
+  "nh": "CB-GS-BT-08",
+  "sc": "Gift",
+  "pc": "Gift",
+  "sub": "Diwali Gift Set",
+  "name": "Prosperous Diwali Gift Set"
+ },
+ "SL-PC-MS2-070": {
+  "nh": "SL-PC-MS2-070",
+  "sc": "Seasonal",
+  "pc": "Candle",
+  "sub": "Prosperity Candles",
+  "name": "Marigold Spark Candle (2Pcs) - Pack of 1"
+ },
+ "FC-FW-GPCR-100": {
+  "nh": "FC-FW-GPCR-100",
+  "sc": "Face Care",
+  "pc": "Tikta",
+  "sub": "Face Wash",
+  "name": "Gentle Patola Tikta Cream Face Wash"
+ },
+ "CB-PC-AGNL-04": {
+  "nh": "CB-PC-AGNL-04",
+  "sc": "Seasonal",
+  "pc": "Candle",
+  "sub": "Prosperity Candles",
+  "name": "Apple Gleam (2Pcs) + Nature's Light (2Pcs) Candle Combo"
+ },
+ "CB-GS-BV-19": {
+  "nh": "CB-GS-BV-19",
+  "sc": "Gift",
+  "pc": "Gift",
+  "sub": "Diwali Gift Set",
+  "name": "Diwali with Family Gift Set"
+ },
+ "SL-PC-NL2-070": {
+  "nh": "SL-PC-NL2-070",
+  "sc": "Seasonal",
+  "pc": "Candle",
+  "sub": "Prosperity Candles",
+  "name": "Nature's Light Candle (2Pcs) - Pack of 1"
+ },
+ "SL-PC-JH2-090": {
+  "nh": "SL-PC-JH2-090",
+  "sc": "Seasonal",
+  "pc": "Candle",
+  "sub": "Prosperity Candles",
+  "name": "Jasmine Halo Candle - Pack of 2"
+ },
+ "CB-PC-MSAG-04": {
+  "nh": "CB-PC-MSAG-04",
+  "sc": "Seasonal",
+  "pc": "Candle",
+  "sub": "Prosperity Candles",
+  "name": "Marigold Spark (2Pcs) + Apple Gleam (2Pcs) Candle Combo"
+ },
+ "SL-PC-AG2-070": {
+  "nh": "SL-PC-AG2-070",
+  "sc": "Seasonal",
+  "pc": "Candle",
+  "sub": "Prosperity Candles",
+  "name": "Apple Gleam Candle (2Pcs) - Pack of 1"
+ },
+ "BC-UU-AC3-040": {
+  "nh": "BC-UU-AC3-040",
+  "sc": "Body Care",
+  "pc": "UnderArm Ubtan",
+  "sub": "Underarm Ubtan",
+  "name": "Aloe Crush UnderArm - Pack of 3"
+ },
+ "CB-GS-BS-06": {
+  "nh": "CB-GS-BS-06",
+  "sc": "Gift",
+  "pc": "Gift",
+  "sub": "Diwali Gift Set",
+  "name": "Pure Love Diwali Gift Set"
+ },
+ "SL-PC-SN2-070": {
+  "nh": "SL-PC-SN2-070",
+  "sc": "Seasonal",
+  "pc": "Candle",
+  "sub": "Prosperity Candles",
+  "name": "Starry Night Candle (2Pcs) - Pack of 1"
+ },
+ "CB-PC-SNMS-04": {
+  "nh": "CB-PC-SNMS-04",
+  "sc": "Seasonal",
+  "pc": "Candle",
+  "sub": "Prosperity Candles",
+  "name": "Starry Night (2Pcs) + Marigold Spark (2Pcs) Candle Combo"
+ },
+ "FC-FW-GPGL-100": {
+  "nh": "FC-FW-GPGL-100",
+  "sc": "Face Care",
+  "pc": "Tikta",
+  "sub": "Face Wash",
+  "name": "Gentle Patola Tikta Gel Face Wash"
+ },
+ "FC-FW-GPGL2-100": {
+  "nh": "FC-FW-GPGL2-100",
+  "sc": "Face Care",
+  "pc": "Tikta",
+  "sub": "Face Wash",
+  "name": "Gentle Patola Gel Face Wash - Pack of 2"
+ },
+ "HR-SHO-HA4-100": {
+  "nh": "HR-SHO-HA4-100",
+  "sc": "Hair Care",
+  "pc": "Summer Hair Oil",
+  "sub": "Summer Hair Oil",
+  "name": "Hibiscus Amla Summer Hair Oil 100 ml x 4"
+ },
+ "HR-SHO-TL4-100": {
+  "nh": "HR-SHO-TL4-100",
+  "sc": "Hair Care",
+  "pc": "Summer Hair Oil",
+  "sub": "Summer Hair Oil",
+  "name": "Crushed Tri-Leaf Summer Hair Oil 100 ml x 4"
+ },
+ "LP-LB-BC4-010": {
+  "nh": "LP-LB-BC4-010",
+  "sc": "Lip Care",
+  "pc": "Lip Butter",
+  "sub": "Lip Butter",
+  "name": "Beetroot Crush Lip Butter x 4"
+ },
+ "CB-GS-BR-06": {
+  "nh": "CB-GS-BR-06",
+  "sc": "Gift",
+  "pc": "Gift",
+  "sub": "Diwali Gift Set",
+  "name": "Care with Nature Gift Set"
+ },
+ "LP-LB-LL-010": {
+  "nh": "LP-LB-LL-010",
+  "sc": "Lip Care",
+  "pc": "Lip Butter",
+  "sub": "Lip Butter",
+  "name": "Lemon Lavender Lip Butter"
+ },
+ "LP-LB-LL2-010": {
+  "nh": "LP-LB-LL2-010",
+  "sc": "Lip Care",
+  "pc": "Lip Butter",
+  "sub": "Lip Butter",
+  "name": "Lemon Lavender Lip Butter - Pack of 2"
+ },
+ "HR-HE-RA-250": {
+  "nh": "HR-HE-RA-250",
+  "sc": "Hair Care",
+  "pc": "Henna",
+  "sub": "Henna",
+  "name": "Henna Paste - Pack of 1"
+ },
+ "LP-LM-CC-020": {
+  "nh": "LP-LM-CC-020",
+  "sc": "Lip Care",
+  "pc": "Lip Mura",
+  "sub": "Lip Mura",
+  "name": "Coco Cinnamon Lip Mura - Regular"
+ },
+ "LP-LM-CC-012": {
+  "nh": "LP-LM-CC-012",
+  "sc": "Lip Care",
+  "pc": "Lip Mura",
+  "sub": "Lip Mura",
+  "name": "Coco Cinnamon Lip Mura - Beginner"
+ },
+ "FC-MU-CC-040": {
+  "nh": "FC-MU-CC-040",
+  "sc": "Face Care",
+  "pc": "Multani",
+  "sub": "Multani Ubtan",
+  "name": "Cucumber Crush Multani - Single Pack"
+ },
+ "BC-UU-AC-040": {
+  "nh": "BC-UU-AC-040",
+  "sc": "Body Care",
+  "pc": "UnderArm Ubtan",
+  "sub": "Underarm Ubtan",
+  "name": "Aloe Crush UnderArm - Single Pack"
+ },
+ "SL-GR-JJNM050": {
+  "nh": "SL-GR-JJNM050",
+  "sc": "Seasonal",
+  "pc": "Gulaal",
+  "sub": "Gulaal",
+  "name": "Jamuni Gulaal + Neem Gulaal"
+ },
+ "LP-LB-BC8-010": {
+  "nh": "LP-LB-BC8-010",
+  "sc": "Lip Care",
+  "pc": "Lip Butter",
+  "sub": "Lip Butter",
+  "name": "Beetroot Crush Lip Butter x 8"
+ },
+ "SL-GR-RB2-400": {
+  "nh": "SL-GR-RB2-400",
+  "sc": "Seasonal",
+  "pc": "Gulaal",
+  "sub": "Gulaal",
+  "name": "Rang Bahaar (All 4 Gulaal Variants) x 2"
+ },
+ "BA-BM-AD-120-D": {
+  "nh": "BA-BM-AD-120",
+  "sc": "Baby Care",
+  "pc": "Baby Body Malai",
+  "sub": "Baby Malai",
+  "name": "Baby Malai Almond & Date"
+ },
+ "BC-HM-BVE-025": {
+  "nh": "BC-HM-BVE-030",
+  "sc": "Body Care",
+  "pc": "Hand Malai",
+  "sub": "Hand Malai",
+  "name": "Berry Vanilla Hand Malai - Single Pack"
+ },
+ "HR-HE-RA2-250": {
+  "nh": "HR-HE-RA2-250",
+  "sc": "Hair Care",
+  "pc": "Henna",
+  "sub": "Henna",
+  "name": "Henna Paste - Pack of 2"
+ },
+ "BA-BM-TC-120-D": {
+  "nh": "BA-BM-TC-120",
+  "sc": "Baby Care",
+  "pc": "Baby Body Malai",
+  "sub": "Baby Malai",
+  "name": "Baby Malai Tender Coconut"
+ },
+ "BC-CPS-MR-125": {
+  "nh": "BC-CPS-MR-125",
+  "sc": "Body Care",
+  "pc": "Soap",
+  "sub": "Soap",
+  "name": "Milk Rosehip Soap - Single Pack"
+ },
+ "BC-CPS-EO4-125": {
+  "nh": "BC-CPS-EO4-125",
+  "sc": "Body Care",
+  "pc": "Soap",
+  "sub": "Soap",
+  "name": "Exfoliating Orange soap - Pack of 4"
+ },
+ "FK-FC-FW-KMPA3-100": {
+  "nh": "FK-FC-FW-KMPA3-100",
+  "sc": "Face Care",
+  "pc": "Tikta",
+  "sub": "Face Wash",
+  "name": "Kali Mitti Face Wash 100g x 3 - Flipkart"
+ },
+ "CB-GS-AG-08": {
+  "nh": "CB-GS-AG-08",
+  "sc": "Gift",
+  "pc": "Gift",
+  "sub": "Gift Set",
+  "name": "Couple Favorites Gift Set"
+ },
+ "FK-CB-GFLO-05": {
+  "nh": "FK-CB-GFLO-05",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Fk Exclusive Combos",
+  "name": "Neem  (Active Gel x 1 + Gel Face Wash x 1 + Lepa x 1 + Soap x 1+  Oil x 1) - Flipkart"
+ },
+ "FC-FW-BNCR-100": {
+  "nh": "FC-FW-BNCR-100",
+  "sc": "Face Care",
+  "pc": "Tikta",
+  "sub": "Face Wash",
+  "name": "Bitter Neem Tikta Cream Face Wash"
+ },
+ "CB-GS-AI-06": {
+  "nh": "CB-GS-AI-06",
+  "sc": "Gift",
+  "pc": "Gift",
+  "sub": "Gift Set",
+  "name": "Nature Ka Purest Gift Set"
+ },
+ "FK-CB-MPLU-05": {
+  "nh": "FK-CB-MPLU-05",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Fk Exclusive Combos",
+  "name": "Turmeric (Mukhalayax1+ Nutmegx1 + Bath Ubtanx1 + Soapx1) + Tamarind Lepax1- Flipkart"
+ },
+ "FC-HG-RT2-080": {
+  "nh": "FC-HG-RT2-080",
+  "sc": "Face Care",
+  "pc": "Gel Pack",
+  "sub": "Face Gel",
+  "name": "Steamed Rose Toning Gel- 80 gms - Pack of 2"
+ },
+ "FC-AC-BT-050": {
+  "nh": "FC-AC-BT-050",
+  "sc": "Face Care",
+  "pc": "Active Gel",
+  "sub": "Active Gel",
+  "name": "Active Beetroot Tomato Vit-A Gel"
+ },
+ "HR-HE-RT2-060": {
+  "nh": "HR-HE-RT2-060",
+  "sc": "Hair Care",
+  "pc": "Henna",
+  "sub": "Henna",
+  "name": "Henna Touch-Up Paste  - Pack of 2"
+ },
+ "BA-BM-TC2-120": {
+  "nh": "BA-BM-TC2-120",
+  "sc": "Baby Care",
+  "pc": "Baby Body Malai",
+  "sub": "Baby Malai",
+  "name": "Baby Malai Tender Coconut - Pack of 2"
+ },
+ "FC-DM-AA2-030": {
+  "nh": "FC-DM-AA2-030",
+  "sc": "Face Care",
+  "pc": "Face Malai",
+  "sub": "Face Malai",
+  "name": "Clove Tea Tree Anti Acne - Pack of 2"
+ },
+ "FK-FC-FW-BUPA2-150": {
+  "nh": "FK-FC-FW-BUPA2-150",
+  "sc": "Face Care",
+  "pc": "Tikta",
+  "sub": "Face Wash",
+  "name": "Ubtan Tikta Face Wash - Pack of 2 - Flipkart"
+ },
+ "FK-FC-DM-PG2-030": {
+  "nh": "FK-FC-DM-PG2-030",
+  "sc": "Face Care",
+  "pc": "Face Malai",
+  "sub": "Face Malai",
+  "name": "Turmeric Nutmeg  - Pack of 2 - Flipkart"
+ },
+ "FK-BC-SM-CID2-120": {
+  "nh": "FK-BC-SM-CID2-120",
+  "sc": "Face Care",
+  "pc": "Face Malai",
+  "sub": "Skin Malai",
+  "name": "Double Cocoa Intense DermaCare - Pack of 2 - Flipkart"
+ },
+ "HR-CB-IPRA-02-M": {
+  "nh": "HR-CB-IPRA-02",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Henna Combo",
+  "name": "Indigo Powder 85g + Henna 220g"
+ },
+ "HR-CB-IPRA-02": {
+  "nh": "HR-CB-IPRA-02",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Henna Combo",
+  "name": "Indigo Powder 85g + Henna 220g"
+ },
+ "BC-CB-AA-05": {
+  "nh": "BC-CB-AA-05",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Baby Care Combo",
+  "name": "Baby Winter Kit 1"
+ },
+ "FC-DU-SO-040": {
+  "nh": "FC-DU-SO-040",
+  "sc": "Face Care",
+  "pc": "Ubtan",
+  "sub": "Ubtan",
+  "name": "Sweet Orange Ubtan - Single Pack"
+ },
+ "HR-SH-TR-650": {
+  "nh": "HR-SH-TR-650",
+  "sc": "Hair Care",
+  "pc": "Navdha Shampoo",
+  "sub": "Shampoo",
+  "name": "Trileaf Rosemary Shampoo - 650 ml"
+ },
+ "HR-SH-HB-650": {
+  "nh": "HR-SH-HB-650",
+  "sc": "Hair Care",
+  "pc": "Navdha Shampoo",
+  "sub": "Shampoo",
+  "name": "Hibiscus Shampoo - 650 ml"
+ },
+ "FK-CB-CB-BUPG-002": {
+  "nh": "FK-CB-BUPG-02",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Face Wash",
+  "name": "Brightening Ubtan Face Wash 150g + Turmeric Nutmeg Pigmentation Face Malai 30g - Flipkart"
+ },
+ "CB-FAW-SKC-01": {
+  "nh": "CB-FAW-SKC-008",
+  "sc": "Gift",
+  "pc": "Gift",
+  "sub": "Brand Starter Kit",
+  "name": "Fresh Ayurveda Brand Starter Kit - Classic (Winter)"
+ },
+ "FK-HR-CB-TRMC-05": {
+  "nh": "FK-CB-OMRC-05",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Nourishing Jal Combo",
+  "name": "Rosemary (Oil 150ml + NutriMask  + Shampoo 300ml + Conditioner 150 ml + Jal 150 ml) - Flipkart"
+ },
+ "FK-HR-CB-TRM-03": {
+  "nh": "FK-HR-CB-TRM-03",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Nourishing Jal Combo",
+  "name": "Trileaf Rosemary Shampoo 300ml + Trileaf Rosemary Conditioner 150 ml + Rosemary Jal 200ml - Flipkart"
+ },
+ "FK-HR-CB-HB-03": {
+  "nh": "FK-HR-CB-HB-03",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Nourishing Jal Combo",
+  "name": "Hibiscus Shampoo 300ml + Hibiscus Conditioner 150ml + Hibiscus Hair Jal 200ml - Flipkart"
+ },
+ "HR-NJ-RJ-200": {
+  "nh": "HR-NJ-RJ-200",
+  "sc": "Hair Care",
+  "pc": "Nourishing Jal",
+  "sub": "Nourishing Jal",
+  "name": "Rosemary Jal - 200ml"
+ },
+ "HR-NJ-HJ-200": {
+  "nh": "HR-NJ-HJ-200",
+  "sc": "Hair Care",
+  "pc": "Nourishing Jal",
+  "sub": "Nourishing Jal",
+  "name": "Hibiscus Jal - 200ml"
+ },
+ "HR-NJ-MJ-200": {
+  "nh": "HR-NJ-MJ-200",
+  "sc": "Hair Care",
+  "pc": "Nourishing Jal",
+  "sub": "Nourishing Jal",
+  "name": "Methi Jal - 200ml"
+ },
+ "FC-FW-BUPA-050": {
+  "nh": "RL-FC-FW-BUPA-050",
+  "sc": "Face Care",
+  "pc": "Tikta",
+  "sub": "Face Wash",
+  "name": "Brightening Ubtan Face Wash - 50 gms - Retail"
+ },
+ "HR-HIP-IP-500": {
+  "nh": "HR-HIP-IP-500",
+  "sc": "Hair Care",
+  "pc": "Indigo Powder",
+  "sub": "Indigo Powder",
+  "name": "HUFA Pigment Indigo Powder - 500g"
+ },
+ "CB-GS-AC-06": {
+  "nh": "CB-GS-AC-06",
+  "sc": "Gift",
+  "pc": "Gift",
+  "sub": "Gift Set",
+  "name": "The Ultimate Nourishment Blast"
+ },
+ "FC-DM-NR-050": {
+  "nh": "FC-DM-NR-050",
+  "sc": "Face Care",
+  "pc": "Face Malai",
+  "sub": "Face Malai",
+  "name": "Cocoa Mogra (Overnight) Face Malai - 50g"
+ },
+ "FC-HDDM-FB-050": {
+  "nh": "FC-HDDM-FB-050",
+  "sc": "Face Care",
+  "pc": "Face Malai",
+  "sub": "Face Malai",
+  "name": "Flax Bakuchi (Hot Dry) 35+ Face Malai - 50g"
+ },
+ "FC-HDDM-TR-050": {
+  "nh": "FC-HDDM-TR-050",
+  "sc": "Face Care",
+  "pc": "Face Malai",
+  "sub": "Face Malai",
+  "name": "Tomato Rosehip (Hot Dry) 20 - 35 Yrs Face Malai - 50g"
+ },
+ "FC-HHDM-FC-050": {
+  "nh": "FC-HHDM-FC-050",
+  "sc": "Face Care",
+  "pc": "Face Malai",
+  "sub": "Face Malai",
+  "name": "Flax Carrot (Hot Humid) 35+ Face Malai - 50g"
+ },
+ "FC-HP-AHP-125": {
+  "nh": "FC-HP-AHP-125",
+  "sc": "Hair Care",
+  "pc": "Herbal Powder",
+  "sub": "Herbal Powder",
+  "name": "Amla Herbal Powder - 125g"
+ },
+ "FC-HP-HHP-100": {
+  "nh": "FC-HP-HHP-100",
+  "sc": "Hair Care",
+  "pc": "Herbal Powder",
+  "sub": "Herbal Powder",
+  "name": "Hibiscus Herbal Powder - 100g"
+ },
+ "CB-FAW-SKG-12": {
+  "nh": "CB-FAW-SKG-12",
+  "sc": "Gift",
+  "pc": "Gift",
+  "sub": "Brand Starter Kit",
+  "name": "Fresh Ayurveda Brand Starter Kit - Grand (Winter)"
+ },
+ "FC-DM-PG-050": {
+  "nh": "FC-DM-PG-050",
+  "sc": "Face Care",
+  "pc": "Face Malai",
+  "sub": "Face Malai",
+  "name": "Turmeric Nutmeg (Pigmentation)  Face Malai - 50g"
+ },
+ "FC-HP-MM-100": {
+  "nh": "FC-HP-MP-100",
+  "sc": "Hair Care",
+  "pc": "Herbal Powder",
+  "sub": "Herbal Powder",
+  "name": "Mulethi Herbal Powder - 100g"
+ },
+ "FC-HHDM-TV-050": {
+  "nh": "FC-HHDM-TV-050",
+  "sc": "Face Care",
+  "pc": "Face Malai",
+  "sub": "Face Malai",
+  "name": "Tomato Vetiver (Hot Humid) 20 - 35 Yrs Face Malai - 50g"
+ },
+ "HR-SH-NB-250": {
+  "nh": "HR-SH-NB-250",
+  "sc": "Hair Care",
+  "pc": "Navdha Shampoo",
+  "sub": "Shampoo",
+  "name": "Neem Beracyl Dandruff Shampoo - 250g"
+ },
+ "HR-SH-TR-100": {
+  "nh": "FK-HR-SH-TR-100",
+  "sc": "Hair Care",
+  "pc": "Navdha Shampoo",
+  "sub": "Shampoo",
+  "name": "Trileaf Rosemary Shampoo 100ml - Flipkart"
+ },
+ "FK-FC-CB-MOBU-02": {
+  "nh": "FK-FC-CB-MOBU-02",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Fk Exclusive Combos",
+  "name": "Pure Mogra Flora Jal 100ml + Brightening Ubtan Face Wash 150g - Flipkart"
+ },
+ "FK-FC-CB-GUBU-02": {
+  "nh": "FK-FC-CB-GUBU-02",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Fk Exclusive Combos",
+  "name": "Pure Gulab Flora Jal 190g + Brightening Ubtan Face Wash 150g - Flipkart"
+ },
+ "FC-HP-MM-200": {
+  "nh": "FC-HP-MM-200",
+  "sc": "Hair Care",
+  "pc": "Herbal Powder",
+  "sub": "Herbal Powder",
+  "name": "Multani Mitti Herbal Powder - 200g"
+ },
+ "FC-CB-BNNT-02": {
+  "nh": "FC-CB-BNNT-02",
+  "sc": "Combo",
+  "pc": "Combo",
+  "sub": "Fk Exclusive Combos",
+  "name": "Bitter Neem Gel Tikta 100g + Active Anti Acne Neem Tea Tree Gel 80g"
+ },
+ "BC-BL-PM-250": {
+  "nh": "BC-BL-PM-250",
+  "sc": "Face Care",
+  "pc": "Face Malai",
+  "sub": "Malai Lotion",
+  "name": "Peach Milk Malai Lotion - 250ml"
+ },
+ "BL-HR-CN-HB-150": {
+  "nh": "BL-HR-CN-HB-150",
+  "sc": "Hair Care",
+  "pc": "Nutri Conditioner",
+  "sub": "Conditioner",
+  "name": "Five Oil Hibiscus Conditioner - Blinkit"
+ },
+ "BL-FC-FW-BUPA-100": {
+  "nh": "BL-FC-FW-BUPA-100",
+  "sc": "Face Care",
+  "pc": "Tikta",
+  "sub": "Face Wash",
+  "name": "Brightening Ubtan Face Wash - Blinkit"
+ },
+ "BL-FC-FW-MDPA-100": {
+  "nh": "BL-FC-FW-MDPA-100",
+  "sc": "Face Care",
+  "pc": "Tikta",
+  "sub": "Face Wash",
+  "name": "Masoor Dal Face Wash - Blinkit"
+ },
+ "BL-AC-KNC-DT-00": {
+  "nh": "BL-AC-KNC-DT-00",
+  "sc": "Accessories",
+  "pc": "Comb",
+  "sub": "Comb",
+  "name": "Neem Comb - Dual Tooth - Blinkit"
+ },
+ "BL-HR-HE-RA2-250": {
+  "nh": "BL-HR-HE-RA2-250",
+  "sc": "Hair Care",
+  "pc": "Henna",
+  "sub": "Henna",
+  "name": "Henna Paste - Pack of 2 - Blinkit"
+ },
+ "BL-HR-HIP-IP-85": {
+  "nh": "BL-HR-HIP-IP-85",
+  "sc": "Hair Care",
+  "pc": "Indigo Powder",
+  "sub": "Indigo Powder",
+  "name": "HUFA Pigment Indigo Powder - 85g - Blinkit"
+ },
+ "BL-HR-SHO-HA-100": {
+  "nh": "BL-HR-SHO-HA-100",
+  "sc": "Hair Care",
+  "pc": "Summer Hair Oil",
+  "sub": "Summer Hair Oil",
+  "name": "Hibiscus Amla Summer Hair Oil - 100 ml - Blinkit"
+ },
+ "BL-AC-SDL-LO2-00": {
+  "nh": "BL-AC-SDL-LO2-00",
+  "sc": "Accessories",
+  "pc": "Loofah",
+  "sub": "Loofah",
+  "name": "Sun Dried Loofah - Pack of 2 - Blinkit"
+ },
+ "BL-HR-SH-HB-250": {
+  "nh": "BL-HR-SH-HB-250",
+  "sc": "Hair Care",
+  "pc": "Navdha Shampoo",
+  "sub": "Shampoo",
+  "name": "Five Oil Hibiscus Shampoo - Blinkit"
+ },
+ "FK-BC-CPS-NBLT-03": {
+  "nh": "FK-BC-CPS-NBLT-03",
+  "sc": "Body Care",
+  "pc": "Soap",
+  "sub": "Soap",
+  "name": "Sacred Neem & Basil Soap 125g + Himalayan Lavender Soap 125g + Tomato Basil 125g - Flipkart SKU"
+ }
+}

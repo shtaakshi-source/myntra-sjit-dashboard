@@ -1,0 +1,11 @@
+# Order reports contain customer city / pincode data, so keep them out of the repo
+data/*
+!data/.gitkeep
+
+# Generated dashboard (has sales figures baked in); remove these two lines if you want to commit it
+output/*
+!output/.gitkeep
+
+__pycache__/
+.venv/
+.DS_Store
