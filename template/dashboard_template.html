@@ -3,91 +3,62 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nat Habit × Myntra — SJIT (FBM) Intelligence Dashboard</title>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<title>Nat Habit × Myntra — SJIT Intelligence Dashboard</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
 <style>
 :root{--brand:#C4552A;--brand-dk:#8C3517;--brand-lt:#E8845C;--pale:#FBF0E8;--pale2:#F5E4D7;--bg:#FAF6F2;--surf:#FFFFFF;--tx:#1A0A00;--txm:#836A5A;--bdr:#E8D5C8;--bdr2:#D4B9A8;--ok:#2E7D32;--ok-bg:#E8F5E9;--warn:#C07813;--warn-bg:#FFF8E1;--err:#C62828;--err-bg:#FFEBEE;--info:#1565C0;--info-bg:#E3F2FD;--r:10px;--rs:6px;--sh:0 1px 4px rgba(196,85,42,.08),0 4px 16px rgba(196,85,42,.06)}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--bg);color:var(--tx);font-size:14px;line-height:1.5}
-#up{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px;background:linear-gradient(135deg,#FBF0E8 0%,#FAF6F2 60%,#F5E4D7 100%)}
-.u-logo{background:var(--brand);border-radius:14px;padding:18px 26px;margin-bottom:28px;text-align:center;line-height:1}
-.u-logo .ln{font-size:34px;font-weight:800;color:#F0B89A;letter-spacing:-1px;display:block}
-.u-logo .tg{font-size:8px;letter-spacing:3.5px;color:rgba(240,184,154,.6);margin-top:5px;display:block;text-transform:uppercase}
-.u-title{font-size:22px;font-weight:700;color:var(--brand-dk);margin-bottom:6px;text-align:center}
-.u-sub{font-size:14px;color:var(--txm);margin-bottom:36px;text-align:center}
-.u-card{background:var(--surf);border-radius:var(--r);border:.5px solid var(--bdr);box-shadow:var(--sh);padding:36px 40px;max-width:640px;width:100%}
-.u-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:20px;margin-bottom:24px}
-@media(max-width:640px){.u-grid{grid-template-columns:1fr}.u-card{padding:24px}}
-.dz{border:2px dashed var(--bdr2);border-radius:var(--r);padding:28px 16px;text-align:center;cursor:pointer;transition:all .2s;background:var(--pale);position:relative}
-.dz:hover,.dz.over{border-color:var(--brand);background:var(--pale2)}
-.dz.ok{border-color:var(--ok);border-style:solid;background:var(--ok-bg)}
-.dz input{position:absolute;inset:0;opacity:0;cursor:pointer}
-.dz .ico{font-size:28px;margin-bottom:8px;display:block}
-.dz .lbl{font-size:13px;font-weight:700;color:var(--brand-dk);margin-bottom:4px}
-.dz .hint{font-size:11px;color:var(--txm)}
-.dz .fn{font-size:12px;color:var(--ok);font-weight:600;margin-top:6px;display:none;word-break:break-all}
-.dz.ok .fn{display:block}.dz.ok .hint{display:none}
-.baked{background:var(--pale);border:.5px solid var(--bdr);border-radius:var(--rs);padding:12px 16px;margin-bottom:24px;font-size:12px;color:var(--txm);display:flex;gap:10px}
-.go-btn{width:100%;padding:14px;background:var(--brand);color:#fff;border:none;border-radius:var(--rs);font-size:15px;font-weight:700;cursor:pointer;transition:all .2s}
-.go-btn:hover{background:var(--brand-dk)}
-.go-btn:disabled{background:var(--bdr2);cursor:not-allowed}
-.ghost-btn{width:100%;padding:11px;background:transparent;color:var(--brand-dk);border:.5px solid var(--bdr2);border-radius:var(--rs);font-size:13px;font-weight:600;cursor:pointer;margin-top:10px}
-.ghost-btn:hover{border-color:var(--brand);background:var(--pale)}
-.go-st{text-align:center;font-size:13px;color:var(--txm);margin-top:12px;min-height:20px}
-#db{display:none}
 .topbar{background:var(--brand);color:#fff;padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:56px;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.18);gap:12px}
 .tb-logo{display:flex;align-items:center;gap:10px;min-width:0}
 .tb-wm{font-size:19px;font-weight:800;color:#F0B89A;letter-spacing:-0.5px;line-height:1}
 .tb-wm span{font-size:10px;letter-spacing:2px;display:block;font-weight:600;color:rgba(240,184,154,.65);margin-top:-1px}
 .tb-div{width:1px;height:26px;background:rgba(255,255,255,.25)}
 .tb-ttl{font-size:13px;color:rgba(255,255,255,.88);font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.tb-meta{font-size:11px;color:rgba(255,255,255,.65);white-space:nowrap}
-.tb-btn{background:rgba(255,255,255,.15);border:.5px solid rgba(255,255,255,.3);color:#fff;padding:6px 14px;border-radius:var(--rs);font-size:12px;cursor:pointer;font-weight:600;white-space:nowrap}
-.tb-btn:hover{background:rgba(255,255,255,.25)}
-@media(max-width:700px){.tb-ttl,.tb-div{display:none}.topbar{padding:0 14px}}
+.tb-meta{font-size:11px;color:rgba(255,255,255,.75);white-space:nowrap;text-align:right;line-height:1.4}
+@media(max-width:760px){.tb-ttl,.tb-div{display:none}.topbar{padding:0 14px}}
 .nav{background:var(--surf);border-bottom:.5px solid var(--bdr);display:flex;padding:0 28px;overflow-x:auto;position:sticky;top:56px;z-index:99}
-.nt{padding:14px 20px;font-size:13px;font-weight:600;color:var(--txm);border-bottom:3px solid transparent;cursor:pointer;white-space:nowrap}
+.nt{padding:14px 18px;font-size:13px;font-weight:600;color:var(--txm);border-bottom:3px solid transparent;cursor:pointer;white-space:nowrap}
 .nt:hover{color:var(--brand)}
 .nt.on{color:var(--brand);border-bottom-color:var(--brand)}
-.body{padding:24px 28px;max-width:1400px;margin:0 auto}
-@media(max-width:700px){.body{padding:16px 12px}.nav{padding:0 8px}}
+.nt .cnt{display:inline-block;margin-left:5px;font-size:10px;padding:0 6px;border-radius:10px;background:var(--err);color:#fff;vertical-align:1px}
+.body{padding:24px 28px;max-width:1440px;margin:0 auto}
+@media(max-width:760px){.body{padding:16px 12px}.nav{padding:0 8px}}
 .tp{display:none}.tp.on{display:block}
 .alert{border-radius:var(--rs);padding:12px 16px;margin-bottom:20px;display:flex;align-items:flex-start;gap:10px;font-size:13px}
 .a-err{background:var(--err-bg);border:.5px solid #FFCDD2;color:var(--err)}
 .a-ok{background:var(--ok-bg);border:.5px solid #C8E6C9;color:var(--ok)}
-.a-warn{background:var(--warn-bg);border:.5px solid #FFE082;color:var(--warn)}
+.a-warn{background:var(--warn-bg);border:.5px solid #FFE082;color:#8a5a0c}
 .a-info{background:var(--info-bg);border:.5px solid #90CAF9;color:var(--info)}
-.kgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-bottom:24px}
+.kgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:12px;margin-bottom:24px}
 .kc{background:var(--surf);border-radius:var(--r);border:.5px solid var(--bdr);padding:16px 18px;box-shadow:var(--sh)}
 .kl{font-size:11px;font-weight:700;color:var(--txm);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px}
 .kv{font-size:26px;font-weight:800;line-height:1;margin-bottom:4px}
 .ks{font-size:11px;color:var(--txm)}
 .c-brand{color:var(--brand)}.c-ok{color:var(--ok)}.c-err{color:var(--err)}.c-warn{color:var(--warn)}.c-info{color:var(--info)}
 .sec{margin-bottom:28px}
-.sh{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;gap:12px;flex-wrap:wrap}
+.sh{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:12px;gap:12px;flex-wrap:wrap}
 .st{font-size:14px;font-weight:700}
-.st-desc{font-size:11px;color:var(--txm);font-weight:400;margin-top:2px;max-width:780px}
-.sbadge{font-size:11px;padding:2px 10px;border-radius:20px;background:var(--pale);color:var(--brand-dk);font-weight:600;white-space:nowrap}
+.st-desc{font-size:11px;color:var(--txm);font-weight:400;margin-top:2px;max-width:860px}
 .card{background:var(--surf);border-radius:var(--r);border:.5px solid var(--bdr);box-shadow:var(--sh);overflow:hidden}
 .cb{padding:20px}
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-@media(max-width:900px){.g2{grid-template-columns:1fr}}
+@media(max-width:980px){.g2{grid-template-columns:1fr}}
 .cw{position:relative;width:100%}
 .legend{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:10px;font-size:12px;color:var(--txm)}
 .legend span{display:flex;align-items:center;gap:5px}
-.dot{width:10px;height:10px;border-radius:2px;flex-shrink:0}
+.dot{width:10px;height:10px;border-radius:2px;flex-shrink:0;display:inline-block}
 table{width:100%;border-collapse:collapse;font-size:13px}
-th{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--txm);padding:8px 12px;border-bottom:.5px solid var(--bdr);text-align:left;white-space:nowrap;background:var(--bg);position:sticky;top:0}
+th{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--txm);padding:8px 10px;border-bottom:.5px solid var(--bdr);text-align:left;white-space:nowrap;background:var(--bg);position:sticky;top:0;z-index:1}
 th.srt{cursor:pointer}
-td{padding:9px 12px;border-bottom:.5px solid var(--bdr);vertical-align:middle}
+td{padding:8px 10px;border-bottom:.5px solid var(--bdr);vertical-align:middle}
 tr:last-child td{border-bottom:none}
 tbody tr:hover td{background:var(--pale)}
 .tw{overflow-x:auto}
 .tw.tall{max-height:640px;overflow:auto}
 .num{text-align:right;font-variant-numeric:tabular-nums}
 .badge{display:inline-block;font-size:10px;padding:2px 8px;border-radius:20px;font-weight:700;white-space:nowrap}
-.b-err{background:var(--err-bg);color:var(--err)}.b-warn{background:var(--warn-bg);color:var(--warn)}.b-ok{background:var(--ok-bg);color:var(--ok)}.b-mute{background:#F0EAE4;color:var(--txm)}.b-brand{background:var(--pale);color:var(--brand-dk)}.b-info{background:var(--info-bg);color:var(--info)}
+.b-err{background:var(--err-bg);color:var(--err)}.b-warn{background:var(--warn-bg);color:#8a5a0c}.b-ok{background:var(--ok-bg);color:var(--ok)}.b-mute{background:#F0EAE4;color:var(--txm)}.b-brand{background:var(--pale);color:var(--brand-dk)}.b-info{background:var(--info-bg);color:var(--info)}
 .bw{display:flex;align-items:center;gap:6px}
 .bb{flex:1;height:6px;border-radius:3px;background:var(--bdr);overflow:hidden;min-width:60px}
 .bf{height:100%;border-radius:3px}
@@ -100,577 +71,506 @@ tbody tr:hover td{background:var(--pale)}
 .sb:focus{border-color:var(--brand)}
 .ni{width:64px;padding:5px 8px;border:.5px solid var(--bdr2);border-radius:var(--rs);font-size:12px}
 code{font-size:11px;font-family:ui-monospace,Menlo,monospace}
-.wr{display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:.5px solid var(--bdr)}
-.wr:last-child{border-bottom:none}
-.wn{font-size:12px;font-weight:600;width:200px;flex-shrink:0}
-.wn small{display:block;font-weight:400;color:var(--txm);font-size:10px}
-.wbw{flex:1}
-.wbb{height:8px;border-radius:4px;background:var(--pale2);overflow:hidden}
-.wbf{height:100%;background:var(--brand);border-radius:4px}
-.wu{font-size:12px;font-weight:700;width:70px;text-align:right;font-variant-numeric:tabular-nums}
-.pot-bar{display:flex;height:46px;border-radius:var(--rs);overflow:hidden;margin:6px 0 10px;border:.5px solid var(--bdr)}
-.pot-bar div{display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;white-space:nowrap;overflow:hidden;min-width:0}
-.pot-leg{display:flex;flex-wrap:wrap;gap:18px;font-size:12px;color:var(--txm)}
+.pn{font-size:11px;color:var(--txm);max-width:280px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pot-bar{display:flex;height:40px;border-radius:var(--rs);overflow:hidden;margin:6px 0 10px;border:.5px solid var(--bdr)}
+.pot-bar div{display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;white-space:nowrap;overflow:hidden;min-width:0}
+.pot-leg{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12px;color:var(--txm)}
 .pot-leg b{color:var(--tx)}
 .slider-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap;background:var(--pale);border:.5px solid var(--bdr);border-radius:var(--rs);padding:12px 16px;margin-bottom:20px;font-size:13px}
 .slider-row input[type=range]{flex:1;min-width:180px;accent-color:var(--brand)}
-.slider-row .sv{font-weight:800;color:var(--brand);font-size:18px;min-width:52px}
-.hm td.cv{text-align:center;font-size:11px;font-weight:700;padding:6px 4px}
-.hm td.sk{font-size:11px;font-family:ui-monospace,Menlo,monospace;white-space:nowrap}
+.sv{font-weight:800;color:var(--brand);font-size:18px;min-width:52px}
+.scen{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px}
+@media(max-width:980px){.scen{grid-template-columns:1fr}}
+.scen .big{font-size:40px;font-weight:800;color:var(--ok);line-height:1}
+.scen .sub{font-size:12px;color:var(--txm);margin-top:4px}
+.scen h3{font-size:13px;font-weight:700;margin-bottom:10px}
+.rule{background:var(--surf);border:.5px solid var(--bdr);border-left:4px solid var(--brand);border-radius:var(--rs);padding:14px 18px;margin-bottom:20px;font-size:13px;line-height:1.7}
+.rule table{width:auto;margin-top:6px}
+.rule td,.rule th{padding:4px 14px 4px 0;border:none;background:none;position:static}
+.hm td.cv{text-align:center;font-size:11px;font-weight:700;padding:6px 4px;min-width:62px}
 .note{font-size:11px;color:var(--txm);margin-top:10px;line-height:1.6}
 .ex-row{display:flex;gap:18px;flex-wrap:wrap;font-size:12px;color:var(--txm)}
 .ex-row b{color:var(--tx)}
+.mut{color:var(--txm)}
 </style>
 </head>
 <body>
+<div class="topbar">
+  <div class="tb-logo">
+    <div class="tb-wm">nat hab<em style="font-style:italic">*</em>t<span>BREATHE LIFE</span></div>
+    <div class="tb-div"></div>
+    <div class="tb-ttl">Myntra SJIT Intelligence Dashboard</div>
+  </div>
+  <div class="tb-meta"><span id="tb-range">—</span><br>Stock as of <span id="tb-inv">—</span> · built __BUILT_AT__</div>
+</div>
+<div class="nav">
+  <div class="nt on" onclick="tab('ov',this)">📈 Overview</div>
+  <div class="nt" onclick="tab('po',this)">🚀 Potential</div>
+  <div class="nt" onclick="tab('nw',this)">🏭 Network</div>
+  <div class="nt" onclick="tab('tr',this)">📉 Trends</div>
+  <div class="nt" onclick="tab('sp',this)">📦 Send Plan</div>
+  <div class="nt" onclick="tab('sk',this)">🔍 SKU Tracker</div>
+  <div class="nt" onclick="tab('ca',this)">🗂 Categories</div>
+  <div class="nt" onclick="tab('mg',this)">⚠️ MPM Gaps<span class="cnt" id="mg-cnt" style="display:none"></span></div>
+</div>
+<div class="body">
 
-<div id="up">
-  <div class="u-logo"><span class="ln">nat</span><span class="ln">hab<span style="font-style:italic">*</span>t</span><span class="tg">Breathe Life</span></div>
-  <div class="u-title">Myntra SJIT Intelligence Dashboard</div>
-  <div class="u-sub">View a different report without rebuilding. To update the saved dashboard, run build_dashboard.py.</div>
-  <div class="u-card">
-    <div class="u-grid">
-      <div class="dz" id="dz-s" ondragover="dov(event,'dz-s')" ondragleave="dlv('dz-s')" ondrop="drop(event,'s')">
-        <input type="file" accept=".csv,.xlsx,.xls" onchange="hf(event,'s')">
-        <span class="ico">📊</span>
-        <div class="lbl">Seller Orders Report</div>
-        <div class="hint">Myntra Partner Portal export<br>CSV / XLSX · needs po_type column</div>
-        <div class="fn" id="s-fn">—</div>
-      </div>
-      <div class="dz" id="dz-w" ondragover="dov(event,'dz-w')" ondragleave="dlv('dz-w')" ondrop="drop(event,'w')">
-        <input type="file" accept=".csv,.xlsx,.xls" onchange="hf(event,'w')">
-        <span class="ico">🏭</span>
-        <div class="lbl">Warehouse ID mapping</div>
-        <div class="hint">Optional — 43 IDs already built in.<br>Upload only if new FCs appear.</div>
-        <div class="fn" id="w-fn">—</div>
-      </div>
+<!-- OVERVIEW -->
+<div class="tp on" id="tp-ov">
+  <div id="ov-alert"></div>
+  <div class="kgrid" id="ov-kpis"></div>
+  <div class="sec">
+    <div class="sh"><div><div class="st">Day-on-day orders and SJIT share</div><div class="st-desc">SJIT = shipped from a Myntra FC, FDC or M-Now store. "PPMP · 6m+" = shipped from our warehouses but the SKU has 6+ months shelf life, so it could have gone SJIT. "PPMP · short / not in MPM" = shelf life under 6 months or style missing from the MPM. Line = SJIT % of all orders (right axis).</div></div></div>
+    <div class="card"><div class="cb">
+      <div class="legend"><span><span class="dot" style="background:#C4552A"></span>SJIT</span><span><span class="dot" style="background:#E8B89F"></span>PPMP · 6m+ shelf life</span><span><span class="dot" style="background:#C9D3DD"></span>PPMP · short / not in MPM</span><span><span class="dot" style="background:#5A3020;height:3px;width:14px"></span>SJIT %</span><span><span class="dot" style="background:#2E7D32;height:3px;width:14px"></span>7-day rolling SJIT %</span></div>
+      <div class="cw" style="height:260px"><canvas id="dod-c"></canvas></div>
+    </div></div>
+  </div>
+  <div class="g2">
+    <div class="sec">
+      <div class="sh"><div><div class="st">SJIT share by shelf life</div><div class="st-desc">Shelf life from the MPM. 12- and 9-month SKUs can go to SJIT easily; 6-month SKUs need tighter planning; under 6 months stays PPMP.</div></div></div>
+      <div class="card"><div class="tw"><table><thead><tr><th>Shelf life</th><th class="num">Orders</th><th class="num">SJIT</th><th class="num">PPMP</th><th class="num">SJIT %</th><th style="min-width:110px"></th><th class="num">FC stock</th></tr></thead><tbody id="ov-shelf"></tbody></table></div></div>
     </div>
-    <div class="baked"><span style="font-size:16px;flex-shrink:0">🔒</span><div><strong>Built in:</strong> warehouse ID → name mapping (Myntra FCs, M-Now dark stores, NH warehouses), Style ID → NH category mapping, and the fresh SKU list (Henna, Lepa, Nutrimask, Ubtans, Face Mura) excluded from the eligible FBM %. Only orders with blank cancellation, RTO, lost and return fields are counted.</div></div>
-    <button class="go-btn" id="go" onclick="go()" disabled>Upload a Seller Orders Report to analyse</button>
-    <button class="ghost-btn" onclick="loadBaked()">Back to the built-in report (__BAKED_RANGE__)</button>
-    <div class="go-st" id="go-st"></div>
+    <div class="sec">
+      <div class="sh"><div><div class="st">SJIT % by category</div><div class="st-desc">Top 15 categories (MPM) by orders, 6m+ shelf-life SKUs only</div></div></div>
+      <div class="card"><div class="cb"><div class="cw" style="height:360px"><canvas id="cat-c"></canvas></div></div></div>
+    </div>
+  </div>
+  <div class="sec"><div class="card"><div class="cb ex-row" id="ex-row"></div></div></div>
+</div>
+
+<!-- POTENTIAL -->
+<div class="tp" id="tp-po">
+  <div class="slider-row">
+    <span><strong>Target SJIT fill rate per SKU</strong><br><span style="font-size:11px;color:var(--txm)">Share of each eligible SKU's orders SJIT should capture once stocked. 100% = theoretical ceiling.</span></span>
+    <input type="range" id="tgt" min="50" max="100" step="5" value="80" oninput="renderPotential()">
+    <span class="sv" id="tgt-v">80%</span>
+  </div>
+  <div class="scen">
+    <div class="card"><div class="cb"><h3>Scenario A · send 9 & 12-month SKUs (270 + 360 days)</h3><div class="big" id="sa-big">—</div><div class="sub" id="sa-sub"></div><div class="pot-bar" id="sa-bar" style="margin-top:14px"></div><div class="pot-leg" id="sa-leg"></div></div></div>
+    <div class="card"><div class="cb"><h3>Scenario B · send 6, 9 & 12-month SKUs (180 + 270 + 360 days)</h3><div class="big" id="sb-big">—</div><div class="sub" id="sb-sub"></div><div class="pot-bar" id="sb-bar" style="margin-top:14px"></div><div class="pot-leg" id="sb-leg"></div></div></div>
+  </div>
+  <div class="sec">
+    <div class="sh"><div><div class="st">Where the extra SJIT orders come from</div><div class="st-desc">Gain = extra SJIT orders this period if the SKU reached the target fill rate. "In SJIT" = already has SJIT sales or Myntra FC stock.</div></div>
+      <div class="fr" style="margin:0"><button class="fb on" data-pb="all" onclick="potF('all',this)">All</button><button class="fb" data-pb="360" onclick="potF('360',this)">12 m</button><button class="fb" data-pb="270" onclick="potF('270',this)">9 m</button><button class="fb" data-pb="180" onclick="potF('180',this)">6 m</button></div></div>
+    <div class="card"><div class="tw tall"><table><thead><tr><th>SKU</th><th>Category</th><th>Shelf life</th><th class="num">Orders</th><th class="num">SJIT %</th><th class="num">FC stock</th><th>Status</th><th class="num">Gain</th></tr></thead><tbody id="po-tb"></tbody></table></div></div>
   </div>
 </div>
 
-<div id="db">
-  <div class="topbar">
-    <div class="tb-logo">
-      <div class="tb-wm">nat hab<em style="font-style:italic">*</em>t<span>BREATHE LIFE</span></div>
-      <div class="tb-div"></div>
-      <div class="tb-ttl">Myntra SJIT (FBM) Intelligence Dashboard</div>
+<!-- NETWORK -->
+<div class="tp" id="tp-nw">
+  <div class="kgrid" id="nw-kpis"></div>
+  <div class="sec">
+    <div class="sh"><div><div class="st">Onboarded FCs and FDCs: utilisation</div><div class="st-desc">Orders shipped and stock held at each onboarded location. FCs are what we control; FDCs and M-Now stores are fed by the nearest FC. Under-utilised = FC holding fewer than 15 SKUs or serving under 10% of its region's 6m+ demand; FDC shipping under 1 order/day.</div></div></div>
+    <div class="card"><div class="tw"><table><thead><tr><th>Location</th><th>Type</th><th>Region</th><th>Warehouse ID</th><th class="num">SJIT orders</th><th class="num">Per day</th><th class="num">Share of SJIT</th><th class="num">Stock (units)</th><th class="num">SKUs stocked</th><th>Status</th><th>Why</th></tr></thead><tbody id="nw-nodes"></tbody></table></div></div>
+  </div>
+  <div class="sec">
+    <div class="sh"><div><div class="st">Demand vs fulfilment by customer region</div><div class="st-desc">Customer region from the delivery state. "Served in-region" = SJIT orders fulfilled from a Myntra location in the same region. "6m+ SKUs not in region FC" = SKUs with 6+ months shelf life selling in that region (3+ orders) but with no stock in the region's FCs.</div></div></div>
+    <div class="card"><div class="tw"><table><thead><tr><th>Region</th><th class="num">Orders</th><th class="num">6m+ orders</th><th class="num">SJIT</th><th class="num">SJIT %</th><th style="min-width:110px"></th><th class="num">Served in-region</th><th class="num">FC stock</th><th class="num">FC SKUs</th><th class="num">6m+ SKUs not in region FC</th><th class="num">Their orders</th></tr></thead><tbody id="nw-reg"></tbody></table></div></div>
+  </div>
+  <div class="sec">
+    <div class="sh"><div><div class="st">Where orders come from × where they ship from</div><div class="st-desc">Rows = customer region; columns = fulfilling location. Shows cross-region shipping (e.g. East customers served from Mumbai FC) and how much still ships from our own warehouses.</div></div></div>
+    <div class="card"><div class="tw" id="nw-flow"></div></div>
+  </div>
+  <div class="g2">
+    <div class="sec">
+      <div class="sh"><div><div class="st">Top cities</div><div class="st-desc">Top 30 delivery cities by orders</div></div></div>
+      <div class="card"><div class="tw tall"><table><thead><tr><th>City</th><th>Region</th><th class="num">Orders</th><th class="num">SJIT %</th><th>Ships from</th></tr></thead><tbody id="nw-city"></tbody></table></div></div>
     </div>
-    <div style="display:flex;align-items:center;gap:16px">
-      <div class="tb-meta" id="db-dr">—</div>
-      <span class="tb-meta">Built __BUILT_AT__</span>
-      <button class="tb-btn" onclick="reset()">↑ Upload a report</button>
+    <div class="sec">
+      <div class="sh"><div><div class="st">M-Now dark stores</div><div class="st-desc">Stocked by Myntra from the nearest FC, not by us. Shown for visibility.</div></div></div>
+      <div class="card"><div class="tw tall"><table><thead><tr><th>Cluster</th><th>Fed by</th><th class="num">Stores</th><th class="num">SJIT orders</th><th class="num">Stock</th><th class="num">SKUs</th></tr></thead><tbody id="nw-mnow"></tbody></table></div></div>
     </div>
   </div>
-  <div class="nav">
-    <div class="nt on" onclick="tab('ov',this)">📈 Overview</div>
-    <div class="nt" onclick="tab('po',this)">🚀 Potential</div>
-    <div class="nt" onclick="tab('ca',this)">📦 Categories</div>
-    <div class="nt" onclick="tab('sk',this)">🔍 SKU Tracker</div>
-    <div class="nt" onclick="tab('wh',this)">🏭 Warehouses &amp; Regions</div>
-    <div class="nt" onclick="tab('ac',this)">⚡ Actions</div>
+  <div class="sec">
+    <div class="sh"><div><div class="st">Myntra stock pivot: SKU × location</div><div class="st-desc">Units in the latest inventory report, top 40 SKUs by orders (6m+ shelf life). Orange "0" = SKU sells in that FC's region but the FC holds none.</div></div></div>
+    <div class="card"><div class="tw tall" id="nw-pivot"></div></div>
   </div>
-  <div class="body">
+  <div id="nw-unk"></div>
+</div>
 
-    <!-- OVERVIEW -->
-    <div class="tp on" id="tp-ov">
-      <div id="ov-alert"></div>
-      <div class="kgrid" id="ov-kpis"></div>
-      <div class="sec">
-        <div class="sh"><div><div class="st">Day-on-day SJIT share</div><div class="st-desc">Stacked bars = SJIT (FBM) vs PPMP (shipped from NH warehouses) orders per day, eligible SKUs only. Dashed line = SJIT % (right axis). A falling line usually means SJIT stock is running out at Myntra FCs.</div></div><div class="sbadge" id="dod-badge"></div></div>
-        <div class="card"><div class="cb">
-          <div class="legend"><span><span class="dot" style="background:#C4552A"></span>SJIT (FBM) orders</span><span><span class="dot" style="background:#E8C9B8"></span>PPMP orders</span><span><span class="dot" style="background:#5A3020;height:3px;width:14px;border-radius:0"></span>SJIT % (right axis)</span></div>
-          <div class="cw" style="height:250px"><canvas id="dod-c"></canvas></div>
-        </div></div>
-      </div>
-      <div class="g2">
-        <div class="sec">
-          <div class="sh"><div><div class="st">SJIT % by category</div><div class="st-desc">Top 20 categories by eligible orders. 🔴 &lt;40% · 🟡 40–70% · 🟢 &gt;70%</div></div></div>
-          <div class="card"><div class="cb"><div class="cw" style="height:500px"><canvas id="cat-c"></canvas></div></div></div>
-        </div>
-        <div>
-          <div class="sec">
-            <div class="sh"><div><div class="st">SJIT orders by Myntra warehouse</div><div class="st-desc">Where SJIT orders were fulfilled from: Myntra FCs and M-Now dark stores</div></div></div>
-            <div class="card"><div class="cb" id="wh-ov"></div></div>
-          </div>
-          <div class="sec">
-            <div class="sh"><div><div class="st">Order split</div><div class="st-desc">Fresh SKUs (Henna, Lepa, Nutrimask etc.) always ship PPMP and are excluded from the eligible SJIT %</div></div></div>
-            <div class="card"><div class="cb"><div class="cw" style="height:180px"><canvas id="donut-c"></canvas></div></div></div>
-          </div>
-        </div>
-      </div>
-      <div class="sec">
-        <div class="sh"><div><div class="st">What was counted</div><div class="st-desc">Order lines excluded because one of cancellation reason id, cancellation reason, cancelled on, RTO creation date, lost date or return creation date was filled</div></div></div>
-        <div class="card"><div class="cb ex-row" id="ex-row"></div></div>
-      </div>
-    </div>
-
-    <!-- POTENTIAL -->
-    <div class="tp" id="tp-po">
-      <div class="slider-row">
-        <span><strong>Target SJIT fill rate per SKU</strong><br><span style="font-size:11px;color:var(--txm)">Share of each eligible SKU's orders you expect SJIT to capture once stocked. 100% is the theoretical ceiling.</span></span>
-        <input type="range" id="tgt" min="50" max="100" step="5" value="80" oninput="renderPotential()">
-        <span class="sv" id="tgt-v">80%</span>
-      </div>
-      <div class="kgrid" id="po-kpis"></div>
-      <div class="sec">
-        <div class="sh"><div><div class="st">From today's SJIT share to potential</div><div class="st-desc">All delivered-or-in-transit orders in the period. Replenish = PPMP orders on SKUs that already shipped via SJIT this period (listed in SJIT, ran out or under-stocked). Onboard = PPMP orders on eligible SKUs with zero SJIT orders. Fresh = not SJIT-eligible.</div></div></div>
-        <div class="card"><div class="cb">
-          <div class="pot-bar" id="pot-bar"></div>
-          <div class="pot-leg" id="pot-leg"></div>
-        </div></div>
-      </div>
-      <div class="g2">
-        <div class="sec">
-          <div class="sh"><div><div class="st">Biggest gains: replenish SJIT-live SKUs</div><div class="st-desc">Already in SJIT but losing orders to PPMP. Extra SJIT orders at target fill rate.</div></div></div>
-          <div class="card"><div class="tw tall"><table><thead><tr><th>SKU</th><th class="num">Orders</th><th class="num">SJIT %</th><th class="num">Gain</th></tr></thead><tbody id="po-rep"></tbody></table></div></div>
-        </div>
-        <div class="sec">
-          <div class="sh"><div><div class="st">Biggest gains: onboard to SJIT</div><div class="st-desc">Eligible SKUs with no SJIT orders this period. Extra SJIT orders at target fill rate.</div></div></div>
-          <div class="card"><div class="tw tall"><table><thead><tr><th>SKU</th><th class="num">Orders</th><th>Category</th><th class="num">Gain</th></tr></thead><tbody id="po-onb"></tbody></table></div></div>
-        </div>
-      </div>
-      <div class="sec">
-        <div class="sh"><div><div class="st">Potential by category</div><div class="st-desc">Current vs potential SJIT % at the target fill rate, eligible orders only</div></div></div>
-        <div class="card"><div class="tw"><table><thead><tr><th>Category</th><th class="num">Eligible orders</th><th class="num">SJIT now</th><th class="num">Current %</th><th class="num">Potential %</th><th class="num">Replenish gain</th><th class="num">Onboard gain</th></tr></thead><tbody id="po-cat"></tbody></table></div></div>
-      </div>
-    </div>
-
-    <!-- CATEGORIES -->
-    <div class="tp" id="tp-ca">
-      <div class="kgrid" id="ca-kpis"></div>
-      <div class="sec">
-        <div class="sh">
-          <div><div class="st">Category breakdown</div><div class="st-desc">Grouped by NH category from the Style ID → category mapping (Myntra article type used only where a style isn't mapped). SJIT % uses eligible orders; fresh orders shown separately.</div></div>
-          <div class="fr" style="margin:0">
-            <button class="fb on" data-cf="all" onclick="catF('all',this)">All</button>
-            <button class="fb" data-cf="low" onclick="catF('low',this)">⚠ Below 40%</button>
-            <button class="fb" data-cf="hi" onclick="catF('hi',this)">✅ Above 70%</button>
-          </div>
-        </div>
-        <div class="card"><div class="tw"><table><thead><tr><th>Category</th><th class="num">SJIT</th><th class="num">PPMP</th><th class="num">Fresh</th><th class="num">Eligible total</th><th class="num">SJIT %</th><th style="min-width:130px">SJIT bar</th><th class="num">GMV (₹)</th><th>Status</th></tr></thead><tbody id="ca-tb"></tbody></table></div></div>
-      </div>
-    </div>
-
-    <!-- SKU TRACKER -->
-    <div class="tp" id="tp-sk">
-      <div class="fr">
-        <span class="flab">Flag:</span>
-        <button class="fb on" data-fl="All" onclick="skuF('All',this)">All SKUs</button>
-        <button class="fb" data-fl="Onboard" onclick="skuF('Onboard',this)">🆕 Onboard to SJIT</button>
-        <button class="fb" data-fl="Replenish" onclick="skuF('Replenish',this)">🎯 Replenish (&lt;50%)</button>
-        <button class="fb" data-fl="Top up" onclick="skuF('Top up',this)">⚠️ Top up (50–80%)</button>
-        <button class="fb" data-fl="Healthy" onclick="skuF('Healthy',this)">✅ Healthy (≥80%)</button>
-        <button class="fb" data-fl="Low volume" onclick="skuF('Low volume',this)">👁 Low volume</button>
-        <button class="fb" data-fl="Fresh" onclick="skuF('Fresh',this)">🌿 Fresh</button>
-        <input class="sb" id="sk-q" placeholder="Search SKU or product name…" oninput="skuF(null,null)">
-      </div>
-      <div id="sk-cnt" style="font-size:12px;color:var(--txm);margin-bottom:10px"></div>
-      <div class="card"><div class="tw tall"><table><thead><tr>
-        <th class="srt" onclick="skSort('sku')">SKU ↕</th><th>Product</th><th>Category</th><th>Myntra article type</th>
-        <th class="srt num" onclick="skSort('tot')">Orders ↕</th><th class="srt num" onclick="skSort('f')">SJIT ↕</th><th class="srt num" onclick="skSort('n')">PPMP ↕</th>
-        <th class="srt num" onclick="skSort('pct')">SJIT % ↕</th><th style="min-width:110px">SJIT bar</th><th class="srt num" onclick="skSort('gmv')">GMV ↕</th><th>Flag</th>
-      </tr></thead><tbody id="sk-tb"></tbody></table></div></div>
-    </div>
-
-    <!-- WAREHOUSES & REGIONS -->
-    <div class="tp" id="tp-wh">
-      <div class="kgrid" id="wh-kpis"></div>
-      <div class="g2" style="margin-bottom:8px">
-        <div class="sec">
-          <div class="sh"><div><div class="st">SJIT orders per Myntra location</div><div class="st-desc">FCs vs M-Now dark stores (from the warehouse ID mapping)</div></div></div>
-          <div class="card"><div class="cb" id="wh-fbm"></div></div>
-        </div>
-        <div class="sec">
-          <div class="sh"><div><div class="st">PPMP orders per NH warehouse</div><div class="st-desc">Orders still shipped from our own warehouses, eligible SKUs vs fresh</div></div></div>
-          <div class="card"><div class="cb" id="wh-ppmp"></div></div>
-          <div class="sh" style="margin-top:22px"><div><div class="st">M-Now dark stores by city cluster</div><div class="st-desc">Myntra's quick-commerce stores fulfilling SJIT orders</div></div></div>
-          <div class="card"><div class="cb" id="wh-mnow"></div></div>
-        </div>
-      </div>
-      <div class="sec">
-        <div class="sh"><div><div class="st">SJIT % by customer zone</div><div class="st-desc">Customer state grouped to the nearest Myntra FC region. A low % in a zone means that FC is short of stock for the SKUs customers there buy.</div></div></div>
-        <div class="card"><div class="tw"><table><thead><tr><th>Zone (nearest FC)</th><th class="num">Eligible orders</th><th class="num">SJIT</th><th class="num">PPMP</th><th class="num">SJIT %</th><th style="min-width:130px">SJIT bar</th><th>Main SJIT source</th></tr></thead><tbody id="zn-tb"></tbody></table></div></div>
-      </div>
-      <div class="sec">
-        <div class="sh"><div><div class="st">SJIT % by customer state</div><div class="st-desc">Eligible orders, states with 20+ orders, sorted by PPMP volume (biggest opportunity first)</div></div></div>
-        <div class="card"><div class="tw tall"><table><thead><tr><th>State</th><th>Zone</th><th class="num">Eligible orders</th><th class="num">SJIT</th><th class="num">PPMP</th><th class="num">SJIT %</th><th style="min-width:120px">SJIT bar</th></tr></thead><tbody id="stt-tb"></tbody></table></div></div>
-      </div>
-      <div class="sec">
-        <div class="sh"><div><div class="st">SKU × Myntra FC heatmap</div><div class="st-desc">SJIT orders for the top 20 eligible SKUs at each Myntra FC. Blank cells on a high-volume SKU = not stocked there.</div></div></div>
-        <div class="card"><div class="tw" id="hm-tbl"></div></div>
-      </div>
-    </div>
-
-    <!-- ACTIONS -->
-    <div class="tp" id="tp-ac">
-      <div class="slider-row" style="gap:18px">
-        <span class="flab">Days of cover to plan</span><input class="ni" type="number" id="doc" value="21" min="7" max="90" oninput="renderActTbl()">
-        <span class="flab">Target fill rate</span><span class="sv" id="ac-tgt" style="font-size:14px">80%</span>
-        <span style="font-size:11px;color:var(--txm);flex:1;min-width:220px">Suggested SJIT qty = DRR × days × target fill rate, split by where customers order from. No inventory file is used, so subtract what's already at Myntra FCs before raising a consignment.</span>
-      </div>
-      <div class="kgrid" id="ac-kpis"></div>
-      <div class="fr">
-        <button class="fb on" data-af="All" onclick="acF('All',this)">All actionable</button>
-        <button class="fb" data-af="Replenish" onclick="acF('Replenish',this)">🎯 Replenish</button>
-        <button class="fb" data-af="Top up" onclick="acF('Top up',this)">⚠️ Top up</button>
-        <button class="fb" data-af="Onboard" onclick="acF('Onboard',this)">🆕 Onboard</button>
-        <input class="sb" id="ac-q" placeholder="Search SKU…" oninput="renderActTbl()">
-        <button class="fb" onclick="exportCSV()" style="margin-left:auto">⬇ Export CSV</button>
-      </div>
-      <div class="card"><div class="tw tall"><table><thead><tr>
-        <th>SKU</th><th>Product</th><th>Flag</th><th class="num">Orders</th><th class="num">SJIT %</th><th class="num">DRR</th><th class="num">Missed (PPMP)</th>
-        <th class="num">Suggested SJIT qty</th><th class="num">North<br>Gurgaon</th><th class="num">West<br>Mumbai</th><th class="num">South<br>Bangalore</th><th class="num">East<br>Kolkata</th>
-      </tr></thead><tbody id="ac-tb"></tbody></table></div></div>
-      <div class="note">Missed = PPMP orders on that SKU this period. Zone split follows the SKU's own customer-state mix (all orders); Lucknow and Chennai FDCs are folded into North and South.</div>
-    </div>
-
+<!-- TRENDS -->
+<div class="tp" id="tp-tr">
+  <div class="alert a-info" id="tr-win"></div>
+  <div class="kgrid" id="tr-kpis"></div>
+  <div class="sec">
+    <div class="sh"><div><div class="st">SJIT share over time</div><div class="st-desc">Daily SJIT % of 6m+ shelf-life orders, with 7-day rolling average. Grows automatically as you add daily reports to data/.</div></div></div>
+    <div class="card"><div class="cb"><div class="cw" style="height:240px"><canvas id="tr-c"></canvas></div></div></div>
   </div>
+  <div class="sec">
+    <div class="sh"><div><div class="st">SKU-level SJIT trend</div><div class="st-desc">Compares the recent window with the earlier window. Falling / Rising = SJIT share moved 10+ points (5+ orders in each window). Stopped = had SJIT sales before, none recently: usually a stock-out at the FC.</div></div>
+      <div class="fr" style="margin:0"><button class="fb on" data-tf="All" onclick="trF('All',this)">All</button><button class="fb" data-tf="Stopped" onclick="trF('Stopped',this)">⛔ Stopped</button><button class="fb" data-tf="Falling" onclick="trF('Falling',this)">📉 Falling</button><button class="fb" data-tf="Rising" onclick="trF('Rising',this)">📈 Rising</button><button class="fb" data-tf="Stable" onclick="trF('Stable',this)">Stable</button></div></div>
+    <div class="card"><div class="tw tall"><table><thead><tr><th>SKU</th><th>Shelf life</th><th class="num">Earlier orders</th><th class="num">Earlier SJIT %</th><th class="num">Recent orders</th><th class="num">Recent SJIT %</th><th class="num">Change</th><th class="num">FC stock now</th><th>Trend</th></tr></thead><tbody id="tr-tb"></tbody></table></div></div>
+  </div>
+</div>
+
+<!-- SEND PLAN -->
+<div class="tp" id="tp-sp">
+  <div class="rule">
+    <strong>How send quantities are calculated</strong> (FC stock only; we don't control M-Now or FDC stock)<br>
+    Quantity per FC = (region DRR × cover days) − current stock in that region's FCs. DRR uses every order from customers in the FC's region over the last <b id="sp-w">30</b> days, whether it shipped SJIT, PPMP, from M-Now or an FDC, because the FC ends up feeding all of them.
+    <table><tr><th>Shelf life</th><th>Cover to send</th><th>Ease</th></tr>
+      <tr><td>12 months (360 days)</td><td><b>2 months</b> of DRR (60 days)</td><td><span class="badge b-ok">Easy</span></td></tr>
+      <tr><td>9 months (270 days)</td><td><b>1.5 months</b> of DRR (45 days)</td><td><span class="badge b-ok">Easy</span></td></tr>
+      <tr><td>6 months (180 days)</td><td><b>1 month</b> of DRR (30 days)</td><td><span class="badge b-warn">Watch expiry</span></td></tr>
+      <tr><td>Under 6 months</td><td>Not sent to SJIT</td><td><span class="badge b-err">Not for SJIT</span></td></tr></table>
+  </div>
+  <div class="kgrid" id="sp-kpis"></div>
+  <div class="fr">
+    <span class="flab">Show:</span>
+    <button class="fb on" data-st="All" onclick="spT('All',this)">All</button>
+    <button class="fb" data-st="Replenish" onclick="spT('Replenish',this)">🔁 Replenish</button>
+    <button class="fb" data-st="New" onclick="spT('New',this)">🆕 New to SJIT</button>
+    <span class="flab" style="margin-left:10px">Shelf life:</span>
+    <button class="fb on" data-ss="360" onclick="spS('360',this)">12 m</button>
+    <button class="fb on" data-ss="270" onclick="spS('270',this)">9 m</button>
+    <button class="fb on" data-ss="180" onclick="spS('180',this)">6 m</button>
+    <span class="flab" style="margin-left:10px">Min orders / month</span><input class="ni" type="number" id="sp-min" value="10" min="0" oninput="renderSend()">
+    <input class="sb" id="sp-q" placeholder="Search SKU…" oninput="renderSend()">
+    <button class="fb" onclick="exportSend()" style="margin-left:auto">⬇ Export CSV</button>
+  </div>
+  <div class="card"><div class="tw tall"><table><thead><tr id="sp-head"></tr></thead><tbody id="sp-tb"></tbody></table></div></div>
+  <div class="note">New to SJIT = no Myntra FC stock and no SJIT sales in the data. Ranked by quantity to send. SKUs marked Inactive in the MPM are left out. Region orders from states we can't place are ignored (under 1%).</div>
+  <div class="sec" style="margin-top:28px">
+    <div class="sh"><div><div class="st">Selling well but under 6 months shelf life</div><div class="st-desc">Not recommended for SJIT under the rule above; listed so you can decide case by case.</div></div></div>
+    <div class="card"><div class="tw tall"><table><thead><tr><th>SKU</th><th>Category</th><th>Shelf life</th><th class="num">Orders / month</th><th class="num">SJIT %</th></tr></thead><tbody id="sp-short"></tbody></table></div></div>
+  </div>
+</div>
+
+<!-- SKU TRACKER -->
+<div class="tp" id="tp-sk">
+  <div class="fr">
+    <span class="flab">Shelf life:</span>
+    <button class="fb on" data-sf="All" onclick="skF('All',this)">All</button>
+    <button class="fb" data-sf="360" onclick="skF('360',this)">12 m</button>
+    <button class="fb" data-sf="270" onclick="skF('270',this)">9 m</button>
+    <button class="fb" data-sf="180" onclick="skF('180',this)">6 m</button>
+    <button class="fb" data-sf="short" onclick="skF('short',this)">&lt; 6 m</button>
+    <button class="fb" data-sf="none" onclick="skF('none',this)">Not in MPM</button>
+    <input class="sb" id="sk-q" placeholder="Search SKU, NH SKU or name…" oninput="renderSKU()">
+  </div>
+  <div id="sk-cnt" style="font-size:12px;color:var(--txm);margin-bottom:10px"></div>
+  <div class="card"><div class="tw tall"><table><thead><tr>
+    <th class="srt" onclick="skSort('sku')">SKU ↕</th><th>NH SKU</th><th>Category</th><th class="srt" onclick="skSort('shelf')">Shelf ↕</th>
+    <th class="srt num" onclick="skSort('tot')">Orders ↕</th><th class="srt num" onclick="skSort('f')">SJIT ↕</th><th class="srt num" onclick="skSort('pct')">SJIT % ↕</th><th style="min-width:100px"></th>
+    <th class="srt num" onclick="skSort('fcs')">FC stock ↕</th><th class="srt num" onclick="skSort('gmv')">GMV ↕</th><th>Trend</th>
+  </tr></thead><tbody id="sk-tb"></tbody></table></div></div>
+</div>
+
+<!-- CATEGORIES -->
+<div class="tp" id="tp-ca">
+  <div class="sec">
+    <div class="sh"><div><div class="st">Category breakdown</div><div class="st-desc">Category = infytrix sub-category from the MPM (Myntra article type where a style isn't in the MPM).</div></div></div>
+    <div class="card"><div class="tw"><table><thead><tr><th>Category</th><th>Shelf life</th><th class="num">Orders</th><th class="num">SJIT</th><th class="num">PPMP</th><th class="num">SJIT %</th><th style="min-width:110px"></th><th class="num">FC stock</th><th class="num">GMV</th><th class="num">Potential % (A)</th><th class="num">Potential % (B)</th></tr></thead><tbody id="ca-tb"></tbody></table></div></div>
+  </div>
+</div>
+
+<!-- MPM GAPS -->
+<div class="tp" id="tp-mg">
+  <div id="mg-alert"></div>
+  <div class="sec">
+    <div class="sh"><div><div class="st">Sold on Myntra but missing from the MPM</div><div class="st-desc">Style IDs in the orders report with no row in MPM_Myntra.xlsx. Without MPM rows these SKUs have no shelf life, so they're left out of potential and the send plan. Add them to the MPM sheet, save it in config/, and rerun.</div></div><button class="fb" onclick="exportGaps()">⬇ Export CSV</button></div>
+    <div class="card"><div class="tw tall"><table><thead><tr><th>Style ID</th><th>Seller SKU</th><th>Product</th><th class="num">Orders</th><th class="num">SJIT</th><th>Last order</th></tr></thead><tbody id="mg-tb"></tbody></table></div></div>
+  </div>
+  <div class="g2">
+    <div class="sec">
+      <div class="sh"><div><div class="st">In Myntra stock but missing from the MPM</div></div></div>
+      <div class="card"><div class="tw tall"><table><thead><tr><th>Style ID</th><th>Seller SKU</th><th class="num">Units at Myntra</th></tr></thead><tbody id="mg-inv"></tbody></table></div></div>
+    </div>
+    <div class="sec">
+      <div class="sh"><div><div class="st">Inactive in the MPM but still selling</div></div></div>
+      <div class="card"><div class="tw tall"><table><thead><tr><th>Style ID</th><th>NH SKU</th><th class="num">Orders</th><th>Shelf life</th></tr></thead><tbody id="mg-inact"></tbody></table></div></div>
+    </div>
+  </div>
+</div>
+
 </div>
 
 <script>
-const SMAP = __SMAP__;
-const CATMAP = __CATMAP__;
-let WHMAP = __WH__;
-const BAKED = __BAKED__;
+const WHMAP = __WH__;
+const NET = __NETWORK__;
+const D = __DATA__;
 
-const FRESH = __FRESH__;
-const ELIG_SKUS=new Set(FRESH.skus);
-const ELIG_SUBS=new Set(FRESH.sub_categories);
-const FRESH_NAME=new RegExp(FRESH.name_pattern,'i');
-const FRESH_PREFIX=new RegExp(FRESH.sku_prefix_pattern);
-
-const ZONE_OF={DL:'N',HR:'N',PB:'N',RJ:'N',UP:'N',UT:'N',UK:'N',HP:'N',JK:'N',CH:'N',LA:'N',
-  MH:'W',GJ:'W',GA:'W',MP:'W',CT:'W',CG:'W',DD:'W',DN:'W',
-  KA:'S',TN:'S',KL:'S',AP:'S',TG:'S',TS:'S',PY:'S',
-  WB:'E',OR:'E',BR:'E',JH:'E',AS:'E',AR:'E',MN:'E',ML:'E',MZ:'E',NL:'E',SK:'E',TR:'E',AN:'E'};
-const ZONE_NAME={N:'North (Gurgaon / Lucknow)',W:'West (Mumbai)',S:'South (Bangalore / Chennai)',E:'East (Kolkata)',X:'Other'};
-const ST_NAME={AP:'Andhra Pradesh',AR:'Arunachal Pradesh',AS:'Assam',BR:'Bihar',CH:'Chandigarh',CT:'Chhattisgarh',CG:'Chhattisgarh',DD:'Daman & Diu',DN:'Dadra & Nagar Haveli',DL:'Delhi',GA:'Goa',GJ:'Gujarat',HP:'Himachal Pradesh',HR:'Haryana',JH:'Jharkhand',JK:'Jammu & Kashmir',KA:'Karnataka',KL:'Kerala',MH:'Maharashtra',ML:'Meghalaya',MN:'Manipur',MP:'Madhya Pradesh',MZ:'Mizoram',NL:'Nagaland',OR:'Odisha',PB:'Punjab',PY:'Puducherry',RJ:'Rajasthan',SK:'Sikkim',TG:'Telangana',TS:'Telangana',TN:'Tamil Nadu',TR:'Tripura',UP:'Uttar Pradesh',UT:'Uttarakhand',UK:'Uttarakhand',WB:'West Bengal',LA:'Ladakh',AN:'Andaman & Nicobar'};
+// ─── constants & helpers
+const REGK=['N','W','S','E'];
+const REG=NET.regions;
+const STATE_REG={};REGK.forEach(k=>REG[k].states.forEach(s=>STATE_REG[s]=k));
+const NODE_BY_ID={};NET.nodes.forEach(n=>(n.ids||[]).forEach(id=>NODE_BY_ID[String(id)]=n));
+const PRIMARY={};REGK.forEach(k=>{const n=NET.nodes.find(x=>x.region===k&&x.type==='FC'&&x.primary)||NET.nodes.find(x=>x.region===k&&x.type==='FC');PRIMARY[k]=n?n.short:REG[k].fc_city+' FC'});
 const PUNE=/nanded|wagholi|hadapsar|tilekar|wakad|ghorpadi|hinjewadi|ravet/i;
-
-let sFile=null, wFile=null, ST=null, charts={};
-let skFlag='All', skCol='tot', skAsc=false, acFlag='All';
-
-// ── helpers
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const pct=(a,b)=>b>0?Math.round(a/b*1000)/10:0;
 const fmt=n=>Math.round(n).toLocaleString('en-IN');
 const fmtL=n=>n>=1e7?'₹'+(n/1e7).toFixed(2)+'Cr':n>=1e5?'₹'+(n/1e5).toFixed(1)+'L':n>=1000?'₹'+(n/1000).toFixed(0)+'K':'₹'+Math.round(n);
 const bc=p=>p>=70?'#2E7D32':p>=40?'#C07813':'#C62828';
 const bar=p=>`<div class="bw"><div class="bb"><div class="bf" style="width:${Math.min(100,p)}%;background:${bc(p)}"></div></div></div>`;
-function whName(id){const w=WHMAP[id];return w?w[0].trim():'WH '+id}
-function whKind(id){const w=WHMAP[id];if(!w)return'FC';const n=w[0];if(/mnow/i.test(n))return'MNOW';if(/- *NH$/i.test(n.trim()))return'NH';return'FC'}
-function getSub(sku){const c=sku.trim();if(SMAP[c])return SMAP[c];for(const b of [c.replace(/-?MY$/,''),c.replace(/-M$/,''),c.replace(/-N$/,'')])if(SMAP[b])return SMAP[b];return null}
-function isFresh(sku,name,sub){return ELIG_SKUS.has(sku)||ELIG_SUBS.has(sub)||FRESH_PREFIX.test(sku)||FRESH_NAME.test(name||'')}
-
-// ── upload
-function dov(e,id){e.preventDefault();document.getElementById(id).classList.add('over')}
-function dlv(id){document.getElementById(id).classList.remove('over')}
-function drop(e,t){e.preventDefault();dlv(t==='s'?'dz-s':'dz-w');if(e.dataTransfer.files[0])pick(e.dataTransfer.files[0],t)}
-function hf(e,t){if(e.target.files[0])pick(e.target.files[0],t)}
-function pick(f,t){
-  if(t==='s'){sFile=f;document.getElementById('s-fn').textContent=f.name;document.getElementById('dz-s').classList.add('ok');
-    const b=document.getElementById('go');b.disabled=false;b.textContent='Analyse report';}
-  else{wFile=f;document.getElementById('w-fn').textContent=f.name;document.getElementById('dz-w').classList.add('ok')}
+const coverDays=s=>s>=360?60:s>=270?45:s>=180?30:0;
+const bucket=s=>s==null?'none':s>=360?'360':s>=270?'270':s>=180?'180':'short';
+const BUCKET_LBL={'360':'12 m (360 d)','270':'9 m (270 d)','180':'6 m (180 d)','short':'Under 6 m','none':'Not in MPM'};
+function shelfBadge(s){if(s==null)return'<span class="badge b-mute">Not in MPM</span>';const m=s/30;const t=(m%1?m.toFixed(1):m)+' m';return s>=270?`<span class="badge b-ok">${t}</span>`:s>=180?`<span class="badge b-warn">${t}</span>`:`<span class="badge b-err">${t}</span>`}
+const skuCell=p=>`<code>${esc(p.sku)}</code><div class="pn" title="${esc(p.name)}">${esc(p.name||p.nh)}</div>`;
+const WHC={};
+function wh(id){
+  if(WHC[id])return WHC[id];
+  let o;const n=NODE_BY_ID[id];const w=WHMAP[id];const name=w?w[0].trim():'';
+  if(n)o={grp:n.short,kind:n.type,region:n.region,node:n};
+  else if(/mnow/i.test(name)){const st=(w[1]||'').toUpperCase();o={grp:'M-Now '+(st==='KA'?'Bengaluru':PUNE.test(name)?'Pune':st==='MH'?'Mumbai':st||'(city not mapped)'),kind:'MNOW',region:STATE_REG[st]||'X',store:name}}
+  else if(/(^|[\s-])NH([\s-]|$)/.test(name))o={grp:name.replace(/\s*-\s*NH$/i,' NH'),kind:'NH',region:null};
+  else if(/fdc/i.test(name))o={grp:name,kind:'FDC',region:null};
+  else if(name)o={grp:name,kind:'FC',region:null};
+  else o={grp:'Unmapped WH '+id,kind:'?',region:null};
+  return WHC[id]=o;
 }
-function readRows(file){
-  return new Promise((res,rej)=>{
-    const r=new FileReader();
-    const isCsv=/\.csv$/i.test(file.name);
-    r.onload=e=>{try{
-      const wb=isCsv?XLSX.read(e.target.result,{type:'string',raw:true}):XLSX.read(new Uint8Array(e.target.result),{type:'array',raw:true});
-      res(XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]],{defval:'',raw:false}));
-    }catch(err){rej(err)}};
-    r.onerror=()=>rej(new Error('Could not read '+file.name));
-    isCsv?r.readAsText(file):r.readAsArrayBuffer(file);
-  });
-}
-async function go(){
-  const st=document.getElementById('go-st');
-  try{
-    st.textContent='Reading report…';
-    if(wFile){
-      const wr=await readRows(wFile);
-      wr.forEach(r=>{const k={};Object.keys(r).forEach(x=>k[x.trim().toLowerCase()]=r[x]);
-        const id=String(parseInt(k['warehouse id']));if(id&&id!=='NaN')WHMAP[id]=[String(k['warehouse name']||'').trim(),String(k['state']||'').trim()]});
-    }
-    const raw=await readRows(sFile);
-    if(!raw.length)throw new Error('The report has no rows.');
-    const keys={};Object.keys(raw[0]).forEach(x=>keys[x.trim().toLowerCase()]=x);
-    const need=['po_type','seller sku code','created on','warehouse id'];
-    const miss=need.filter(n=>!keys[n]);
-    if(miss.length)throw new Error('Missing column(s): '+miss.join(', ')+'. Upload the Myntra Seller Orders Report.');
-    const g=(r,n)=>keys[n]?String(r[keys[n]]??'').trim():'';
-    const rows=raw.map(r=>{
-      let x='';
-      if(g(r,'cancellation reason id fk')||g(r,'cancellation reason')||g(r,'cancelled on'))x='C';
-      else if(g(r,'rto creation date'))x='R';
-      else if(g(r,'lost date'))x='L';
-      else if(g(r,'return creation date'))x='T';
-      let d=g(r,'created on').slice(0,10);
-      if(/^\d{2}[-\/]\d{2}[-\/]\d{4}/.test(d)){const p=d.split(/[-\/]/);d=p[2]+'-'+p[1]+'-'+p[0]}
-      return{d,sku:g(r,'seller sku code'),name:g(r,'style name'),at:CATMAP[String(parseInt(g(r,'style id')))]||g(r,'article type')||'Unknown',mat:g(r,'article type'),
-        fbm:g(r,'po_type').toUpperCase()==='FBM',wh:String(parseInt(g(r,'warehouse id'))),st:g(r,'state').toUpperCase(),
-        amt:parseFloat(g(r,'final amount'))||0,x};
-    });
-    st.textContent='Crunching numbers…';
-    setTimeout(()=>launch(rows,sFile.name),20);
-  }catch(err){st.textContent='⚠ '+err.message}
-}
-function loadBaked(){
-  const B=BAKED;
-  const rows=B.rows.map(r=>{const s=B.skus[r[1]];return{d:B.dates[r[0]],sku:s[0],name:s[1],at:s[2]||'Unknown',mat:s[3]||'',fbm:r[2]===1,wh:String(r[3]),st:B.states[r[4]],amt:r[5],x:r[6]}});
-  launch(rows,B.file);
-}
-function launch(rows,fname){
-  ST=compute(rows);ST.fname=fname;
-  document.getElementById('up').style.display='none';
-  document.getElementById('db').style.display='block';
-  document.getElementById('go-st').textContent='';
-  render(ST);
-}
-function reset(){document.getElementById('up').style.display='flex';document.getElementById('db').style.display='none';window.scrollTo(0,0)}
-function tab(id,el){document.querySelectorAll('.tp').forEach(t=>t.classList.remove('on'));document.querySelectorAll('.nt').forEach(t=>t.classList.remove('on'));document.getElementById('tp-'+id).classList.add('on');el.classList.add('on');window.scrollTo({top:0})}
-
-// ── compute
-function compute(all){
-  const ex={C:0,R:0,L:0,T:0};
-  all.forEach(r=>{if(r.x)ex[r.x]++});
-  const rows=all.filter(r=>!r.x);
-  rows.forEach(r=>{const m=getSub(r.sku);r.sub=m?m.sub:'';r.fresh=isFresh(r.sku,r.name,r.sub)||ELIG_SUBS.has(r.at)});
-  let mn=null,mx=null;rows.forEach(r=>{if(r.d){if(!mn||r.d<mn)mn=r.d;if(!mx||r.d>mx)mx=r.d}});
-  const days=mn&&mx?Math.round((new Date(mx)-new Date(mn))/864e5)+1:1;
-  const elig=rows.filter(r=>!r.fresh), fresh=rows.filter(r=>r.fresh);
-  const N=rows.length, F=rows.filter(r=>r.fbm).length;
-  const E=elig.length, FE=elig.filter(r=>r.fbm).length;
-  const gmvE=elig.reduce((a,r)=>a+r.amt,0), gmvF=elig.filter(r=>r.fbm).reduce((a,r)=>a+r.amt,0);
-  const gmvAll=rows.reduce((a,r)=>a+r.amt,0);
-
-  // DOD
-  const dm={};
-  rows.forEach(r=>{if(!r.d)return;const o=dm[r.d]||(dm[r.d]={f:0,n:0,fr:0});if(r.fresh)o.fr++;else if(r.fbm)o.f++;else o.n++});
-  const dod=Object.keys(dm).sort().map(d=>{const o=dm[d];return{date:d,f:o.f,n:o.n,fr:o.fr,pct:pct(o.f,o.f+o.n),frSh:pct(o.fr,o.f+o.n+o.fr)}});
-
-  // SKUs
-  const sm={};
-  rows.forEach(r=>{
-    const s=sm[r.sku]||(sm[r.sku]={sku:r.sku,name:r.name,at:r.at,mat:r.mat,sub:r.sub,fresh:r.fresh,f:0,n:0,gmv:0,z:{N:0,W:0,S:0,E:0,X:0},fc:{}});
-    if(r.fbm){s.f++;s.fc[r.wh]=(s.fc[r.wh]||0)+1}else s.n++;
-    s.gmv+=r.amt;s.z[ZONE_OF[r.st]||'X']++;
-  });
-  const skus=Object.values(sm).map(s=>{const tot=s.f+s.n,p=pct(s.f,tot);return{...s,tot,pct:p,drr:tot/days,fl:flag(s,tot,p)}}).sort((a,b)=>b.tot-a.tot);
-
-  // Categories (NH category from Style ID mapping)
-  const cm={};
-  rows.forEach(r=>{const c=cm[r.at]||(cm[r.at]={at:r.at,f:0,n:0,fr:0,gmv:0});if(r.fresh)c.fr++;else if(r.fbm)c.f++;else c.n++;c.gmv+=r.amt});
-  const cats=Object.values(cm).map(c=>({...c,tot:c.f+c.n,pct:pct(c.f,c.f+c.n)})).sort((a,b)=>(b.tot+b.fr)-(a.tot+a.fr));
-
-  // Warehouses
-  const wf={},wp={},wpf={};
-  rows.forEach(r=>{if(r.fbm)wf[r.wh]=(wf[r.wh]||0)+1;else if(r.fresh)wpf[r.wh]=(wpf[r.wh]||0)+1;else wp[r.wh]=(wp[r.wh]||0)+1});
-  const whF=Object.entries(wf).map(([w,u])=>({wh:w,name:whName(w),kind:whKind(w),u})).sort((a,b)=>b.u-a.u);
-  const whP=[...new Set([...Object.keys(wp),...Object.keys(wpf)])].map(w=>({wh:w,name:whName(w),e:wp[w]||0,fr:wpf[w]||0})).sort((a,b)=>(b.e+b.fr)-(a.e+a.fr));
-
-  // States & zones (eligible)
-  const stm={},zm={};
-  elig.forEach(r=>{
-    const s=stm[r.st]||(stm[r.st]={st:r.st,f:0,n:0});r.fbm?s.f++:s.n++;
-    const zk=ZONE_OF[r.st]||'X';const z=zm[zk]||(zm[zk]={z:zk,f:0,n:0,src:{}});
-    if(r.fbm){z.f++;const k=whKind(r.wh)==='MNOW'?'M-Now ('+(WHMAP[r.wh]?.[1]||'')+')':whName(r.wh);z.src[k]=(z.src[k]||0)+1}else z.n++;
-  });
-  const states=Object.values(stm).map(s=>({...s,tot:s.f+s.n,pct:pct(s.f,s.f+s.n)}));
-  const zones=['N','W','S','E','X'].filter(k=>zm[k]).map(k=>{const z=zm[k];const src=Object.entries(z.src).sort((a,b)=>b[1]-a[1]).slice(0,2);return{...z,tot:z.f+z.n,pct:pct(z.f,z.f+z.n),src}});
-
-  // Callout: first third vs last third
-  const third=Math.max(1,Math.floor(dod.length/3));
-  const avgP=a=>{const f=a.reduce((s,d)=>s+d.f,0),n=a.reduce((s,d)=>s+d.n,0);return pct(f,f+n)};
-  const avgFr=a=>{const fr=a.reduce((s,d)=>s+d.fr,0),t=a.reduce((s,d)=>s+d.f+d.n+d.fr,0);return pct(fr,t)};
-  const early=dod.slice(0,third),late=dod.slice(-third);
-
-  return{mn,mx,days,ex,totalLines:all.length,N,F,E,FE,gmvE,gmvF,gmvAll,freshN:fresh.length,dod,skus,cats,whF,whP,states,zones,
-    eP:avgP(early),lP:avgP(late),eFr:avgFr(early),lFr:avgFr(late)};
-}
-function flag(s,tot,p){
-  if(s.fresh)return'Fresh';
-  if(tot<5)return'Low volume';
-  if(s.f===0)return'Onboard';
-  if(p<50)return'Replenish';
-  if(p<80)return'Top up';
-  return'Healthy';
-}
-
-// ── render
-const FLAG_BADGE={'Onboard':'<span class="badge b-brand">🆕 Onboard</span>','Replenish':'<span class="badge b-err">🎯 Replenish</span>','Top up':'<span class="badge b-warn">⚠️ Top up</span>','Healthy':'<span class="badge b-ok">✅ Healthy</span>','Low volume':'<span class="badge b-mute">👁 Low volume</span>','Fresh':'<span class="badge b-info">🌿 Fresh</span>'};
 function kpi(l,v,s,c){return`<div class="kc"><div class="kl">${l}</div><div class="kv ${c||''}">${v}</div><div class="ks">${s}</div></div>`}
-function mkChart(id,key,cfg){if(charts[key])charts[key].destroy();charts[key]=new Chart(document.getElementById(id),cfg)}
-function whRows(list,val,sub){const mx=Math.max(1,...list.map(val));return list.map(w=>`<div class="wr"><div class="wn">${esc(w.name)}${sub?`<small>${esc(sub(w))}</small>`:''}</div><div class="wbw"><div class="wbb"><div class="wbf" style="width:${Math.round(val(w)/mx*100)}%"></div></div></div><div class="wu">${fmt(val(w))}</div></div>`).join('')||'<div style="color:var(--txm);font-size:12px">No orders</div>'}
+let charts={};function mkChart(id,cfg){if(charts[id])charts[id].destroy();charts[id]=new Chart(document.getElementById(id),cfg)}
+function tab(id,el){document.querySelectorAll('.tp').forEach(t=>t.classList.remove('on'));document.querySelectorAll('.nt').forEach(t=>t.classList.remove('on'));document.getElementById('tp-'+id).classList.add('on');el.classList.add('on');window.scrollTo({top:0})}
+function dl(name,head,rows){const q=v=>'"'+String(v??'').replace(/"/g,'""')+'"';const b=new Blob(['\ufeff'+[head,...rows].map(r=>r.map(q).join(',')).join('\n')],{type:'text/csv'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=name;a.click()}
 
-function render(s){
-  document.getElementById('db-dr').textContent=(s.mn||'?')+' → '+(s.mx||'?')+' · '+s.days+' days';
+// ─── compute
+const S=(function(){
+  const P=D.products.map((r,i)=>({i,style:r[0],sku:r[1],nh:r[2],name:r[3],cat:r[4],shelf:r[5],mstat:r[6],inMpm:!!r[7],at:r[8],
+    tot:0,f:0,gmv:0,last:'',win:0,winReg:{N:0,W:0,S:0,E:0,X:0},rec:{t:0,f:0},base:{t:0,f:0},everF:0,fcs:0,fcReg:{N:0,W:0,S:0,E:0},stockWh:{},allStock:0}));
+  const dates=D.dates,t0=new Date(dates[0]),dayNum=dates.map(d=>Math.round((new Date(d)-t0)/864e5));
+  const calDays=dayNum[dayNum.length-1]+1;
+  const W=Math.min(30,calDays),winStart=calDays-W;
+  let recStart,baseStart;
+  if(calDays>=21){recStart=calDays-7;baseStart=Math.max(0,calDays-28)}else{const h=Math.max(1,Math.floor(calDays/2));recStart=calDays-h;baseStart=0}
+  const ex={C:0,R:0,L:0,T:0};let N=0,F=0,gmv=0;
+  const day=Array.from({length:calDays},(_,k)=>({k,f:0,e:0,s:0,fe:0}));
+  const reg={};['N','W','S','E','X'].forEach(k=>reg[k]={k,tot:0,el:0,f:0,own:0,src:{}});
+  const node={},city={},src={};
+  D.rows.forEach(r=>{
+    if(r[7]){ex[r[7]]++;return}
+    const p=P[r[1]],dn=dayNum[r[0]],fb=r[2]===1,w=wh(String(r[3])),st=D.states[r[4]],rg=STATE_REG[st]||'X',el=p.shelf!=null&&p.shelf>=180;
+    N++;gmv+=r[6];p.tot++;p.gmv+=r[6];if(fb){F++;p.f++;p.everF++}
+    const d=dates[r[0]];if(d>p.last)p.last=d;
+    if(dn>=winStart){p.win++;p.winReg[rg]++}
+    if(dn>=recStart){p.rec.t++;if(fb)p.rec.f++}else if(dn>=baseStart){p.base.t++;if(fb)p.base.f++}
+    const dd=day[dn];if(fb){dd.f++;if(el)dd.fe++}else if(el)dd.e++;else dd.s++;
+    const R=reg[rg];R.tot++;if(el)R.el++;if(fb){R.f++;if(w.region===rg)R.own++}R.src[w.grp]=(R.src[w.grp]||0)+1;
+    const sg=src[w.grp]||(src[w.grp]={grp:w.grp,kind:w.kind,region:w.region,n:0,f:0});sg.n++;if(fb)sg.f++;
+    if(fb){const key=String(r[3]);node[key]=(node[key]||0)+1}
+    const cn=D.cities[r[5]]||'—';const c=city[cn+'|'+st]||(city[cn+'|'+st]={city:cn,st,rg,n:0,f:0,src:{}});c.n++;if(fb)c.f++;c.src[w.grp]=(c.src[w.grp]||0)+1;
+  });
+  // inventory
+  const stockWh={};let fcUnits=0,allUnits=0;
+  D.inv.forEach(([id,pi,q])=>{
+    const p=P[pi],w=wh(String(id));p.stockWh[id]=(p.stockWh[id]||0)+q;p.allStock+=q;allUnits+=q;
+    const s=stockWh[id]||(stockWh[id]={units:0,skus:new Set()});s.units+=q;s.skus.add(pi);
+    if(w.kind==='FC'&&w.region){p.fcs+=q;p.fcReg[w.region]+=q;fcUnits+=q}
+  });
+  P.forEach(p=>{p.pct=pct(p.f,p.tot);p.drr=p.win/W;p.monthly=p.drr*30;
+    p.recPct=pct(p.rec.f,p.rec.t);p.basePct=pct(p.base.f,p.base.t);p.delta=Math.round((p.recPct-p.basePct)*10)/10;
+    p.inSJIT=p.everF>0||p.fcs>0;
+    p.trend=(p.base.f>=3&&p.rec.f===0&&p.rec.t>=3)?'Stopped':(p.base.t>=5&&p.rec.t>=5)?(p.delta<=-10?'Falling':p.delta>=10?'Rising':'Stable'):'—';
+  });
+  return{P,dates,dayNum,calDays,W,recStart,baseStart,ex,N,F,gmv,day,reg,node,city,src,stockWh,fcUnits,allUnits,totalLines:D.rows.length};
+})();
 
-  // callout
-  const drop=s.eP-s.lP, frG=s.lFr-s.eFr, r=Math.round;
-  let cl;
-  if(drop>=8&&frG<5)cl=['a-err','⚠️',`SJIT share is slipping: ${r(s.eP)}% → ${r(s.lP)}% from the start to the end of the period`,`Fresh share stayed flat (${r(s.eFr)}% → ${r(s.lFr)}%), so this is SJIT stock running out at Myntra FCs, not a product-mix shift. Check the Replenish list in Actions.`];
-  else if(drop>=8)cl=['a-warn','⚠️',`SJIT share fell ${r(drop)}pp (${r(s.eP)}% → ${r(s.lP)}%) while fresh share grew ${r(frG)}pp`,`Both stock depletion and a mix shift are at play. Replenish eligible SKUs first.`];
-  else if(drop<=-5)cl=['a-ok','📈',`SJIT share improving: ${r(s.eP)}% → ${r(s.lP)}% across the period`,`Recent consignments are landing. Keep the top movers stocked and work through the Onboard list.`];
-  else cl=['a-info','ℹ️',`SJIT share is steady at ~${r(s.lP)}% of eligible orders`,`The gap to potential is structural: ${fmt(s.skus.filter(k=>k.fl==='Onboard').reduce((a,k)=>a+k.tot,0))} eligible orders came from SKUs with no SJIT presence at all. See the Potential tab.`];
-  document.getElementById('ov-alert').innerHTML=`<div class="alert ${cl[0]}"><span style="font-size:18px;flex-shrink:0">${cl[1]}</span><div><strong>${esc(cl[2])}</strong><br><span style="font-size:12px;line-height:1.7">${esc(cl[3])}</span></div></div>`;
-
-  const live=s.skus.filter(k=>!k.fresh&&k.f>0).length, onb=s.skus.filter(k=>k.fl==='Onboard').length;
-  document.getElementById('ov-kpis').innerHTML=
-    kpi('SJIT % · all orders',pct(s.F,s.N)+'%',fmt(s.F)+' of '+fmt(s.N)+' valid orders','c-brand')+
-    kpi('SJIT % · eligible',pct(s.FE,s.E)+'%','excl. '+fmt(s.freshN)+' fresh orders','c-brand')+
-    kpi('SJIT % · GMV',pct(s.gmvF,s.gmvE)+'%',fmtL(s.gmvF)+' of '+fmtL(s.gmvE)+' eligible','c-brand')+
-    kpi('PPMP eligible orders',fmt(s.E-s.FE),'could move to SJIT','c-err')+
-    kpi('SJIT-live SKUs',live,'had ≥1 SJIT order','c-ok')+
-    kpi('Not in SJIT',onb,'eligible SKUs, 5+ orders, 0 SJIT','c-warn');
-
-  document.getElementById('dod-badge').textContent=s.dod.length+' days';
-  mkChart('dod-c','dod',{data:{labels:s.dod.map(d=>d.date.slice(5)),datasets:[
-    {type:'bar',label:'SJIT',data:s.dod.map(d=>d.f),backgroundColor:'#C4552A',yAxisID:'y',stack:'s',order:2},
-    {type:'bar',label:'PPMP',data:s.dod.map(d=>d.n),backgroundColor:'#E8C9B8',yAxisID:'y',stack:'s',order:3},
-    {type:'line',label:'SJIT %',data:s.dod.map(d=>d.pct),borderColor:'#5A3020',yAxisID:'y2',borderWidth:2.5,pointRadius:3,pointBackgroundColor:'#5A3020',order:1,borderDash:[5,3]}]},
-    options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.dataset.label+': '+(c.datasetIndex===2?c.parsed.y+'%':fmt(c.parsed.y))}}},
-      scales:{x:{stacked:true,ticks:{font:{size:10}},grid:{display:false}},y:{stacked:true,ticks:{font:{size:10}},grid:{color:'rgba(0,0,0,0.04)'}},y2:{position:'right',min:0,max:100,ticks:{font:{size:10},callback:v=>v+'%'},grid:{display:false}}}}});
-
-  const cs=s.cats.filter(c=>c.tot>=10).sort((a,b)=>b.tot-a.tot).slice(0,20).sort((a,b)=>a.pct-b.pct);
-  mkChart('cat-c','cat',{type:'bar',data:{labels:cs.map(c=>c.at),datasets:[{label:'SJIT %',data:cs.map(c=>c.pct),backgroundColor:cs.map(c=>bc(c.pct)),borderRadius:3}]},
-    options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>{const x=cs[c.dataIndex];return`SJIT ${x.pct}% · ${fmt(x.f)} of ${fmt(x.tot)} orders`}}}},
-      scales:{x:{min:0,max:100,ticks:{font:{size:10},callback:v=>v+'%'},grid:{color:'rgba(0,0,0,0.04)'}},y:{ticks:{font:{size:10}},grid:{display:false}}}}});
-
-  document.getElementById('wh-ov').innerHTML=whRows(s.whF.slice(0,10),w=>w.u,w=>(w.kind==='MNOW'?'M-Now dark store':'Myntra FC')+' · ID '+w.wh)+(s.whF.length>10?`<div class="note">+ ${s.whF.length-10} more locations in Warehouses &amp; Regions</div>`:'');
-
-  mkChart('donut-c','donut',{type:'doughnut',data:{labels:['SJIT (FBM)','PPMP · eligible','Fresh (excluded)'],datasets:[{data:[s.FE,s.E-s.FE,s.freshN],backgroundColor:['#C4552A','#E8C9B8','#B9C7D6'],borderWidth:0}]},
-    options:{responsive:true,maintainAspectRatio:false,cutout:'65%',plugins:{legend:{position:'right',labels:{font:{size:11},boxWidth:10}},tooltip:{callbacks:{label:c=>c.label+': '+fmt(c.parsed)+' ('+pct(c.parsed,s.N)+'%)'}}}}});
-
-  document.getElementById('ex-row').innerHTML=`<span>Order lines in file: <b>${fmt(s.totalLines)}</b></span><span>Counted: <b>${fmt(s.N)}</b></span><span>Cancelled: <b>${fmt(s.ex.C)}</b></span><span>RTO: <b>${fmt(s.ex.R)}</b></span><span>Returned: <b>${fmt(s.ex.T)}</b></span><span>Lost: <b>${fmt(s.ex.L)}</b></span><span>Source: <b>${esc(s.fname)}</b></span>`;
-
-  renderPotential();renderCats();doSKU();renderWH();renderActions();
+// ─── potential
+function potential(T,set){
+  const g={360:0,270:0,180:0};const list=[];
+  S.P.forEach(p=>{if(!p.tot)return;const b=bucket(p.shelf);if(!set.includes(b))return;const gain=Math.max(0,T*p.tot-p.f);g[b]+=gain;if(gain>0)list.push({p,gain})});
+  const add=g[360]+g[270]+g[180];return{g,add,pot:S.F+add,list};
 }
 
-// ── potential
-function potential(t){
-  const out={cur:0,rep:0,onb:0,repSk:[],onbSk:[],cat:{}};
-  ST.skus.filter(k=>!k.fresh).forEach(k=>{
-    const gain=Math.max(0,t*k.tot-k.f);
-    out.cur+=k.f;
-    const c=out.cat[k.at]||(out.cat[k.at]={at:k.at,tot:0,f:0,rep:0,onb:0});c.tot+=k.tot;c.f+=k.f;
-    if(k.f>0){out.rep+=gain;c.rep+=gain;if(gain>0)out.repSk.push({...k,gain})}
-    else{out.onb+=gain;c.onb+=gain;if(gain>0)out.onbSk.push({...k,gain})}
-  });
-  out.repSk.sort((a,b)=>b.gain-a.gain);out.onbSk.sort((a,b)=>b.gain-a.gain);
-  return out;
+// ─── render: overview
+function renderOverview(){
+  const s=S,T=0.8,A=potential(T,['360','270']),B=potential(T,['360','270','180']);
+  const el=s.P.filter(p=>p.shelf>=180);const eN=el.reduce((a,p)=>a+p.tot,0),eF=el.reduce((a,p)=>a+p.f,0);
+  const gapP=s.P.filter(p=>!p.inMpm&&p.tot>0);
+  const fall=s.P.filter(p=>p.trend==='Falling'||p.trend==='Stopped');
+  const fcSkus=s.P.filter(p=>p.fcs>0).length;
+  const easy=s.P.filter(p=>p.shelf>=270).reduce((a,p)=>a+(p.tot-p.f),0);
+  document.getElementById('ov-alert').innerHTML=`<div class="alert a-warn"><span style="font-size:18px">💡</span><div><strong>${fmt(easy)} orders on 9- and 12-month shelf-life SKUs shipped PPMP this period.</strong><br><span style="font-size:12px;line-height:1.7">Sending 9 & 12-month SKUs at an 80% fill rate would take SJIT from ${pct(s.F,s.N)}% to ${pct(A.pot,s.N)}% of orders; adding 6-month SKUs takes it to ${pct(B.pot,s.N)}%. ${fall.length?fall.length+' SKUs have falling or stopped SJIT sales (see Trends) — likely FC stock-outs.':''}</span></div></div>`;
+  document.getElementById('ov-kpis').innerHTML=
+    kpi('SJIT % · all orders',pct(s.F,s.N)+'%',fmt(s.F)+' of '+fmt(s.N)+' orders','c-brand')+
+    kpi('SJIT % · 6m+ shelf life',pct(eF,eN)+'%',fmt(eN)+' orders could go SJIT','c-brand')+
+    kpi('Potential · 9 & 12 m',pct(A.pot,s.N)+'%','at 80% fill · +'+fmt(A.add/s.calDays*30)+' orders/month','c-ok')+
+    kpi('Potential · 6, 9 & 12 m',pct(B.pot,s.N)+'%','at 80% fill · +'+fmt(B.add/s.calDays*30)+' orders/month','c-ok')+
+    kpi('Stock at Myntra FCs',fmt(s.fcUnits),fcSkus+' SKUs · M-Now/FDC excluded','')+
+    kpi('Missing from MPM',gapP.length,fmt(gapP.reduce((a,p)=>a+p.tot,0))+' orders without shelf life',gapP.length?'c-err':'c-ok');
+  // daily chart
+  const lab=s.day.map(d=>{const dt=new Date(new Date(s.dates[0]).getTime()+d.k*864e5);return dt.toISOString().slice(5,10)});
+  const daily=s.day.map(d=>pct(d.f,d.f+d.e+d.s));
+  const roll=s.day.map((d,i)=>{const w=s.day.slice(Math.max(0,i-6),i+1);const f=w.reduce((a,x)=>a+x.f,0),t=w.reduce((a,x)=>a+x.f+x.e+x.s,0);return i>=6?pct(f,t):null});
+  mkChart('dod-c',{data:{labels:lab,datasets:[
+    {type:'bar',label:'SJIT',data:s.day.map(d=>d.f),backgroundColor:'#C4552A',stack:'s',yAxisID:'y',order:3},
+    {type:'bar',label:'PPMP · 6m+',data:s.day.map(d=>d.e),backgroundColor:'#E8B89F',stack:'s',yAxisID:'y',order:4},
+    {type:'bar',label:'PPMP · short / not in MPM',data:s.day.map(d=>d.s),backgroundColor:'#C9D3DD',stack:'s',yAxisID:'y',order:5},
+    {type:'line',label:'SJIT %',data:daily,borderColor:'#5A3020',borderWidth:2,pointRadius:2,yAxisID:'y2',order:1,borderDash:[5,3]},
+    {type:'line',label:'7-day SJIT %',data:roll,borderColor:'#2E7D32',borderWidth:2.5,pointRadius:0,yAxisID:'y2',order:2,spanGaps:true}]},
+    options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.dataset.label+': '+(c.dataset.yAxisID==='y2'?c.parsed.y+'%':fmt(c.parsed.y))}}},
+      scales:{x:{stacked:true,ticks:{font:{size:10},maxRotation:0,autoSkip:true},grid:{display:false}},y:{stacked:true,ticks:{font:{size:10}},grid:{color:'rgba(0,0,0,.04)'}},y2:{position:'right',min:0,max:100,ticks:{font:{size:10},callback:v=>v+'%'},grid:{display:false}}}}});
+  // shelf table
+  const bk={};['360','270','180','short','none'].forEach(b=>bk[b]={n:0,f:0,st:0});
+  s.P.forEach(p=>{const b=bk[bucket(p.shelf)];b.n+=p.tot;b.f+=p.f;b.st+=p.fcs});
+  document.getElementById('ov-shelf').innerHTML=['360','270','180','short','none'].map(b=>[b,bk[b]]).map(([b,v])=>{const pp=pct(v.f,v.n);return`<tr><td><strong>${BUCKET_LBL[b]}</strong></td><td class="num">${fmt(v.n)}</td><td class="num">${fmt(v.f)}</td><td class="num">${fmt(v.n-v.f)}</td><td class="num"><strong style="color:${bc(pp)}">${pp}%</strong></td><td>${bar(pp)}</td><td class="num">${fmt(v.st)}</td></tr>`}).join('');
+  // category chart
+  const cm={};s.P.filter(p=>p.shelf>=180).forEach(p=>{const c=cm[p.cat]||(cm[p.cat]={c:p.cat,n:0,f:0});c.n+=p.tot;c.f+=p.f});
+  const cs=Object.values(cm).filter(c=>c.n>0).sort((a,b)=>b.n-a.n).slice(0,15).map(c=>({...c,p:pct(c.f,c.n)})).sort((a,b)=>a.p-b.p);
+  mkChart('cat-c',{type:'bar',data:{labels:cs.map(c=>c.c),datasets:[{data:cs.map(c=>c.p),backgroundColor:cs.map(c=>bc(c.p)),borderRadius:3}]},
+    options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>`SJIT ${cs[c.dataIndex].p}% · ${fmt(cs[c.dataIndex].f)} of ${fmt(cs[c.dataIndex].n)}`}}},
+      scales:{x:{min:0,max:100,ticks:{font:{size:10},callback:v=>v+'%'}},y:{ticks:{font:{size:10}},grid:{display:false}}}}});
+  document.getElementById('ex-row').innerHTML=`<span>Order lines: <b>${fmt(s.totalLines)}</b></span><span>Counted: <b>${fmt(s.N)}</b></span><span>Excluded: <b>${fmt(s.ex.C)}</b> cancelled · <b>${fmt(s.ex.R)}</b> RTO · <b>${fmt(s.ex.T)}</b> returned · <b>${fmt(s.ex.L)}</b> lost</span><span>Orders files: <b>${D.files.length}</b> (${esc(D.files.slice(-1)[0]||'')})</span><span>Inventory: <b>${esc(D.invFile||'none')}</b></span>`;
+}
+
+// ─── render: potential
+let potBucket='all';
+function scenarioCard(prefix,R,set,T){
+  const s=S,N=s.N,ceil=potential(1,set);
+  document.getElementById(prefix+'-big').textContent=pct(R.pot,N)+'%';
+  document.getElementById(prefix+'-sub').innerHTML=`SJIT share of all orders at ${Math.round(T*100)}% fill (now ${pct(s.F,N)}%) · <b>+${(Math.round((pct(R.pot,N)-pct(s.F,N))*10)/10)} pp</b> · +${fmt(R.add/s.calDays*30)} SJIT orders/month · ceiling ${pct(ceil.pot,N)}%`;
+  const seg=[['SJIT now',s.F,'#C4552A','#fff'],['+ 12 m',R.g[360],'#E07A4F','#fff'],['+ 9 m',R.g[270],'#EFA27E','#5A3020'],['+ 6 m',R.g[180],'#F5C9AF','#5A3020'],['Stays PPMP',N-R.pot,'#ECE3DB','#836A5A']].filter(x=>x[1]>0.5);
+  document.getElementById(prefix+'-bar').innerHTML=seg.map(([l,v,c,t])=>{const w=v/N*100;return`<div style="width:${w}%;background:${c};color:${t}" title="${l}: ${fmt(v)}">${w>=7?Math.round(w)+'%':''}</div>`}).join('');
+  document.getElementById(prefix+'-leg').innerHTML=seg.map(([l,v,c])=>`<span><span class="dot" style="background:${c};margin-right:4px"></span>${l}: <b>${fmt(v)}</b></span>`).join('');
 }
 function renderPotential(){
-  const s=ST,tv=+document.getElementById('tgt').value,t=tv/100;
-  document.getElementById('tgt-v').textContent=tv+'%';document.getElementById('ac-tgt').textContent=tv+'%';
-  const p=potential(t);
-  const potF=p.cur+p.rep+p.onb, scale=30/s.days;
-  const potAll=pct(potF,s.N), potElig=pct(potF,s.E);
-  document.getElementById('po-kpis').innerHTML=
-    kpi('SJIT % now',pct(s.F,s.N)+'%','all valid orders','c-brand')+
-    kpi('Potential SJIT %',potAll+'%','all orders, at '+tv+'% fill','c-ok')+
-    kpi('Potential · eligible',potElig+'%','now '+pct(s.FE,s.E)+'%','c-ok')+
-    kpi('Uplift',(Math.round((potAll-pct(s.F,s.N))*10)/10)+' pp','on all orders','c-info')+
-    kpi('Extra SJIT orders / month',fmt((p.rep+p.onb)*scale),fmt(p.rep*scale)+' replenish · '+fmt(p.onb*scale)+' onboard','')+
-    kpi('Ceiling · all orders',pct(s.E,s.N)+'%','100% fill; fresh can never be SJIT','c-warn');
+  const tv=+document.getElementById('tgt').value,T=tv/100;document.getElementById('tgt-v').textContent=tv+'%';
+  const A=potential(T,['360','270']),B=potential(T,['360','270','180']);
+  scenarioCard('sa',A,['360','270'],T);scenarioCard('sb',B,['360','270','180'],T);
+  const list=B.list.filter(x=>potBucket==='all'||bucket(x.p.shelf)===potBucket).sort((a,b)=>b.gain-a.gain).slice(0,150);
+  document.getElementById('po-tb').innerHTML=list.map(({p,gain})=>`<tr><td>${skuCell(p)}</td><td class="mut" style="font-size:12px">${esc(p.cat)}</td><td>${shelfBadge(p.shelf)}</td><td class="num">${fmt(p.tot)}</td><td class="num" style="color:${bc(p.pct)};font-weight:700">${p.pct}%</td><td class="num">${p.fcs?fmt(p.fcs):'—'}</td><td>${p.inSJIT?'<span class="badge b-brand">In SJIT</span>':'<span class="badge b-info">New</span>'}</td><td class="num"><b>+${fmt(gain)}</b></td></tr>`).join('')||'<tr><td colspan="8" class="mut">Nothing to gain at this fill rate.</td></tr>';
+}
+function potF(b,btn){potBucket=b;document.querySelectorAll('[data-pb]').forEach(x=>x.classList.remove('on'));btn.classList.add('on');renderPotential()}
 
-  const N=s.N, seg=[
-    ['SJIT now',p.cur,'#C4552A'],['Replenish SJIT-live',p.rep,'#E8845C'],['Onboard new SKUs',p.onb,'#F0B89A'],
-    ['Stays PPMP (eligible)',s.E-potF,'#E8D5C8'],['Fresh · PPMP only',s.freshN,'#B9C7D6']];
-  document.getElementById('pot-bar').innerHTML=seg.map(([l,v,c])=>{const w=v/N*100;return w>0?`<div style="width:${w}%;background:${c};color:${c==='#E8D5C8'||c==='#F0B89A'||c==='#B9C7D6'?'#5A3020':'#fff'}" title="${esc(l)}: ${fmt(v)} (${w.toFixed(1)}%)">${w>=6?Math.round(w)+'%':''}</div>`:''}).join('');
-  document.getElementById('pot-leg').innerHTML=seg.map(([l,v,c])=>`<span><span class="dot" style="background:${c};display:inline-block;margin-right:5px"></span>${l}: <b>${fmt(v)}</b> (${pct(v,N)}%)</span>`).join('');
-
-  const row=(k,cols)=>`<tr><td><code>${esc(k.sku)}</code><div style="font-size:11px;color:var(--txm);max-width:260px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis" title="${esc(k.name)}">${esc(k.name)}</div></td>${cols}</tr>`;
-  document.getElementById('po-rep').innerHTML=p.repSk.slice(0,25).map(k=>row(k,`<td class="num">${fmt(k.tot)}</td><td class="num" style="color:${bc(k.pct)};font-weight:700">${k.pct}%</td><td class="num"><b>+${fmt(k.gain)}</b></td>`)).join('')||'<tr><td colspan="4" style="color:var(--txm)">Every SJIT-live SKU is already at the target fill rate.</td></tr>';
-  document.getElementById('po-onb').innerHTML=p.onbSk.slice(0,25).map(k=>row(k,`<td class="num">${fmt(k.tot)}</td><td style="font-size:12px;color:var(--txm)">${esc(k.at)}</td><td class="num"><b>+${fmt(k.gain)}</b></td>`)).join('')||'<tr><td colspan="4" style="color:var(--txm)">No eligible SKUs outside SJIT.</td></tr>';
-  document.getElementById('po-cat').innerHTML=Object.values(p.cat).filter(c=>c.tot>=10).sort((a,b)=>(b.rep+b.onb)-(a.rep+a.onb)).map(c=>{const cp=pct(c.f,c.tot),pp=pct(c.f+c.rep+c.onb,c.tot);return`<tr><td><strong>${esc(c.at)}</strong></td><td class="num">${fmt(c.tot)}</td><td class="num">${fmt(c.f)}</td><td class="num" style="color:${bc(cp)};font-weight:700">${cp}%</td><td class="num" style="color:${bc(pp)};font-weight:700">${pp}%</td><td class="num">+${fmt(c.rep)}</td><td class="num">+${fmt(c.onb)}</td></tr>`}).join('');
-  if(document.getElementById('ac-tb'))renderActions();
+// ─── render: network
+function renderNetwork(){
+  const s=S,perDay=s.calDays;
+  // node utilisation
+  const rows=NET.nodes.map(n=>{
+    const ids=(n.ids||[]).map(String);
+    const orders=ids.reduce((a,id)=>a+(s.node[id]||0),0);
+    const units=ids.reduce((a,id)=>a+(s.stockWh[id]?.units||0),0);
+    const sk=new Set();ids.forEach(id=>s.stockWh[id]?.skus.forEach(x=>sk.add(x)));
+    const regEl=s.reg[n.region]?.el||0;const cov=pct(orders,regEl);
+    let st,why;
+    if(!ids.length){st='Not utilised';why='Warehouse ID not identified; no orders or stock found. Add the ID in config/myntra_network.json if it exists.'}
+    else if(!orders&&!units){st='Not utilised';why='No SJIT orders and no stock in the data.'}
+    else if(n.type==='FC'&&(sk.size<15||cov<10)){st='Under-utilised';why=(sk.size<15?`Only ${sk.size} SKUs stocked`:'')+(sk.size<15&&cov<10?'; ':'')+(cov<10?`serves ${cov}% of ${REG[n.region].label}'s 6m+ demand`:'')}
+    else if(n.type==='FDC'&&(orders/perDay<1)){st='Under-utilised';why=`${(orders/perDay).toFixed(1)} orders/day`}
+    else{st='Active';why=`${sk.size} SKUs · serves ${cov}% of ${REG[n.region].label}'s 6m+ demand`}
+    return{n,ids,orders,units,skus:sk.size,st,why};
+  });
+  const nb={'Active':'b-ok','Under-utilised':'b-warn','Not utilised':'b-err'};
+  document.getElementById('nw-nodes').innerHTML=rows.map(r=>`<tr><td><strong>${esc(r.n.name)}</strong>${r.n.primary?' <span class="badge b-brand">Primary</span>':''}${r.n.id_to_confirm?' <span class="badge b-mute" title="Confirm this ID maps to this location">ID to confirm</span>':''}</td><td>${r.n.type}</td><td>${REG[r.n.region].label}</td><td><code>${r.ids.join(', ')||'—'}</code></td><td class="num">${fmt(r.orders)}</td><td class="num">${(r.orders/perDay).toFixed(1)}</td><td class="num">${pct(r.orders,s.F)}%</td><td class="num">${fmt(r.units)}</td><td class="num">${r.skus}</td><td><span class="badge ${nb[r.st]}">${r.st}</span></td><td style="font-size:12px" class="mut">${esc(r.why)}</td></tr>`).join('');
+  const notU=rows.filter(r=>r.st==='Not utilised').length,under=rows.filter(r=>r.st==='Under-utilised').length;
+  const mnowO=Object.values(s.src).filter(x=>x.kind==='MNOW').reduce((a,x)=>a+x.f,0);
+  document.getElementById('nw-kpis').innerHTML=kpi('Onboarded locations',NET.nodes.length,NET.nodes.filter(n=>n.type==='FC').length+' FCs · '+NET.nodes.filter(n=>n.type==='FDC').length+' FDCs','')+kpi('Not utilised',notU,'no orders and no stock','c-err')+kpi('Under-utilised',under,'thin range or low share','c-warn')+kpi('Stock at FCs',fmt(s.fcUnits),'units we control','c-brand')+kpi('SJIT via M-Now',fmt(mnowO),pct(mnowO,s.F)+'% of SJIT orders','c-info');
+  // regions
+  document.getElementById('nw-reg').innerHTML=REGK.concat(['X']).map(k=>{const r=s.reg[k];if(!r.tot)return'';
+    const fcU=s.P.reduce((a,p)=>a+(k==='X'?0:p.fcReg[k]),0),fcS=k==='X'?0:s.P.filter(p=>p.fcReg[k]>0).length;
+    const miss=k==='X'?[]:s.P.filter(p=>p.shelf>=180&&p.winReg[k]>=3&&!p.fcReg[k]);
+    const pp=pct(r.f,r.tot);
+    return`<tr><td><strong>${k==='X'?'Unknown state':REG[k].label}</strong>${k!=='X'?`<div class="pn">FC: ${esc(PRIMARY[k])}</div>`:''}</td><td class="num">${fmt(r.tot)}</td><td class="num">${fmt(r.el)}</td><td class="num">${fmt(r.f)}</td><td class="num"><strong style="color:${bc(pp)}">${pp}%</strong></td><td>${bar(pp)}</td><td class="num">${fmt(r.own)} <span class="mut">(${pct(r.own,r.f)}%)</span></td><td class="num">${fmt(fcU)}</td><td class="num">${fcS}</td><td class="num">${k==='X'?'—':miss.length}</td><td class="num">${k==='X'?'—':fmt(miss.reduce((a,p)=>a+p.winReg[k],0))}</td></tr>`}).join('');
+  // flow
+  const srcs=Object.values(s.src).sort((a,b)=>{const o={NH:0,FC:1,FDC:2,MNOW:3,'?':4};return(o[a.kind]-o[b.kind])||(b.n-a.n)});
+  let h='<table><thead><tr><th>Customer region</th>'+srcs.map(x=>`<th class="num" style="white-space:normal;min-width:76px">${esc(x.grp)}<div style="font-weight:400;text-transform:none">${x.kind==='NH'?'PPMP':x.kind==='MNOW'?'M-Now':x.kind}</div></th>`).join('')+'<th class="num">Total</th><th class="num">SJIT %</th></tr></thead><tbody>';
+  REGK.concat(['X']).forEach(k=>{const r=s.reg[k];if(!r.tot)return;h+=`<tr><td><strong>${k==='X'?'Unknown':REG[k].label}</strong></td>`+srcs.map(x=>{const v=r.src[x.grp]||0;const own=x.region===k&&x.kind!=='NH';return`<td class="num" style="${v&&x.kind!=='NH'?'background:'+(own?'#E8F5E9':'#FFF8E1'):''}">${v?fmt(v):'<span class="mut">·</span>'}</td>`}).join('')+`<td class="num"><b>${fmt(r.tot)}</b></td><td class="num" style="color:${bc(pct(r.f,r.tot))};font-weight:700">${pct(r.f,r.tot)}%</td></tr>`});
+  document.getElementById('nw-flow').innerHTML=h+'</tbody></table><div class="note" style="padding:0 12px 12px">Green = served by a Myntra location in the same region · amber = shipped across regions.</div>';
+  // cities
+  document.getElementById('nw-city').innerHTML=Object.values(s.city).sort((a,b)=>b.n-a.n).slice(0,30).map(c=>{const top=Object.entries(c.src).sort((a,b)=>b[1]-a[1]).slice(0,2).map(([g,v])=>`${esc(g)} (${v})`).join(', ');const pp=pct(c.f,c.n);return`<tr><td><strong>${esc(c.city)}</strong> <span class="mut">${esc(c.st)}</span></td><td class="mut">${c.rg==='X'?'—':REG[c.rg].label}</td><td class="num">${fmt(c.n)}</td><td class="num" style="color:${bc(pp)};font-weight:700">${pp}%</td><td style="font-size:12px">${top}</td></tr>`}).join('');
+  // M-Now
+  const mn={};Object.keys(s.stockWh).concat(Object.keys(s.node)).forEach(id=>{const w=wh(id);if(w.kind!=='MNOW')return;const g=mn[w.grp]||(mn[w.grp]={grp:w.grp,region:w.region,stores:new Set(),f:0,units:0,skus:new Set()});if(!g.stores.has(id)){g.stores.add(id);g.f+=s.node[id]||0;g.units+=s.stockWh[id]?.units||0;s.stockWh[id]?.skus.forEach(x=>g.skus.add(x))}});
+  document.getElementById('nw-mnow').innerHTML=Object.values(mn).sort((a,b)=>b.f-a.f).map(g=>`<tr><td><strong>${esc(g.grp)}</strong></td><td class="mut">${g.region&&REG[g.region]?esc(PRIMARY[g.region]):'—'}</td><td class="num">${g.stores.size}</td><td class="num">${fmt(g.f)}</td><td class="num">${fmt(g.units)}</td><td class="num">${g.skus.size}</td></tr>`).join('')||'<tr><td colspan="6" class="mut">No M-Now activity.</td></tr>';
+  // pivot
+  const cols=[];NET.nodes.forEach(n=>(n.ids||[]).forEach(id=>cols.push({id:String(id),lbl:n.short,type:n.type,region:n.region})));
+  Object.keys(s.stockWh).forEach(id=>{const w=wh(id);if((w.kind==='FC'||w.kind==='FDC')&&!NODE_BY_ID[id])cols.push({id,lbl:w.grp,type:w.kind,region:null})});
+  const mnowCols=[...new Set(Object.keys(s.stockWh).map(id=>wh(id)).filter(w=>w.kind==='MNOW').map(w=>w.grp))];
+  const top=s.P.filter(p=>p.shelf>=180&&(p.tot>0||p.allStock>0)).sort((a,b)=>b.tot-a.tot).slice(0,40);
+  const hc=v=>v>=200?['#1B5E20','#fff']:v>=50?['#558B2F','#fff']:v>=10?['#C5E1A5','#1B3A0A']:['#F1F8E9','#33691E'];
+  let pv='<table class="hm"><thead><tr><th>SKU</th><th>Shelf</th><th class="num">Orders</th>'+cols.map(c=>`<th class="num" style="white-space:normal;font-size:10px">${esc(c.lbl)}<div style="font-weight:400">${c.type} · ${c.id}</div></th>`).join('')+mnowCols.map(g=>`<th class="num" style="white-space:normal;font-size:10px;color:#90A4AE">${esc(g)}<div style="font-weight:400">not ours</div></th>`).join('')+'</tr></thead><tbody>';
+  top.forEach(p=>{pv+=`<tr><td><code>${esc(p.sku)}</code></td><td>${shelfBadge(p.shelf)}</td><td class="num">${fmt(p.tot)}</td>`+cols.map(c=>{const v=p.stockWh[c.id]||0;if(v){const k=hc(v);return`<td class="cv" style="background:${k[0]};color:${k[1]}">${fmt(v)}</td>`}const need=c.type==='FC'&&c.region&&p.winReg[c.region]>=3;return`<td class="cv" style="${need?'background:#FFE0CC;color:#C4552A':'color:#B0BEC5'}">${need?'0':'—'}</td>`}).join('')+mnowCols.map(g=>{let v=0;Object.entries(p.stockWh).forEach(([id,q])=>{if(wh(id).grp===g)v+=q});return`<td class="cv" style="color:#78909C">${v||'—'}</td>`}).join('')+'</tr>'});
+  document.getElementById('nw-pivot').innerHTML=pv+'</tbody></table>';
+  const unk=D.unknownWh||[];
+  document.getElementById('nw-unk').innerHTML=unk.length?`<div class="alert a-warn"><span>⚠️</span><div><strong>Warehouse IDs not in the mapping: ${unk.map(esc).join(', ')}</strong><br><span style="font-size:12px">Add them to config/warehouse_id_mapping.xlsx (and to config/myntra_network.json if they're one of the onboarded FCs/FDCs), then rerun.</span></div></div>`:'';
 }
 
-// ── categories
-function renderCats(){
-  const c=ST.cats.filter(x=>x.tot>0);
-  const top=[...c].sort((a,b)=>b.tot-a.tot)[0];
-  document.getElementById('ca-kpis').innerHTML=kpi('Categories',c.length,'with eligible orders','')+kpi('Above 70% SJIT',c.filter(x=>x.pct>=70).length,'strong','c-ok')+kpi('Below 40% SJIT',c.filter(x=>x.pct<40).length,'need action','c-err')+kpi('Largest',esc(top?.at||'—'),fmt(top?.tot||0)+' orders · '+(top?.pct||0)+'% SJIT','');
-  document.getElementById('ca-tb').innerHTML=ST.cats.map(x=>`<tr class="cr" data-p="${x.tot?x.pct:-1}"><td><strong>${esc(x.at)}</strong></td><td class="num">${fmt(x.f)}</td><td class="num">${fmt(x.n)}</td><td class="num" style="color:var(--txm)">${x.fr?fmt(x.fr):'—'}</td><td class="num">${fmt(x.tot)}</td>
-    <td class="num">${x.tot?`<strong style="color:${bc(x.pct)}">${x.pct}%</strong>`:'—'}</td><td>${x.tot?bar(x.pct):''}</td><td class="num">${fmtL(x.gmv)}</td>
-    <td>${!x.tot?'<span class="badge b-info">🌿 Fresh only</span>':x.pct>=70?'<span class="badge b-ok">✅ Strong</span>':x.pct>=40?'<span class="badge b-warn">⚠ Improve</span>':'<span class="badge b-err">🔴 Critical</span>'}</td></tr>`).join('');
+// ─── render: trends
+let trFlag='All';
+function renderTrends(){
+  const s=S,d0=new Date(s.dates[0]);const dd=k=>new Date(d0.getTime()+k*864e5).toISOString().slice(0,10);
+  document.getElementById('tr-win').innerHTML=`<span>ℹ️</span><div>Earlier window: <b>${dd(s.baseStart)} → ${dd(s.recStart-1)}</b> · Recent window: <b>${dd(s.recStart)} → ${dd(s.calDays-1)}</b>. ${s.calDays<21?'With under 3 weeks of data the period is split in half; once you have 3+ weeks the recent window becomes the last 7 days vs the 3 weeks before. Keep adding daily reports (and older ones if you have them) to data/.':'Recent = last 7 days vs the 3 weeks before.'}</div>`;
+  let bt=0,bf=0,rt=0,rf=0;s.P.filter(p=>p.shelf>=180).forEach(p=>{bt+=p.base.t;bf+=p.base.f;rt+=p.rec.t;rf+=p.rec.f});
+  const c=f=>s.P.filter(p=>p.trend===f).length;
+  document.getElementById('tr-kpis').innerHTML=kpi('SJIT % earlier',pct(bf,bt)+'%','6m+ shelf life','')+kpi('SJIT % recent',pct(rf,rt)+'%',(pct(rf,rt)>=pct(bf,bt)?'▲ ':'▼ ')+Math.abs(Math.round((pct(rf,rt)-pct(bf,bt))*10)/10)+' pp',pct(rf,rt)>=pct(bf,bt)?'c-ok':'c-err')+kpi('⛔ Stopped',c('Stopped'),'had SJIT, none recently','c-err')+kpi('📉 Falling',c('Falling'),'SJIT share down 10+ pp','c-warn')+kpi('📈 Rising',c('Rising'),'SJIT share up 10+ pp','c-ok');
+  const lab=s.day.map(d=>dd(d.k).slice(5));const daily=s.day.map(d=>pct(d.fe,d.fe+d.e));
+  const roll=s.day.map((d,i)=>{if(i<6)return null;const w=s.day.slice(i-6,i+1);const f=w.reduce((a,x)=>a+x.fe,0),t=w.reduce((a,x)=>a+x.fe+x.e,0);return pct(f,t)});
+  mkChart('tr-c',{type:'line',data:{labels:lab,datasets:[{label:'Daily SJIT % (6m+)',data:daily,borderColor:'#C4552A',borderWidth:2,pointRadius:2},{label:'7-day rolling',data:roll,borderColor:'#2E7D32',borderWidth:3,pointRadius:0,spanGaps:true}]},
+    options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},plugins:{legend:{labels:{font:{size:11},boxWidth:12}}},scales:{y:{min:0,max:100,ticks:{callback:v=>v+'%',font:{size:10}}},x:{ticks:{font:{size:10},maxRotation:0,autoSkip:true},grid:{display:false}}}}});
+  renderTrendTbl();
 }
-function catF(f,btn){document.querySelectorAll('[data-cf]').forEach(b=>b.classList.remove('on'));btn.classList.add('on');
-  document.querySelectorAll('.cr').forEach(r=>{const p=+r.dataset.p;r.style.display=(f==='all'||(f==='low'&&p>=0&&p<40)||(f==='hi'&&p>=70))?'':'none'})}
+function renderTrendTbl(){
+  const tb={'Stopped':'<span class="badge b-err">⛔ Stopped</span>','Falling':'<span class="badge b-warn">📉 Falling</span>','Rising':'<span class="badge b-ok">📈 Rising</span>','Stable':'<span class="badge b-mute">Stable</span>'};
+  const ord={Stopped:0,Falling:1,Rising:2,Stable:3};
+  const rows=S.P.filter(p=>p.trend!=='—'&&(trFlag==='All'||p.trend===trFlag)).sort((a,b)=>(ord[a.trend]-ord[b.trend])||(b.base.t+b.rec.t)-(a.base.t+a.rec.t));
+  document.getElementById('tr-tb').innerHTML=rows.map(p=>`<tr><td>${skuCell(p)}</td><td>${shelfBadge(p.shelf)}</td><td class="num">${fmt(p.base.t)}</td><td class="num">${p.basePct}%</td><td class="num">${fmt(p.rec.t)}</td><td class="num">${p.recPct}%</td><td class="num" style="font-weight:700;color:${p.delta<0?'var(--err)':p.delta>0?'var(--ok)':'var(--txm)'}">${p.delta>0?'+':''}${p.delta} pp</td><td class="num">${p.fcs?fmt(p.fcs):'<span class="c-err">0</span>'}</td><td>${tb[p.trend]}</td></tr>`).join('')||'<tr><td colspan="9" class="mut">No SKUs in this group.</td></tr>';
+}
+function trF(f,btn){trFlag=f;document.querySelectorAll('[data-tf]').forEach(x=>x.classList.remove('on'));btn.classList.add('on');renderTrendTbl()}
 
-// ── SKU tracker
-function doSKU(){
+// ─── render: send plan
+let spType='All';const spShelf=new Set(['360','270','180']);
+function sendRows(){
+  const min=+document.getElementById('sp-min').value||0;
+  return S.P.filter(p=>p.shelf>=180&&p.mstat!=='Inactive'&&p.monthly>=min).map(p=>{
+    const cd=coverDays(p.shelf);const reg={};let tot=0;
+    REGK.forEach(k=>{const drr=p.winReg[k]/S.W,target=Math.ceil(drr*cd),stock=p.fcReg[k],send=Math.max(0,target-stock);reg[k]={drr,target,stock,send};tot+=send});
+    return{p,cd,reg,tot,type:p.inSJIT?'Replenish':'New',doc:p.drr>0?p.fcs/p.drr:0};
+  }).filter(r=>r.tot>0);
+}
+function renderSend(){
+  document.getElementById('sp-w').textContent=S.W;
+  const all=sendRows();
+  const rows=all.filter(r=>(spType==='All'||r.type===spType)&&spShelf.has(bucket(r.p.shelf))&&(()=>{const q=(document.getElementById('sp-q').value||'').toLowerCase();return!q||r.p.sku.toLowerCase().includes(q)||(r.p.name||'').toLowerCase().includes(q)||(r.p.nh||'').toLowerCase().includes(q)})()).sort((a,b)=>b.tot-a.tot);
+  const sum=(arr,k)=>arr.reduce((a,r)=>a+(k?r.reg[k].send:r.tot),0);
+  document.getElementById('sp-kpis').innerHTML=kpi('🔁 Replenish',all.filter(r=>r.type==='Replenish').length,fmt(sum(all.filter(r=>r.type==='Replenish')))+' units','c-brand')+kpi('🆕 New to SJIT',all.filter(r=>r.type==='New').length,fmt(sum(all.filter(r=>r.type==='New')))+' units','c-info')+REGK.map(k=>kpi(esc(PRIMARY[k]),fmt(sum(all,k)),REG[k].label+' · units to send','')).join('');
+  document.getElementById('sp-head').innerHTML='<th>SKU</th><th>Category</th><th>Shelf life</th><th>Cover</th><th>Type</th><th class="num">Orders / month</th><th class="num">SJIT %</th><th class="num">FC stock</th><th class="num">Days of cover now</th>'+REGK.map(k=>`<th class="num" style="white-space:normal">${esc(PRIMARY[k])}<div style="font-weight:400;text-transform:none">${REG[k].label}</div></th>`).join('')+'<th class="num">Total</th>';
+  document.getElementById('sp-tb').innerHTML=rows.map(r=>{const p=r.p;return`<tr><td>${skuCell(p)}</td><td class="mut" style="font-size:12px">${esc(p.cat)}</td><td>${shelfBadge(p.shelf)}</td><td class="mut" style="font-size:12px">${r.cd/30} mo</td><td>${r.type==='New'?'<span class="badge b-info">🆕 New</span>':'<span class="badge b-brand">🔁 Replenish</span>'}</td><td class="num">${fmt(p.monthly)}</td><td class="num" style="color:${bc(p.pct)};font-weight:700">${p.pct}%</td><td class="num">${p.fcs?fmt(p.fcs):'—'}</td><td class="num">${p.fcs?Math.round(r.doc)+' d':'—'}</td>`+REGK.map(k=>{const x=r.reg[k];return`<td class="num" title="DRR ${x.drr.toFixed(2)} × ${r.cd} d = ${x.target}, stock ${x.stock}">${x.send?'<b>'+fmt(x.send)+'</b>':'<span class="mut">—</span>'}</td>`}).join('')+`<td class="num"><b>${fmt(r.tot)}</b></td></tr>`}).join('')||'<tr><td colspan="14" class="mut">No SKUs need stock with these filters.</td></tr>';
+  const min=+document.getElementById('sp-min').value||0;
+  document.getElementById('sp-short').innerHTML=S.P.filter(p=>p.shelf!=null&&p.shelf<180&&p.monthly>=min).sort((a,b)=>b.monthly-a.monthly).slice(0,40).map(p=>`<tr><td>${skuCell(p)}</td><td class="mut" style="font-size:12px">${esc(p.cat)}</td><td>${shelfBadge(p.shelf)}</td><td class="num">${fmt(p.monthly)}</td><td class="num">${p.pct}%</td></tr>`).join('')||'<tr><td colspan="5" class="mut">None.</td></tr>';
+}
+function spT(t,btn){spType=t;document.querySelectorAll('[data-st]').forEach(x=>x.classList.remove('on'));btn.classList.add('on');renderSend()}
+function spS(s,btn){spShelf.has(s)?spShelf.delete(s):spShelf.add(s);btn.classList.toggle('on');renderSend()}
+function exportSend(){const rows=sendRows().sort((a,b)=>b.tot-a.tot);dl(`myntra_sjit_send_plan_${S.dates.slice(-1)[0]}.csv`,['Seller SKU','NH SKU','Style ID','Product','Category','Shelf life (days)','Cover (months)','Type','Orders / month','DRR','SJIT %','FC stock',...REGK.map(k=>PRIMARY[k]+' ('+REG[k].label+')'),'Total'],rows.map(r=>[r.p.sku,r.p.nh,r.p.style,r.p.name,r.p.cat,r.p.shelf,r.cd/30,r.type==='New'?'New to SJIT':'Replenish',Math.round(r.p.monthly),r.p.drr.toFixed(2),r.p.pct,r.p.fcs,...REGK.map(k=>r.reg[k].send),r.tot]))}
+
+// ─── render: SKU tracker
+let skShelf='All',skCol='tot',skAsc=false;
+function renderSKU(){
   const q=(document.getElementById('sk-q').value||'').toLowerCase();
-  const rows=ST.skus.filter(s=>(skFlag==='All'||s.fl===skFlag)&&(!q||s.sku.toLowerCase().includes(q)||s.name.toLowerCase().includes(q)))
-    .sort((a,b)=>{const v=skCol==='sku'?a.sku.localeCompare(b.sku):a[skCol]-b[skCol];return skAsc?v:-v});
-  document.getElementById('sk-cnt').textContent=`Showing ${Math.min(rows.length,300)} of ${rows.length} SKUs`;
-  document.getElementById('sk-tb').innerHTML=rows.slice(0,300).map(s=>`<tr><td><code>${esc(s.sku)}</code></td><td style="max-width:230px;font-size:12px">${esc(s.name)}</td><td style="font-size:12px;color:var(--txm)">${esc(s.at)}</td><td style="font-size:12px;color:var(--txm)">${esc(s.mat||'—')}</td>
-    <td class="num">${fmt(s.tot)}</td><td class="num">${fmt(s.f)}</td><td class="num">${fmt(s.n)}</td><td class="num"><strong style="color:${s.fresh?'var(--txm)':bc(s.pct)}">${s.pct}%</strong></td><td>${s.fresh?'':bar(s.pct)}</td><td class="num">${fmtL(s.gmv)}</td><td>${FLAG_BADGE[s.fl]}</td></tr>`).join('');
+  const tb={'Stopped':'<span class="badge b-err">⛔ Stopped</span>','Falling':'<span class="badge b-warn">📉 Falling</span>','Rising':'<span class="badge b-ok">📈 Rising</span>','Stable':'<span class="badge b-mute">Stable</span>','—':''};
+  const rows=S.P.filter(p=>(p.tot||p.allStock)&&(skShelf==='All'||bucket(p.shelf)===skShelf)&&(!q||p.sku.toLowerCase().includes(q)||(p.nh||'').toLowerCase().includes(q)||(p.name||'').toLowerCase().includes(q)))
+    .sort((a,b)=>{const v=skCol==='sku'?a.sku.localeCompare(b.sku):(a[skCol]??-1)-(b[skCol]??-1);return skAsc?v:-v});
+  document.getElementById('sk-cnt').textContent=`${rows.length} SKUs`;
+  document.getElementById('sk-tb').innerHTML=rows.slice(0,400).map(p=>`<tr><td>${skuCell(p)}</td><td><code>${esc(p.nh||'—')}</code></td><td class="mut" style="font-size:12px">${esc(p.cat)}</td><td>${shelfBadge(p.shelf)}</td><td class="num">${fmt(p.tot)}</td><td class="num">${fmt(p.f)}</td><td class="num"><strong style="color:${bc(p.pct)}">${p.pct}%</strong></td><td>${bar(p.pct)}</td><td class="num">${p.fcs?fmt(p.fcs):'—'}</td><td class="num">${fmtL(p.gmv)}</td><td>${tb[p.trend]}</td></tr>`).join('');
 }
-function skuF(f,btn){if(f!==null){skFlag=f;document.querySelectorAll('[data-fl]').forEach(b=>b.classList.remove('on'));btn.classList.add('on')}doSKU()}
-function skSort(c){if(skCol===c)skAsc=!skAsc;else{skCol=c;skAsc=c==='sku'||c==='pct'}doSKU()}
+function skF(f,btn){skShelf=f;document.querySelectorAll('[data-sf]').forEach(x=>x.classList.remove('on'));btn.classList.add('on');renderSKU()}
+function skSort(c){if(skCol===c)skAsc=!skAsc;else{skCol=c;skAsc=c==='sku'}renderSKU()}
 
-// ── warehouses & regions
-function renderWH(){
-  const s=ST;
-  const fcU=s.whF.filter(w=>w.kind!=='MNOW').reduce((a,w)=>a+w.u,0), mnU=s.whF.filter(w=>w.kind==='MNOW').reduce((a,w)=>a+w.u,0);
-  const mnN=s.whF.filter(w=>w.kind==='MNOW').length;
-  const best=[...s.zones].filter(z=>z.z!=='X').sort((a,b)=>a.pct-b.pct)[0];
-  document.getElementById('wh-kpis').innerHTML=kpi('SJIT via Myntra FCs',fmt(fcU),pct(fcU,s.F)+'% of SJIT orders','c-brand')+kpi('SJIT via M-Now',fmt(mnU),mnN+' dark stores · '+pct(mnU,s.F)+'%','c-info')+kpi('PPMP from NH',fmt(s.N-s.F),'incl. '+fmt(s.freshN)+' fresh','c-err')+(best?kpi('Weakest zone',esc(best.z==='N'?'North':best.z==='W'?'West':best.z==='S'?'South':'East'),best.pct+'% SJIT · '+fmt(best.n)+' PPMP orders','c-warn'):'');
-  document.getElementById('wh-fbm').innerHTML=whRows(s.whF,w=>w.u,w=>(w.kind==='MNOW'?'M-Now':'Myntra FC')+' · ID '+w.wh+(WHMAP[w.wh]?.[1]&&WHMAP[w.wh][1]!=='Multiple'?' · '+WHMAP[w.wh][1]:''));
-  document.getElementById('wh-ppmp').innerHTML=whRows(s.whP,w=>w.e+w.fr,w=>fmt(w.e)+' eligible · '+fmt(w.fr)+' fresh');
-  const cl={};s.whF.filter(w=>w.kind==='MNOW').forEach(w=>{const st=WHMAP[w.wh]?.[1]||'';const k=st==='KA'?'Bengaluru':PUNE.test(w.name)?'Pune':st==='MH'?'Mumbai / Thane / Navi Mumbai':st||'Other';const o=cl[k]||(cl[k]={name:k,u:0,n:0});o.u+=w.u;o.n++});
-  document.getElementById('wh-mnow').innerHTML=whRows(Object.values(cl).sort((a,b)=>b.u-a.u),w=>w.u,w=>w.n+' stores');
-
-  document.getElementById('zn-tb').innerHTML=s.zones.map(z=>`<tr><td><strong>${ZONE_NAME[z.z]}</strong></td><td class="num">${fmt(z.tot)}</td><td class="num">${fmt(z.f)}</td><td class="num">${fmt(z.n)}</td><td class="num"><strong style="color:${bc(z.pct)}">${z.pct}%</strong></td><td>${bar(z.pct)}</td><td style="font-size:12px;color:var(--txm)">${z.src.map(([k,v])=>esc(k)+' ('+fmt(v)+')').join(', ')||'—'}</td></tr>`).join('');
-  document.getElementById('stt-tb').innerHTML=s.states.filter(x=>x.tot>=20).sort((a,b)=>b.n-a.n).map(x=>`<tr><td><strong>${esc(ST_NAME[x.st]||x.st)}</strong></td><td style="font-size:12px;color:var(--txm)">${(ZONE_NAME[ZONE_OF[x.st]||'X']).split(' (')[0]}</td><td class="num">${fmt(x.tot)}</td><td class="num">${fmt(x.f)}</td><td class="num">${fmt(x.n)}</td><td class="num"><strong style="color:${bc(x.pct)}">${x.pct}%</strong></td><td>${bar(x.pct)}</td></tr>`).join('');
-
-  // heatmap: FCs only (M-Now grouped)
-  const fcs=s.whF.filter(w=>w.kind!=='MNOW').slice(0,8);
-  const top=s.skus.filter(k=>!k.fresh).slice(0,20);
-  const hc=v=>v===0?['#ECEFF1','#90A4AE']:v>=100?['#1B5E20','#E8F5E9']:v>=30?['#558B2F','#F9FBE7']:v>=10?['#F9A825','#333']:['#E57373','#fff'];
-  let h='<table class="hm"><thead><tr><th>SKU</th><th class="num">Orders</th><th class="num">SJIT %</th>'+fcs.map(w=>`<th style="text-align:center;white-space:normal;font-size:10px;min-width:70px">${esc(w.name)}</th>`).join('')+'<th style="text-align:center;font-size:10px">M-Now<br>(all)</th></tr></thead><tbody>';
-  top.forEach(k=>{const mn=Object.entries(k.fc).filter(([w])=>whKind(w)==='MNOW').reduce((a,[,v])=>a+v,0);
-    h+=`<tr><td class="sk" title="${esc(k.name)}">${esc(k.sku)}</td><td class="num">${fmt(k.tot)}</td><td class="num" style="color:${bc(k.pct)};font-weight:700">${k.pct}%</td>`+fcs.map(w=>{const v=k.fc[w.wh]||0,c=hc(v);return`<td class="cv" style="background:${c[0]};color:${c[1]}">${v||'—'}</td>`}).join('')+(()=>{const c=hc(mn);return`<td class="cv" style="background:${c[0]};color:${c[1]}">${mn||'—'}</td>`})()+'</tr>'});
-  document.getElementById('hm-tbl').innerHTML=h+'</tbody></table>';
+// ─── render: categories
+function renderCats(){
+  const cm={};S.P.forEach(p=>{if(!p.tot&&!p.fcs)return;const c=cm[p.cat]||(cm[p.cat]={c:p.cat,n:0,f:0,st:0,g:0,sh:{},pa:0,pb:0});c.n+=p.tot;c.f+=p.f;c.st+=p.fcs;c.g+=p.gmv;const b=bucket(p.shelf);c.sh[b]=(c.sh[b]||0)+p.tot;
+    const gain=Math.max(0,0.8*p.tot-p.f);if(p.shelf>=270)c.pa+=gain;if(p.shelf>=180)c.pb+=gain});
+  document.getElementById('ca-tb').innerHTML=Object.values(cm).sort((a,b)=>b.n-a.n).map(c=>{const pp=pct(c.f,c.n);const b=Object.entries(c.sh).sort((x,y)=>y[1]-x[1])[0]?.[0];const pa=pct(c.f+c.pa,c.n),pb=pct(c.f+c.pb,c.n);
+    return`<tr><td><strong>${esc(c.c)}</strong></td><td>${b?`<span class="badge ${b==='360'||b==='270'?'b-ok':b==='180'?'b-warn':b==='none'?'b-mute':'b-err'}">${BUCKET_LBL[b]}</span>`:''}</td><td class="num">${fmt(c.n)}</td><td class="num">${fmt(c.f)}</td><td class="num">${fmt(c.n-c.f)}</td><td class="num"><strong style="color:${bc(pp)}">${pp}%</strong></td><td>${bar(pp)}</td><td class="num">${c.st?fmt(c.st):'—'}</td><td class="num">${fmtL(c.g)}</td><td class="num">${pa>pp?'<b class="c-ok">'+pa+'%</b>':'<span class="mut">'+pa+'%</span>'}</td><td class="num">${pb>pp?'<b class="c-ok">'+pb+'%</b>':'<span class="mut">'+pb+'%</span>'}</td></tr>`}).join('');
 }
 
-// ── actions
-function actRows(){
-  const t=+document.getElementById('tgt').value/100, doc=Math.max(1,+document.getElementById('doc').value||21);
-  return ST.skus.filter(k=>['Onboard','Replenish','Top up'].includes(k.fl)).map(k=>{
-    const qty=Math.ceil(k.drr*doc*t);const zt=k.z.N+k.z.W+k.z.S+k.z.E||1;
-    const sp=['N','W','S','E'].map(z=>Math.round(qty*k.z[z]/zt));
-    return{...k,qty,sp,gain:Math.max(0,t*k.tot-k.f)};
-  }).sort((a,b)=>b.gain-a.gain);
+// ─── render: MPM gaps
+function renderGaps(){
+  const g=S.P.filter(p=>!p.inMpm&&p.tot>0).sort((a,b)=>b.tot-a.tot);
+  const gi=S.P.filter(p=>!p.inMpm&&p.allStock>0&&!p.tot);
+  const ina=S.P.filter(p=>p.inMpm&&p.mstat==='Inactive'&&p.tot>0).sort((a,b)=>b.tot-a.tot);
+  const n=g.length+gi.length;const el=document.getElementById('mg-cnt');if(n){el.textContent=n;el.style.display=''}
+  document.getElementById('mg-alert').innerHTML=n?`<div class="alert a-err"><span>⚠️</span><div><strong>${g.length} style${g.length===1?'':'s'} sold ${fmt(g.reduce((a,p)=>a+p.tot,0))} orders without an MPM row${gi.length?`, and ${gi.length} more are in Myntra stock`:''}.</strong><br><span style="font-size:12px">Add them to MPM_Myntra.xlsx (Myntra sheet), replace config/MPM_Myntra.xlsx and rerun. The script also saves this list to output/mpm_gaps.csv.</span></div></div>`:'<div class="alert a-ok"><span>✅</span><div><strong>Every style that sold or is in Myntra stock is in the MPM.</strong></div></div>';
+  document.getElementById('mg-tb').innerHTML=g.map(p=>`<tr><td><code>${esc(p.style)}</code></td><td><code>${esc(p.sku)}</code></td><td style="font-size:12px">${esc(p.name)}</td><td class="num">${fmt(p.tot)}</td><td class="num">${fmt(p.f)}</td><td>${esc(p.last)}</td></tr>`).join('')||'<tr><td colspan="6" class="mut">None 🎉</td></tr>';
+  document.getElementById('mg-inv').innerHTML=gi.map(p=>`<tr><td><code>${esc(p.style)}</code></td><td><code>${esc(p.sku)}</code></td><td class="num">${fmt(p.allStock)}</td></tr>`).join('')||'<tr><td colspan="3" class="mut">None</td></tr>';
+  document.getElementById('mg-inact').innerHTML=ina.map(p=>`<tr><td><code>${esc(p.style)}</code></td><td><code>${esc(p.nh)}</code></td><td class="num">${fmt(p.tot)}</td><td>${shelfBadge(p.shelf)}</td></tr>`).join('')||'<tr><td colspan="4" class="mut">None</td></tr>';
 }
-function renderActions(){
-  const rows=actRows();
-  const c=f=>rows.filter(r=>r.fl===f).length;
-  document.getElementById('ac-kpis').innerHTML=kpi('🎯 Replenish',c('Replenish'),'in SJIT, &lt;50% fill','c-err')+kpi('⚠️ Top up',c('Top up'),'in SJIT, 50–80% fill','c-warn')+kpi('🆕 Onboard',c('Onboard'),'eligible, no SJIT orders','c-brand')+kpi('Missed orders',fmt(rows.reduce((a,r)=>a+r.n,0)),'PPMP on these SKUs','')+kpi('Suggested SJIT qty',fmt(rows.reduce((a,r)=>a+r.qty,0)),'units across all FCs','c-ok');
-  renderActTbl();
-}
-function acF(f,btn){acFlag=f;document.querySelectorAll('[data-af]').forEach(b=>b.classList.remove('on'));btn.classList.add('on');renderActTbl()}
-function renderActTbl(){
-  const q=(document.getElementById('ac-q').value||'').toLowerCase();
-  const rows=actRows().filter(r=>(acFlag==='All'||r.fl===acFlag)&&(!q||r.sku.toLowerCase().includes(q)||r.name.toLowerCase().includes(q)));
-  document.getElementById('ac-tb').innerHTML=rows.map(r=>`<tr><td><code>${esc(r.sku)}</code></td><td style="max-width:220px;font-size:12px">${esc(r.name)}</td><td>${FLAG_BADGE[r.fl]}</td><td class="num">${fmt(r.tot)}</td><td class="num" style="color:${bc(r.pct)};font-weight:700">${r.pct}%</td><td class="num">${r.drr.toFixed(1)}</td><td class="num">${fmt(r.n)}</td><td class="num"><b>${fmt(r.qty)}</b></td>${r.sp.map(v=>`<td class="num">${v?fmt(v):'—'}</td>`).join('')}</tr>`).join('')||'<tr><td colspan="12" style="color:var(--txm)">No SKUs match.</td></tr>';
-}
-function exportCSV(){
-  const doc=+document.getElementById('doc').value||21,t=document.getElementById('tgt').value;
-  const head=['SKU','Product','Category','Flag','Orders','SJIT orders','PPMP orders','SJIT %','DRR','Suggested SJIT qty ('+doc+'d @ '+t+'%)','North (Gurgaon)','West (Mumbai)','South (Bangalore)','East (Kolkata)'];
-  const q=v=>'"'+String(v).replace(/"/g,'""')+'"';
-  const lines=[head.map(q).join(',')].concat(actRows().map(r=>[r.sku,r.name,r.at,r.fl,r.tot,r.f,r.n,r.pct,r.drr.toFixed(2),r.qty,...r.sp].map(q).join(',')));
-  const blob=new Blob(['\ufeff'+lines.join('\n')],{type:'text/csv'});
-  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`myntra_sjit_actions_${ST.mn}_${ST.mx}.csv`;a.click();
-}
-document.addEventListener('DOMContentLoaded',()=>{if(BAKED&&BAKED.rows&&BAKED.rows.length)loadBaked()});
+function exportGaps(){const g=S.P.filter(p=>!p.inMpm&&(p.tot>0||p.allStock>0));dl('mpm_gaps.csv',['Style ID','Seller SKU','Product','Orders','SJIT orders','Units at Myntra','Last order'],g.map(p=>[p.style,p.sku,p.name,p.tot,p.f,p.allStock,p.last]))}
+
+// ─── init
+document.getElementById('tb-range').textContent=`${S.dates[0]} → ${S.dates[S.dates.length-1]} · ${S.calDays} days`;
+document.getElementById('tb-inv').textContent=D.invAsOf||'—';
+renderOverview();renderPotential();renderNetwork();renderTrends();renderSend();renderSKU();renderCats();renderGaps();
 </script>
 </body>
 </html>

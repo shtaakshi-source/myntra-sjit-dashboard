@@ -1,0 +1,20 @@
+{
+  "_note": "Onboarded Myntra FCs and FDCs. 'ids' are Myntra warehouse IDs as they appear in the orders / inventory reports. 'primary': the FC the send plan suggests for that region. Only FCs are in our control; FDCs and M-Now stores are fed by the nearest FC. Edit ids when you confirm them (an empty list means the ID is not known yet).",
+  "regions": {
+    "N": {"label": "North", "fc_city": "Gurgaon", "states": ["DL","HR","PB","RJ","UP","UT","UK","HP","JK","CH","LA"]},
+    "W": {"label": "West",  "fc_city": "Mumbai",  "states": ["MH","GJ","GA","MP","CT","CG","DD","DN"]},
+    "S": {"label": "South", "fc_city": "Bangalore", "states": ["KA","TN","KL","AP","TG","TS","PY"]},
+    "E": {"label": "East",  "fc_city": "Kolkata", "states": ["WB","OR","BR","JH","AS","AR","MN","ML","MZ","NL","SK","TR","AN"]}
+  },
+  "nodes": [
+    {"name": "Bilaspur Warehouse - Gurgaon", "short": "Gurgaon Bilaspur FC", "type": "FC", "region": "N", "ids": ["309"], "primary": true},
+    {"name": "Gurgaon-Binola W/H", "short": "Gurgaon Binola FC", "type": "FC", "region": "N", "ids": ["28"]},
+    {"name": "FK Lucknow Myntra FDC 01", "short": "Lucknow FDC", "type": "FDC", "region": "N", "ids": ["43813"]},
+    {"name": "Myntra warehouse (Mumbai)", "short": "Mumbai FC (Bhiwandi)", "type": "FC", "region": "W", "ids": ["81"], "primary": true},
+    {"name": "Bangalore - New Whitefield W/H", "short": "Bangalore Whitefield FC", "type": "FC", "region": "S", "ids": ["36"], "primary": true},
+    {"name": "Ekart Fashion FC WFLD 01", "short": "Ekart Fashion FC WFLD", "type": "FC", "region": "S", "ids": ["31055"]},
+    {"name": "FK Chennai Myntra FDC", "short": "Chennai FDC", "type": "FDC", "region": "S", "ids": ["43810"]},
+    {"name": "FK Coimbatore Myntra FDC", "short": "Coimbatore FDC", "type": "FDC", "region": "S", "ids": ["43811"]},
+    {"name": "Myntra Stellar FC", "short": "Kolkata Stellar FC", "type": "FC", "region": "E", "ids": ["15774"], "primary": true}
+  ]
+}
