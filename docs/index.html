@@ -102,7 +102,7 @@ code{font-size:11px;font-family:ui-monospace,Menlo,monospace}
     <div class="tb-div"></div>
     <div class="tb-ttl">Myntra SJIT Intelligence Dashboard</div>
   </div>
-  <div class="tb-meta"><span id="tb-range">—</span><br>Stock as of <span id="tb-inv">—</span> · built 19 Nov 2026, 16:17</div>
+  <div class="tb-meta"><span id="tb-range">—</span><br>Stock as of <span id="tb-inv">—</span> · built 19 Nov 2026, 17:40</div>
 </div>
 <div class="nav">
   <div class="nt on" onclick="tab('ov',this)">📈 Overview</div>
@@ -233,7 +233,7 @@ code{font-size:11px;font-family:ui-monospace,Menlo,monospace}
     <strong>How send quantities are calculated</strong> (only FC stock is ours to send; M-Now and FDCs are refilled by Myntra from the region's FC)<br>
     For each SKU and each region (North → Gurgaon, West → Mumbai, South → Bangalore, East → Kolkata), using the last <b id="sp-w">30</b> days:<br>
     <b>Regional DRR</b> = SJIT orders shipped from the region's FCs + from its M-Now stores + from its FDCs + PPMP orders from customers in the region (demand SJIT should capture), all per day<br>
-    <b>Units to send</b> = Regional DRR × cover days − stock already in the region's FCs <span class="mut">(− M-Now/FDC stock in the region, if ticked below)</span>
+    <b>Units to send</b> = Regional DRR × cover days × <b>planned SJIT fulfilment (<span id="sp-fill-lbl">70</span>%)</b> − stock already in the region's FCs <span class="mut">(− M-Now/FDC stock in the region, if ticked below)</span>
     <table><tr><th>Shelf life</th><th>Cover to send</th><th>Ease</th></tr>
       <tr><td>12 months (360 days)</td><td><b>2 months</b> of DRR (60 days)</td><td><span class="badge b-ok">Easy</span></td></tr>
       <tr><td>9 months (270 days)</td><td><b>1.5 months</b> of DRR (45 days)</td><td><span class="badge b-ok">Easy</span></td></tr>
@@ -252,6 +252,7 @@ code{font-size:11px;font-family:ui-monospace,Menlo,monospace}
     <button class="fb on" data-ss="360" onclick="spS('360',this)">12 m</button>
     <button class="fb on" data-ss="270" onclick="spS('270',this)">9 m</button>
     <button class="fb on" data-ss="180" onclick="spS('180',this)">6 m</button>
+    <span class="flab" style="margin-left:10px">SJIT fulfilment %</span><input class="ni" type="number" id="sp-fill" value="70" min="10" max="100" step="5" oninput="renderSend()" title="Share of regional demand you plan SJIT to fulfil">
     <label class="flab" style="margin-left:10px;display:flex;align-items:center;gap:5px"><input type="checkbox" id="sp-ds" onchange="renderSend()"> Subtract M-Now/FDC stock</label>
     <span class="flab" style="margin-left:10px">Min orders / month</span><input class="ni" type="number" id="sp-min" value="10" min="0" oninput="renderSend()">
     <input class="sb" id="sp-q" placeholder="Search SKU…" oninput="renderSend()">
@@ -363,6 +364,7 @@ function xl(name,sheets){
     const ws=XLSX.utils.aoa_to_sheet(s.rows);
     (s.formulas||[]).forEach(({r,c,f})=>{const a=XLSX.utils.encode_cell({r,c});ws[a]=ws[a]||{t:'n',v:0};ws[a].f=f});
     (s.decCols||[]).forEach(c=>{for(let r=1;r<s.rows.length;r++){const a=XLSX.utils.encode_cell({r,c});if(ws[a]&&ws[a].t==='n')ws[a].z='0.00'}});
+    (s.pctCols||[]).forEach(c=>{for(let r=1;r<s.rows.length;r++){const a=XLSX.utils.encode_cell({r,c});if(ws[a]&&ws[a].t==='n')ws[a].z='0%'}});
     ws['!cols']=(s.rows[0]||[]).map((h,i)=>({wch:(s.widths&&s.widths[i])||Math.min(42,Math.max(10,String(h).length+2))}));
     XLSX.utils.book_append_sheet(wb,ws,s.name.slice(0,31));
   });
@@ -434,12 +436,13 @@ const S=(function(){
 })();
 
 // Regional DRR for one SKU in one region (orders/day over the analysis window)
+const spFill=()=>{const el=document.getElementById('sp-fill');const v=el?+el.value:70;return Math.min(100,Math.max(10,v||70))/100};
 function regMath(p,k,countDs){
-  const W=S.W,cd=coverDays(p.shelf);
+  const W=S.W,cd=coverDays(p.shelf),fill=spFill();
   const fc=p.sj[k].FC/W,mn=p.sj[k].MNOW/W,fdc=p.sj[k].FDC/W,pp=p.pp[k]/W;
-  const drr=fc+mn+fdc+pp,target=Math.ceil(drr*cd),stock=p.fcReg[k],ds=p.dsReg[k];
+  const drr=fc+mn+fdc+pp,full=drr*cd,target=Math.ceil(full*fill),stock=p.fcReg[k],ds=p.dsReg[k];
   const send=Math.max(0,target-stock-(countDs?ds:0));
-  return{fc,mn,fdc,pp,drr,cd,target,stock,ds,send};
+  return{fc,mn,fdc,pp,drr,cd,full,fill,target,stock,ds,send};
 }
 
 // ─── potential
@@ -762,6 +765,8 @@ function mathTable(r){
   ${line('+ PPMP orders from customers in the region / day <span class="mut">(demand SJIT should capture)</span>',x=>f2(x.pp))}
   ${line('<b>= Regional DRR (orders / day)</b>',x=>'<b>'+x.drr.toFixed(2)+'</b>')}
   ${line(`× Cover days (${r.cd/30} months for ${r.p.shelf}-day shelf life)`,x=>x.cd)}
+  ${line('= Units for full cover',x=>fmt(x.full))}
+  ${line(`× Planned SJIT fulfilment (${Math.round(spFill()*100)}%)`,x=>Math.round(x.fill*100)+'%')}
   ${line('<b>= Target units in the region</b>',x=>'<b>'+fmt(x.target)+'</b>')}
   ${line('− Stock already in the region’s FCs',x=>fmt(x.stock))}
   ${line(ds?'− M-Now + FDC stock already in the region':'<span class="mut">M-Now + FDC stock in the region (not subtracted)</span>',x=>ds?fmt(x.ds):`<span class="mut">${fmt(x.ds)}</span>`)}
@@ -769,17 +774,17 @@ function mathTable(r){
   </tbody></table><div class="note">Region locations: ${REGK.map(k=>`<b>${REG[k].label}</b>: FCs ${esc(nodesIn(k,'FC'))}; FDCs ${esc(nodesIn(k,'FDC'))}; M-Now stores in ${REG[k].states.slice(0,3).join('/')}…`).join(' · ')}</div>`;
 }
 function renderSend(){
-  document.getElementById('sp-w').textContent=S.W;
+  document.getElementById('sp-w').textContent=S.W;document.getElementById('sp-fill-lbl').textContent=Math.round(spFill()*100);
   const all=sendRows();
   // worked example: biggest single region line
   let ex=null;all.forEach(r=>REGK.forEach(k=>{if(!ex||r.reg[k].send>ex.x.send)ex={r,k,x:r.reg[k]}}));
-  document.getElementById('sp-ex').innerHTML=ex?`<b>Worked example</b>: <code>${esc(ex.r.p.sku)}</code> · ${REG[ex.k].label} → ${esc(PRIMARY[ex.k])}: SJIT from ${REG[ex.k].label} FCs ${ex.x.fc.toFixed(2)} + M-Now ${ex.x.mn.toFixed(2)} + FDCs ${ex.x.fdc.toFixed(2)} + PPMP from ${REG[ex.k].label} customers ${ex.x.pp.toFixed(2)} = <b>${ex.x.drr.toFixed(2)} orders/day</b> × ${ex.x.cd} days = ${fmt(ex.x.target)} units − ${fmt(ex.x.stock)} in ${REG[ex.k].label} FCs${countDs()?` − ${fmt(ex.x.ds)} at M-Now/FDC`:''} = <b>${fmt(ex.x.send)} to send</b>.`:'';
+  document.getElementById('sp-ex').innerHTML=ex?`<b>Worked example</b>: <code>${esc(ex.r.p.sku)}</code> · ${REG[ex.k].label} → ${esc(PRIMARY[ex.k])}: SJIT from ${REG[ex.k].label} FCs ${ex.x.fc.toFixed(2)} + M-Now ${ex.x.mn.toFixed(2)} + FDCs ${ex.x.fdc.toFixed(2)} + PPMP from ${REG[ex.k].label} customers ${ex.x.pp.toFixed(2)} = <b>${ex.x.drr.toFixed(2)} orders/day</b> × ${ex.x.cd} days × ${Math.round(ex.x.fill*100)}% fulfilment = ${fmt(ex.x.target)} units − ${fmt(ex.x.stock)} in ${REG[ex.k].label} FCs${countDs()?` − ${fmt(ex.x.ds)} at M-Now/FDC`:''} = <b>${fmt(ex.x.send)} to send</b>.`:'';
   const q=(document.getElementById('sp-q').value||'').toLowerCase();
   const rows=all.filter(r=>(spType==='All'||r.type===spType)&&spShelf.has(bucket(r.p.shelf))&&(!q||[r.p.sku,r.p.name,r.p.nh,r.p.cat].some(v=>(v||'').toLowerCase().includes(q)))).sort((a,b)=>b.tot-a.tot);
   const sum=(arr,k)=>arr.reduce((a,r)=>a+(k?r.reg[k].send:r.tot),0);
   document.getElementById('sp-kpis').innerHTML=kpi('🔁 Replenish',all.filter(r=>r.type==='Replenish').length,fmt(sum(all.filter(r=>r.type==='Replenish')))+' units','c-brand')+kpi('🆕 New to SJIT',all.filter(r=>r.type==='New').length,fmt(sum(all.filter(r=>r.type==='New')))+' units','c-info')+REGK.map(k=>kpi(esc(PRIMARY[k]),fmt(sum(all,k)),REG[k].label+' · units to send','')).join('');
   document.getElementById('sp-head').innerHTML='<th>SKU</th><th>Category</th><th>Shelf life</th><th>Cover</th><th>Type</th><th class="num">Orders / month</th><th class="num">SJIT %</th><th class="num">FC stock</th><th class="num">Days of cover now</th>'+REGK.map(k=>`<th class="num" style="white-space:normal">${esc(PRIMARY[k])}<div style="font-weight:400;text-transform:none">${REG[k].label}</div></th>`).join('')+'<th class="num">Total</th>';
-  document.getElementById('sp-tb').innerHTML=rows.map(r=>{const p=r.p,open=spOpen.has(p.i);return`<tr style="cursor:pointer" onclick="spToggle(${p.i})"><td><span class="mut">${open?'▾':'▸'}</span> ${skuCell(p)}</td><td class="mut" style="font-size:12px">${esc(p.cat)}</td><td>${shelfBadge(p.shelf)}</td><td class="mut" style="font-size:12px">${r.cd/30} mo</td><td>${r.type==='New'?'<span class="badge b-info">🆕 New</span>':'<span class="badge b-brand">🔁 Replenish</span>'}</td><td class="num">${fmt(p.monthly)}</td><td class="num" style="color:${bc(p.pct)};font-weight:700">${p.pct}%</td><td class="num">${p.fcs?fmt(p.fcs):'—'}</td><td class="num">${p.fcs?Math.round(r.doc)+' d':'—'}</td>`+REGK.map(k=>{const x=r.reg[k];return`<td class="num" title="Regional DRR ${x.drr.toFixed(2)}/day × ${x.cd} d = ${x.target} − FC stock ${x.stock}${countDs()?' − M-Now/FDC '+x.ds:''}">${x.send?'<b>'+fmt(x.send)+'</b>':'<span class="mut">—</span>'}</td>`}).join('')+`<td class="num"><b>${fmt(r.tot)}</b></td></tr>`+(open?`<tr><td colspan="14" style="background:#FFFCF9;padding:12px 18px">${mathTable(r)}</td></tr>`:'')}).join('')||'<tr><td colspan="14" class="mut">No SKUs need stock with these filters.</td></tr>';
+  document.getElementById('sp-tb').innerHTML=rows.map(r=>{const p=r.p,open=spOpen.has(p.i);return`<tr style="cursor:pointer" onclick="spToggle(${p.i})"><td><span class="mut">${open?'▾':'▸'}</span> ${skuCell(p)}</td><td class="mut" style="font-size:12px">${esc(p.cat)}</td><td>${shelfBadge(p.shelf)}</td><td class="mut" style="font-size:12px">${r.cd/30} mo</td><td>${r.type==='New'?'<span class="badge b-info">🆕 New</span>':'<span class="badge b-brand">🔁 Replenish</span>'}</td><td class="num">${fmt(p.monthly)}</td><td class="num" style="color:${bc(p.pct)};font-weight:700">${p.pct}%</td><td class="num">${p.fcs?fmt(p.fcs):'—'}</td><td class="num">${p.fcs?Math.round(r.doc)+' d':'—'}</td>`+REGK.map(k=>{const x=r.reg[k];return`<td class="num" title="Regional DRR ${x.drr.toFixed(2)}/day × ${x.cd} d × ${Math.round(x.fill*100)}% = ${x.target} − FC stock ${x.stock}${countDs()?' − M-Now/FDC '+x.ds:''}">${x.send?'<b>'+fmt(x.send)+'</b>':'<span class="mut">—</span>'}</td>`}).join('')+`<td class="num"><b>${fmt(r.tot)}</b></td></tr>`+(open?`<tr><td colspan="14" style="background:#FFFCF9;padding:12px 18px">${mathTable(r)}</td></tr>`:'')}).join('')||'<tr><td colspan="14" class="mut">No SKUs need stock with these filters.</td></tr>';
   const min=+document.getElementById('sp-min').value||0;
   document.getElementById('sp-short').innerHTML=S.P.filter(p=>p.shelf!=null&&p.shelf<180&&p.monthly>=min).sort((a,b)=>b.monthly-a.monthly).slice(0,40).map(p=>`<tr><td>${skuCell(p)}</td><td class="mut" style="font-size:12px">${esc(p.cat)}</td><td>${shelfBadge(p.shelf)}</td><td class="num">${fmt(p.monthly)}</td><td class="num">${p.pct}%</td></tr>`).join('')||'<tr><td colspan="5" class="mut">None.</td></tr>';
 }
@@ -797,11 +802,11 @@ function exportSend(){
     ...rows.map(r=>[r.p.sku,r.p.nh,r.p.style,r.p.name,r.p.cat,r.p.shelf,r.cd/30,r.type==='New'?'New to SJIT':'Replenish',Math.round(r.p.monthly),+r.p.drr.toFixed(2),r.p.pct,r.p.fcs,
       ...fcs.map(n=>stockAt(r.p,n)),...REGK.map(k=>r.reg[k].send),r.tot])];
   // Sheet 2: region math with live Excel formulas
-  const h2=['Seller SKU','NH SKU','Product','Shelf life (days)','Cover days','Region','Send to FC','SJIT from region FCs / day','SJIT from region M-Now / day','SJIT from region FDCs / day','PPMP from region customers / day','Regional DRR / day','Target units','Stock in region FCs','M-Now + FDC stock in region','Subtract M-Now/FDC stock? (1 = yes)','Units to send'];
+  const h2=['Seller SKU','NH SKU','Product','Shelf life (days)','Cover days','Region','Send to FC','SJIT from region FCs / day','SJIT from region M-Now / day','SJIT from region FDCs / day','PPMP from region customers / day','Regional DRR / day','Planned SJIT fulfilment','Target units','Stock in region FCs','M-Now + FDC stock in region','Subtract M-Now/FDC stock? (1 = yes)','Units to send'];
   const s2=[h2],fx=[];
   rows.forEach(r=>REGK.forEach(k=>{const x=r.reg[k];if(!x.drr&&!x.stock)return;const n=s2.length+1;
-    s2.push([r.p.sku,r.p.nh,r.p.name,r.p.shelf,x.cd,REG[k].label,PRIMARY[k],x.fc,x.mn,x.fdc,x.pp,x.drr,x.target,x.stock,x.ds,ds?1:0,x.send]);
-    fx.push({r:n-1,c:11,f:`H${n}+I${n}+J${n}+K${n}`},{r:n-1,c:12,f:`ROUNDUP(L${n}*E${n},0)`},{r:n-1,c:16,f:`MAX(0,M${n}-N${n}-O${n}*P${n})`});}));
+    s2.push([r.p.sku,r.p.nh,r.p.name,r.p.shelf,x.cd,REG[k].label,PRIMARY[k],x.fc,x.mn,x.fdc,x.pp,x.drr,x.fill,x.target,x.stock,x.ds,ds?1:0,x.send]);
+    fx.push({r:n-1,c:11,f:`H${n}+I${n}+J${n}+K${n}`},{r:n-1,c:13,f:`ROUNDUP(L${n}*E${n}*M${n},0)`},{r:n-1,c:17,f:`MAX(0,N${n}-O${n}-P${n}*Q${n})`});}));
   const s3=[['Step','How it works'],
     ['Window',`Per-day figures use the last ${S.W} days of orders: ${S.dateOf(S.winStart)} to ${S.dates.slice(-1)[0]}. Stock is from ${D.invFile||'—'} (${D.invAsOf||'—'}).`],
     ['Regions',REGK.map(k=>`${REG[k].label}: FCs ${nodesIn(k,'FC')}; FDCs ${nodesIn(k,'FDC')}; M-Now stores located in the region`).join(' | ')],
@@ -811,12 +816,13 @@ function exportSend(){
     ['4. PPMP from region customers / day','Orders from customers in the region’s states that shipped from our own warehouses: demand SJIT should capture once stocked.'],
     ['Regional DRR','= 1 + 2 + 3 + 4 (column L in "Region math")'],
     ['Cover days','12-month shelf life → 60 days (2 months of DRR); 9-month → 45 days (1.5 months); 6-month → 30 days (1 month); under 6 months → not sent'],
-    ['Target units','= ROUNDUP(Regional DRR × Cover days, 0)'],
-    ['Units to send','= MAX(0, Target − Stock in region FCs − [M-Now + FDC stock if column P = 1]). Set column P to 1 in any row to also count stock already sitting at M-Now/FDCs.'],
-    ['Formulas','Columns L, M and Q in "Region math" are live Excel formulas: change any input and the quantity recalculates.']];
+    ['Planned SJIT fulfilment',`${Math.round(spFill()*100)}% of regional demand is planned to be fulfilled by SJIT (set on the Send Plan tab; column M). The rest is left to PPMP.`],
+    ['Target units','= ROUNDUP(Regional DRR × Cover days × Planned SJIT fulfilment, 0)'],
+    ['Units to send','= MAX(0, Target − Stock in region FCs − [M-Now + FDC stock if column Q = 1]). Set column Q to 1 in any row to also count stock already sitting at M-Now/FDCs.'],
+    ['Formulas','Columns L, N and R in "Region math" are live Excel formulas: change any input (e.g. the fulfilment % in column M) and the quantity recalculates.']];
   xl(`myntra_sjit_send_plan_${S.dates.slice(-1)[0]}.xlsx`,[
     {name:'Send plan',rows:s1,widths:[18,16,12,46,16,10,10,12,10,10,8,10]},
-    {name:'Region math',rows:s2,formulas:fx,decCols:[7,8,9,10,11],widths:[18,16,46,10,8,8,24,12,12,12,12,12,10,10,12,12,10]},
+    {name:'Region math',rows:s2,formulas:fx,decCols:[7,8,9,10,11],pctCols:[12],widths:[18,16,46,10,8,8,24,12,12,12,12,12,12,10,10,12,12,10]},
     {name:'How it is calculated',rows:s3,widths:[30,140]}]);
 }
 
