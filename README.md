@@ -30,13 +30,15 @@ The terminal prints a summary and any **styles that sold but are missing from th
 - **Counted orders**: cancellation reason id, cancellation reason, cancelled on, RTO creation date, lost date and return creation date all blank. One order line = one unit.
 - **SJIT eligibility by shelf life** (from the MPM): 12 m and 9 m = easy; 6 m = watch expiry; under 6 m = not sent to SJIT.
 - **Potential**: Scenario A sends 9 & 12-month SKUs, Scenario B adds 6-month SKUs. Each eligible SKU is assumed to reach the target fill rate (slider, default 80%).
-- **Send quantity per FC** = region DRR × cover − current stock in that region's FCs. Cover: 12 m → 2 months of DRR, 9 m → 1.5 months, 6 m → 1 month. DRR uses all orders from customers in the FC's region over the last 30 days (or the whole period if shorter), because each FC also feeds the M-Now stores and FDCs near it. Only FC stock counts; M-Now and FDC stock are Myntra's call.
+- **Analysis window**: Overview, Potential, Network, Send Plan, SKU Tracker and Categories use the **last 30 days** of orders, so adding older reports doesn't dilute current numbers. Trends uses the full history (month by month).
+- **Regional DRR** (per SKU, per region) = SJIT orders shipped from the region's FCs + its M-Now stores + its FDCs + PPMP orders from customers in the region, per day over the last 30 days.
+- **Send quantity** = Regional DRR × cover days − stock in the region's FCs (optionally also − M-Now/FDC stock in the region). Cover: 12 m → 2 months of DRR, 9 m → 1.5 months, 6 m → 1 month, under 6 m → not sent. The Excel download has a "Region math" sheet with live formulas.
 - **Regions**: North → Gurgaon FCs (+ Lucknow FDC), West → Mumbai FC, South → Bangalore FCs (+ Chennai / Coimbatore FDCs), East → Kolkata Stellar FC.
-- **Trends**: last 7 days vs the 3 weeks before (with under 3 weeks of data, the period is split in half).
+- **Trends**: month by month (per day, so part months compare fairly) with a diagnosis per SKU (SJIT falling with demand steady = stock problem; both falling = demand problem too), plus last 7 days vs the 3 weeks before.
 
 ## Tabs
 
-Overview · Potential · Network (FC/FDC utilisation, region demand vs fulfilment, flow matrix, cities, M-Now, stock pivot) · Trends · Send Plan (export CSV) · SKU Tracker · Categories · MPM Gaps
+Overview · Potential (search, sort, Excel) · Network (region-by-region actions, FC/FDC utilisation, flow matrix, cities, M-Now, stock pivot, Excel) · Trends (monthly + weekly, Excel) · Send Plan (regional DRR math, Excel with formulas) · SKU Tracker · Categories · MPM Gaps
 
 ## Privacy
 

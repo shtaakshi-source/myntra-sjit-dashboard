@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nat Habit × Myntra — SJIT Intelligence Dashboard</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <style>
 :root{--brand:#C4552A;--brand-dk:#8C3517;--brand-lt:#E8845C;--pale:#FBF0E8;--pale2:#F5E4D7;--bg:#FAF6F2;--surf:#FFFFFF;--tx:#1A0A00;--txm:#836A5A;--bdr:#E8D5C8;--bdr2:#D4B9A8;--ok:#2E7D32;--ok-bg:#E8F5E9;--warn:#C07813;--warn-bg:#FFF8E1;--err:#C62828;--err-bg:#FFEBEE;--info:#1565C0;--info-bg:#E3F2FD;--r:10px;--rs:6px;--sh:0 1px 4px rgba(196,85,42,.08),0 4px 16px rgba(196,85,42,.06)}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -120,7 +121,7 @@ code{font-size:11px;font-family:ui-monospace,Menlo,monospace}
   <div id="ov-alert"></div>
   <div class="kgrid" id="ov-kpis"></div>
   <div class="sec">
-    <div class="sh"><div><div class="st">Day-on-day orders and SJIT share</div><div class="st-desc">SJIT = shipped from a Myntra FC, FDC or M-Now store. "PPMP · 6m+" = shipped from our warehouses but the SKU has 6+ months shelf life, so it could have gone SJIT. "PPMP · short / not in MPM" = shelf life under 6 months or style missing from the MPM. Line = SJIT % of all orders (right axis).</div></div></div>
+    <div class="sh"><div><div class="st">Day-on-day orders and SJIT share · last 30 days</div><div class="st-desc">SJIT = shipped from a Myntra FC, FDC or M-Now store. "PPMP · 6m+" = shipped from our warehouses but the SKU has 6+ months shelf life, so it could have gone SJIT. "PPMP · short / not in MPM" = shelf life under 6 months or style missing from the MPM. Line = SJIT % of all orders (right axis).</div></div></div>
     <div class="card"><div class="cb">
       <div class="legend"><span><span class="dot" style="background:#C4552A"></span>SJIT</span><span><span class="dot" style="background:#E8B89F"></span>PPMP · 6m+ shelf life</span><span><span class="dot" style="background:#C9D3DD"></span>PPMP · short / not in MPM</span><span><span class="dot" style="background:#5A3020;height:3px;width:14px"></span>SJIT %</span><span><span class="dot" style="background:#2E7D32;height:3px;width:14px"></span>7-day rolling SJIT %</span></div>
       <div class="cw" style="height:260px"><canvas id="dod-c"></canvas></div>
@@ -151,9 +152,15 @@ code{font-size:11px;font-family:ui-monospace,Menlo,monospace}
     <div class="card"><div class="cb"><h3>Scenario B · send 6, 9 & 12-month SKUs (180 + 270 + 360 days)</h3><div class="big" id="sb-big">—</div><div class="sub" id="sb-sub"></div><div class="pot-bar" id="sb-bar" style="margin-top:14px"></div><div class="pot-leg" id="sb-leg"></div></div></div>
   </div>
   <div class="sec">
-    <div class="sh"><div><div class="st">Where the extra SJIT orders come from</div><div class="st-desc">Extra SJIT orders / day if the SKU reached the target fill rate. "In SJIT" = already has SJIT sales or Myntra FC stock.</div></div>
-      <div class="fr" style="margin:0"><button class="fb on" data-pb="all" onclick="potF('all',this)">All</button><button class="fb" data-pb="360" onclick="potF('360',this)">12 m</button><button class="fb" data-pb="270" onclick="potF('270',this)">9 m</button><button class="fb" data-pb="180" onclick="potF('180',this)">6 m</button></div></div>
-    <div class="card"><div class="tw tall"><table><thead><tr><th>SKU</th><th>Category</th><th>Shelf life</th><th class="num">Orders / day</th><th class="num">SJIT %</th><th class="num">FC stock</th><th>Status</th><th class="num">Extra SJIT orders / day</th></tr></thead><tbody id="po-tb"></tbody></table></div></div>
+    <div class="sh"><div><div class="st">Where the extra SJIT orders come from</div><div class="st-desc">Extra SJIT orders / day if each SKU reached the target fill rate. "In SJIT" = already has SJIT sales or Myntra FC stock. Click a column header to sort.</div></div></div>
+    <div class="fr">
+      <input class="sb" id="po-q" placeholder="Search SKU, NH SKU, product or category…" oninput="renderPotTbl()" style="min-width:280px">
+      <select class="sb" id="po-cat" onchange="renderPotTbl()" style="min-width:180px"><option value="">All categories</option></select>
+      <span class="flab" style="margin-left:6px">Shelf life:</span><button class="fb on" data-pb="all" onclick="potF('all',this)">All</button><button class="fb" data-pb="360" onclick="potF('360',this)">12 m</button><button class="fb" data-pb="270" onclick="potF('270',this)">9 m</button><button class="fb" data-pb="180" onclick="potF('180',this)">6 m</button>
+      <button class="fb" onclick="exportPot()" style="margin-left:auto">⬇ Download Excel</button>
+    </div>
+    <div id="po-cnt" style="font-size:12px;color:var(--txm);margin-bottom:10px"></div>
+    <div class="card"><div class="tw tall"><table><thead><tr><th class="srt" onclick="poSort('sku')">SKU ↕</th><th class="srt" onclick="poSort('cat')">Category ↕</th><th class="srt" onclick="poSort('shelf')">Shelf life ↕</th><th class="srt num" onclick="poSort('od')">Orders / day ↕</th><th class="srt num" onclick="poSort('pct')">SJIT % ↕</th><th class="srt num" onclick="poSort('fcs')">FC stock ↕</th><th>Status</th><th class="srt num" onclick="poSort('gain')">Extra SJIT orders / day ↕</th></tr></thead><tbody id="po-tb"></tbody></table></div></div>
   </div>
 </div>
 
@@ -165,6 +172,8 @@ code{font-size:11px;font-family:ui-monospace,Menlo,monospace}
     <div class="card"><div class="tw"><table><thead><tr><th>Location</th><th>Type</th><th>Region</th><th>Warehouse ID</th><th class="num">SJIT orders / day</th><th class="num">Share of SJIT</th><th class="num">Stock (units)</th><th class="num">SKUs stocked</th><th>Status</th><th>Why</th></tr></thead><tbody id="nw-nodes"></tbody></table></div></div>
   </div>
   <div class="sec">
+    <div class="sh"><div><div class="st">What to do, region by region</div><div class="st-desc">Generated from the last 30 days of orders and the latest stock. Download includes the insights, region table, missing SKUs per region, cross-region SKUs and FC/FDC utilisation.</div></div><button class="fb" onclick="exportNetwork()">⬇ Download Excel</button></div>
+    <div id="nw-ins" style="margin-bottom:24px"></div>
     <div class="sh"><div><div class="st">Demand vs fulfilment by customer region</div><div class="st-desc">Customer region from the delivery state. "Served in-region" = SJIT orders fulfilled from a Myntra location in the same region. "6m+ SKUs not in region FC" = SKUs with 6+ months shelf life selling in that region (0.1+ orders/day) but with no stock in the region's FCs.</div></div></div>
     <div class="card"><div class="tw"><table><thead><tr><th>Region</th><th class="num">Share of orders</th><th class="num">Orders / day</th><th class="num">6m+ shelf life</th><th class="num">SJIT %</th><th style="min-width:110px"></th><th class="num">SJIT served in-region</th><th class="num">FC stock</th><th class="num">FC SKUs</th><th class="num">6m+ SKUs not in region FC</th><th class="num">Their orders / day</th></tr></thead><tbody id="nw-reg"></tbody></table></div></div>
   </div>
@@ -191,6 +200,20 @@ code{font-size:11px;font-family:ui-monospace,Menlo,monospace}
 
 <!-- TRENDS -->
 <div class="tp" id="tp-tr">
+  <div class="sec">
+    <div class="sh"><div><div class="st">Month by month: is it SJIT share, or sales, that moved?</div><div class="st-desc">All figures are per day, so a part month (month to date) compares fairly with a full month. Add older Seller Orders Reports to data/ to extend the history.</div></div><button class="fb" onclick="exportMonths()">⬇ Download Excel</button></div>
+    <div id="tr-verdict"></div>
+    <div class="g2">
+      <div class="card"><div class="tw"><table><thead><tr><th>Month</th><th class="num">Orders / day</th><th class="num">SJIT orders / day</th><th class="num">PPMP / day</th><th class="num">SJIT %</th><th class="num">6m+ orders / day</th><th class="num">6m+ SJIT / day</th><th class="num">6m+ SJIT %</th></tr></thead><tbody id="tr-mon"></tbody></table></div></div>
+      <div class="card"><div class="cb"><div class="cw" style="height:240px"><canvas id="tr-mc"></canvas></div><div class="note">* part month</div></div></div>
+    </div>
+  </div>
+  <div class="sec" id="tm-wrap">
+    <div class="sh"><div><div class="st">SKU by month</div><div class="st-desc">6m+ shelf-life SKUs. Diagnosis compares the latest month with the one before: SJIT falling with demand steady = stock problem; both falling = demand problem too.</div></div>
+      <div class="fr" style="margin:0"><button class="fb on" data-tm="All" onclick="tmF('All',this)">All</button><button class="fb" data-tm="SJIT falling, demand steady" onclick="tmF('SJIT falling, demand steady',this)">SJIT ↓ demand steady</button><button class="fb" data-tm="Both falling" onclick="tmF('Both falling',this)">Both ↓</button><button class="fb" data-tm="Demand falling" onclick="tmF('Demand falling',this)">Demand ↓</button><button class="fb" data-tm="SJIT improving" onclick="tmF('SJIT improving',this)">SJIT ↑</button><input class="sb" id="tm-q" placeholder="Search SKU…" oninput="renderMonthSku()"></div></div>
+    <div class="card"><div class="tw tall"><table><thead><tr id="tm-head"></tr></thead><tbody id="tm-tb"></tbody></table></div></div>
+  </div>
+  <div class="st" style="margin-bottom:10px">Last few weeks</div>
   <div class="alert a-info" id="tr-win"></div>
   <div class="kgrid" id="tr-kpis"></div>
   <div class="sec">
@@ -207,13 +230,17 @@ code{font-size:11px;font-family:ui-monospace,Menlo,monospace}
 <!-- SEND PLAN -->
 <div class="tp" id="tp-sp">
   <div class="rule">
-    <strong>How send quantities are calculated</strong> (FC stock only; we don't control M-Now or FDC stock)<br>
-    Quantity per FC = (region DRR × cover days) − current stock in that region's FCs. DRR uses every order from customers in the FC's region over the last <b id="sp-w">30</b> days, whether it shipped SJIT, PPMP, from M-Now or an FDC, because the FC ends up feeding all of them.
+    <strong>How send quantities are calculated</strong> (only FC stock is ours to send; M-Now and FDCs are refilled by Myntra from the region's FC)<br>
+    For each SKU and each region (North → Gurgaon, West → Mumbai, South → Bangalore, East → Kolkata), using the last <b id="sp-w">30</b> days:<br>
+    <b>Regional DRR</b> = SJIT orders shipped from the region's FCs + from its M-Now stores + from its FDCs + PPMP orders from customers in the region (demand SJIT should capture), all per day<br>
+    <b>Units to send</b> = Regional DRR × cover days − stock already in the region's FCs <span class="mut">(− M-Now/FDC stock in the region, if ticked below)</span>
     <table><tr><th>Shelf life</th><th>Cover to send</th><th>Ease</th></tr>
       <tr><td>12 months (360 days)</td><td><b>2 months</b> of DRR (60 days)</td><td><span class="badge b-ok">Easy</span></td></tr>
       <tr><td>9 months (270 days)</td><td><b>1.5 months</b> of DRR (45 days)</td><td><span class="badge b-ok">Easy</span></td></tr>
       <tr><td>6 months (180 days)</td><td><b>1 month</b> of DRR (30 days)</td><td><span class="badge b-warn">Watch expiry</span></td></tr>
       <tr><td>Under 6 months</td><td>Not sent to SJIT</td><td><span class="badge b-err">Not for SJIT</span></td></tr></table>
+    <div id="sp-ex" style="margin-top:8px;font-size:12.5px"></div>
+    <div style="margin-top:6px;font-size:12px" class="mut">Click any SKU row to see the full calculation for every region. The Excel download has a "Region math" sheet with live formulas.</div>
   </div>
   <div class="kgrid" id="sp-kpis"></div>
   <div class="fr">
@@ -225,12 +252,13 @@ code{font-size:11px;font-family:ui-monospace,Menlo,monospace}
     <button class="fb on" data-ss="360" onclick="spS('360',this)">12 m</button>
     <button class="fb on" data-ss="270" onclick="spS('270',this)">9 m</button>
     <button class="fb on" data-ss="180" onclick="spS('180',this)">6 m</button>
+    <label class="flab" style="margin-left:10px;display:flex;align-items:center;gap:5px"><input type="checkbox" id="sp-ds" onchange="renderSend()"> Subtract M-Now/FDC stock</label>
     <span class="flab" style="margin-left:10px">Min orders / month</span><input class="ni" type="number" id="sp-min" value="10" min="0" oninput="renderSend()">
     <input class="sb" id="sp-q" placeholder="Search SKU…" oninput="renderSend()">
-    <button class="fb" onclick="exportSend()" style="margin-left:auto">⬇ Export CSV</button>
+    <button class="fb" onclick="exportSend()" style="margin-left:auto">⬇ Download Excel</button>
   </div>
   <div class="card"><div class="tw tall"><table><thead><tr id="sp-head"></tr></thead><tbody id="sp-tb"></tbody></table></div></div>
-  <div class="note">New to SJIT = no Myntra FC stock and no SJIT sales in the data. Ranked by quantity to send. SKUs marked Inactive in the MPM are left out. Region orders from states we can't place are ignored (under 1%).</div>
+  <div class="note">New to SJIT = no Myntra FC stock and no SJIT sales in the data. Ranked by quantity to send. SKUs marked Inactive in the MPM are left out. Orders from states we can't place in a region are ignored (under 1%).</div>
   <div class="sec" style="margin-top:28px">
     <div class="sh"><div><div class="st">Selling well but under 6 months shelf life</div><div class="st-desc">Not recommended for SJIT under the rule above; listed so you can decide case by case.</div></div></div>
     <div class="card"><div class="tw tall"><table><thead><tr><th>SKU</th><th>Category</th><th>Shelf life</th><th class="num">Orders / month</th><th class="num">SJIT %</th></tr></thead><tbody id="sp-short"></tbody></table></div></div>
@@ -269,7 +297,7 @@ code{font-size:11px;font-family:ui-monospace,Menlo,monospace}
 <div class="tp" id="tp-mg">
   <div id="mg-alert"></div>
   <div class="sec">
-    <div class="sh"><div><div class="st">Sold on Myntra but missing from the MPM</div><div class="st-desc">Style IDs in the orders report with no row in MPM_Myntra.xlsx. Without MPM rows these SKUs have no shelf life, so they're left out of potential and the send plan. Add them to the MPM sheet, save it in config/, and rerun.</div></div><button class="fb" onclick="exportGaps()">⬇ Export CSV</button></div>
+    <div class="sh"><div><div class="st">Sold on Myntra but missing from the MPM</div><div class="st-desc">Style IDs in the orders report with no row in MPM_Myntra.xlsx. Without MPM rows these SKUs have no shelf life, so they're left out of potential and the send plan. Add them to the MPM sheet, save it in config/, and rerun.</div></div><button class="fb" onclick="exportGaps()">⬇ Download Excel</button></div>
     <div class="card"><div class="tw tall"><table><thead><tr><th>Style ID</th><th>Seller SKU</th><th>Product</th><th class="num">Orders / day</th><th class="num">Share of orders</th><th>Last order</th></tr></thead><tbody id="mg-tb"></tbody></table></div></div>
   </div>
   <div class="g2">
@@ -304,7 +332,7 @@ const fmt=n=>Math.round(n).toLocaleString('en-IN');
 const fmtL=n=>n>=1e7?'₹'+(n/1e7).toFixed(2)+'Cr':n>=1e5?'₹'+(n/1e5).toFixed(1)+'L':n>=1000?'₹'+(n/1000).toFixed(0)+'K':'₹'+Math.round(n);
 const bc=p=>p>=70?'#2E7D32':p>=40?'#C07813':'#C62828';
 const bar=p=>`<div class="bw"><div class="bb"><div class="bf" style="width:${Math.min(100,p)}%;background:${bc(p)}"></div></div></div>`;
-const pd=n=>{const v=n/S.calDays;return v>=10?Math.round(v).toLocaleString('en-IN'):v>=1?v.toFixed(1):v>0?v.toFixed(2):'0'};
+const pd=n=>{const v=n/S.W;return v>=10?Math.round(v).toLocaleString('en-IN'):v>=1?v.toFixed(1):v>0?v.toFixed(2):'0'};
 const sh=n=>n>0&&pct(n,S.N)<0.1?'<0.1%':pct(n,S.N)+'%';
 const coverDays=s=>s>=360?60:s>=270?45:s>=180?30:0;
 const bucket=s=>s==null?'none':s>=360?'360':s>=270?'270':s>=180?'180':'short';
@@ -326,48 +354,93 @@ function wh(id){
 function kpi(l,v,s,c){return`<div class="kc"><div class="kl">${l}</div><div class="kv ${c||''}">${v}</div><div class="ks">${s}</div></div>`}
 let charts={};function mkChart(id,cfg){if(charts[id])charts[id].destroy();charts[id]=new Chart(document.getElementById(id),cfg)}
 function tab(id,el){document.querySelectorAll('.tp').forEach(t=>t.classList.remove('on'));document.querySelectorAll('.nt').forEach(t=>t.classList.remove('on'));document.getElementById('tp-'+id).classList.add('on');el.classList.add('on');window.scrollTo({top:0})}
-function dl(name,head,rows){const q=v=>'"'+String(v??'').replace(/"/g,'""')+'"';const b=new Blob(['\ufeff'+[head,...rows].map(r=>r.map(q).join(',')).join('\n')],{type:'text/csv'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=name;a.click()}
+function dlcsv(name,head,rows){const q=v=>'"'+String(v??'').replace(/"/g,'""')+'"';const b=new Blob(['\ufeff'+[head,...rows].map(r=>r.map(q).join(',')).join('\n')],{type:'text/csv'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=name.replace(/\.xlsx$/,'.csv');a.click()}
+// Excel download with optional live formulas: sheets=[{name,rows:[[...]],formulas:[{r,c,f}],widths:[...]}]
+function xl(name,sheets){
+  if(typeof XLSX==='undefined'){const s=sheets[0];dlcsv(name,s.rows[0],s.rows.slice(1));return}
+  const wb=XLSX.utils.book_new();
+  sheets.forEach(s=>{
+    const ws=XLSX.utils.aoa_to_sheet(s.rows);
+    (s.formulas||[]).forEach(({r,c,f})=>{const a=XLSX.utils.encode_cell({r,c});ws[a]=ws[a]||{t:'n',v:0};ws[a].f=f});
+    (s.decCols||[]).forEach(c=>{for(let r=1;r<s.rows.length;r++){const a=XLSX.utils.encode_cell({r,c});if(ws[a]&&ws[a].t==='n')ws[a].z='0.00'}});
+    ws['!cols']=(s.rows[0]||[]).map((h,i)=>({wch:(s.widths&&s.widths[i])||Math.min(42,Math.max(10,String(h).length+2))}));
+    XLSX.utils.book_append_sheet(wb,ws,s.name.slice(0,31));
+  });
+  XLSX.writeFile(wb,name);
+}
+function dl(name,head,rows){xl(name.replace(/\.csv$/,'.xlsx'),[{name:'Data',rows:[head,...rows]}])}
 
 // ─── compute
+// Current-state views (Overview, Potential, Network, Send Plan, SKU Tracker, Categories) use the
+// analysis window = last 30 days of data (or all of it if shorter). Trends use the full history.
 const S=(function(){
+  const z=()=>({N:0,W:0,S:0,E:0,X:0});
   const P=D.products.map((r,i)=>({i,style:r[0],sku:r[1],nh:r[2],name:r[3],cat:r[4],shelf:r[5],mstat:r[6],inMpm:!!r[7],at:r[8],
-    tot:0,f:0,gmv:0,last:'',win:0,winReg:{N:0,W:0,S:0,E:0,X:0},rec:{t:0,f:0},base:{t:0,f:0},everF:0,fcs:0,fcReg:{N:0,W:0,S:0,E:0},stockWh:{},allStock:0}));
+    tot:0,f:0,gmv:0,last:'',winReg:z(),regF:z(),cross:z(),pp:z(),
+    sj:{N:{FC:0,MNOW:0,FDC:0},W:{FC:0,MNOW:0,FDC:0},S:{FC:0,MNOW:0,FDC:0},E:{FC:0,MNOW:0,FDC:0}},sjOther:0,
+    rec:{t:0,f:0},base:{t:0,f:0},everF:0,mon:{},fcs:0,fcReg:{N:0,W:0,S:0,E:0},dsReg:{N:0,W:0,S:0,E:0},stockWh:{},allStock:0}));
   const dates=D.dates,t0=new Date(dates[0]),dayNum=dates.map(d=>Math.round((new Date(d)-t0)/864e5));
   const calDays=dayNum[dayNum.length-1]+1;
   const W=Math.min(30,calDays),winStart=calDays-W;
   let recStart,baseStart;
   if(calDays>=21){recStart=calDays-7;baseStart=Math.max(0,calDays-28)}else{const h=Math.max(1,Math.floor(calDays/2));recStart=calDays-h;baseStart=0}
-  const ex={C:0,R:0,L:0,T:0};let N=0,F=0,gmv=0;
+  const dateOf=k=>new Date(t0.getTime()+k*864e5).toISOString().slice(0,10);
+  const ex={C:0,R:0,L:0,T:0};let N=0,F=0,gmv=0,linesW=0;
   const day=Array.from({length:calDays},(_,k)=>({k,f:0,e:0,s:0,fe:0}));
-  const reg={};['N','W','S','E','X'].forEach(k=>reg[k]={k,tot:0,el:0,f:0,own:0,src:{}});
-  const node={},city={},src={};
+  const reg={};['N','W','S','E','X'].forEach(k=>reg[k]={k,tot:0,el:0,elF:0,f:0,own:0,src:{},sjsrc:{},nhEl:0});
+  const node={},city={},src={},mon={};
   D.rows.forEach(r=>{
-    if(r[7]){ex[r[7]]++;return}
-    const p=P[r[1]],dn=dayNum[r[0]],fb=r[2]===1,w=wh(String(r[3])),st=D.states[r[4]],rg=STATE_REG[st]||'X',el=p.shelf!=null&&p.shelf>=180;
-    N++;gmv+=r[6];p.tot++;p.gmv+=r[6];if(fb){F++;p.f++;p.everF++}
+    const dn=dayNum[r[0]],inW=dn>=winStart;
+    if(r[7]){if(inW){ex[r[7]]++;linesW++}return}
+    if(inW)linesW++;
+    const p=P[r[1]],fb=r[2]===1,w=wh(String(r[3])),st=D.states[r[4]],rg=STATE_REG[st]||'X',el=p.shelf!=null&&p.shelf>=180;
+    // full history
+    if(fb)p.everF++;
     const d=dates[r[0]];if(d>p.last)p.last=d;
-    if(dn>=winStart){p.win++;p.winReg[rg]++}
     if(dn>=recStart){p.rec.t++;if(fb)p.rec.f++}else if(dn>=baseStart){p.base.t++;if(fb)p.base.f++}
     const dd=day[dn];if(fb){dd.f++;if(el)dd.fe++}else if(el)dd.e++;else dd.s++;
-    const R=reg[rg];R.tot++;if(el)R.el++;if(fb){R.f++;if(w.region===rg)R.own++}R.src[w.grp]=(R.src[w.grp]||0)+1;
+    const m=d.slice(0,7);const M=mon[m]||(mon[m]={t:0,f:0,et:0,ef:0});M.t++;if(fb)M.f++;if(el){M.et++;if(fb)M.ef++}
+    const pm=p.mon[m]||(p.mon[m]={t:0,f:0});pm.t++;if(fb)pm.f++;
+    if(!inW)return;
+    // analysis window
+    N++;gmv+=r[6];p.tot++;p.gmv+=r[6];if(fb){F++;p.f++}
+    p.winReg[rg]++;
+    if(fb){p.regF[rg]++;if(w.region!==rg)p.cross[rg]++;
+      if(w.region&&REG[w.region]&&(w.kind==='FC'||w.kind==='MNOW'||w.kind==='FDC'))p.sj[w.region][w.kind]++;else p.sjOther++;}
+    else p.pp[rg]++;
+    const R=reg[rg];R.tot++;if(el){R.el++;if(fb)R.elF++;else if(w.kind==='NH')R.nhEl++}
+    if(fb){R.f++;if(w.region===rg)R.own++;R.sjsrc[w.grp]=(R.sjsrc[w.grp]||0)+1}
+    R.src[w.grp]=(R.src[w.grp]||0)+1;
     const sg=src[w.grp]||(src[w.grp]={grp:w.grp,kind:w.kind,region:w.region,n:0,f:0});sg.n++;if(fb)sg.f++;
     if(fb){const key=String(r[3]);node[key]=(node[key]||0)+1}
     const cn=D.cities[r[5]]||'—';const c=city[cn+'|'+st]||(city[cn+'|'+st]={city:cn,st,rg,n:0,f:0,src:{}});c.n++;if(fb)c.f++;c.src[w.grp]=(c.src[w.grp]||0)+1;
   });
-  // inventory
+  // inventory (latest report)
   const stockWh={};let fcUnits=0,allUnits=0;
   D.inv.forEach(([id,pi,q])=>{
     const p=P[pi],w=wh(String(id));p.stockWh[id]=(p.stockWh[id]||0)+q;p.allStock+=q;allUnits+=q;
     const s=stockWh[id]||(stockWh[id]={units:0,skus:new Set()});s.units+=q;s.skus.add(pi);
-    if(w.kind==='FC'&&w.region){p.fcs+=q;p.fcReg[w.region]+=q;fcUnits+=q}
+    if(w.region&&REG[w.region]){if(w.kind==='FC'){p.fcs+=q;p.fcReg[w.region]+=q;fcUnits+=q}else if(w.kind==='MNOW'||w.kind==='FDC')p.dsReg[w.region]+=q}
   });
-  P.forEach(p=>{p.pct=pct(p.f,p.tot);p.drr=p.win/W;p.monthly=p.drr*30;
+  P.forEach(p=>{p.pct=pct(p.f,p.tot);p.drr=p.tot/W;p.monthly=p.drr*30;
     p.recPct=pct(p.rec.f,p.rec.t);p.basePct=pct(p.base.f,p.base.t);p.delta=Math.round((p.recPct-p.basePct)*10)/10;
     p.inSJIT=p.everF>0||p.fcs>0;
     p.trend=(p.base.f>=3&&p.rec.f===0&&p.rec.t>=3)?'Stopped':(p.base.t>=5&&p.rec.t>=5)?(p.delta<=-10?'Falling':p.delta>=10?'Rising':'Stable'):'—';
   });
-  return{P,dates,dayNum,calDays,W,recStart,baseStart,ex,N,F,gmv,day,reg,node,city,src,stockWh,fcUnits,allUnits,totalLines:D.rows.length};
+  // calendar days per month inside the data range
+  const monDays={};for(let k=0;k<calDays;k++){const m=dateOf(k).slice(0,7);monDays[m]=(monDays[m]||0)+1}
+  const months=Object.keys(monDays).sort();
+  return{P,dates,dayNum,calDays,W,winStart,recStart,baseStart,dateOf,ex,N,F,gmv,day,reg,node,city,src,stockWh,fcUnits,allUnits,linesW,mon,monDays,months};
 })();
+
+// Regional DRR for one SKU in one region (orders/day over the analysis window)
+function regMath(p,k,countDs){
+  const W=S.W,cd=coverDays(p.shelf);
+  const fc=p.sj[k].FC/W,mn=p.sj[k].MNOW/W,fdc=p.sj[k].FDC/W,pp=p.pp[k]/W;
+  const drr=fc+mn+fdc+pp,target=Math.ceil(drr*cd),stock=p.fcReg[k],ds=p.dsReg[k];
+  const send=Math.max(0,target-stock-(countDs?ds:0));
+  return{fc,mn,fdc,pp,drr,cd,target,stock,ds,send};
+}
 
 // ─── potential
 function potential(T,set){
@@ -393,13 +466,14 @@ function renderOverview(){
     kpi('Stock at Myntra FCs',fmt(s.fcUnits),fcSkus+' SKUs · M-Now/FDC excluded','')+
     kpi('Missing from MPM',gapP.length,'SKUs · '+sh(gapP.reduce((a,p)=>a+p.tot,0))+' of orders have no shelf life',gapP.length?'c-err':'c-ok');
   // daily chart
-  const lab=s.day.map(d=>{const dt=new Date(new Date(s.dates[0]).getTime()+d.k*864e5);return dt.toISOString().slice(5,10)});
-  const daily=s.day.map(d=>pct(d.f,d.f+d.e+d.s));
-  const roll=s.day.map((d,i)=>{const w=s.day.slice(Math.max(0,i-6),i+1);const f=w.reduce((a,x)=>a+x.f,0),t=w.reduce((a,x)=>a+x.f+x.e+x.s,0);return i>=6?pct(f,t):null});
+  const dw=s.day.slice(s.winStart);
+  const lab=dw.map(d=>s.dateOf(d.k).slice(5));
+  const daily=dw.map(d=>d.f+d.e+d.s?pct(d.f,d.f+d.e+d.s):null);
+  const roll=dw.map((d,i)=>{const j=s.winStart+i;const w=s.day.slice(Math.max(0,j-6),j+1);const f=w.reduce((a,x)=>a+x.f,0),t=w.reduce((a,x)=>a+x.f+x.e+x.s,0);return j>=6?pct(f,t):null});
   mkChart('dod-c',{data:{labels:lab,datasets:[
-    {type:'bar',label:'SJIT',data:s.day.map(d=>d.f),backgroundColor:'#C4552A',stack:'s',yAxisID:'y',order:3},
-    {type:'bar',label:'PPMP · 6m+',data:s.day.map(d=>d.e),backgroundColor:'#E8B89F',stack:'s',yAxisID:'y',order:4},
-    {type:'bar',label:'PPMP · short / not in MPM',data:s.day.map(d=>d.s),backgroundColor:'#C9D3DD',stack:'s',yAxisID:'y',order:5},
+    {type:'bar',label:'SJIT',data:dw.map(d=>d.f),backgroundColor:'#C4552A',stack:'s',yAxisID:'y',order:3},
+    {type:'bar',label:'PPMP · 6m+',data:dw.map(d=>d.e),backgroundColor:'#E8B89F',stack:'s',yAxisID:'y',order:4},
+    {type:'bar',label:'PPMP · short / not in MPM',data:dw.map(d=>d.s),backgroundColor:'#C9D3DD',stack:'s',yAxisID:'y',order:5},
     {type:'line',label:'SJIT %',data:daily,borderColor:'#5A3020',borderWidth:2,pointRadius:2,yAxisID:'y2',order:1,borderDash:[5,3]},
     {type:'line',label:'7-day SJIT %',data:roll,borderColor:'#2E7D32',borderWidth:2.5,pointRadius:0,yAxisID:'y2',order:2,spanGaps:true}]},
     options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.dataset.label+': '+(c.dataset.yAxisID==='y2'?c.parsed.y+'%':fmt(c.parsed.y))}}},
@@ -414,11 +488,11 @@ function renderOverview(){
   mkChart('cat-c',{type:'bar',data:{labels:cs.map(c=>c.c),datasets:[{data:cs.map(c=>c.p),backgroundColor:cs.map(c=>bc(c.p)),borderRadius:3}]},
     options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>`SJIT ${cs[c.dataIndex].p}% · ${pd(cs[c.dataIndex].n)} orders/day`}}},
       scales:{x:{min:0,max:100,ticks:{font:{size:10},callback:v=>v+'%'}},y:{ticks:{font:{size:10}},grid:{display:false}}}}});
-  document.getElementById('ex-row').innerHTML=`<span>Counted: <b>${pct(s.N,s.totalLines)}%</b> of order lines</span><span>Excluded: <b>${pct(s.ex.C,s.totalLines)}%</b> cancelled · <b>${pct(s.ex.R,s.totalLines)}%</b> RTO · <b>${pct(s.ex.T,s.totalLines)}%</b> returned · <b>${pct(s.ex.L,s.totalLines)}%</b> lost</span><span>Average: <b>${pd(s.N)}</b> orders/day over ${s.calDays} days</span><span>Orders files: <b>${D.files.length}</b> (${esc(D.files.slice(-1)[0]||'')})</span><span>Inventory: <b>${esc(D.invFile||'none')}</b></span>`;
+  document.getElementById('ex-row').innerHTML=`<span>Window: <b>last ${s.W} days</b> (${s.dateOf(s.winStart)} → ${s.dates.slice(-1)[0]})</span><span>Counted: <b>${pct(s.N,s.linesW)}%</b> of order lines</span><span>Excluded: <b>${pct(s.ex.C,s.linesW)}%</b> cancelled · <b>${pct(s.ex.R,s.linesW)}%</b> RTO · <b>${pct(s.ex.T,s.linesW)}%</b> returned · <b>${pct(s.ex.L,s.linesW)}%</b> lost</span><span>Average: <b>${pd(s.N)}</b> orders/day</span><span>Orders files: <b>${D.files.length}</b> (${esc(D.files.slice(-1)[0]||'')})</span><span>Inventory: <b>${esc(D.invFile||'none')}</b></span>`;
 }
 
 // ─── render: potential
-let potBucket='all';
+let potBucket='all',poCol='gain',poAsc=false;
 function scenarioCard(prefix,R,set,T){
   const s=S,N=s.N,ceil=potential(1,set);
   document.getElementById(prefix+'-big').textContent=pct(R.pot,N)+'%';
@@ -427,20 +501,46 @@ function scenarioCard(prefix,R,set,T){
   document.getElementById(prefix+'-bar').innerHTML=seg.map(([l,v,c,t])=>{const w=v/N*100;return`<div style="width:${w}%;background:${c};color:${t}" title="${l}: ${(v/N*100).toFixed(1)}% of orders">${w>=7?Math.round(w)+'%':''}</div>`}).join('');
   document.getElementById(prefix+'-leg').innerHTML=seg.map(([l,v,c])=>`<span><span class="dot" style="background:${c};margin-right:4px"></span>${l}: <b>${(v/N*100).toFixed(1)}%</b></span>`).join('');
 }
+function potRows(){
+  const T=+document.getElementById('tgt').value/100,B=potential(T,['360','270','180']);
+  const q=(document.getElementById('po-q').value||'').toLowerCase().trim(),cat=document.getElementById('po-cat').value;
+  return B.list.filter(x=>(potBucket==='all'||bucket(x.p.shelf)===potBucket)&&(!cat||x.p.cat===cat)&&
+    (!q||[x.p.sku,x.p.nh,x.p.name,x.p.cat].some(v=>(v||'').toLowerCase().includes(q))))
+    .map(x=>({...x,od:x.p.tot/S.W,gd:x.gain/S.W}));
+}
 function renderPotential(){
   const tv=+document.getElementById('tgt').value,T=tv/100;document.getElementById('tgt-v').textContent=tv+'%';
   const A=potential(T,['360','270']),B=potential(T,['360','270','180']);
   scenarioCard('sa',A,['360','270'],T);scenarioCard('sb',B,['360','270','180'],T);
-  const list=B.list.filter(x=>potBucket==='all'||bucket(x.p.shelf)===potBucket).sort((a,b)=>b.gain-a.gain).slice(0,150);
-  document.getElementById('po-tb').innerHTML=list.map(({p,gain})=>`<tr><td>${skuCell(p)}</td><td class="mut" style="font-size:12px">${esc(p.cat)}</td><td>${shelfBadge(p.shelf)}</td><td class="num">${pd(p.tot)}</td><td class="num" style="color:${bc(p.pct)};font-weight:700">${p.pct}%</td><td class="num">${p.fcs?fmt(p.fcs):'—'}</td><td>${p.inSJIT?'<span class="badge b-brand">In SJIT</span>':'<span class="badge b-info">New</span>'}</td><td class="num"><b>+${pd(gain)}</b></td></tr>`).join('')||'<tr><td colspan="8" class="mut">Nothing to gain at this fill rate.</td></tr>';
+  renderPotTbl();
 }
-function potF(b,btn){potBucket=b;document.querySelectorAll('[data-pb]').forEach(x=>x.classList.remove('on'));btn.classList.add('on');renderPotential()}
+function renderPotTbl(){
+  const key={sku:x=>x.p.sku,od:x=>x.od,pct:x=>x.p.pct,fcs:x=>x.p.fcs,gain:x=>x.gd,shelf:x=>x.p.shelf||0,cat:x=>x.p.cat};
+  const rows=potRows().sort((a,b)=>{const ka=key[poCol](a),kb=key[poCol](b);const v=typeof ka==='string'?ka.localeCompare(kb):ka-kb;return poAsc?v:-v});
+  document.getElementById('po-cnt').textContent=`${rows.length} SKUs · +${rows.reduce((a,x)=>a+x.gd,0).toFixed(1)} SJIT orders/day if all of them hit the target`;
+  document.getElementById('po-tb').innerHTML=rows.map(({p,od,gd})=>`<tr><td>${skuCell(p)}</td><td class="mut" style="font-size:12px">${esc(p.cat)}</td><td>${shelfBadge(p.shelf)}</td><td class="num">${od.toFixed(2)}</td><td class="num" style="color:${bc(p.pct)};font-weight:700">${p.pct}%</td><td class="num">${p.fcs?fmt(p.fcs):'—'}</td><td>${p.inSJIT?'<span class="badge b-brand">In SJIT</span>':'<span class="badge b-info">New</span>'}</td><td class="num"><b>+${gd.toFixed(2)}</b></td></tr>`).join('')||'<tr><td colspan="8" class="mut">No SKUs match.</td></tr>';
+}
+function potF(b,btn){potBucket=b;document.querySelectorAll('[data-pb]').forEach(x=>x.classList.remove('on'));btn.classList.add('on');renderPotTbl()}
+function poSort(c){if(poCol===c)poAsc=!poAsc;else{poCol=c;poAsc=(c==='sku'||c==='cat')}renderPotTbl()}
+function exportPot(){
+  const tv=document.getElementById('tgt').value;
+  const rows=potRows().sort((a,b)=>b.gd-a.gd);
+  xl(`myntra_sjit_potential_${S.dates.slice(-1)[0]}.xlsx`,[{name:'Potential',rows:[
+    ['Seller SKU','NH SKU','Style ID','Product','Category','Shelf life (days)','Status','Orders / day','SJIT orders / day','SJIT %','FC stock (units)','Target fill rate','Extra SJIT orders / day at target'],
+    ...rows.map(({p,od,gd})=>[p.sku,p.nh,p.style,p.name,p.cat,p.shelf,p.inSJIT?'In SJIT':'New',+od.toFixed(2),+(p.f/S.W).toFixed(2),p.pct,p.fcs,tv+'%',+gd.toFixed(2)])],
+    widths:[18,16,12,48,18,10,10,10,10,8,10,10,14]},
+    {name:'How to read',rows:[['Field','Meaning'],
+      ['Window',`Last ${S.W} days: ${S.dateOf(S.winStart)} to ${S.dates.slice(-1)[0]}`],
+      ['Orders / day','Average counted orders per day for the SKU in the window'],
+      ['SJIT %','Share of the SKU\u2019s orders shipped from a Myntra FC / FDC / M-Now'],
+      ['Extra SJIT orders / day at target','(Target fill rate × orders/day) − SJIT orders/day, floored at 0. Ranks where sending stock adds the most SJIT orders.'],
+      ['Status','In SJIT = already has SJIT sales or Myntra FC stock. New = never been in SJIT.']],widths:[32,100]}]);
+}
 
 // ─── render: network
-function renderNetwork(){
-  const s=S,perDay=s.calDays;
-  // node utilisation
-  const rows=NET.nodes.map(n=>{
+function nodeRows(){
+  const s=S;
+  return NET.nodes.map(n=>{
     const ids=(n.ids||[]).map(String);
     const orders=ids.reduce((a,id)=>a+(s.node[id]||0),0);
     const units=ids.reduce((a,id)=>a+(s.stockWh[id]?.units||0),0);
@@ -448,23 +548,67 @@ function renderNetwork(){
     const regEl=s.reg[n.region]?.el||0;const cov=pct(orders,regEl);
     let st,why;
     if(!ids.length){st='Not utilised';why='Warehouse ID not identified; no orders or stock found. Add the ID in config/myntra_network.json if it exists.'}
-    else if(!orders&&!units){st='Not utilised';why='No SJIT orders and no stock in the data.'}
-    else if(n.type==='FC'&&(sk.size<15||cov<10)){st='Under-utilised';why=(sk.size<15?`Only ${sk.size} SKUs stocked`:'')+(sk.size<15&&cov<10?'; ':'')+(cov<10?`serves ${cov}% of ${REG[n.region].label}'s 6m+ demand`:'')}
-    else if(n.type==='FDC'&&(orders/perDay<1)){st='Under-utilised';why=`${(orders/perDay).toFixed(1)} orders/day`}
-    else{st='Active';why=`${sk.size} SKUs · serves ${cov}% of ${REG[n.region].label}'s 6m+ demand`}
-    return{n,ids,orders,units,skus:sk.size,st,why};
+    else if(!orders&&!units){st='Not utilised';why='No SJIT orders and no stock in the window.'}
+    else if(n.type==='FC'&&(sk.size<15||cov<10)){st='Under-utilised';why=(sk.size<15?`Only ${sk.size} SKUs stocked`:'')+(sk.size<15&&cov<10?'; ':'')+(cov<10?`ships the equivalent of ${cov}% of ${REG[n.region].label}'s 6m+ demand`:'')}
+    else if(n.type==='FDC'&&(orders/s.W<1)){st='Under-utilised';why=`${(orders/s.W).toFixed(1)} orders/day`}
+    else{st='Active';why=`${sk.size} SKUs · ships the equivalent of ${cov}% of ${REG[n.region].label}'s 6m+ demand`}
+    return{n,ids,orders,units,skus:sk.size,st,why,cov};
   });
+}
+function regionStats(){
+  const s=S,W=s.W,nodes=nodeRows();
+  return REGK.map(k=>{
+    const r=s.reg[k];
+    const fcU=s.P.reduce((a,p)=>a+p.fcReg[k],0),fcS=s.P.filter(p=>p.fcReg[k]>0).length,dsU=s.P.reduce((a,p)=>a+p.dsReg[k],0);
+    const missing=s.P.filter(p=>p.shelf>=180&&p.mstat!=='Inactive'&&p.winReg[k]/W>=0.1&&!p.fcReg[k]).sort((a,b)=>b.winReg[k]-a.winReg[k]);
+    const missD=missing.reduce((a,p)=>a+p.winReg[k],0)/W;
+    const cross=s.P.filter(p=>p.cross[k]>0).sort((a,b)=>b.cross[k]-a.cross[k]);
+    const sjOther=Object.entries(r.sjsrc).filter(([g])=>{const x=s.src[g];return!x||x.region!==k}).sort((a,b)=>b[1]-a[1]);
+    const nhTop=Object.entries(r.src).filter(([g])=>s.src[g]?.kind==='NH').sort((a,b)=>b[1]-a[1])[0];
+    return{k,label:REG[k].label,fc:PRIMARY[k],r,share:pct(r.tot,s.N),od:r.tot/W,elShare:pct(r.el,r.tot),sjit:pct(r.f,r.tot),sjitEl:pct(r.elF,r.el),
+      inReg:pct(r.own,r.f),ppElOd:(r.el-r.elF)/W,nhElShare:pct(r.nhEl,r.el),nhTop:nhTop?nhTop[0]:'',fcU,fcS,dsU,missing,missD,cross,sjOther,
+      nodes:nodes.filter(x=>x.n.region===k)};
+  });
+}
+function regionInsights(rs){
+  const s=S,overall=pct(s.F,s.N),out={};
+  const top3=(arr,k)=>arr.slice(0,3).map(p=>`${p.sku} (${(p.winReg[k]/s.W).toFixed(1)}/day)`).join(', ');
+  rs.forEach(x=>{
+    const L=[];
+    // 1. headline
+    L.push({t:x.sjit<overall-5?'bad':x.sjit>overall+5?'good':'mid',m:`${x.label} is ${x.share}% of orders (${x.od.toFixed(0)}/day) and ships ${x.sjit}% SJIT vs ${overall}% overall; for 6m+ SKUs it's ${x.sjitEl}%.`});
+    // 2. missing SKUs
+    if(x.missing.length)L.push({t:'act',m:`Stock ${x.fc}: ${x.missing.length} SKUs with 6m+ shelf life sell here (${x.missD.toFixed(1)} orders/day) but ${x.label}'s FCs hold none. Start with ${top3(x.missing,x.k)}. Quantities are in the Send Plan.`});
+    // 3. cross-region
+    if(x.r.f>0&&x.inReg<60){const fromTxt=x.sjOther.slice(0,2).map(([g,v])=>`${g} (${pct(v,x.r.f)}%)`).join(', ');
+      L.push({t:'act',m:`Only ${x.inReg}% of ${x.label}'s SJIT orders ship from ${x.label} locations; the rest come from ${fromTxt}. Stocking ${x.fc} with ${x.cross.slice(0,3).map(p=>p.sku).join(', ')} (the SKUs shipped in most) cuts delivery distance and frees other regions' stock.`});}
+    // 4. PPMP still from NH
+    if(x.nhElShare>=50)L.push({t:'act',m:`${x.nhElShare}% of ${x.label}'s 6m+ orders still ship from ${x.nhTop||'our warehouses'} (${x.ppElOd.toFixed(1)} orders/day that could go SJIT).`});
+    // 5. node status
+    x.nodes.filter(n=>n.st!=='Active').forEach(n=>L.push({t:n.st==='Not utilised'?'bad':'mid',m:`${n.n.short} is ${n.st.toLowerCase()}: ${n.why}`}));
+    if(x.dsU>0)L.push({t:'info',m:`Myntra holds ${fmt(x.dsU)} units in ${x.label}'s M-Now stores/FDCs, fed from ${x.fc}.`});
+    out[x.k]=L;
+  });
+  // overall priorities
+  const byOpp=[...rs].sort((a,b)=>b.ppElOd-a.ppElOd);
+  const pri=[`Biggest opportunity: ${byOpp[0].label}. ${byOpp[0].ppElOd.toFixed(1)} orders/day of 6m+ SKUs ship PPMP there, ${byOpp.slice(1).map(x=>`${x.label} ${x.ppElOd.toFixed(1)}`).join(', ')}.`];
+  const worst=[...rs].sort((a,b)=>a.sjitEl-b.sjitEl)[0];pri.push(`Lowest SJIT share on 6m+ SKUs: ${worst.label} (${worst.sjitEl}%), with ${worst.fcS} SKUs stocked in its FCs.`);
+  const crossW=[...rs].filter(x=>x.r.f>0).sort((a,b)=>a.inReg-b.inReg)[0];if(crossW&&crossW.inReg<60)pri.push(`Most cross-region shipping: ${crossW.label}. Only ${crossW.inReg}% of its SJIT orders come from its own region.`);
+  return{byRegion:out,pri};
+}
+function renderNetwork(){
+  const s=S,rows=nodeRows();
   const nb={'Active':'b-ok','Under-utilised':'b-warn','Not utilised':'b-err'};
-  document.getElementById('nw-nodes').innerHTML=rows.map(r=>`<tr><td><strong>${esc(r.n.name)}</strong>${r.n.primary?' <span class="badge b-brand">Primary</span>':''}${r.n.id_to_confirm?' <span class="badge b-mute" title="Confirm this ID maps to this location">ID to confirm</span>':''}</td><td>${r.n.type}</td><td>${REG[r.n.region].label}</td><td><code>${r.ids.join(', ')||'—'}</code></td><td class="num">${pd(r.orders)}</td><td class="num">${pct(r.orders,s.F)}%</td><td class="num">${fmt(r.units)}</td><td class="num">${r.skus}</td><td><span class="badge ${nb[r.st]}">${r.st}</span></td><td style="font-size:12px" class="mut">${esc(r.why)}</td></tr>`).join('');
+  document.getElementById('nw-nodes').innerHTML=rows.map(r=>`<tr><td><strong>${esc(r.n.name)}</strong>${r.n.primary?' <span class="badge b-brand">Primary</span>':''}</td><td>${r.n.type}</td><td>${REG[r.n.region].label}</td><td><code>${r.ids.join(', ')||'—'}</code></td><td class="num">${pd(r.orders)}</td><td class="num">${pct(r.orders,s.F)}%</td><td class="num">${fmt(r.units)}</td><td class="num">${r.skus}</td><td><span class="badge ${nb[r.st]}">${r.st}</span></td><td style="font-size:12px" class="mut">${esc(r.why)}</td></tr>`).join('');
   const notU=rows.filter(r=>r.st==='Not utilised').length,under=rows.filter(r=>r.st==='Under-utilised').length;
   const mnowO=Object.values(s.src).filter(x=>x.kind==='MNOW').reduce((a,x)=>a+x.f,0);
   document.getElementById('nw-kpis').innerHTML=kpi('Onboarded locations',NET.nodes.length,NET.nodes.filter(n=>n.type==='FC').length+' FCs · '+NET.nodes.filter(n=>n.type==='FDC').length+' FDCs','')+kpi('Not utilised',notU,'no orders and no stock','c-err')+kpi('Under-utilised',under,'thin range or low share','c-warn')+kpi('Stock at FCs',fmt(s.fcUnits),'units we control','c-brand')+kpi('SJIT via M-Now',pct(mnowO,s.F)+'%','of SJIT orders · '+pd(mnowO)+'/day','c-info');
   // regions
-  document.getElementById('nw-reg').innerHTML=REGK.concat(['X']).map(k=>{const r=s.reg[k];if(!r.tot)return'';
-    const fcU=s.P.reduce((a,p)=>a+(k==='X'?0:p.fcReg[k]),0),fcS=k==='X'?0:s.P.filter(p=>p.fcReg[k]>0).length;
-    const miss=k==='X'?[]:s.P.filter(p=>p.shelf>=180&&p.winReg[k]/s.W>=0.1&&!p.fcReg[k]);
-    const pp=pct(r.f,r.tot);
-    return`<tr><td><strong>${k==='X'?'Unknown state':REG[k].label}</strong>${k!=='X'?`<div class="pn">FC: ${esc(PRIMARY[k])}</div>`:''}</td><td class="num">${sh(r.tot)}</td><td class="num">${pd(r.tot)}</td><td class="num">${pct(r.el,r.tot)}%</td><td class="num"><strong style="color:${bc(pp)}">${pp}%</strong></td><td>${bar(pp)}</td><td class="num">${pct(r.own,r.f)}%</td><td class="num">${fmt(fcU)}</td><td class="num">${fcS}</td><td class="num">${k==='X'?'—':miss.length}</td><td class="num">${k==='X'?'—':(miss.reduce((a,p)=>a+p.winReg[k],0)/s.W).toFixed(1)}</td></tr>`}).join('');
+  const rs=regionStats(),ins=regionInsights(rs);
+  document.getElementById('nw-reg').innerHTML=rs.map(x=>`<tr><td><strong>${x.label}</strong><div class="pn">FC: ${esc(x.fc)}</div></td><td class="num">${x.share}%</td><td class="num">${pd(x.r.tot)}</td><td class="num">${x.elShare}%</td><td class="num"><strong style="color:${bc(x.sjit)}">${x.sjit}%</strong></td><td>${bar(x.sjit)}</td><td class="num">${x.inReg}%</td><td class="num">${fmt(x.fcU)}</td><td class="num">${x.fcS}</td><td class="num">${x.missing.length}</td><td class="num">${x.missD.toFixed(1)}</td></tr>`).join('');
+  const ic={bad:'🔴',mid:'🟡',good:'🟢',act:'👉',info:'ℹ️'};
+  document.getElementById('nw-ins').innerHTML=`<div class="alert a-warn" style="margin-bottom:14px"><span style="font-size:18px">🎯</span><div><strong>Priorities</strong><br>${ins.pri.map(esc).join('<br>')}</div></div>
+    <div class="g2">${rs.map(x=>`<div class="card"><div class="cb"><div class="st" style="margin-bottom:8px">${x.label} · ${esc(x.fc)}</div>${ins.byRegion[x.k].map(l=>`<div style="display:flex;gap:8px;font-size:12.5px;line-height:1.55;margin-bottom:7px"><span>${ic[l.t]}</span><span>${esc(l.m)}</span></div>`).join('')}</div></div>`).join('')}</div>`;
   // flow
   const srcs=Object.values(s.src).sort((a,b)=>{const o={NH:0,FC:1,FDC:2,MNOW:3,'?':4};return(o[a.kind]-o[b.kind])||(b.n-a.n)});
   let h='<table><thead><tr><th>Customer region</th>'+srcs.map(x=>`<th class="num" style="white-space:normal;min-width:76px">${esc(x.grp)}<div style="font-weight:400;text-transform:none">${x.kind==='NH'?'PPMP':x.kind==='MNOW'?'M-Now':x.kind}</div></th>`).join('')+'<th class="num">Share of all orders</th><th class="num">SJIT %</th></tr></thead><tbody>';
@@ -487,20 +631,106 @@ function renderNetwork(){
   const unk=D.unknownWh||[];
   document.getElementById('nw-unk').innerHTML=unk.length?`<div class="alert a-warn"><span>⚠️</span><div><strong>Warehouse IDs not in the mapping: ${unk.map(esc).join(', ')}</strong><br><span style="font-size:12px">Add them to config/warehouse_id_mapping.xlsx (and to config/myntra_network.json if they're one of the onboarded FCs/FDCs), then rerun.</span></div></div>`:'';
 }
+function exportNetwork(){
+  const s=S,rs=regionStats(),ins=regionInsights(rs),W=s.W;
+  const insRows=[['Region','Insight']];ins.pri.forEach(m=>insRows.push(['All regions',m]));rs.forEach(x=>ins.byRegion[x.k].forEach(l=>insRows.push([x.label,l.m])));
+  const miss=[['Region','Region FC','Seller SKU','NH SKU','Product','Category','Shelf life (days)','Orders / day from region','SJIT % in region','Stock in region FCs','Stock at Myntra elsewhere']];
+  rs.forEach(x=>x.missing.forEach(p=>miss.push([x.label,x.fc,p.sku,p.nh,p.name,p.cat,p.shelf,+(p.winReg[x.k]/W).toFixed(2),pct(p.regF[x.k],p.winReg[x.k]),0,p.fcs])));
+  const cross=[['Customer region','Region FC','Seller SKU','Product','Shelf life (days)','SJIT orders / day to region','of which shipped from another region / day','Stock in region FCs']];
+  rs.forEach(x=>x.cross.forEach(p=>cross.push([x.label,x.fc,p.sku,p.name,p.shelf,+(p.regF[x.k]/W).toFixed(2),+(p.cross[x.k]/W).toFixed(2),p.fcReg[x.k]])));
+  const nodes=nodeRows();
+  xl(`myntra_network_${s.dates.slice(-1)[0]}.xlsx`,[
+    {name:'Insights',rows:insRows,widths:[14,140]},
+    {name:'Regions',rows:[['Region','Region FC','Share of orders %','Orders / day','6m+ shelf life %','SJIT %','SJIT % (6m+ SKUs)','SJIT served in-region %','6m+ orders/day shipped PPMP','FC stock (units)','FC SKUs','M-Now + FDC stock (units)','6m+ SKUs not in region FC','Their orders / day'],
+      ...rs.map(x=>[x.label,x.fc,x.share,+x.od.toFixed(1),x.elShare,x.sjit,x.sjitEl,x.inReg,+x.ppElOd.toFixed(1),x.fcU,x.fcS,x.dsU,x.missing.length,+x.missD.toFixed(1)])]},
+    {name:'Missing SKUs by region',rows:miss},
+    {name:'Cross-region SJIT',rows:cross},
+    {name:'FC & FDC utilisation',rows:[['Location','Type','Region','Warehouse IDs','SJIT orders / day','Share of SJIT %','Stock (units)','SKUs stocked','Status','Why'],
+      ...nodes.map(r=>[r.n.name,r.n.type,REG[r.n.region].label,r.ids.join(', '),+(r.orders/W).toFixed(2),pct(r.orders,s.F),r.units,r.skus,r.st,r.why])]}
+  ]);
+}
 
 // ─── render: trends
-let trFlag='All';
+let trFlag='All',tmFlag='All';
+const MLBL=m=>{const[y,mm]=m.split('-');return['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][+mm-1]+' '+y.slice(2)};
+const fullMonth=m=>{const[y,mm]=m.split('-').map(Number);return new Date(y,mm,0).getDate()};
+function monthDiag(p,a,b){ // a = previous month, b = latest month
+  const pa=p.mon[a]||{t:0,f:0},pb=p.mon[b]||{t:0,f:0},da=pa.t/S.monDays[a],db=pb.t/S.monDays[b];
+  if(da<0.2&&db<0.2)return{d:'—'};
+  if(pa.t===0)return{d:'New',da,db};
+  const dO=(db-da)/da*100,dS=pct(pb.f,pb.t)-pct(pa.f,pa.t);
+  let d='Stable';
+  if(dS<=-10&&dO>-15)d='SJIT falling, demand steady';
+  else if(dS<=-10)d='Both falling';
+  else if(dO<=-15)d='Demand falling';
+  else if(dS>=10)d='SJIT improving';
+  else if(dO>=15)d='Demand rising';
+  return{d,da,db,dO,dS};
+}
+const DIAG_B={'SJIT falling, demand steady':'b-err','Both falling':'b-err','Demand falling':'b-warn','SJIT improving':'b-ok','Demand rising':'b-ok','Stable':'b-mute','New':'b-info'};
 function renderTrends(){
-  const s=S,d0=new Date(s.dates[0]);const dd=k=>new Date(d0.getTime()+k*864e5).toISOString().slice(0,10);
-  document.getElementById('tr-win').innerHTML=`<span>ℹ️</span><div>Earlier window: <b>${dd(s.baseStart)} → ${dd(s.recStart-1)}</b> · Recent window: <b>${dd(s.recStart)} → ${dd(s.calDays-1)}</b>. ${s.calDays<21?'With under 3 weeks of data the period is split in half; once you have 3+ weeks the recent window becomes the last 7 days vs the 3 weeks before. Keep adding daily reports (and older ones if you have them) to data/.':'Recent = last 7 days vs the 3 weeks before.'}</div>`;
+  const s=S,dd=s.dateOf,ms=s.months;
+  // ── month by month
+  const mrow=ms.map(m=>{const M=s.mon[m]||{t:0,f:0,et:0,ef:0},d=s.monDays[m];return{m,d,partial:d<fullMonth(m),od:M.t/d,sod:M.f/d,pod:(M.t-M.f)/d,sp:pct(M.f,M.t),eod:M.et/d,esod:M.ef/d,esp:pct(M.ef,M.et)}});
+  document.getElementById('tr-mon').innerHTML=mrow.map((r,i)=>{const pr=mrow[i-1];const ch=(a,b)=>b?`<span style="font-size:11px;color:${a>=b?'var(--ok)':'var(--err)'}">${a>=b?'▲':'▼'}${Math.abs(Math.round((a-b)/b*100))}%</span>`:'';
+    return`<tr><td><strong>${MLBL(r.m)}</strong>${r.partial?` <span class="mut" style="font-size:11px">(${r.d} days)</span>`:''}</td><td class="num">${r.od.toFixed(0)} ${pr?ch(r.od,pr.od):''}</td><td class="num">${r.sod.toFixed(0)} ${pr?ch(r.sod,pr.sod):''}</td><td class="num">${r.pod.toFixed(0)}</td><td class="num"><strong style="color:${bc(r.sp)}">${r.sp}%</strong></td><td class="num">${r.eod.toFixed(0)}</td><td class="num">${r.esod.toFixed(0)} ${pr?ch(r.esod,pr.esod):''}</td><td class="num"><strong style="color:${bc(r.esp)}">${r.esp}%</strong></td></tr>`}).join('');
+  let verdict;
+  if(mrow.length<2)verdict=`<div class="alert a-info"><span>ℹ️</span><div>Only ${MLBL(ms[0])} is in the data so far. Add the July–October Seller Orders Reports to <code>data/</code> and rerun to see month-over-month changes in SJIT % <b>and</b> in units sold.</div></div>`;
+  else{
+    const a=mrow[mrow.length-2],b=mrow[mrow.length-1];
+    const dP=Math.round((b.esp-a.esp)*10)/10,dO=Math.round((b.eod-a.eod)/a.eod*100),dSu=Math.round((b.esod-a.esod)/a.esod*100);
+    const what=dP<=-3&&dO>-10?`SJIT share is falling while demand holds up, so this is a <b>stock problem</b>: SJIT units/day changed ${dSu>0?'+':''}${dSu}% even though total orders/day changed ${dO>0?'+':''}${dO}%.`
+      :dP<=-3?`<b>Both are falling</b>: SJIT share down ${Math.abs(dP)} pp and total orders/day down ${Math.abs(dO)}%, so SJIT units/day fell ${Math.abs(dSu)}%. Check demand drivers (ads, price, listings) as well as FC stock.`
+      :dO<=-10?`SJIT share is steady but <b>demand is down</b> ${Math.abs(dO)}%, so SJIT units fell with it. This is not an FC stock issue.`
+      :dP>=3?`<b>SJIT share is improving</b> (+${dP} pp) and SJIT units/day changed ${dSu>0?'+':''}${dSu}%.`
+      :`SJIT share and demand are both broadly stable (${dP>0?'+':''}${dP} pp, orders/day ${dO>0?'+':''}${dO}%).`;
+    verdict=`<div class="alert ${dP<=-3?'a-err':dP>=3?'a-ok':'a-info'}"><span style="font-size:18px">🧭</span><div><strong>${MLBL(b.m)}${b.partial?' (month to date)':''} vs ${MLBL(a.m)}, 6m+ shelf-life SKUs</strong><br><span style="font-size:13px">SJIT % ${a.esp}% → ${b.esp}% · orders/day ${a.eod.toFixed(0)} → ${b.eod.toFixed(0)} · SJIT orders/day ${a.esod.toFixed(0)} → ${b.esod.toFixed(0)}. ${what}</span></div></div>`;
+  }
+  document.getElementById('tr-verdict').innerHTML=verdict;
+  mkChart('tr-mc',{data:{labels:mrow.map(r=>MLBL(r.m)+(r.partial?'*':'')),datasets:[
+    {type:'bar',label:'SJIT orders/day',data:mrow.map(r=>+r.sod.toFixed(1)),backgroundColor:'#C4552A',stack:'s',yAxisID:'y',order:2},
+    {type:'bar',label:'PPMP orders/day',data:mrow.map(r=>+r.pod.toFixed(1)),backgroundColor:'#E8C9B8',stack:'s',yAxisID:'y',order:3},
+    {type:'line',label:'SJIT % (all)',data:mrow.map(r=>r.sp),borderColor:'#5A3020',borderWidth:2.5,pointRadius:4,yAxisID:'y2',order:1},
+    {type:'line',label:'SJIT % (6m+)',data:mrow.map(r=>r.esp),borderColor:'#2E7D32',borderWidth:2.5,pointRadius:4,yAxisID:'y2',order:1,borderDash:[5,3]}]},
+    options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},plugins:{legend:{labels:{font:{size:11},boxWidth:12}}},
+      scales:{x:{stacked:true,grid:{display:false}},y:{stacked:true,title:{display:true,text:'orders / day',font:{size:10}},ticks:{font:{size:10}}},y2:{position:'right',min:0,max:100,ticks:{callback:v=>v+'%',font:{size:10}},grid:{display:false}}}}});
+  renderMonthSku();
+  // ── short-term windows
+  document.getElementById('tr-win').innerHTML=`<span>ℹ️</span><div>Earlier window: <b>${dd(s.baseStart)} → ${dd(s.recStart-1)}</b> · Recent window: <b>${dd(s.recStart)} → ${dd(s.calDays-1)}</b>. ${s.calDays<21?'With under 3 weeks of data the period is split in half; with 3+ weeks it becomes the last 7 days vs the 3 weeks before.':'Recent = last 7 days vs the 3 weeks before.'}</div>`;
   let bt=0,bf=0,rt=0,rf=0;s.P.filter(p=>p.shelf>=180).forEach(p=>{bt+=p.base.t;bf+=p.base.f;rt+=p.rec.t;rf+=p.rec.f});
   const c=f=>s.P.filter(p=>p.trend===f).length;
   document.getElementById('tr-kpis').innerHTML=kpi('SJIT % earlier',pct(bf,bt)+'%','6m+ shelf life','')+kpi('SJIT % recent',pct(rf,rt)+'%',(pct(rf,rt)>=pct(bf,bt)?'▲ ':'▼ ')+Math.abs(Math.round((pct(rf,rt)-pct(bf,bt))*10)/10)+' pp',pct(rf,rt)>=pct(bf,bt)?'c-ok':'c-err')+kpi('⛔ Stopped',c('Stopped'),'had SJIT, none recently','c-err')+kpi('📉 Falling',c('Falling'),'SJIT share down 10+ pp','c-warn')+kpi('📈 Rising',c('Rising'),'SJIT share up 10+ pp','c-ok');
-  const lab=s.day.map(d=>dd(d.k).slice(5));const daily=s.day.map(d=>pct(d.fe,d.fe+d.e));
+  const lab=s.day.map(d=>dd(d.k).slice(5));const daily=s.day.map(d=>d.fe+d.e?pct(d.fe,d.fe+d.e):null);
   const roll=s.day.map((d,i)=>{if(i<6)return null;const w=s.day.slice(i-6,i+1);const f=w.reduce((a,x)=>a+x.fe,0),t=w.reduce((a,x)=>a+x.fe+x.e,0);return pct(f,t)});
-  mkChart('tr-c',{type:'line',data:{labels:lab,datasets:[{label:'Daily SJIT % (6m+)',data:daily,borderColor:'#C4552A',borderWidth:2,pointRadius:2},{label:'7-day rolling',data:roll,borderColor:'#2E7D32',borderWidth:3,pointRadius:0,spanGaps:true}]},
+  mkChart('tr-c',{type:'line',data:{labels:lab,datasets:[{label:'Daily SJIT % (6m+)',data:daily,borderColor:'#C4552A',borderWidth:1.5,pointRadius:s.calDays>60?0:2},{label:'7-day rolling',data:roll,borderColor:'#2E7D32',borderWidth:3,pointRadius:0,spanGaps:true}]},
     options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},plugins:{legend:{labels:{font:{size:11},boxWidth:12}}},scales:{y:{min:0,max:100,ticks:{callback:v=>v+'%',font:{size:10}}},x:{ticks:{font:{size:10},maxRotation:0,autoSkip:true},grid:{display:false}}}}});
   renderTrendTbl();
+}
+function monthSkuRows(){
+  const ms=S.months;if(ms.length<2)return[];
+  const a=ms[ms.length-2],b=ms[ms.length-1];
+  const q=(document.getElementById('tm-q').value||'').toLowerCase();
+  return S.P.filter(p=>p.shelf>=180&&Object.keys(p.mon).length).map(p=>({p,...monthDiag(p,a,b)}))
+    .filter(x=>x.d!=='—'&&(tmFlag==='All'||x.d===tmFlag)&&(!q||[x.p.sku,x.p.nh,x.p.name,x.p.cat].some(v=>(v||'').toLowerCase().includes(q))))
+    .sort((x,y)=>(y.db||0)-(x.db||0));
+}
+function renderMonthSku(){
+  const ms=S.months,box=document.getElementById('tm-wrap');
+  if(ms.length<2){box.style.display='none';return}box.style.display='';
+  document.getElementById('tm-head').innerHTML='<th>SKU</th><th>Shelf</th>'+ms.map(m=>`<th class="num" style="white-space:normal">${MLBL(m)}<div style="font-weight:400;text-transform:none">orders/day · SJIT %</div></th>`).join('')+'<th class="num">Orders/day change</th><th class="num">SJIT % change</th><th>Diagnosis (last 2 months)</th>';
+  const rows=monthSkuRows();
+  document.getElementById('tm-tb').innerHTML=rows.slice(0,300).map(x=>{const p=x.p;return`<tr><td>${skuCell(p)}</td><td>${shelfBadge(p.shelf)}</td>`+ms.map(m=>{const o=p.mon[m];return o?`<td class="num">${(o.t/S.monDays[m]).toFixed(1)} · <span style="color:${bc(pct(o.f,o.t))};font-weight:700">${pct(o.f,o.t)}%</span></td>`:'<td class="num mut">—</td>'}).join('')+
+    `<td class="num" style="color:${(x.dO||0)<0?'var(--err)':'var(--ok)'}">${x.dO==null?'—':(x.dO>0?'+':'')+Math.round(x.dO)+'%'}</td><td class="num" style="color:${(x.dS||0)<0?'var(--err)':'var(--ok)'}">${x.dS==null?'—':(x.dS>0?'+':'')+Math.round(x.dS)+' pp'}</td><td><span class="badge ${DIAG_B[x.d]}">${x.d}</span></td></tr>`}).join('')||`<tr><td colspan="${ms.length+5}" class="mut">No SKUs match.</td></tr>`;
+}
+function tmF(f,btn){tmFlag=f;document.querySelectorAll('[data-tm]').forEach(x=>x.classList.remove('on'));btn.classList.add('on');renderMonthSku()}
+function exportMonths(){
+  const ms=S.months,rows=monthSkuRows();
+  xl(`myntra_sjit_monthly_${S.dates.slice(-1)[0]}.xlsx`,[
+    {name:'Month summary',rows:[['Month','Days in data','Orders / day','SJIT orders / day','PPMP orders / day','SJIT %','6m+ orders / day','6m+ SJIT orders / day','6m+ SJIT %'],
+      ...ms.map(m=>{const M=S.mon[m],d=S.monDays[m];return[MLBL(m),d,+(M.t/d).toFixed(1),+(M.f/d).toFixed(1),+((M.t-M.f)/d).toFixed(1),pct(M.f,M.t),+(M.et/d).toFixed(1),+(M.ef/d).toFixed(1),pct(M.ef,M.et)]})]},
+    {name:'SKU by month',rows:[['Seller SKU','NH SKU','Product','Category','Shelf life (days)',...ms.flatMap(m=>[MLBL(m)+' orders/day',MLBL(m)+' SJIT %']),'Orders/day change %','SJIT % change (pp)','Diagnosis'],
+      ...rows.map(x=>[x.p.sku,x.p.nh,x.p.name,x.p.cat,x.p.shelf,...ms.flatMap(m=>{const o=x.p.mon[m];return o?[+(o.t/S.monDays[m]).toFixed(2),pct(o.f,o.t)]:['','']}),x.dO==null?'':Math.round(x.dO),x.dS==null?'':Math.round(x.dS),x.d])]},
+    {name:'How to read',rows:[['Diagnosis','Meaning'],['SJIT falling, demand steady','SJIT share down 10+ pp, orders/day not down 15%+. Usually FC stock ran out: replenish.'],['Both falling','SJIT share down 10+ pp and orders/day down 15%+. Look at demand drivers too.'],['Demand falling','Orders/day down 15%+, SJIT share holding.'],['SJIT improving','SJIT share up 10+ pp.'],['Demand rising','Orders/day up 15%+.'],['New','No orders in the previous month.'],['Note','Months are compared per day, so a part month (e.g. month to date) is comparable with a full month.']],widths:[30,100]}]);
 }
 function renderTrendTbl(){
   const tb={'Stopped':'<span class="badge b-err">⛔ Stopped</span>','Falling':'<span class="badge b-warn">📉 Falling</span>','Rising':'<span class="badge b-ok">📈 Rising</span>','Stable':'<span class="badge b-mute">Stable</span>'};
@@ -511,39 +741,83 @@ function renderTrendTbl(){
 function trF(f,btn){trFlag=f;document.querySelectorAll('[data-tf]').forEach(x=>x.classList.remove('on'));btn.classList.add('on');renderTrendTbl()}
 
 // ─── render: send plan
-let spType='All';const spShelf=new Set(['360','270','180']);
+let spType='All';const spShelf=new Set(['360','270','180']);const spOpen=new Set();
+const countDs=()=>document.getElementById('sp-ds').checked;
 function sendRows(){
-  const min=+document.getElementById('sp-min').value||0;
+  const min=+document.getElementById('sp-min').value||0,ds=countDs();
   return S.P.filter(p=>p.shelf>=180&&p.mstat!=='Inactive'&&p.monthly>=min).map(p=>{
     const cd=coverDays(p.shelf);const reg={};let tot=0;
-    REGK.forEach(k=>{const drr=p.winReg[k]/S.W,target=Math.ceil(drr*cd),stock=p.fcReg[k],send=Math.max(0,target-stock);reg[k]={drr,target,stock,send};tot+=send});
+    REGK.forEach(k=>{reg[k]=regMath(p,k,ds);tot+=reg[k].send});
     return{p,cd,reg,tot,type:p.inSJIT?'Replenish':'New',doc:p.drr>0?p.fcs/p.drr:0};
   }).filter(r=>r.tot>0);
+}
+const nodesIn=(k,t)=>NET.nodes.filter(n=>n.region===k&&n.type===t).map(n=>n.short).join(' + ')||'none';
+function mathTable(r){
+  const ds=countDs(),f2=v=>v?v.toFixed(2):'<span class="mut">0</span>';
+  const line=(lbl,fn,cls)=>`<tr class="${cls||''}"><td>${lbl}</td>${REGK.map(k=>`<td class="num">${fn(r.reg[k],k)}</td>`).join('')}</tr>`;
+  return`<table style="font-size:12px;background:#FFFCF9"><thead><tr><th style="position:static">How the quantity is built (per day = last ${S.W} days)</th>${REGK.map(k=>`<th class="num" style="position:static;white-space:normal">${REG[k].label}<div style="font-weight:400;text-transform:none">${esc(PRIMARY[k])}</div></th>`).join('')}</tr></thead><tbody>
+  ${line('SJIT orders shipped from the region’s FCs / day',x=>f2(x.fc))}
+  ${line('+ SJIT orders shipped from the region’s M-Now stores / day',x=>f2(x.mn))}
+  ${line('+ SJIT orders shipped from the region’s FDCs / day',x=>f2(x.fdc))}
+  ${line('+ PPMP orders from customers in the region / day <span class="mut">(demand SJIT should capture)</span>',x=>f2(x.pp))}
+  ${line('<b>= Regional DRR (orders / day)</b>',x=>'<b>'+x.drr.toFixed(2)+'</b>')}
+  ${line(`× Cover days (${r.cd/30} months for ${r.p.shelf}-day shelf life)`,x=>x.cd)}
+  ${line('<b>= Target units in the region</b>',x=>'<b>'+fmt(x.target)+'</b>')}
+  ${line('− Stock already in the region’s FCs',x=>fmt(x.stock))}
+  ${line(ds?'− M-Now + FDC stock already in the region':'<span class="mut">M-Now + FDC stock in the region (not subtracted)</span>',x=>ds?fmt(x.ds):`<span class="mut">${fmt(x.ds)}</span>`)}
+  ${line('<b>= Units to send</b>',x=>`<b style="color:var(--brand)">${fmt(x.send)}</b>`)}
+  </tbody></table><div class="note">Region locations: ${REGK.map(k=>`<b>${REG[k].label}</b>: FCs ${esc(nodesIn(k,'FC'))}; FDCs ${esc(nodesIn(k,'FDC'))}; M-Now stores in ${REG[k].states.slice(0,3).join('/')}…`).join(' · ')}</div>`;
 }
 function renderSend(){
   document.getElementById('sp-w').textContent=S.W;
   const all=sendRows();
-  const rows=all.filter(r=>(spType==='All'||r.type===spType)&&spShelf.has(bucket(r.p.shelf))&&(()=>{const q=(document.getElementById('sp-q').value||'').toLowerCase();return!q||r.p.sku.toLowerCase().includes(q)||(r.p.name||'').toLowerCase().includes(q)||(r.p.nh||'').toLowerCase().includes(q)})()).sort((a,b)=>b.tot-a.tot);
+  // worked example: biggest single region line
+  let ex=null;all.forEach(r=>REGK.forEach(k=>{if(!ex||r.reg[k].send>ex.x.send)ex={r,k,x:r.reg[k]}}));
+  document.getElementById('sp-ex').innerHTML=ex?`<b>Worked example</b>: <code>${esc(ex.r.p.sku)}</code> · ${REG[ex.k].label} → ${esc(PRIMARY[ex.k])}: SJIT from ${REG[ex.k].label} FCs ${ex.x.fc.toFixed(2)} + M-Now ${ex.x.mn.toFixed(2)} + FDCs ${ex.x.fdc.toFixed(2)} + PPMP from ${REG[ex.k].label} customers ${ex.x.pp.toFixed(2)} = <b>${ex.x.drr.toFixed(2)} orders/day</b> × ${ex.x.cd} days = ${fmt(ex.x.target)} units − ${fmt(ex.x.stock)} in ${REG[ex.k].label} FCs${countDs()?` − ${fmt(ex.x.ds)} at M-Now/FDC`:''} = <b>${fmt(ex.x.send)} to send</b>.`:'';
+  const q=(document.getElementById('sp-q').value||'').toLowerCase();
+  const rows=all.filter(r=>(spType==='All'||r.type===spType)&&spShelf.has(bucket(r.p.shelf))&&(!q||[r.p.sku,r.p.name,r.p.nh,r.p.cat].some(v=>(v||'').toLowerCase().includes(q)))).sort((a,b)=>b.tot-a.tot);
   const sum=(arr,k)=>arr.reduce((a,r)=>a+(k?r.reg[k].send:r.tot),0);
   document.getElementById('sp-kpis').innerHTML=kpi('🔁 Replenish',all.filter(r=>r.type==='Replenish').length,fmt(sum(all.filter(r=>r.type==='Replenish')))+' units','c-brand')+kpi('🆕 New to SJIT',all.filter(r=>r.type==='New').length,fmt(sum(all.filter(r=>r.type==='New')))+' units','c-info')+REGK.map(k=>kpi(esc(PRIMARY[k]),fmt(sum(all,k)),REG[k].label+' · units to send','')).join('');
   document.getElementById('sp-head').innerHTML='<th>SKU</th><th>Category</th><th>Shelf life</th><th>Cover</th><th>Type</th><th class="num">Orders / month</th><th class="num">SJIT %</th><th class="num">FC stock</th><th class="num">Days of cover now</th>'+REGK.map(k=>`<th class="num" style="white-space:normal">${esc(PRIMARY[k])}<div style="font-weight:400;text-transform:none">${REG[k].label}</div></th>`).join('')+'<th class="num">Total</th>';
-  document.getElementById('sp-tb').innerHTML=rows.map(r=>{const p=r.p;return`<tr><td>${skuCell(p)}</td><td class="mut" style="font-size:12px">${esc(p.cat)}</td><td>${shelfBadge(p.shelf)}</td><td class="mut" style="font-size:12px">${r.cd/30} mo</td><td>${r.type==='New'?'<span class="badge b-info">🆕 New</span>':'<span class="badge b-brand">🔁 Replenish</span>'}</td><td class="num">${fmt(p.monthly)}</td><td class="num" style="color:${bc(p.pct)};font-weight:700">${p.pct}%</td><td class="num">${p.fcs?fmt(p.fcs):'—'}</td><td class="num">${p.fcs?Math.round(r.doc)+' d':'—'}</td>`+REGK.map(k=>{const x=r.reg[k];return`<td class="num" title="DRR ${x.drr.toFixed(2)} × ${r.cd} d = ${x.target}, stock ${x.stock}">${x.send?'<b>'+fmt(x.send)+'</b>':'<span class="mut">—</span>'}</td>`}).join('')+`<td class="num"><b>${fmt(r.tot)}</b></td></tr>`}).join('')||'<tr><td colspan="14" class="mut">No SKUs need stock with these filters.</td></tr>';
+  document.getElementById('sp-tb').innerHTML=rows.map(r=>{const p=r.p,open=spOpen.has(p.i);return`<tr style="cursor:pointer" onclick="spToggle(${p.i})"><td><span class="mut">${open?'▾':'▸'}</span> ${skuCell(p)}</td><td class="mut" style="font-size:12px">${esc(p.cat)}</td><td>${shelfBadge(p.shelf)}</td><td class="mut" style="font-size:12px">${r.cd/30} mo</td><td>${r.type==='New'?'<span class="badge b-info">🆕 New</span>':'<span class="badge b-brand">🔁 Replenish</span>'}</td><td class="num">${fmt(p.monthly)}</td><td class="num" style="color:${bc(p.pct)};font-weight:700">${p.pct}%</td><td class="num">${p.fcs?fmt(p.fcs):'—'}</td><td class="num">${p.fcs?Math.round(r.doc)+' d':'—'}</td>`+REGK.map(k=>{const x=r.reg[k];return`<td class="num" title="Regional DRR ${x.drr.toFixed(2)}/day × ${x.cd} d = ${x.target} − FC stock ${x.stock}${countDs()?' − M-Now/FDC '+x.ds:''}">${x.send?'<b>'+fmt(x.send)+'</b>':'<span class="mut">—</span>'}</td>`}).join('')+`<td class="num"><b>${fmt(r.tot)}</b></td></tr>`+(open?`<tr><td colspan="14" style="background:#FFFCF9;padding:12px 18px">${mathTable(r)}</td></tr>`:'')}).join('')||'<tr><td colspan="14" class="mut">No SKUs need stock with these filters.</td></tr>';
   const min=+document.getElementById('sp-min').value||0;
   document.getElementById('sp-short').innerHTML=S.P.filter(p=>p.shelf!=null&&p.shelf<180&&p.monthly>=min).sort((a,b)=>b.monthly-a.monthly).slice(0,40).map(p=>`<tr><td>${skuCell(p)}</td><td class="mut" style="font-size:12px">${esc(p.cat)}</td><td>${shelfBadge(p.shelf)}</td><td class="num">${fmt(p.monthly)}</td><td class="num">${p.pct}%</td></tr>`).join('')||'<tr><td colspan="5" class="mut">None.</td></tr>';
 }
+function spToggle(i){spOpen.has(i)?spOpen.delete(i):spOpen.add(i);renderSend()}
 function spT(t,btn){spType=t;document.querySelectorAll('[data-st]').forEach(x=>x.classList.remove('on'));btn.classList.add('on');renderSend()}
 function spS(s,btn){spShelf.has(s)?spShelf.delete(s):spShelf.add(s);btn.classList.toggle('on');renderSend()}
 function exportSend(){
+  const ds=countDs(),rows=sendRows().sort((a,b)=>b.tot-a.tot);
   const fcs=NET.nodes.filter(n=>n.type==='FC'&&(n.ids||[]).length);
   const stockAt=(p,n)=>n.ids.reduce((a,id)=>a+(p.stockWh[String(id)]||0),0);
-  const rows=sendRows().sort((a,b)=>b.tot-a.tot);
-  dl(`myntra_sjit_send_plan_${S.dates.slice(-1)[0]}.csv`,
-    ['Seller SKU','NH SKU','Style ID','Product','Category','Shelf life (days)','Cover (months)','Type','Orders / month','DRR','SJIT %','FC stock (total)',
-     ...fcs.map(n=>'Stock now: '+n.short+' ('+n.ids.join('/')+')'),
-     ...REGK.map(k=>'Send: '+PRIMARY[k]+' ('+REG[k].label+')'),'Send total'],
-    rows.map(r=>[r.p.sku,r.p.nh,r.p.style,r.p.name,r.p.cat,r.p.shelf,r.cd/30,r.type==='New'?'New to SJIT':'Replenish',Math.round(r.p.monthly),r.p.drr.toFixed(2),r.p.pct,r.p.fcs,
-     ...fcs.map(n=>stockAt(r.p,n)),
-     ...REGK.map(k=>r.reg[k].send),r.tot]));
+  // Sheet 1: summary
+  const s1=[['Seller SKU','NH SKU','Style ID','Product','Category','Shelf life (days)','Cover (months)','Type','Orders / month','DRR (all regions)','SJIT %','FC stock (total)',
+    ...fcs.map(n=>'Stock now: '+n.short+' ('+n.ids.join('/')+')'),
+    ...REGK.map(k=>'Send: '+PRIMARY[k]+' ('+REG[k].label+')'),'Send total'],
+    ...rows.map(r=>[r.p.sku,r.p.nh,r.p.style,r.p.name,r.p.cat,r.p.shelf,r.cd/30,r.type==='New'?'New to SJIT':'Replenish',Math.round(r.p.monthly),+r.p.drr.toFixed(2),r.p.pct,r.p.fcs,
+      ...fcs.map(n=>stockAt(r.p,n)),...REGK.map(k=>r.reg[k].send),r.tot])];
+  // Sheet 2: region math with live Excel formulas
+  const h2=['Seller SKU','NH SKU','Product','Shelf life (days)','Cover days','Region','Send to FC','SJIT from region FCs / day','SJIT from region M-Now / day','SJIT from region FDCs / day','PPMP from region customers / day','Regional DRR / day','Target units','Stock in region FCs','M-Now + FDC stock in region','Subtract M-Now/FDC stock? (1 = yes)','Units to send'];
+  const s2=[h2],fx=[];
+  rows.forEach(r=>REGK.forEach(k=>{const x=r.reg[k];if(!x.drr&&!x.stock)return;const n=s2.length+1;
+    s2.push([r.p.sku,r.p.nh,r.p.name,r.p.shelf,x.cd,REG[k].label,PRIMARY[k],x.fc,x.mn,x.fdc,x.pp,x.drr,x.target,x.stock,x.ds,ds?1:0,x.send]);
+    fx.push({r:n-1,c:11,f:`H${n}+I${n}+J${n}+K${n}`},{r:n-1,c:12,f:`ROUNDUP(L${n}*E${n},0)`},{r:n-1,c:16,f:`MAX(0,M${n}-N${n}-O${n}*P${n})`});}));
+  const s3=[['Step','How it works'],
+    ['Window',`Per-day figures use the last ${S.W} days of orders: ${S.dateOf(S.winStart)} to ${S.dates.slice(-1)[0]}. Stock is from ${D.invFile||'—'} (${D.invAsOf||'—'}).`],
+    ['Regions',REGK.map(k=>`${REG[k].label}: FCs ${nodesIn(k,'FC')}; FDCs ${nodesIn(k,'FDC')}; M-Now stores located in the region`).join(' | ')],
+    ['1. SJIT from region FCs / day','SJIT orders that shipped from that region’s Myntra FCs (any customer), divided by the window days. This is what already draws down the FC.'],
+    ['2. SJIT from region M-Now / day','SJIT orders shipped from M-Now dark stores in the region. Myntra refills M-Now from the region’s FC, so this also draws on FC stock.'],
+    ['3. SJIT from region FDCs / day','SJIT orders shipped from the region’s FDCs (e.g. Chennai/Coimbatore for South, Lucknow for North), which are also fed by the region’s FC.'],
+    ['4. PPMP from region customers / day','Orders from customers in the region’s states that shipped from our own warehouses: demand SJIT should capture once stocked.'],
+    ['Regional DRR','= 1 + 2 + 3 + 4 (column L in "Region math")'],
+    ['Cover days','12-month shelf life → 60 days (2 months of DRR); 9-month → 45 days (1.5 months); 6-month → 30 days (1 month); under 6 months → not sent'],
+    ['Target units','= ROUNDUP(Regional DRR × Cover days, 0)'],
+    ['Units to send','= MAX(0, Target − Stock in region FCs − [M-Now + FDC stock if column P = 1]). Set column P to 1 in any row to also count stock already sitting at M-Now/FDCs.'],
+    ['Formulas','Columns L, M and Q in "Region math" are live Excel formulas: change any input and the quantity recalculates.']];
+  xl(`myntra_sjit_send_plan_${S.dates.slice(-1)[0]}.xlsx`,[
+    {name:'Send plan',rows:s1,widths:[18,16,12,46,16,10,10,12,10,10,8,10]},
+    {name:'Region math',rows:s2,formulas:fx,decCols:[7,8,9,10,11],widths:[18,16,46,10,8,8,24,12,12,12,12,12,10,10,12,12,10]},
+    {name:'How it is calculated',rows:s3,widths:[30,140]}]);
 }
 
 // ─── render: SKU tracker
@@ -554,7 +828,7 @@ function renderSKU(){
   const rows=S.P.filter(p=>(p.tot||p.allStock)&&(skShelf==='All'||bucket(p.shelf)===skShelf)&&(!q||p.sku.toLowerCase().includes(q)||(p.nh||'').toLowerCase().includes(q)||(p.name||'').toLowerCase().includes(q)))
     .sort((a,b)=>{const v=skCol==='sku'?a.sku.localeCompare(b.sku):(a[skCol]??-1)-(b[skCol]??-1);return skAsc?v:-v});
   document.getElementById('sk-cnt').textContent=`${rows.length} SKUs`;
-  document.getElementById('sk-tb').innerHTML=rows.slice(0,400).map(p=>`<tr><td>${skuCell(p)}</td><td><code>${esc(p.nh||'—')}</code></td><td class="mut" style="font-size:12px">${esc(p.cat)}</td><td>${shelfBadge(p.shelf)}</td><td class="num">${pd(p.tot)}</td><td class="num">${pd(p.f)}</td><td class="num"><strong style="color:${bc(p.pct)}">${p.pct}%</strong></td><td>${bar(p.pct)}</td><td class="num">${p.fcs?fmt(p.fcs):'—'}</td><td class="num">${fmtL(p.gmv/S.calDays)}</td><td>${tb[p.trend]}</td></tr>`).join('');
+  document.getElementById('sk-tb').innerHTML=rows.slice(0,400).map(p=>`<tr><td>${skuCell(p)}</td><td><code>${esc(p.nh||'—')}</code></td><td class="mut" style="font-size:12px">${esc(p.cat)}</td><td>${shelfBadge(p.shelf)}</td><td class="num">${pd(p.tot)}</td><td class="num">${pd(p.f)}</td><td class="num"><strong style="color:${bc(p.pct)}">${p.pct}%</strong></td><td>${bar(p.pct)}</td><td class="num">${p.fcs?fmt(p.fcs):'—'}</td><td class="num">${fmtL(p.gmv/S.W)}</td><td>${tb[p.trend]}</td></tr>`).join('');
 }
 function skF(f,btn){skShelf=f;document.querySelectorAll('[data-sf]').forEach(x=>x.classList.remove('on'));btn.classList.add('on');renderSKU()}
 function skSort(c){if(skCol===c)skAsc=!skAsc;else{skCol=c;skAsc=c==='sku'}renderSKU()}
@@ -564,7 +838,7 @@ function renderCats(){
   const cm={};S.P.forEach(p=>{if(!p.tot&&!p.fcs)return;const c=cm[p.cat]||(cm[p.cat]={c:p.cat,n:0,f:0,st:0,g:0,sh:{},pa:0,pb:0});c.n+=p.tot;c.f+=p.f;c.st+=p.fcs;c.g+=p.gmv;const b=bucket(p.shelf);c.sh[b]=(c.sh[b]||0)+p.tot;
     const gain=Math.max(0,0.8*p.tot-p.f);if(p.shelf>=270)c.pa+=gain;if(p.shelf>=180)c.pb+=gain});
   document.getElementById('ca-tb').innerHTML=Object.values(cm).sort((a,b)=>b.n-a.n).map(c=>{const pp=pct(c.f,c.n);const b=Object.entries(c.sh).sort((x,y)=>y[1]-x[1])[0]?.[0];const pa=pct(c.f+c.pa,c.n),pb=pct(c.f+c.pb,c.n);
-    return`<tr><td><strong>${esc(c.c)}</strong></td><td>${b?`<span class="badge ${b==='360'||b==='270'?'b-ok':b==='180'?'b-warn':b==='none'?'b-mute':'b-err'}">${BUCKET_LBL[b]}</span>`:''}</td><td class="num">${sh(c.n)}</td><td class="num">${pd(c.n)}</td><td class="num"><strong style="color:${bc(pp)}">${pp}%</strong></td><td>${bar(pp)}</td><td class="num">${c.st?fmt(c.st):'—'}</td><td class="num">${fmtL(c.g/S.calDays)}</td><td class="num">${pa>pp?'<b class="c-ok">'+pa+'%</b>':'<span class="mut">'+pa+'%</span>'}</td><td class="num">${pb>pp?'<b class="c-ok">'+pb+'%</b>':'<span class="mut">'+pb+'%</span>'}</td></tr>`}).join('');
+    return`<tr><td><strong>${esc(c.c)}</strong></td><td>${b?`<span class="badge ${b==='360'||b==='270'?'b-ok':b==='180'?'b-warn':b==='none'?'b-mute':'b-err'}">${BUCKET_LBL[b]}</span>`:''}</td><td class="num">${sh(c.n)}</td><td class="num">${pd(c.n)}</td><td class="num"><strong style="color:${bc(pp)}">${pp}%</strong></td><td>${bar(pp)}</td><td class="num">${c.st?fmt(c.st):'—'}</td><td class="num">${fmtL(c.g/S.W)}</td><td class="num">${pa>pp?'<b class="c-ok">'+pa+'%</b>':'<span class="mut">'+pa+'%</span>'}</td><td class="num">${pb>pp?'<b class="c-ok">'+pb+'%</b>':'<span class="mut">'+pb+'%</span>'}</td></tr>`}).join('');
 }
 
 // ─── render: MPM gaps
@@ -578,11 +852,12 @@ function renderGaps(){
   document.getElementById('mg-inv').innerHTML=gi.map(p=>`<tr><td><code>${esc(p.style)}</code></td><td><code>${esc(p.sku)}</code></td><td class="num">${fmt(p.allStock)}</td></tr>`).join('')||'<tr><td colspan="3" class="mut">None</td></tr>';
   document.getElementById('mg-inact').innerHTML=ina.map(p=>`<tr><td><code>${esc(p.style)}</code></td><td><code>${esc(p.nh)}</code></td><td class="num">${pd(p.tot)}</td><td>${shelfBadge(p.shelf)}</td></tr>`).join('')||'<tr><td colspan="4" class="mut">None</td></tr>';
 }
-function exportGaps(){const g=S.P.filter(p=>!p.inMpm&&(p.tot>0||p.allStock>0));dl('mpm_gaps.csv',['Style ID','Seller SKU','Product','Orders / day','Units at Myntra','Last order'],g.map(p=>[p.style,p.sku,p.name,(p.tot/S.calDays).toFixed(2),p.allStock,p.last]))}
+function exportGaps(){const g=S.P.filter(p=>!p.inMpm&&(p.tot>0||p.allStock>0));dl('mpm_gaps.xlsx',['Style ID','Seller SKU','Product','Orders / day','Units at Myntra','Last order'],g.map(p=>[p.style,p.sku,p.name,(p.tot/S.W).toFixed(2),p.allStock,p.last]))}
 
 // ─── init
-document.getElementById('tb-range').textContent=`${S.dates[0]} → ${S.dates[S.dates.length-1]} · ${S.calDays} days`;
+document.getElementById('tb-range').textContent=`Last ${S.W} days: ${S.dateOf(S.winStart)} → ${S.dates[S.dates.length-1]}`+(S.calDays>S.W?` · history from ${S.dates[0]}`:'');
 document.getElementById('tb-inv').textContent=D.invAsOf||'—';
+{const sel=document.getElementById('po-cat');[...new Set(S.P.filter(p=>p.tot&&p.shelf>=180).map(p=>p.cat))].sort().forEach(c=>{const o=document.createElement('option');o.value=c;o.textContent=c;sel.appendChild(o)})}
 renderOverview();renderPotential();renderNetwork();renderTrends();renderSend();renderSKU();renderCats();renderGaps();
 </script>
 </body>
