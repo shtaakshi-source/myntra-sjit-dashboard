@@ -533,7 +533,18 @@ function renderSend(){
 }
 function spT(t,btn){spType=t;document.querySelectorAll('[data-st]').forEach(x=>x.classList.remove('on'));btn.classList.add('on');renderSend()}
 function spS(s,btn){spShelf.has(s)?spShelf.delete(s):spShelf.add(s);btn.classList.toggle('on');renderSend()}
-function exportSend(){const rows=sendRows().sort((a,b)=>b.tot-a.tot);dl(`myntra_sjit_send_plan_${S.dates.slice(-1)[0]}.csv`,['Seller SKU','NH SKU','Style ID','Product','Category','Shelf life (days)','Cover (months)','Type','Orders / month','DRR','SJIT %','FC stock',...REGK.map(k=>PRIMARY[k]+' ('+REG[k].label+')'),'Total'],rows.map(r=>[r.p.sku,r.p.nh,r.p.style,r.p.name,r.p.cat,r.p.shelf,r.cd/30,r.type==='New'?'New to SJIT':'Replenish',Math.round(r.p.monthly),r.p.drr.toFixed(2),r.p.pct,r.p.fcs,...REGK.map(k=>r.reg[k].send),r.tot]))}
+function exportSend(){
+  const fcs=NET.nodes.filter(n=>n.type==='FC'&&(n.ids||[]).length);
+  const stockAt=(p,n)=>n.ids.reduce((a,id)=>a+(p.stockWh[String(id)]||0),0);
+  const rows=sendRows().sort((a,b)=>b.tot-a.tot);
+  dl(`myntra_sjit_send_plan_${S.dates.slice(-1)[0]}.csv`,
+    ['Seller SKU','NH SKU','Style ID','Product','Category','Shelf life (days)','Cover (months)','Type','Orders / month','DRR','SJIT %','FC stock (total)',
+     ...fcs.map(n=>'Stock now: '+n.short+' ('+n.ids.join('/')+')'),
+     ...REGK.map(k=>'Send: '+PRIMARY[k]+' ('+REG[k].label+')'),'Send total'],
+    rows.map(r=>[r.p.sku,r.p.nh,r.p.style,r.p.name,r.p.cat,r.p.shelf,r.cd/30,r.type==='New'?'New to SJIT':'Replenish',Math.round(r.p.monthly),r.p.drr.toFixed(2),r.p.pct,r.p.fcs,
+     ...fcs.map(n=>stockAt(r.p,n)),
+     ...REGK.map(k=>r.reg[k].send),r.tot]));
+}
 
 // ─── render: SKU tracker
 let skShelf='All',skCol='tot',skAsc=false;
